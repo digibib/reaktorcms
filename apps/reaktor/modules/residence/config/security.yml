@@ -1,0 +1,15 @@
+edit:
+  credentials:  createresidence
+  is_secure:    on
+
+delete:
+  credentials:  deleteresidence
+  is_secure:    on
+
+list:
+  credentials:  listresidences
+  is_secure:    on  
+  
+all:
+  credentials:  listresidences
+  is_secure:    on

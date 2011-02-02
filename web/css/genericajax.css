@@ -1,0 +1,82 @@
+@CHARSET "UTF-8";
+form.inplaceeditor-form 
+{ /* The form */
+}
+
+#artwork_title-inplaceeditor .editor_field 
+{ /* Input box */
+  width: 300px;
+  font-size: 13px;
+}
+
+h1 form
+{
+  display: inline;
+}
+
+#artwork_title-inplaceeditor .editor_ok_button 
+{ /* ok button */
+  font-size: 1.0em;
+  text-transform: uppercase;
+}
+
+#artwork_title-inplaceeditor .editor_cancel_link 
+{ /* cancel link */
+  font-size: 1.0em;
+  /* text-transform: capitalize; */
+}
+
+#artwork_description-inplaceeditor .editor_field 
+{ /* Input box */
+  width: 450px;
+}
+
+#artwork_description-inplaceeditor .editor_ok_button 
+{ /* ok button */
+}
+
+#artwork_description-inplaceeditor .editor_cancel_link 
+{ /* cancel link */
+}
+
+form.inplaceeditor-form textarea
+{ /* Textarea, if multiple columns */
+  font-size: 12px;
+  color: #0E8293;
+  border: 1px solid #a5acb2;
+}
+
+form.inplaceeditor-form input[type="submit"]
+{ /* The submit button */
+  font-size: 12px;
+  color: #0E8293;
+  margin-left:1em;
+  border: 1px solid #a5acb2;
+}
+
+form.inplaceeditor-form a
+{ /* The cancel link */
+  text-decoration: none;
+  color: #282b64;
+  margin-left:1em;
+}
+
+.sortable-list {
+    list-style-type : none;
+    margin : 0;
+}
+.sortable-list li {
+    border : 1px solid #000;
+    cursor : move;
+    margin : 2px 0 2px 0;
+    padding : 3px;
+    background : #f7f7f7;
+    border : #ccc;
+    width : 515px;
+    min-height: 65px;
+}
+
+* html .sortable-list li {
+	height: 65px;
+}
+

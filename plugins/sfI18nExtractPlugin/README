@@ -1,0 +1,55 @@
+= sfI18nExtract plugin =
+
+The `sfI18nExtract` is a symfony plugin that provides i18n strings extraction.
+
+This plugin is a backport of a symfony 1.1 native feature.
+
+== Installation ==
+
+  * Install the plugin
+  
+  {{{
+    symfony plugin-install http://plugins.symfony-project.com/sfI18nExtractPlugin
+  }}}
+  
+  * Clear you cache
+  
+  {{{
+    symfony cc
+  }}}
+
+=== Usage ===
+
+The `i18n-extract` task parses a symfony application to extract all the strings that need to be translated.
+
+It takes an application and a culture as its arguments:
+
+  {{{
+    php symfony i18n-extract frontend en
+  }}}
+
+By default, the task does not modify your dictionaries, it just outputs the number of new and old i18n strings. To append the new strings to your dictionary, you can pass the `--auto-save` option:
+
+  {{{
+    php symfony i18n-extract --auto-save frontend en
+  }}}
+
+You can also delete old strings automatically by passing the `--auto-delete` option:
+
+  {{{
+    php symfony i18n-extract --auto-save --auto-delete frontend en
+  }}}
+
+=== Known limitations ===
+
+  * Can only works with the default "messages" catalogue
+  * For file backends (XLIFF and gettext), it only saves/deletes strings in the `apps/myapp/i18n/messages.XX.xml` file
+
+=== Patch ===
+
+The patches needed to convert the symfony 1.1 implementation to the one used in this plugin can be obtained with the 2 following commands:
+
+  {{{
+    svn diff http://svn.symfony-project.com/trunk/lib/i18n/extract/ http://svn.symfony-project.com/plugins/sfI18nExtractPlugin/lib
+    svn diff http://svn.symfony-project.com/trunk/data/tasks/sfPakeI18N.php http://svn.symfony-project.com/plugins/sfI18nExtractPlugin/data/tasks/sfPakeI18N.php
+  }}}

@@ -1,0 +1,11 @@
+#All users should be able to view tags
+all:
+  is_secure: off
+  
+listUnapprovedMyTeams:
+  is_secure: on
+  credentials: staff
+
+listUnapprovedOtherTeams:
+  is_secure: on
+  credentials: viewothereditorialteams

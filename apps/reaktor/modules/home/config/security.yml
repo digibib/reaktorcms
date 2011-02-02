@@ -1,0 +1,7 @@
+#All users should be able to view front page
+all:
+  is_secure: off
+  
+adminfunctions:
+  is_secure: on
+  credentials: adminfunctions

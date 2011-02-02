@@ -1,0 +1,2964 @@
+## This file should contain data that will carry over into the production server
+## Should be included first to comply with foreign key constraints
+
+## The other files contain test/temporary data for the development environment
+## Must be loaded in the correct order to satisfy foreign key dependencies
+## hence the numeric index at the start of the filename
+
+## Feel free to break the files up more if they become unmanageable... 
+## Note: Some of the tags will also be part of the static fixtures, for example the category tags
+
+ArtworkStatus:
+  ArtworkStatus_1: 
+    name: Draft
+  ArtworkStatus_2: 
+    name: Ready for approval
+  ArtworkStatus_3: 
+    name: Approved
+  ArtworkStatus_4: 
+    name: Rejected
+  ArtworkStatus_5: 
+    name: Removed
+  ArtworkStatus_6: 
+    name: Approved hidden
+        
+ArtworkStatusI18n:
+  ArtworkStatus_1_no: 
+    description: Draft
+    id: ArtworkStatus_1
+    culture: 'no'
+  ArtworkStatus_1_en: 
+    description: Draft
+    id: ArtworkStatus_1
+    culture: 'en'
+  ArtworkStatus_1_nn: 
+    description: Draft
+    id: ArtworkStatus_1
+    culture: 'nn'
+  ArtworkStatus_2_no:
+    description: Ready for approval
+    id: ArtworkStatus_2
+    culture: 'no'
+  ArtworkStatus_2_en:
+    description: Ready for approval
+    id: ArtworkStatus_2
+    culture: 'en'
+  ArtworkStatus_2_nn:
+    description: Ready for approval
+    id: ArtworkStatus_2
+    culture: 'nn'
+  ArtworkStatus_3_no:
+    description: Approved
+    id: ArtworkStatus_3
+    culture: 'no'
+  ArtworkStatus_3_en:
+    description: Approved
+    id: ArtworkStatus_3
+    culture: 'en'
+  ArtworkStatus_3_nn:
+    description: Approved
+    id: ArtworkStatus_3
+    culture: 'nn'
+  ArtworkStatus_4_no:
+    description: Rejected
+    id: ArtworkStatus_4
+    culture: 'no'
+  ArtworkStatus_4_en:
+    description: Rejected
+    id: ArtworkStatus_4
+    culture: 'en'
+  ArtworkStatus_4_nn:
+    description: Rejected
+    id: ArtworkStatus_4
+    culture: 'nn'
+  ArtworkStatus_5_no:
+    description: Removed
+    id: ArtworkStatus_5
+    culture: 'no'
+  ArtworkStatus_5_en:
+    description: Removed
+    id: ArtworkStatus_5
+    culture: 'en'
+  ArtworkStatus_5_nn:
+    description: Removed
+    id: ArtworkStatus_5
+    culture: 'nn'
+  ArtworkStatus_6_no:
+    description: "Approved hidden"
+    id: ArtworkStatus_6
+    culture: 'no'
+  ArtworkStatus_6_en:
+    description: "Approved hidden"
+    id: ArtworkStatus_6
+    culture: 'en'
+  ArtworkStatus_6_nn:
+    description: "Approved hidden"
+    id: ArtworkStatus_6
+    culture: 'nn'
+              
+ResidenceLevel:
+  ResidenceLevel_1:
+    levelname: Bydel
+    listorder: 2
+  ResidenceLevel_2:
+    levelname: By
+    listorder: 1  
+  ResidenceLevel_3:
+    levelname: Kommune
+    listorder: 3
+  ResidenceLevel_4:
+    levelname: Fylke
+    listorder: 4
+  ResidenceLevel_5:
+    levelname: Annet
+    listorder: 5
+    
+ResidenceLevelI18n:
+  ResidenceLevel_1_no:
+    name: Bydel   
+    id:   ResidenceLevel_1
+    culture: 'no'
+  ResidenceLevel_1_en:
+    name: District
+    id: ResidenceLevel_1
+    culture: 'en'
+  ResidenceLevel_1_nn:
+    name: Bydel
+    id: ResidenceLevel_1
+    culture: 'nn'
+  ResidenceLevel_2_no:
+    name: By
+    id: ResidenceLevel_2
+    culture: 'no'
+  ResidenceLevel_2_en:
+    name: City
+    id: ResidenceLevel_2
+    culture: 'en'
+  ResidenceLevel_2_nn:
+    name: By
+    id: ResidenceLevel_2
+    culture: 'nn'
+  ResidenceLevel_3_no:
+    name: Kommune
+    id: ResidenceLevel_3
+    culture: 'no'  
+  ResidenceLevel_3_en:
+    name: Municipality
+    id: ResidenceLevel_3
+    culture: 'en'
+  ResidenceLevel_3_nn:
+    name: Kommune
+    id: ResidenceLevel_3
+    culture: 'nn'
+  ResidenceLevel_4_no:
+    name: Fylke
+    id: ResidenceLevel_4
+    culture: 'no'
+  ResidenceLevel_4_en:
+    name: County
+    id: ResidenceLevel_4
+    culture: 'en' 
+  ResidenceLevel_4_nn:
+    name: Fylkje
+    id: ResidenceLevel_4
+    culture: 'nn'
+  ResidenceLevel_5_no:
+    name: Annet
+    id: ResidenceLevel_5
+    culture: 'no'
+  ResidenceLevel_5_en:
+    name: Other
+    id: ResidenceLevel_5
+    culture: 'en' 
+  ResidenceLevel_5_nn:
+    name: Anna
+    id: ResidenceLevel_5
+    culture: 'nn'
+
+  
+Residence: 
+  Residence_1: 
+    name: Akershus
+    level: ResidenceLevel_4
+  Residence_2: 
+    name: Aust-Agder
+    level: ResidenceLevel_4
+  Residence_3: 
+    name: Buskerud
+    level: ResidenceLevel_4
+  Residence_4: 
+    name: Finnmark
+    level: ResidenceLevel_4
+  Residence_5: 
+    name: Hedmark
+    level: ResidenceLevel_4
+  Residence_6: 
+    name: Hordaland
+    level: ResidenceLevel_4
+  Residence_7: 
+    name: Møre og Romsdal
+    level: ResidenceLevel_4
+  Residence_8: 
+    name: Nordland
+    level: ResidenceLevel_4
+  Residence_9: 
+    name: Nord-Trøndelag
+    level: ResidenceLevel_4
+  Residence_10: 
+    name: Oppland
+    level: ResidenceLevel_4
+  Residence_11: 
+    name: Rogaland
+    level: ResidenceLevel_4
+  Residence_12: 
+    name: Sogn og Fjordane
+    level: ResidenceLevel_4
+  Residence_13: 
+    name: Sør-Trøndelag
+    level: ResidenceLevel_4
+  Residence_14: 
+    name: Telemark
+    level: ResidenceLevel_4
+  Residence_15: 
+    name: Troms
+    level: ResidenceLevel_4
+  Residence_16: 
+    name: Vest-Agder
+    level: ResidenceLevel_4
+  Residence_17: 
+    name: Vestfold
+    level: ResidenceLevel_4
+  Residence_18: 
+    name: Østfold  
+    level: ResidenceLevel_4
+  Residence_19: 
+    name: Bergen
+    level: ResidenceLevel_2
+  Residence_20:
+    name: Groruddalen
+    level: ResidenceLevel_1  
+  Residence_21: 
+    name: Kristiansand
+    level: ResidenceLevel_2
+  Residence_22: 
+    name: Lillehammer
+    level: ResidenceLevel_2
+  Residence_23: 
+    name: Oslo
+    level: ResidenceLevel_2
+  Residence_24: 
+    name: Stavanger
+    level: ResidenceLevel_2
+  Residence_25: 
+    name: Tromsø
+    level: ResidenceLevel_2
+  Residence_26: 
+    name: Trondheim
+    level: ResidenceLevel_2
+  Residence_27:
+    name: Skandinavia
+    level: ResidenceLevel_5
+  Residence_28:
+    name: Norden
+    level: ResidenceLevel_5
+  Residence_29:
+    name: Europa
+    level: ResidenceLevel_5
+  Residence_30:
+    name: Amerika
+    level: ResidenceLevel_5
+  Residence_31:
+    name: Afrika
+    level: ResidenceLevel_5
+  Residence_32:
+    name: Oceania
+    level: ResidenceLevel_5
+  Residence_33:
+    name: Asia
+    level: ResidenceLevel_5
+  
+    
+    
+    
+
+FileMimetype: 
+  FileMimetype_1: 
+    mimetype: image/png
+    identifier: image
+  FileMimetype_2: 
+    mimetype: image/jpeg
+    identifier: image
+  FileMimetype_3: 
+    mimetype: application/pdf
+    identifier: pdf
+  FileMimetype_4: 
+    mimetype: video/flv
+    identifier: video
+  FileMimetype_5: 
+    mimetype: audio/mpeg
+    identifier: audio
+  FileMimetype_6: 
+    mimetype: application/x-shockwave-flash
+    identifier: flash_animation
+  FileMimetype_7: 
+    mimetype: image/gif
+    identifier: image
+  FileMimetype_8: 
+    mimetype: image/tiff
+    identifier: image
+  FileMimetype_9: 
+    mimetype: text/plain
+    identifier: text
+  FileMimetype_10: 
+    mimetype: video/mpeg
+    identifier: video
+  FileMimetype_11: 
+    mimetype: video/quicktime
+    identifier: video
+  FileMimetype_12: 
+    mimetype: video/x-msvideo
+    identifier: container
+  FileMimetype_13: 
+    mimetype: video/ogg
+    identifier: video
+  FileMimetype_14: 
+    mimetype: audio/ogg
+    identifier: audio
+  FileMimetype_15: 
+    mimetype: audio/flac
+    identifier: audio
+  FileMimetype_16: 
+    mimetype: application/ogg
+    identifier: video
+  FileMimetype_17: 
+    mimetype: audio/x-wav
+    identifier: audio
+  FileMimetype_18: 
+    mimetype: video/avi
+    identifier: video
+  FileMimetype_19: 
+    mimetype: video/x-ms-wmv
+    identifier: video
+  FileMimetype_20: 
+    mimetype: video/mp4
+    identifier: video
+  FileMimetype_21: 
+    mimetype: audio/mid
+    identifier: audio
+  FileMimetype_22: 
+    mimetype: image/pjpeg
+    identifier: image
+  FileMimetype_23: 
+    mimetype: audio/x-ms-wma
+    identifier: audio
+  FileMimetype_24: 
+    mimetype: image/x-png
+    identifier: image
+  FileMimetype_25: 
+    mimetype: audio/wav
+    identifier: audio
+  FileMimetype_26: 
+    mimetype: audio/midi
+    identifier: audio
+  FileMimetype_27: 
+    mimetype: text/html
+    identifier: text
+  FileMimetype_28:
+    mimetype: application/octet-stream
+    identifier: container
+  FileMimetype_29:
+    mimetype: video/x-flv
+    identifier: video
+  FileMimetype_30: 
+    mimetype: image/jpg
+    identifier: image
+  FileMimeType_31:
+    mimetype: video/x-ms-asf
+    identifier: container
+  FileMimeType_32:
+    mimetype: audio/x-vorbis+ogg
+    identifier: audio
+  FileMimeType_33:
+    mimetype: video/x-theora+ogg
+    identifier: video
+        
+Subreaktor: 
+  Subreaktor_1: 
+    reference: foto
+    live: true
+    subreaktor_order: 1
+  Subreaktor_2: 
+    reference: tegning
+    live: true
+    subreaktor_order: 2
+  Subreaktor_3: 
+    reference: film
+    live: true
+    subreaktor_order: 3
+  Subreaktor_4: 
+    reference: lyd
+    live: true
+    subreaktor_order: 4
+  Subreaktor_5: 
+    reference: tegneserier
+    live: true
+    subreaktor_order: 5
+  Subreaktor_6: 
+    reference: tekst
+    live: true
+    subreaktor_order: 6
+  Subreaktor_7: 
+    reference: groruddalen
+    live: true
+    lokalreaktor: true
+    subreaktor_order: 7
+
+SubreaktorI18n: 
+  Subreaktor_1_no: 
+    name: Foto
+    id: Subreaktor_1
+    culture: 'no'
+  Subreaktor_1_nn: 
+    name: Foto
+    id: Subreaktor_1
+    culture: nn
+  Subreaktor_1_en: 
+    name: Photo
+    id: Subreaktor_1
+    culture: en
+  Subreaktor_2_no: 
+    name: Tegning/grafikk
+    id: Subreaktor_2
+    culture: 'no'
+  Subreaktor_2_nn: 
+    name: Tegning/grafikk
+    id: Subreaktor_2
+    culture: nn
+  Subreaktor_2_en: 
+    name: Drawing/graphics
+    id: Subreaktor_2
+    culture: en
+  Subreaktor_3_no: 
+    name: Film/animasjon
+    id: Subreaktor_3
+    culture: 'no'
+  Subreaktor_3_nn: 
+    name: Film/animasjon
+    id: Subreaktor_3
+    culture: nn
+  Subreaktor_3_en: 
+    name: Movie/animation
+    id: Subreaktor_3
+    culture: en
+  Subreaktor_4_no:
+    name: Lyd/musikk
+    id: Subreaktor_4
+    culture: 'no'
+  Subreaktor_4_nn:
+    name: Lyd/musikk
+    id: Subreaktor_4
+    culture: nn
+  Subreaktor_4_en:
+    name: Sound/music
+    id: Subreaktor_4
+    culture: en
+  Subreaktor_5_no:
+    name: Tegneserier
+    id: Subreaktor_5
+    culture: 'no'
+  Subreaktor_5_nn:
+    name: Tegneserier
+    id: Subreaktor_5
+    culture: nn
+  Subreaktor_5_en:
+    name: Cartoons
+    id: Subreaktor_5
+    culture: en
+  Subreaktor_6_no:
+    name: Tekst
+    id: Subreaktor_6
+    culture: 'no'
+  Subreaktor_6_nn:
+    name: Tekst
+    id: Subreaktor_6
+    culture: nn
+  Subreaktor_6_en:
+    name: Text
+    id: Subreaktor_6
+    culture: en
+  Subreaktor_7_no:
+    name: GroruddalsReaktor
+    id: Subreaktor_7
+    culture: 'no'
+  Subreaktor_7_nn:
+    name: GroruddalsReaktor
+    id: Subreaktor_7
+    culture: nn
+  Subreaktor_7_en:
+    name: GroruddalsReaktor
+    id: Subreaktor_7
+    culture: en
+
+RejectionType: 
+  RejectionType_1: 
+    basename: Copyright violation
+  RejectionType_2: 
+    basename: Unsuitable artwork content
+  RejectionType_3: 
+    basename: Question of ownership
+  RejectionType_4: 
+    basename: Unsuitable description of content
+  RejectionType_5: 
+    basename: Other 
+
+RejectionTypeI18n: 
+  RejectionType_1_no:
+    id: RejectionType_1
+    culture: 'no' 
+    name: Copyright violation
+    description: This artwork is a copyright violation, and will not be displayed on reaktor.
+  RejectionType_1_en:
+    id: RejectionType_1
+    culture: en 
+    name: Copyright violation
+    description: This artwork is a copyright violation, and will not be displayed on reaktor.
+  RejectionType_1_nn:
+    id: RejectionType_1
+    culture: nn 
+    name: Copyright violation
+    description: This artwork is a copyright violation, and will not be displayed on reaktor.
+  RejectionType_2_no: 
+    id: RejectionType_2
+    culture: 'no' 
+    name: Unsuitable artwork content
+    description: This artwork has unsuitable content that Reaktor cannot display. 
+  RejectionType_2_en: 
+    id: RejectionType_2
+    culture: en 
+    name: Unsuitable artwork content
+    description: This artwork has unsuitable content that Reaktor cannot display. 
+  RejectionType_2_nn: 
+    id: RejectionType_2
+    culture: nn 
+    name: Unsuitable artwork content
+    description: This artwork has unsuitable content that Reaktor cannot display. 
+  RejectionType_3_no: 
+    id: RejectionType_3
+    culture: 'no' 
+    name: Question of ownership
+    description: There are evidence indicating you are not the correct author of this artwork.
+  RejectionType_3_en: 
+    id: RejectionType_3
+    culture: en 
+    name: Question of ownership
+    description: There are evidence indicating you are not the correct author of this artwork.
+  RejectionType_3_nn: 
+    id: RejectionType_3
+    culture: nn 
+    name: Question of ownership
+    description: There are evidence indicating you are not the correct author of this artwork.
+  RejectionType_4_no:
+    id: RejectionType_4
+    culture: 'no' 
+    name: Unsuitable description of content
+    description: Your description of the artwork is completely wrong.
+  RejectionType_4_en:
+    id: RejectionType_4
+    culture: en 
+    name: Unsuitable description of content
+    description: Your description of the artwork is completely wrong.
+  RejectionType_4_nn:
+    id: RejectionType_4
+    culture: nn 
+    name: Unsuitable description of content
+    description: Your description of the artwork is completely wrong.
+  RejectionType_5_no:
+    id: RejectionType_5
+    culture: 'no' 
+    name: Other 
+    description: Your artwork has been rejected.  
+  RejectionType_5_en:
+    id: RejectionType_5
+    culture: en 
+    name: Other 
+    description: Your artwork has been rejected.  
+  RejectionType_5_nn:
+    id: RejectionType_5
+    culture: nn 
+    name: Other 
+    description: Your artwork has been rejected.  
+
+sfGuardGroup: 
+  sfGuardGroup_1: 
+    name: admin
+    description: Administrator group
+    is_editorial_team: 0
+    is_enabled: 0
+  sfGuardGroup_2: 
+    name: users
+    description: >
+      Normal users who can interact on the
+      site
+    is_editorial_team: 0
+    is_enabled: 0
+  sfGuardGroup_3: 
+    name: staff
+    description: Staff group
+    is_editorial_team: 0
+    is_enabled: 0
+  sfGuardGroup_4: 
+    name: translators
+    description: Translator group
+    is_editorial_team: 0
+    is_enabled: 0
+  sfGuardGroup_5: 
+    name: deichman_redaksjon
+    description: Deichman
+    is_editorial_team: 1
+    is_enabled: 1
+  sfGuardGroup_6: 
+    name: musikk_redaksjon
+    description: Musikk
+    is_editorial_team: 1
+    is_enabled: 1
+  sfGuardGroup_7: 
+    name: serieteket_redaksjon
+    description: Serieteket
+    is_editorial_team: 1
+    is_enabled: 1
+  sfGuardGroup_8: 
+    name: trondheim_redaksjon
+    description: Trondheim
+    is_editorial_team: 1
+    is_enabled: 1
+  sfGuardGroup_9: 
+    name: groruddalen_redaksjon
+    description: Groruddalen
+    is_editorial_team: 1
+    is_enabled: 1
+  sfGuardGroup_10: 
+    name: konkurranse_redaksjon
+    description: Competitions editorial team
+    is_editorial_team: 1
+    is_enabled: 1
+  sfGuardGroup_11: 
+    name: publishers
+    description: Publisher group
+    is_editorial_team: 0
+    is_enabled: 0
+
+HistoryAction:
+  HistoryAction_1:
+    name:  File reported    
+  HistoryAction_2:
+    name:  File removed
+  HistoryAction_3:
+    name:  File restored
+  HistoryAction_4:
+    name:  Tag approved
+  HistoryAction_5:
+    name:  Article Created
+  HistoryAction_6:
+    name:  File marked for discussion 
+  HistoryAction_7:
+    name:  File unmarked from discussion
+  HistoryAction_8:
+    name:  Artwork marked for discussion
+  HistoryAction_9:
+    name:  Artwork unmarked from discussion
+  HistoryAction_10: 
+    name:  Article edited
+  
+      
+HistoryActionI18n:
+  HistoryAction_1_no:
+    id: HistoryAction_1
+    culture: 'no'
+    description:  Fil rapportert    
+  HistoryAction_2_no:
+    id: HistoryAction_2
+    culture: 'no'
+    description:  Fil fjernet
+  HistoryAction_3_no:
+    id: HistoryAction_3
+    culture: 'no'
+    description:  Fil gjenopprettet
+  HistoryAction_4_no:
+    id: HistoryAction_4
+    culture: 'no'
+    description:  Tag godkjent
+  HistoryAction_5_no:
+    id: HistoryAction_5
+    culture: 'no'
+    description:  Artikkel opprettet
+  HistoryAction_6_no:
+    id: HistoryAction_6
+    culture: 'no'
+    description:  Fil markert for diskusjon
+  HistoryAction_7_no:
+    id: HistoryAction_7
+    culture: 'no'
+    description:  Fil fjernet fra diskusjonen
+  HistoryAction_8_no:
+    id: HistoryAction_8
+    culture: 'no'
+    description:  Verk merket for diskusjon 
+  HistoryAction_9_no:
+    id: HistoryAction_9
+    culture: 'no'
+    description:  Verk fjernet fra diskusjonen
+  HistoryAction_10_no:
+    id: HistoryAction_10
+    culture: 'no'
+    description:  Artikkel endret 
+       
+Catalogue: 
+  Catalogue_1: 
+    name: messages.no
+    source_lang: en
+    target_lang: 'no'
+    date_created: 0
+    date_modified: 1197401129
+    author: username
+    description: Bokmål
+  Catalogue_2: 
+    name: messages.nn
+    source_lang: en
+    target_lang: nn
+    date_created: 0
+    date_modified: 1197401130
+    author: username
+    description: Nynorsk
+  Catalogue_3: 
+    name: messages.en
+    source_lang: en
+    target_lang: en
+    date_created: 0
+    date_modified: 1197401102
+    author: username
+    description: English
+    
+sfGuardPermission: 
+  sfGuardPermission_1: 
+    name: staff
+  sfGuardPermission_2: 
+    name: listgroup
+  sfGuardPermission_3: 
+    name: editgroup
+  sfGuardPermission_4: 
+    name: deletegroup
+  sfGuardPermission_5: 
+    name: listpermission
+  sfGuardPermission_6: 
+    name: editpermission
+  sfGuardPermission_7: 
+    name: deletepermission
+  sfGuardPermission_8: 
+    name: listuser
+  sfGuardPermission_9: 
+    name: edituser
+  sfGuardPermission_10: 
+    name: deleteuser
+  sfGuardPermission_11: 
+    name: editprofile
+  sfGuardPermission_12: 
+    name: viewallcontent
+  sfGuardPermission_13: 
+    name: viewdetailederrors
+  sfGuardPermission_14: 
+    name: editusercontent
+  sfGuardPermission_15: 
+    name: isuser
+  sfGuardPermission_16: 
+    name: deletecontent
+  sfGuardPermission_17: 
+    name: approveartwork
+  sfGuardPermission_18: 
+    name: approvetags
+  sfGuardPermission_19: 
+    name: commentadmin
+  sfGuardPermission_20: 
+    name: tagadministrator
+  sfGuardPermission_21: 
+    name: subreaktoradministrator
+  sfGuardPermission_22: 
+    name: subreaktorcategorizer
+  sfGuardPermission_23: 
+    name: translator
+  sfGuardPermission_24: 
+    name: viewmetadata
+  sfGuardPermission_25: 
+    name: debug
+  sfGuardPermission_26: 
+    name: discussartwork
+  sfGuardPermission_27: 
+    name: recommendartwork
+  sfGuardPermission_28: 
+    name: sendcommentstoall
+  sfGuardPermission_29: 
+    name: adminmessages
+  sfGuardPermission_30: 
+    name: postnewcomments
+  sfGuardPermission_31: 
+    name: uploadcontent
+  sfGuardPermission_32: 
+    name: sendmessages
+  sfGuardPermission_33: 
+    name: rateartwork
+  sfGuardPermission_34: 
+    name: markfavourite
+  sfGuardPermission_35: 
+    name: addresources
+  sfGuardPermission_36: 
+    name: reruntranscoding
+  sfGuardPermission_37: 
+    name: createresidence
+  sfGuardPermission_38: 
+    name: deleteresidence
+  sfGuardPermission_39: 
+    name: listresidences
+  sfGuardPermission_40: 
+    name: viewreports
+  sfGuardPermission_41: 
+    name: phpmyadmin
+  sfGuardPermission_42: 
+    name: editcategories
+  sfGuardPermission_43: 
+    name: createcompositeartwork
+  sfGuardPermission_44: 
+    name: createhelparticle
+  sfGuardPermission_45: 
+    name: createthemearticle
+  sfGuardPermission_46: 
+    name: createinternalarticle
+  sfGuardPermission_47: 
+    name: createfooterarticle
+  sfGuardPermission_48: 
+    name: createmypagearticle
+  sfGuardPermission_49: 
+    name: createregulararticle
+  sfGuardPermission_50: 
+    name: createspecialarticle
+  sfGuardPermission_51:
+    name: adminfunctions
+  sfGuardPermission_52:
+    name: managenotifications
+  sfGuardPermission_53: 
+    name: createsystemadminmessages
+  sfGuardPermission_54: 
+    name: listsystemadminmessages
+  sfGuardPermission_55: 
+    name: deletesystemadminmessages
+  sfGuardPermission_56: 
+    name: downloadoriginalfile
+  sfGuardPermission_57: 
+    name: viewothereditorialteams
+       
+sfGuardPermissionI18n: 
+  sfGuardPermissionI18n_1_en: 
+    id: sfGuardPermission_1
+    culture: en
+    description: >
+      Show admin links such as moderator box
+      and admin portal
+  sfGuardPermissionI18n_2_en: 
+    id: sfGuardPermission_2
+    culture: en
+    description: Can list/view groups
+  sfGuardPermissionI18n_3_en: 
+    id: sfGuardPermission_3
+    culture: en
+    description: Can edit groups
+  sfGuardPermissionI18n_4_en: 
+    id: sfGuardPermission_4
+    culture: en
+    description: Can delete groups
+  sfGuardPermissionI18n_5_en: 
+    id: sfGuardPermission_5
+    culture: en
+    description: Can list/view permissions
+  sfGuardPermissionI18n_6_en: 
+    id: sfGuardPermission_6
+    culture: en
+    description: Can edit permissions
+  sfGuardPermissionI18n_7_en: 
+    id: sfGuardPermission_7
+    culture: en
+    description: Can delete permissions
+  sfGuardPermissionI18n_8_en: 
+    id: sfGuardPermission_8
+    culture: en
+    description: Can list/view users
+  sfGuardPermissionI18n_9_en: 
+    id: sfGuardPermission_9
+    culture: en
+    description: Can edit users
+  sfGuardPermissionI18n_10_en: 
+    id: sfGuardPermission_10
+    culture: en
+    description: Can delete users
+  sfGuardPermissionI18n_11_en: 
+    id: sfGuardPermission_11
+    culture: en
+    description: Can edit any users profile
+  sfGuardPermissionI18n_12_en: 
+    id: sfGuardPermission_12
+    culture: en
+    description: >
+      Can view all content, including
+      unmoderated
+  sfGuardPermissionI18n_13_en: 
+    id: sfGuardPermission_13
+    culture: en
+    description: >
+      Will see enhanced error messages where
+      available
+  sfGuardPermissionI18n_14_en: 
+    id: sfGuardPermission_14
+    culture: en
+    description: Can edit file/artwork details
+  sfGuardPermissionI18n_15_en: 
+    id: sfGuardPermission_15
+    culture: en
+    description: >
+      Is a registered user (used for yml
+      checks)
+  sfGuardPermissionI18n_16_en: 
+    id: sfGuardPermission_16
+    culture: en
+    description: Can delete files from the system
+  sfGuardPermissionI18n_17_en: 
+    id: sfGuardPermission_17
+    culture: en
+    description: Can approve artworks
+  sfGuardPermissionI18n_18_en: 
+    id: sfGuardPermission_18
+    culture: en
+    description: Can approve and delete tags on artworks
+  sfGuardPermissionI18n_19_en: 
+    id: sfGuardPermission_19
+    culture: en
+    description: Can administer comments
+  sfGuardPermissionI18n_20_en: 
+    id: sfGuardPermission_20
+    culture: en
+    description: Can remove tags from the system
+  sfGuardPermissionI18n_21_en: 
+    id: sfGuardPermission_21
+    culture: en
+    description: Can add/remove/edit subreaktors
+  sfGuardPermissionI18n_22_en: 
+    id: sfGuardPermission_22
+    culture: en
+    description: Can add/remove/edit subreaktor tags
+  sfGuardPermissionI18n_23_en: 
+    id: sfGuardPermission_23
+    culture: en
+    description: Can access the translation interface
+  sfGuardPermissionI18n_24_en: 
+    id: sfGuardPermission_24
+    culture: en
+    description: Can view artwork/file metadata
+  sfGuardPermissionI18n_25_en: 
+    id: sfGuardPermission_25
+    culture: en
+    description: >
+      Can view extra debug information on the
+      site
+  sfGuardPermissionI18n_26_en: 
+    id: sfGuardPermission_26
+    culture: en
+    description: >
+      Can view and discuss artwork under
+      discussion
+  sfGuardPermissionI18n_27_en: 
+    id: sfGuardPermission_27
+    culture: en
+    description: Can mark artwork as recommended
+  sfGuardPermissionI18n_28_en: 
+    id: sfGuardPermission_28
+    culture: en
+    description: Can send comments to all users
+  sfGuardPermissionI18n_29_en: 
+    id: sfGuardPermission_29
+    culture: en
+    description: Can create admin messages
+  sfGuardPermissionI18n_30_en: 
+    id: sfGuardPermission_30
+    culture: en
+    description: Can post new comments
+  sfGuardPermissionI18n_31_en: 
+    id: sfGuardPermission_31
+    culture: en
+    description: Can upload new content
+  sfGuardPermissionI18n_32_en: 
+    id: sfGuardPermission_32
+    culture: en
+    description: Can send messages to other users
+  sfGuardPermissionI18n_33_en: 
+    id: sfGuardPermission_33
+    culture: en
+    description: Can rate artwork
+  sfGuardPermissionI18n_34_en: 
+    id: sfGuardPermission_34
+    culture: en
+    description: Can mark users or artworks as favourites
+  sfGuardPermissionI18n_35_en: 
+    id: sfGuardPermission_35
+    culture: en
+    description: Can add resources to their profile
+  sfGuardPermissionI18n_36_en: 
+    id: sfGuardPermission_36
+    culture: en
+    description: Can re-run transcoding if failed
+  sfGuardPermissionI18n_37_en: 
+    id: sfGuardPermission_37
+    culture: en
+    description: Can add a new residence
+  sfGuardPermissionI18n_38_en: 
+    id: sfGuardPermission_38
+    culture: en
+    description: Can delete a residence
+  sfGuardPermissionI18n_39_en: 
+    id: sfGuardPermission_39
+    culture: en
+    description: Can list all residences
+  sfGuardPermissionI18n_40_en: 
+    id: sfGuardPermission_40
+    culture: en
+    description: Can view and create reports
+  sfGuardPermissionI18n_41_en: 
+    id: sfGuardPermission_41
+    culture: en
+    description: Can use PHPMyAdmin with read only user
+  sfGuardPermissionI18n_42_en: 
+    id: sfGuardPermission_42
+    culture: en
+    description: Can add/remove categories on all artwork
+  sfGuardPermissionI18n_43_en: 
+    id: sfGuardPermission_43
+    culture: en
+    description: can create multi-user composite artwork
+  sfGuardPermissionI18n_44_en: 
+    id: sfGuardPermission_44
+    culture: en
+    description: can create a help article
+  sfGuardPermissionI18n_45_en: 
+    id: sfGuardPermission_45
+    culture: en
+    description: can create a theme article
+  sfGuardPermissionI18n_46_en: 
+    id: sfGuardPermission_46
+    culture: en
+    description: can create an internal article
+  sfGuardPermissionI18n_47_en: 
+    id: sfGuardPermission_47
+    culture: en
+    description: can create a footer article
+  sfGuardPermissionI18n_48_en: 
+    id: sfGuardPermission_48
+    culture: en
+    description: can create a mypage article
+  sfGuardPermissionI18n_49_en: 
+    id: sfGuardPermission_49
+    culture: en
+    description: can create a regular article
+  sfGuardPermissionI18n_50_en: 
+    id: sfGuardPermission_50
+    culture: en
+    description: can create a special article
+  sfGuardPermissionI18n_51_en: 
+    id: sfGuardPermission_51
+    culture: en
+    description: can access special admin functions
+  sfGuardPermissionI18n_52_en: 
+    id: sfGuardPermission_52
+    culture: en
+    description: can manage other users notification settings
+  sfGuardPermissionI18n_53_en: 
+    id: sfGuardPermission_53
+    culture: en
+    description: Can create system messages 
+  sfGuardPermissionI18n_54_en:
+    id: sfGuardPermission_54
+    culture: en
+    description: Can see system message list
+  sfGuardPermissionI18n_55_en: 
+    id: sfGuardPermission_55
+    culture: en
+    description: Can delete system messages 
+  sfGuardPermissionI18n_56_en: 
+    id: sfGuardPermission_56
+    culture: en
+    description: Can download original files 
+  sfGuardPermissionI18n_57_en: 
+    id: sfGuardPermission_57
+    culture: en
+    description: Can see artwork awaiting approval by other editorial teams 
+  sfGuardPermissionI18n_1_no: 
+    id: sfGuardPermission_1
+    culture: "no"
+    description: >
+      Tilgang til å se admin-meny og
+      moderator-boks, samt admin-portalen
+  sfGuardPermissionI18n_2_no: 
+    id: sfGuardPermission_2
+    culture: "no"
+    description: >
+      Kan se liste over brukergrupper og
+      redaksjoner
+  sfGuardPermissionI18n_3_no: 
+    id: sfGuardPermission_3
+    culture: "no"
+    description: >
+      Kan redigere brukergrupper og
+      redaksjoner
+  sfGuardPermissionI18n_4_no: 
+    id: sfGuardPermission_4
+    culture: "no"
+    description: Kan slette brukergrupper og redaksjoner
+  sfGuardPermissionI18n_5_no: 
+    id: sfGuardPermission_5
+    culture: "no"
+    description: Kan se liste over tilganger
+  sfGuardPermissionI18n_6_no: 
+    id: sfGuardPermission_6
+    culture: "no"
+    description: Kan redigere tilganger
+  sfGuardPermissionI18n_7_no: 
+    id: sfGuardPermission_7
+    culture: "no"
+    description: Kan slette tilganger
+  sfGuardPermissionI18n_8_no: 
+    id: sfGuardPermission_8
+    culture: "no"
+    description: Kan se liste over alle brukere
+  sfGuardPermissionI18n_9_no: 
+    id: sfGuardPermission_9
+    culture: "no"
+    description: >
+      Kan redigere brukere via
+      admin-grensesnittet
+  sfGuardPermissionI18n_10_no: 
+    id: sfGuardPermission_10
+    culture: "no"
+    description: Kan slette enkeltbrukere
+  sfGuardPermissionI18n_11_no: 
+    id: sfGuardPermission_11
+    culture: "no"
+    description: Kan redigere brukeres profil
+  sfGuardPermissionI18n_12_no: 
+    id: sfGuardPermission_12
+    culture: "no"
+    description: >
+      Kan se alle verk, inkludert
+      ikke-godkjente verk
+  sfGuardPermissionI18n_13_no: 
+    id: sfGuardPermission_13
+    culture: "no"
+    description: >
+      Får ekstra detaljerte feilmeldinger der
+      disse er tilgjengelig
+  sfGuardPermissionI18n_14_no: 
+    id: sfGuardPermission_14
+    culture: "no"
+    description: Kan redigere alle verk og filer
+  sfGuardPermissionI18n_15_no: 
+    id: sfGuardPermission_15
+    culture: "no"
+    description: >
+      Er en registrert bruker (må være på
+      alle grupper)
+  sfGuardPermissionI18n_16_no: 
+    id: sfGuardPermission_16
+    culture: "no"
+    description: Kan slette filer fullstendig
+  sfGuardPermissionI18n_17_no: 
+    id: sfGuardPermission_17
+    culture: "no"
+    description: >
+      Har generell tilgang til å redigere og
+      moderere verk
+  sfGuardPermissionI18n_18_no: 
+    id: sfGuardPermission_18
+    culture: "no"
+    description: >
+      Kan moderere tagger på verk (fjerne fra
+      verk + godkjenne)
+  sfGuardPermissionI18n_19_no: 
+    id: sfGuardPermission_19
+    culture: "no"
+    description: Kan redigere og moderere kommentarer
+  sfGuardPermissionI18n_20_no: 
+    id: sfGuardPermission_20
+    culture: "no"
+    description: Kan fjerne tagger fra systemet
+  sfGuardPermissionI18n_21_no: 
+    id: sfGuardPermission_21
+    culture: "no"
+    description: >
+      Kan redigere (endre, slette, legge til)
+      subReaktorer
+  sfGuardPermissionI18n_22_no: 
+    id: sfGuardPermission_22
+    culture: "no"
+    description: >
+      Kan redigere (endre, slette, legge til)
+      tagger på subReaktorer
+  sfGuardPermissionI18n_23_no: 
+    id: sfGuardPermission_23
+    culture: "no"
+    description: >
+      Har tilgang til grensesnittet for
+      oversetting
+  sfGuardPermissionI18n_24_no: 
+    id: sfGuardPermission_24
+    culture: "no"
+    description: >
+      Kan se metadata på verk via egen side
+      for metadata
+  sfGuardPermissionI18n_25_no: 
+    id: sfGuardPermission_25
+    culture: "no"
+    description: >
+      Får se debuggings-informasjon (kun til
+      bruk ved problemer)
+  sfGuardPermissionI18n_26_no: 
+    id: sfGuardPermission_26
+    culture: "no"
+    description: >
+      Kan diskutere verk og se verk under
+      diskusjon
+  sfGuardPermissionI18n_27_no: 
+    id: sfGuardPermission_27
+    culture: "no"
+    description: >
+      Kan anbefale verk i subReaktorer og på
+      forsiden
+  sfGuardPermissionI18n_28_no: 
+    id: sfGuardPermission_28
+    culture: "no"
+    description: >
+      Kan sende meldinger til flere brukere
+      samtidig
+  sfGuardPermissionI18n_29_no: 
+    id: sfGuardPermission_29
+    culture: "no"
+    description: Kan poste admin-meldinger
+  sfGuardPermissionI18n_30_no: 
+    id: sfGuardPermission_30
+    culture: "no"
+    description: Kan kommentere verk
+  sfGuardPermissionI18n_31_no: 
+    id: sfGuardPermission_31
+    culture: "no"
+    description: Kan laste opp filer og lage verk
+  sfGuardPermissionI18n_32_no: 
+    id: sfGuardPermission_32
+    culture: "no"
+    description: Kan sende meldinger til andre brukere
+  sfGuardPermissionI18n_33_no: 
+    id: sfGuardPermission_33
+    culture: "no"
+    description: Kan gi karakter på verk
+  sfGuardPermissionI18n_34_no: 
+    id: sfGuardPermission_34
+    culture: "no"
+    description: >
+      Kan merke brukere og verk som sine
+      favoritter
+  sfGuardPermissionI18n_35_no: 
+    id: sfGuardPermission_35
+    culture: "no"
+    description: Kan lagre ressurser på "Min side"
+  sfGuardPermissionI18n_36_no: 
+    id: sfGuardPermission_36
+    culture: "no"
+    description: Kan kjøre transkoding på nytt ved feil
+  sfGuardPermissionI18n_37_no: 
+    id: sfGuardPermission_37
+    culture: "no"
+    description: >
+      Kan opprette nye bosted som brukere kan
+      velge i sin profil
+  sfGuardPermissionI18n_38_no: 
+    id: sfGuardPermission_38
+    culture: "no"
+    description: Kan fjerne bosted fra systemet
+  sfGuardPermissionI18n_39_no: 
+    id: sfGuardPermission_39
+    culture: "no"
+    description: Kan se liste over alle bosteder
+  sfGuardPermissionI18n_40_no: 
+    id: sfGuardPermission_40
+    culture: "no"
+    description: >
+      Kan generere rapporter og lagre nye
+      hurtigrapporter
+  sfGuardPermissionI18n_41_no: 
+    id: sfGuardPermission_41
+    culture: "no"
+    description: Har tilgang til PHPMyAdmin
+  sfGuardPermissionI18n_42_no: 
+    id: sfGuardPermission_42
+    culture: "no"
+    description: >
+      Kan redigere (legge til, fjerne)
+      kategorier på verk
+  sfGuardPermissionI18n_43_no: 
+    id: sfGuardPermission_43
+    culture: "no"
+    description: >
+      Kan opprette sammensatte verk med filer
+      fra flere brukere
+  sfGuardPermissionI18n_44_no: 
+    id: sfGuardPermission_44
+    culture: "no"
+    description: Kan lage hjelp artikkel
+  sfGuardPermissionI18n_45_no: 
+    id: sfGuardPermission_45
+    culture: "no"
+    description: Kan lage tema artikkel
+  sfGuardPermissionI18n_46_no: 
+    id: sfGuardPermission_46
+    culture: "no"
+    description: Kan lage internal artikkel
+  sfGuardPermissionI18n_47_no: 
+    id: sfGuardPermission_47
+    culture: "no"
+    description: Kan lage footer artikkel
+  sfGuardPermissionI18n_48_no: 
+    id: sfGuardPermission_48
+    culture: "no"
+    description: Kan lage mypage artikkel
+  sfGuardPermissionI18n_49_no: 
+    id: sfGuardPermission_49
+    culture: "no"
+    description: Kan lage vanlige artikkel
+  sfGuardPermissionI18n_50_no: 
+    id: sfGuardPermission_50
+    culture: "no"
+    description: Kan lage spesial artikkel
+  sfGuardPermissionI18n_51_no: 
+    id: sfGuardPermission_51
+    culture: "no"
+    description: Kan bruke spesielle admin-funksjoner
+  sfGuardPermissionI18n_52_no: 
+    id: sfGuardPermission_52
+    culture: "no"
+    description: Kan endre andre brukeres epost-varslinger
+  sfGuardPermissionI18n_53_no: 
+    id: sfGuardPermission_53
+    culture: "no"
+    description: Kan opprette nye systemmeldinger 
+  sfGuardPermissionI18n_54_no:
+    id: sfGuardPermission_54
+    culture: "no"
+    description: Kan se listen over systemmeldinger
+  sfGuardPermissionI18n_55_no: 
+    id: sfGuardPermission_55
+    culture: "no"
+    description: Kan slette systemmeldinger 
+  sfGuardPermissionI18n_56_no: 
+    id: sfGuardPermission_56
+    culture: "no"
+    description: Kan laste ned originalfil 
+  sfGuardPermissionI18n_57_no: 
+    id: sfGuardPermission_57
+    culture: "no"
+    description: Kan se andre redaksjoners ventende verk 
+
+sfGuardGroupPermission: 
+  sfGuardGroupPermission_1_1: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_1
+  sfGuardGroupPermission_1_2: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_2
+  sfGuardGroupPermission_1_3: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_3
+  sfGuardGroupPermission_1_4: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_4
+  sfGuardGroupPermission_1_5: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_5
+  sfGuardGroupPermission_1_6: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_6
+  sfGuardGroupPermission_1_7: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_7
+  sfGuardGroupPermission_1_8: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_8
+  sfGuardGroupPermission_1_9: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_9
+  sfGuardGroupPermission_1_10: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_10
+  sfGuardGroupPermission_1_11: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_11
+  sfGuardGroupPermission_1_12: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_12
+  sfGuardGroupPermission_1_13: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_13
+  sfGuardGroupPermission_1_14: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_14
+  sfGuardGroupPermission_1_15: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_15
+  sfGuardGroupPermission_1_16: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_16
+  sfGuardGroupPermission_1_17: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_17
+  sfGuardGroupPermission_1_18: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_18
+  sfGuardGroupPermission_1_19: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_19
+  sfGuardGroupPermission_1_20: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_20
+  sfGuardGroupPermission_1_21: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_21
+  sfGuardGroupPermission_1_22: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_22
+  sfGuardGroupPermission_1_23: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_23
+  sfGuardGroupPermission_1_24: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_24
+  sfGuardGroupPermission_1_25: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_25
+  sfGuardGroupPermission_1_26: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_26
+  sfGuardGroupPermission_1_27: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_27
+  sfGuardGroupPermission_1_28: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_28
+  sfGuardGroupPermission_1_29: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_29
+  sfGuardGroupPermission_1_30: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_30
+  sfGuardGroupPermission_1_31: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_31
+  sfGuardGroupPermission_1_32: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_32
+  sfGuardGroupPermission_1_33: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_33
+  sfGuardGroupPermission_1_34: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_34
+  sfGuardGroupPermission_1_35: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_35
+  sfGuardGroupPermission_1_36: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_36
+  sfGuardGroupPermission_1_37: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_37
+  sfGuardGroupPermission_1_38: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_38
+  sfGuardGroupPermission_1_39: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_39
+  sfGuardGroupPermission_1_40: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_40
+  sfGuardGroupPermission_1_41: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_41
+  sfGuardGroupPermission_1_42: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_42
+  sfGuardGroupPermission_1_43: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_43
+  sfGuardGroupPermission_1_44: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_44
+  sfGuardGroupPermission_1_45: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_45
+  sfGuardGroupPermission_1_46: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_46
+  sfGuardGroupPermission_1_47: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_47
+  sfGuardGroupPermission_1_48: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_48
+  sfGuardGroupPermission_1_49: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_49
+  sfGuardGroupPermission_1_50: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_50
+  sfGuardGroupPermission_1_51: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_51
+  sfGuardGroupPermission_1_52: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_52
+  sfGuardGroupPermission_1_53: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_53
+  sfGuardGroupPermission_1_54: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_54
+  sfGuardGroupPermission_1_55: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_55
+  sfGuardGroupPermission_1_56: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_56
+  sfGuardGroupPermission_1_57: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_57
+  sfGuardGroupPermission_2_8: 
+    group_id: sfGuardGroup_2
+    permission_id: sfGuardPermission_8
+  sfGuardGroupPermission_2_15: 
+    group_id: sfGuardGroup_2
+    permission_id: sfGuardPermission_15
+  sfGuardGroupPermission_2_24: 
+    group_id: sfGuardGroup_2
+    permission_id: sfGuardPermission_24
+  sfGuardGroupPermission_2_30: 
+    group_id: sfGuardGroup_2
+    permission_id: sfGuardPermission_30
+  sfGuardGroupPermission_2_31: 
+    group_id: sfGuardGroup_2
+    permission_id: sfGuardPermission_31
+  sfGuardGroupPermission_2_32: 
+    group_id: sfGuardGroup_2
+    permission_id: sfGuardPermission_32
+  sfGuardGroupPermission_2_33: 
+    group_id: sfGuardGroup_2
+    permission_id: sfGuardPermission_33
+  sfGuardGroupPermission_2_34: 
+    group_id: sfGuardGroup_2
+    permission_id: sfGuardPermission_34
+  sfGuardGroupPermission_2_35: 
+    group_id: sfGuardGroup_2
+    permission_id: sfGuardPermission_35
+  sfGuardGroupPermission_2_36: 
+    group_id: sfGuardGroup_2
+    permission_id: sfGuardPermission_36
+  sfGuardGroupPermission_3_1: 
+    group_id: sfGuardGroup_3
+    permission_id: sfGuardPermission_1
+  sfGuardGroupPermission_3_8: 
+    group_id: sfGuardGroup_3
+    permission_id: sfGuardPermission_8
+  sfGuardGroupPermission_3_12: 
+    group_id: sfGuardGroup_3
+    permission_id: sfGuardPermission_12
+  sfGuardGroupPermission_3_13: 
+    group_id: sfGuardGroup_3
+    permission_id: sfGuardPermission_13
+  sfGuardGroupPermission_3_14: 
+    group_id: sfGuardGroup_3
+    permission_id: sfGuardPermission_14
+  sfGuardGroupPermission_3_15: 
+    group_id: sfGuardGroup_3
+    permission_id: sfGuardPermission_15
+  sfGuardGroupPermission_3_17: 
+    group_id: sfGuardGroup_3
+    permission_id: sfGuardPermission_17
+  sfGuardGroupPermission_3_18: 
+    group_id: sfGuardGroup_3
+    permission_id: sfGuardPermission_18
+  sfGuardGroupPermission_3_19: 
+    group_id: sfGuardGroup_3
+    permission_id: sfGuardPermission_19
+  sfGuardGroupPermission_3_24: 
+    group_id: sfGuardGroup_3
+    permission_id: sfGuardPermission_24
+  sfGuardGroupPermission_3_25: 
+    group_id: sfGuardGroup_3
+    permission_id: sfGuardPermission_25
+  sfGuardGroupPermission_3_26: 
+    group_id: sfGuardGroup_3
+    permission_id: sfGuardPermission_26
+  sfGuardGroupPermission_3_30: 
+    group_id: sfGuardGroup_3
+    permission_id: sfGuardPermission_30
+  sfGuardGroupPermission_3_31: 
+    group_id: sfGuardGroup_3
+    permission_id: sfGuardPermission_31
+  sfGuardGroupPermission_3_32: 
+    group_id: sfGuardGroup_3
+    permission_id: sfGuardPermission_32
+  sfGuardGroupPermission_3_33: 
+    group_id: sfGuardGroup_3
+    permission_id: sfGuardPermission_33
+  sfGuardGroupPermission_3_34: 
+    group_id: sfGuardGroup_3
+    permission_id: sfGuardPermission_34
+  sfGuardGroupPermission_3_35: 
+    group_id: sfGuardGroup_3
+    permission_id: sfGuardPermission_35
+  sfGuardGroupPermission_3_36: 
+    group_id: sfGuardGroup_3
+    permission_id: sfGuardPermission_36
+  sfGuardGroupPermission_3_38: 
+    group_id: sfGuardGroup_3
+    permission_id: sfGuardPermission_38
+  sfGuardGroupPermission_3_39: 
+    group_id: sfGuardGroup_3
+    permission_id: sfGuardPermission_39
+  sfGuardGroupPermission_3_40: 
+    group_id: sfGuardGroup_3
+    permission_id: sfGuardPermission_40
+  sfGuardGroupPermission_3_42: 
+    group_id: sfGuardGroup_3
+    permission_id: sfGuardPermission_42
+  sfGuardGroupPermission_3_46: 
+    group_id: sfGuardGroup_3
+    permission_id: sfGuardPermission_46
+  sfGuardGroupPermission_4_23: 
+    group_id: sfGuardGroup_4
+    permission_id: sfGuardPermission_23
+  sfGuardGroupPermission_5_27: 
+    group_id: sfGuardGroup_5
+    permission_id: sfGuardPermission_27
+  sfGuardGroupPermission_5_43: 
+    group_id: sfGuardGroup_5
+    permission_id: sfGuardPermission_43
+  sfGuardGroupPermission_5_44: 
+    group_id: sfGuardGroup_5
+    permission_id: sfGuardPermission_44
+  sfGuardGroupPermission_5_45: 
+    group_id: sfGuardGroup_5
+    permission_id: sfGuardPermission_45
+  sfGuardGroupPermission_6_27: 
+    group_id: sfGuardGroup_6
+    permission_id: sfGuardPermission_27
+  sfGuardGroupPermission_6_43: 
+    group_id: sfGuardGroup_6
+    permission_id: sfGuardPermission_43
+  sfGuardGroupPermission_6_44: 
+    group_id: sfGuardGroup_6
+    permission_id: sfGuardPermission_44
+  sfGuardGroupPermission_6_45: 
+    group_id: sfGuardGroup_6
+    permission_id: sfGuardPermission_45
+  sfGuardGroupPermission_7_27: 
+    group_id: sfGuardGroup_7
+    permission_id: sfGuardPermission_27
+  sfGuardGroupPermission_7_43: 
+    group_id: sfGuardGroup_7
+    permission_id: sfGuardPermission_43
+  sfGuardGroupPermission_7_44: 
+    group_id: sfGuardGroup_7
+    permission_id: sfGuardPermission_44
+  sfGuardGroupPermission_7_45: 
+    group_id: sfGuardGroup_7
+    permission_id: sfGuardPermission_45
+  sfGuardGroupPermission_8_27: 
+    group_id: sfGuardGroup_8
+    permission_id: sfGuardPermission_27
+  sfGuardGroupPermission_8_43: 
+    group_id: sfGuardGroup_8
+    permission_id: sfGuardPermission_43
+  sfGuardGroupPermission_8_44: 
+    group_id: sfGuardGroup_8
+    permission_id: sfGuardPermission_44
+  sfGuardGroupPermission_8_45: 
+    group_id: sfGuardGroup_8
+    permission_id: sfGuardPermission_45
+  sfGuardGroupPermission_9_27: 
+    group_id: sfGuardGroup_9
+    permission_id: sfGuardPermission_27
+  sfGuardGroupPermission_9_43: 
+    group_id: sfGuardGroup_9
+    permission_id: sfGuardPermission_43
+  sfGuardGroupPermission_9_44: 
+    group_id: sfGuardGroup_9
+    permission_id: sfGuardPermission_44
+  sfGuardGroupPermission_9_45: 
+    group_id: sfGuardGroup_9
+    permission_id: sfGuardPermission_45
+  sfGuardGroupPermission_10_27: 
+    group_id: sfGuardGroup_10
+    permission_id: sfGuardPermission_27
+  sfGuardGroupPermission_10_43: 
+    group_id: sfGuardGroup_10
+    permission_id: sfGuardPermission_43
+  sfGuardGroupPermission_10_44: 
+    group_id: sfGuardGroup_10
+    permission_id: sfGuardPermission_44
+  sfGuardGroupPermission_10_45: 
+    group_id: sfGuardGroup_10
+    permission_id: sfGuardPermission_45
+  sfGuardGroupPermission_11_1: 
+    group_id: sfGuardGroup_11
+    permission_id: sfGuardPermission_1
+  sfGuardGroupPermission_11_44: 
+    group_id: sfGuardGroup_11
+    permission_id: sfGuardPermission_44
+  sfGuardGroupPermission_11_45: 
+    group_id: sfGuardGroup_11
+    permission_id: sfGuardPermission_45
+  sfGuardGroupPermission_11_46: 
+    group_id: sfGuardGroup_11
+    permission_id: sfGuardPermission_46
+  sfGuardGroupPermission_11_47: 
+    group_id: sfGuardGroup_11
+    permission_id: sfGuardPermission_47
+  sfGuardGroupPermission_11_48: 
+    group_id: sfGuardGroup_11
+    permission_id: sfGuardPermission_48
+  sfGuardGroupPermission_11_49: 
+    group_id: sfGuardGroup_11
+    permission_id: sfGuardPermission_49
+  sfGuardGroupPermission_11_50: 
+    group_id: sfGuardGroup_11
+    permission_id: sfGuardPermission_50
+  sfGuardGroupPermission_4_1: 
+    group_id: sfGuardGroup_4
+    permission_id: sfGuardPermission_1
+    
+# These values link subreaktors to file identifiers, for example "foto" to "image"
+# This link is what determines the options a user gets when selecting a subreaktor after uploading
+
+SubreaktorIdentifier:
+  # Photos
+  Identifier_1:
+    subreaktor_id: Subreaktor_1    # Foto
+    identifier: image
+  Identifier_2:
+    subreaktor_id: Subreaktor_2    # Drawing   
+    identifier: image
+  Identifier_3:
+    subreaktor_id: Subreaktor_5    # Cartoon    
+    identifier: image
+  # Pdf docs
+  Identifier_4:
+    subreaktor_id: Subreaktor_6    # Text
+    identifier: pdf
+  Identifier_10:
+    subreaktor_id: Subreaktor_5
+    identifier: pdf                # Cartoon
+  Identifier_11:
+    subreaktor_id: Subreaktor_2
+    identifier: pdf                # Drawing
+  # Audio clips
+  Identifier_5:
+    subreaktor_id: Subreaktor_4    # Audio
+    identifier: audio
+  # Movie clips  
+  Identifier_6:
+    subreaktor_id: Subreaktor_3    # Film
+    identifier: video
+  Identifier_7:
+    subreaktor_id: Subreaktor_3    # Film (flash animation)
+    identifier: flash_animation
+  Identifier_8:
+    subreaktor_id: Subreaktor_4    # Audio
+    identifier: video              # Music vid perhaps
+  # Non-pdf text
+  Identifier_9:
+    subreaktor_id: Subreaktor_6    # Text
+    identifier: text
+  
+    
+Category: 
+  Category_1: 
+    basename: arkitektur
+  Category_2: 
+    basename: barn
+  Category_3: 
+    basename: dyr
+  Category_4: 
+    basename: kjøretøy
+  Category_5: 
+    basename: landskap
+  Category_6: 
+    basename: makro
+  Category_7: 
+    basename: manipulasjon
+  Category_8: 
+    basename: mennesker
+  Category_9: 
+    basename: nattbilder
+  Category_10: 
+    basename: natur
+  Category_11: 
+    basename: portrett
+  Category_12: 
+    basename: reise
+  Category_13: 
+    basename: sport
+  Category_14: 
+    basename: stilleben
+  Category_15: 
+    basename: undervannsfoto
+  Category_16: 
+    basename: datagrafikk
+  Category_17: 
+    basename: 3d
+  Category_18: 
+    basename: maleri
+  Category_19: 
+    basename: skisser
+  Category_20: 
+    basename: tegning
+  Category_21: 
+    basename: animasjonsfilm
+  Category_22: 
+    basename: dataanimasjon
+  Category_23: 
+    basename: dokumentar
+  Category_24: 
+    basename: kortfilm
+  Category_25: 
+    basename: musikkvideo
+  Category_26: 
+    basename: blues
+  Category_27: 
+    basename: elektronika
+  Category_28: 
+    basename: folkemusikk
+  Category_30: 
+    basename: jazz
+  Category_31: 
+    basename: klassisk musikk
+  Category_32: 
+    basename: pop
+  Category_33: 
+    basename: rock
+  Category_34: 
+    basename: hørespill
+  Category_35: 
+    basename: intervjuer
+  Category_36: 
+    basename: lydeffekter
+  Category_37: 
+    basename: opplesninger
+  Category_38: 
+    basename: rockabilly
+  Category_39: 
+    basename: techno
+  Category_40: 
+    basename: viser
+  Category_41: 
+    basename: world music
+  Category_43: 
+    basename: biografisk
+  Category_44: 
+    basename: drama
+  Category_45: 
+    basename: fantasy
+  Category_46: 
+    basename: funny animals
+  Category_47: 
+    basename: historisk
+  Category_48: 
+    basename: humor
+  Category_49: 
+    basename: manga
+  Category_50: 
+    basename: samfunnssatire
+  Category_51: 
+    basename: science fiction
+  Category_52: 
+    basename: skrekk
+  Category_53: 
+    basename: spenning
+  Category_54: 
+    basename: superhelter
+  Category_55: 
+    basename: western
+  Category_56: 
+    basename: essays
+  Category_57: 
+    basename: eventyr
+  Category_58: 
+    basename: fabler
+  Category_60: 
+    basename: filmmanus
+  Category_61: 
+    basename: foredrag
+  Category_62: 
+    basename: fortellinger
+  Category_63: 
+    basename: haikudikt
+  Category_66: 
+    basename: krim
+  Category_67: 
+    basename: noveller
+  Category_68: 
+    basename: prosadikt
+  Category_69: 
+    basename: rollespill
+  Category_70: 
+    basename: science rollespill
+  Category_71: 
+    basename: mitsetegning
+  Category_72: 
+    basename: metaserie
+  Category_73: 
+    basename: arrangementer
+
+CategoryI18n: 
+  CategoryI18n_1_no: 
+    id: Category_1
+    culture: 'no'
+    name: arkitektur
+  CategoryI18n_2_no: 
+    id: Category_2
+    culture: 'no'
+    name: barn
+  CategoryI18n_3_no: 
+    id: Category_3
+    culture: 'no'
+    name: dyr
+  CategoryI18n_4_no: 
+    id: Category_4
+    culture: 'no'
+    name: kjøretøy
+  CategoryI18n_5_no: 
+    id: Category_5
+    culture: 'no'
+    name: landskap
+  CategoryI18n_6_no: 
+    id: Category_6
+    culture: 'no'
+    name: makro
+  CategoryI18n_7_no: 
+    id: Category_7
+    culture: 'no'
+    name: manipulasjon
+  CategoryI18n_8_no: 
+    id: Category_8
+    culture: 'no'
+    name: mennesker
+  CategoryI18n_9_no: 
+    id: Category_9
+    culture: 'no'
+    name: nattbilder
+  CategoryI18n_10_no: 
+    id: Category_10
+    culture: 'no'
+    name: natur
+  CategoryI18n_11_no: 
+    id: Category_11
+    culture: 'no'
+    name: portrett
+  CategoryI18n_12_no: 
+    id: Category_12
+    culture: 'no'
+    name: reise
+  CategoryI18n_13_no: 
+    id: Category_13
+    culture: 'no'
+    name: sport
+  CategoryI18n_14_no: 
+    id: Category_14
+    culture: 'no'
+    name: stilleben
+  CategoryI18n_15_no: 
+    id: Category_15
+    culture: 'no'
+    name: undervannsfoto
+  CategoryI18n_16_no: 
+    id: Category_16
+    culture: 'no'
+    name: datagrafikk
+  CategoryI18n_17_no: 
+    id: Category_17
+    culture: 'no'
+    name: 3d
+  CategoryI18n_18_no: 
+    id: Category_18
+    culture: 'no'
+    name: maleri
+  CategoryI18n_19_no: 
+    id: Category_19
+    culture: 'no'
+    name: skisser
+  CategoryI18n_20_no: 
+    id: Category_20
+    culture: 'no'
+    name: tegning
+  CategoryI18n_21_no: 
+    id: Category_21
+    culture: 'no'
+    name: animasjonsfilm
+  CategoryI18n_22_no: 
+    id: Category_22
+    culture: 'no'
+    name: dataanimasjon
+  CategoryI18n_23_no: 
+    id: Category_23
+    culture: 'no'
+    name: dokumentar
+  CategoryI18n_24_no: 
+    id: Category_24
+    culture: 'no'
+    name: kortfilm
+  CategoryI18n_25_no: 
+    id: Category_25
+    culture: 'no'
+    name: musikkvideo
+  CategoryI18n_26_no: 
+    id: Category_26
+    culture: 'no'
+    name: blues
+  CategoryI18n_27_no: 
+    id: Category_27
+    culture: 'no'
+    name: elektronika
+  CategoryI18n_28_no: 
+    id: Category_28
+    culture: 'no'
+    name: folkemusikk
+  CategoryI18n_30_no: 
+    id: Category_30
+    culture: 'no'
+    name: jazz
+  CategoryI18n_31_no: 
+    id: Category_31
+    culture: 'no'
+    name: klassisk musikk
+  CategoryI18n_32_no: 
+    id: Category_32
+    culture: 'no'
+    name: pop
+  CategoryI18n_33_no: 
+    id: Category_33
+    culture: 'no'
+    name: rock
+  CategoryI18n_34_no: 
+    id: Category_34
+    culture: 'no'
+    name: hørespill
+  CategoryI18n_35_no: 
+    id: Category_35
+    culture: 'no'
+    name: intervjuer
+  CategoryI18n_36_no: 
+    id: Category_36
+    culture: 'no'
+    name: lydeffekter
+  CategoryI18n_37_no: 
+    id: Category_37
+    culture: 'no'
+    name: opplesninger
+  CategoryI18n_38_no: 
+    id: Category_38
+    culture: 'no'
+    name: rockabilly
+  CategoryI18n_39_no: 
+    id: Category_39
+    culture: 'no'
+    name: techno
+  CategoryI18n_40_no: 
+    id: Category_40
+    culture: 'no'
+    name: viser
+  CategoryI18n_41_no: 
+    id: Category_41
+    culture: 'no'
+    name: world music
+  CategoryI18n_43_no: 
+    id: Category_43
+    culture: 'no'
+    name: biografisk
+  CategoryI18n_44_no: 
+    id: Category_44
+    culture: 'no'
+    name: drama
+  CategoryI18n_45_no: 
+    id: Category_45
+    culture: 'no'
+    name: fantasy
+  CategoryI18n_46_no: 
+    id: Category_46
+    culture: 'no'
+    name: funny animals
+  CategoryI18n_47_no: 
+    id: Category_47
+    culture: 'no'
+    name: historisk
+  CategoryI18n_48_no: 
+    id: Category_48
+    culture: 'no'
+    name: humor
+  CategoryI18n_49_no: 
+    id: Category_49
+    culture: 'no'
+    name: manga
+  CategoryI18n_50_no: 
+    id: Category_50
+    culture: 'no'
+    name: samfunnssatire
+  CategoryI18n_51_no: 
+    id: Category_51
+    culture: 'no'
+    name: science fiction
+  CategoryI18n_52_no: 
+    id: Category_52
+    culture: 'no'
+    name: skrekk
+  CategoryI18n_53_no: 
+    id: Category_53
+    culture: 'no'
+    name: spenning
+  CategoryI18n_54_no: 
+    id: Category_54
+    culture: 'no'
+    name: superhelter
+  CategoryI18n_55_no: 
+    id: Category_55
+    culture: 'no'
+    name: western
+  CategoryI18n_56_no: 
+    id: Category_56
+    culture: 'no'
+    name: essays
+  CategoryI18n_57_no: 
+    id: Category_57
+    culture: 'no'
+    name: eventyr
+  CategoryI18n_58_no: 
+    id: Category_58
+    culture: 'no'
+    name: fabler
+  CategoryI18n_60_no: 
+    id: Category_60
+    culture: 'no'
+    name: filmmanus
+  CategoryI18n_61_no: 
+    id: Category_61
+    culture: 'no'
+    name: foredrag
+  CategoryI18n_62_no: 
+    id: Category_62
+    culture: 'no'
+    name: fortellinger
+  CategoryI18n_63_no: 
+    id: Category_63
+    culture: 'no'
+    name: haikudikt
+  CategoryI18n_66_no: 
+    id: Category_66
+    culture: 'no'
+    name: krim
+  CategoryI18n_67_no: 
+    id: Category_67
+    culture: 'no'
+    name: noveller
+  CategoryI18n_68_no: 
+    id: Category_68
+    culture: 'no'
+    name: prosadikt
+  CategoryI18n_69_no: 
+    id: Category_69
+    culture: 'no'
+    name: rollespill
+  CategoryI18n_70_no: 
+    id: Category_70
+    culture: 'no'
+    name: science rollespill
+  CategoryI18n_71_no: 
+    id: Category_71
+    culture: 'no'
+    name: mitsetegning
+  CategoryI18n_72_no: 
+    id: Category_72
+    culture: 'no'
+    name: metaserie
+  CategoryI18n_73_no: 
+    id: Category_73
+    culture: 'no'
+    name: arrangementer
+
+  CategoryI18n_1_en: 
+    id: Category_1
+    culture: en
+    name: architecture
+  CategoryI18n_2_en: 
+    id: Category_2
+    culture: en
+    name: children
+  CategoryI18n_3_en: 
+    id: Category_3
+    culture: en
+    name: animals
+  CategoryI18n_4_en: 
+    id: Category_4
+    culture: en
+    name: vehicles
+  CategoryI18n_5_en: 
+    id: Category_5
+    culture: en
+    name: landscape
+  CategoryI18n_6_en: 
+    id: Category_6
+    culture: en
+    name: macro
+  CategoryI18n_7_en: 
+    id: Category_7
+    culture: en
+    name: manipulation
+  CategoryI18n_8_en: 
+    id: Category_8
+    culture: en
+    name: people
+  CategoryI18n_9_en: 
+    id: Category_9
+    culture: en
+    name: night pictures
+  CategoryI18n_10_en: 
+    id: Category_10
+    culture: en
+    name: nature
+  CategoryI18n_11_en: 
+    id: Category_11
+    culture: en
+    name: portrait
+  CategoryI18n_12_en: 
+    id: Category_12
+    culture: en
+    name: travel
+  CategoryI18n_13_en: 
+    id: Category_13
+    culture: en
+    name: sport
+  CategoryI18n_14_en: 
+    id: Category_14
+    culture: en
+    name: still life
+  CategoryI18n_15_en: 
+    id: Category_15
+    culture: en
+    name: underwater photo
+  CategoryI18n_16_en: 
+    id: Category_16
+    culture: en
+    name: computer graphics
+  CategoryI18n_17_en: 
+    id: Category_17
+    culture: en
+    name: 3d
+  CategoryI18n_18_en: 
+    id: Category_18
+    culture: en
+    name: painting
+  CategoryI18n_19_en: 
+    id: Category_19
+    culture: en
+    name: sketch
+  CategoryI18n_20_en: 
+    id: Category_20
+    culture: en
+    name: drawing
+  CategoryI18n_21_en: 
+    id: Category_21
+    culture: en
+    name: animation
+  CategoryI18n_22_en: 
+    id: Category_22
+    culture: en
+    name: computer animation
+  CategoryI18n_23_en: 
+    id: Category_23
+    culture: en
+    name: documentary
+  CategoryI18n_24_en: 
+    id: Category_24
+    culture: en
+    name: short film
+  CategoryI18n_25_en: 
+    id: Category_25
+    culture: en
+    name: music video
+  CategoryI18n_26_en: 
+    id: Category_26
+    culture: en
+    name: blues
+  CategoryI18n_27_en: 
+    id: Category_27
+    culture: en
+    name: electronica
+  CategoryI18n_28_en: 
+    id: Category_28
+    culture: en
+    name: folk music
+  CategoryI18n_30_en: 
+    id: Category_30
+    culture: en
+    name: jazz
+  CategoryI18n_31_en: 
+    id: Category_31
+    culture: en
+    name: classical music
+  CategoryI18n_32_en: 
+    id: Category_32
+    culture: en
+    name: pop
+  CategoryI18n_33_en: 
+    id: Category_33
+    culture: en
+    name: rock
+  CategoryI18n_34_en: 
+    id: Category_34
+    culture: en
+    name: radio entertainment
+  CategoryI18n_35_en: 
+    id: Category_35
+    culture: en
+    name: interview
+  CategoryI18n_36_en: 
+    id: Category_36
+    culture: en
+    name: sound effects
+  CategoryI18n_37_en: 
+    id: Category_37
+    culture: en
+    name: recitals
+  CategoryI18n_38_en: 
+    id: Category_38
+    culture: en
+    name: rockabilly
+  CategoryI18n_39_en: 
+    id: Category_39
+    culture: en
+    name: techno
+  CategoryI18n_40_en: 
+    id: Category_40
+    culture: en
+    name: demonstration
+  CategoryI18n_41_en: 
+    id: Category_41
+    culture: en
+    name: world music
+  CategoryI18n_43_en: 
+    id: Category_43
+    culture: en
+    name: biography
+  CategoryI18n_44_en: 
+    id: Category_44
+    culture: en
+    name: drama
+  CategoryI18n_45_en: 
+    id: Category_45
+    culture: en
+    name: fantasy
+  CategoryI18n_46_en: 
+    id: Category_46
+    culture: en
+    name: funny animals
+  CategoryI18n_47_en: 
+    id: Category_47
+    culture: en
+    name: historical
+  CategoryI18n_48_en: 
+    id: Category_48
+    culture: en
+    name: humor
+  CategoryI18n_49_en: 
+    id: Category_49
+    culture: en
+    name: manga
+  CategoryI18n_50_en: 
+    id: Category_50
+    culture: en
+    name: satire
+  CategoryI18n_51_en: 
+    id: Category_51
+    culture: en
+    name: science fiction
+  CategoryI18n_52_en: 
+    id: Category_52
+    culture: en
+    name: horror
+  CategoryI18n_53_en: 
+    id: Category_53
+    culture: en
+    name: suspense
+  CategoryI18n_54_en: 
+    id: Category_54
+    culture: en
+    name: super heroes
+  CategoryI18n_55_en: 
+    id: Category_55
+    culture: en
+    name: western
+  CategoryI18n_56_en: 
+    id: Category_56
+    culture: en
+    name: essays
+  CategoryI18n_57_en: 
+    id: Category_57
+    culture: en
+    name: events
+  CategoryI18n_58_en: 
+    id: Category_58
+    culture: en
+    name: fables
+  CategoryI18n_60_en: 
+    id: Category_60
+    culture: en
+    name: film scripts
+  CategoryI18n_61_en: 
+    id: Category_61
+    culture: en
+    name: speech
+  CategoryI18n_62_en: 
+    id: Category_62
+    culture: en
+    name: story telling
+  CategoryI18n_63_en: 
+    id: Category_63
+    culture: en
+    name: haiku poems
+  CategoryI18n_66_en: 
+    id: Category_66
+    culture: en
+    name: crime
+  CategoryI18n_67_en: 
+    id: Category_67
+    culture: en
+    name: novels
+  CategoryI18n_68_en: 
+    id: Category_68
+    culture: en
+    name: prose poems
+  CategoryI18n_69_en: 
+    id: Category_69
+    culture: en
+    name: roleplay
+  CategoryI18n_70_en: 
+    id: Category_70
+    culture: en
+    name: science roleplay
+  CategoryI18n_71_en: 
+    id: Category_71
+    culture: en
+    name: funny drawing
+  CategoryI18n_72_en: 
+    id: Category_72
+    culture: en
+    name: meta series
+  CategoryI18n_73_en: 
+    id: Category_73
+    culture: en
+    name: arrangements
+  CategoryI18n_1_nn: 
+    id: Category_1
+    culture: nn
+    name: arkitektur
+  CategoryI18n_2_nn: 
+    id: Category_2
+    culture: nn
+    name: barn
+  CategoryI18n_3_nn: 
+    id: Category_3
+    culture: nn
+    name: dyr
+  CategoryI18n_4_nn: 
+    id: Category_4
+    culture: nn
+    name: kjøretøy
+  CategoryI18n_5_nn: 
+    id: Category_5
+    culture: nn
+    name: landskap
+  CategoryI18n_6_nn: 
+    id: Category_6
+    culture: nn
+    name: makro
+  CategoryI18n_7_nn: 
+    id: Category_7
+    culture: nn
+    name: manipulasjon
+  CategoryI18n_8_nn: 
+    id: Category_8
+    culture: nn
+    name: mennesker
+  CategoryI18n_9_nn: 
+    id: Category_9
+    culture: nn
+    name: nattbilder
+  CategoryI18n_10_nn: 
+    id: Category_10
+    culture: nn
+    name: natur
+  CategoryI18n_11_nn: 
+    id: Category_11
+    culture: nn
+    name: portrett
+  CategoryI18n_12_nn: 
+    id: Category_12
+    culture: nn
+    name: reise
+  CategoryI18n_13_nn: 
+    id: Category_13
+    culture: nn
+    name: sport
+  CategoryI18n_14_nn: 
+    id: Category_14
+    culture: nn
+    name: stilleban
+  CategoryI18n_15_nn: 
+    id: Category_15
+    culture: nn
+    name: undervannsfoto
+  CategoryI18n_16_nn: 
+    id: Category_16
+    culture: nn
+    name: datagrafikk
+  CategoryI18n_17_nn: 
+    id: Category_17
+    culture: nn
+    name: 3d
+  CategoryI18n_18_nn: 
+    id: Category_18
+    culture: nn
+    name: maleri
+  CategoryI18n_19_nn: 
+    id: Category_19
+    culture: nn
+    name: skisser
+  CategoryI18n_20_nn: 
+    id: Category_20
+    culture: nn
+    name: tegning
+  CategoryI18n_21_nn: 
+    id: Category_21
+    culture: nn
+    name: animasjonsfilm
+  CategoryI18n_22_nn: 
+    id: Category_22
+    culture: nn
+    name: dataanimasjon
+  CategoryI18n_23_nn: 
+    id: Category_23
+    culture: nn
+    name: dokumentar
+  CategoryI18n_24_nn: 
+    id: Category_24
+    culture: nn
+    name: kortfilm
+  CategoryI18n_25_nn: 
+    id: Category_25
+    culture: nn
+    name: musikkvideo
+  CategoryI18n_26_nn: 
+    id: Category_26
+    culture: nn
+    name: blues
+  CategoryI18n_27_nn: 
+    id: Category_27
+    culture: nn
+    name: elektronika
+  CategoryI18n_28_nn: 
+    id: Category_28
+    culture: nn
+    name: folkemusikk
+  CategoryI18n_30_nn: 
+    id: Category_30
+    culture: nn
+    name: jazz
+  CategoryI18n_31_nn: 
+    id: Category_31
+    culture: nn
+    name: klassisk musikk
+  CategoryI18n_32_nn: 
+    id: Category_32
+    culture: nn
+    name: pop
+  CategoryI18n_33_nn: 
+    id: Category_33
+    culture: nn
+    name: rock
+  CategoryI18n_34_nn: 
+    id: Category_34
+    culture: nn
+    name: hørespill
+  CategoryI18n_35_nn: 
+    id: Category_35
+    culture: nn
+    name: intervjuer
+  CategoryI18n_36_nn: 
+    id: Category_36
+    culture: nn
+    name: lydeffekter
+  CategoryI18n_37_nn: 
+    id: Category_37
+    culture: nn
+    name: opplesninger
+  CategoryI18n_38_nn: 
+    id: Category_38
+    culture: nn
+    name: rockabilly
+  CategoryI18n_39_nn: 
+    id: Category_39
+    culture: nn
+    name: techno
+  CategoryI18n_40_nn: 
+    id: Category_40
+    culture: nn
+    name: viser
+  CategoryI18n_41_nn: 
+    id: Category_41
+    culture: nn
+    name: world music
+  CategoryI18n_43_nn: 
+    id: Category_43
+    culture: nn
+    name: biografisk
+  CategoryI18n_44_nn: 
+    id: Category_44
+    culture: nn
+    name: drama
+  CategoryI18n_45_nn: 
+    id: Category_45
+    culture: nn
+    name: fantasy
+  CategoryI18n_46_nn: 
+    id: Category_46
+    culture: nn
+    name: funny animals
+  CategoryI18n_47_nn: 
+    id: Category_47
+    culture: nn
+    name: historisk
+  CategoryI18n_48_nn: 
+    id: Category_48
+    culture: nn
+    name: humor
+  CategoryI18n_49_nn: 
+    id: Category_49
+    culture: nn
+    name: manga
+  CategoryI18n_50_nn: 
+    id: Category_50
+    culture: nn
+    name: samfunnssatire
+  CategoryI18n_51_nn: 
+    id: Category_51
+    culture: nn
+    name: science fiction
+  CategoryI18n_52_nn: 
+    id: Category_52
+    culture: nn
+    name: skrekk
+  CategoryI18n_53_nn: 
+    id: Category_53
+    culture: nn
+    name: spenning
+  CategoryI18n_54_nn: 
+    id: Category_54
+    culture: nn
+    name: superhelter
+  CategoryI18n_55_nn: 
+    id: Category_55
+    culture: nn
+    name: western
+  CategoryI18n_56_nn: 
+    id: Category_56
+    culture: nn
+    name: essays
+  CategoryI18n_57_nn: 
+    id: Category_57
+    culture: nn
+    name: eventyr
+  CategoryI18n_58_nn: 
+    id: Category_58
+    culture: nn
+    name: fabler
+  CategoryI18n_60_nn: 
+    id: Category_60
+    culture: nn
+    name: filmmanus
+  CategoryI18n_61_nn: 
+    id: Category_61
+    culture: nn
+    name: foredrag
+  CategoryI18n_62_nn: 
+    id: Category_62
+    culture: nn
+    name: fortellinger
+  CategoryI18n_63_nn: 
+    id: Category_63
+    culture: nn
+    name: haikudikt
+  CategoryI18n_66_nn: 
+    id: Category_66
+    culture: nn
+    name: krim
+  CategoryI18n_67_nn: 
+    id: Category_67
+    culture: nn
+    name: noveller
+  CategoryI18n_68_nn: 
+    id: Category_68
+    culture: nn
+    name: prosadikt
+  CategoryI18n_69_nn: 
+    id: Category_69
+    culture: nn
+    name: rollespill
+  CategoryI18n_70_nn: 
+    id: Category_70
+    culture: nn
+    name: science rollespill
+  CategoryI18n_71_nn: 
+    id: Category_71
+    culture: nn
+    name: mitsetegning
+  CategoryI18n_72_nn: 
+    id: Category_72
+    culture: nn
+    name: metaserie
+  CategoryI18n_73_nn: 
+    id: Category_73
+    culture: nn
+    name: arrangementer
+    
+    
+CategorySubreaktor: 
+  CategorySubreaktor_1: 
+    category_id: Category_1
+    subreaktor_id: Subreaktor_1
+  CategorySubreaktor_2: 
+    category_id: Category_2
+    subreaktor_id: Subreaktor_1
+  CategorySubreaktor_3: 
+    category_id: Category_3
+    subreaktor_id: Subreaktor_1
+  CategorySubreaktor_4: 
+    category_id: Category_4
+    subreaktor_id: Subreaktor_1
+  CategorySubreaktor_5: 
+    category_id: Category_5
+    subreaktor_id: Subreaktor_1
+  CategorySubreaktor_6: 
+    category_id: Category_6
+    subreaktor_id: Subreaktor_1
+  CategorySubreaktor_7: 
+    category_id: Category_7
+    subreaktor_id: Subreaktor_1
+  CategorySubreaktor_8: 
+    category_id: Category_8
+    subreaktor_id: Subreaktor_1
+  CategorySubreaktor_9: 
+    category_id: Category_9
+    subreaktor_id: Subreaktor_1
+  CategorySubreaktor_10: 
+    category_id: Category_10
+    subreaktor_id: Subreaktor_1
+  CategorySubreaktor_11: 
+    category_id: Category_11
+    subreaktor_id: Subreaktor_1
+  CategorySubreaktor_12: 
+    category_id: Category_12
+    subreaktor_id: Subreaktor_1
+  CategorySubreaktor_13: 
+    category_id: Category_13
+    subreaktor_id: Subreaktor_1
+  CategorySubreaktor_14: 
+    category_id: Category_14
+    subreaktor_id: Subreaktor_1
+  CategorySubreaktor_15: 
+    category_id: Category_15
+    subreaktor_id: Subreaktor_1
+  CategorySubreaktor_16: 
+    category_id: Category_16
+    subreaktor_id: Subreaktor_2
+  CategorySubreaktor_17: 
+    category_id: Category_17
+    subreaktor_id: Subreaktor_2
+  CategorySubreaktor_18: 
+    category_id: Category_18
+    subreaktor_id: Subreaktor_2
+  CategorySubreaktor_19: 
+    category_id: Category_19
+    subreaktor_id: Subreaktor_2
+  CategorySubreaktor_20: 
+    category_id: Category_20
+    subreaktor_id: Subreaktor_2
+  CategorySubreaktor_21: 
+    category_id: Category_21
+    subreaktor_id: Subreaktor_3
+  CategorySubreaktor_22: 
+    category_id: Category_22
+    subreaktor_id: Subreaktor_3
+  CategorySubreaktor_23: 
+    category_id: Category_23
+    subreaktor_id: Subreaktor_3
+  CategorySubreaktor_24: 
+    category_id: Category_24
+    subreaktor_id: Subreaktor_3
+  CategorySubreaktor_25: 
+    category_id: Category_25
+    subreaktor_id: Subreaktor_3
+  CategorySubreaktor_26: 
+    category_id: Category_26
+    subreaktor_id: Subreaktor_4
+  CategorySubreaktor_27: 
+    category_id: Category_27
+    subreaktor_id: Subreaktor_4
+  CategorySubreaktor_28: 
+    category_id: Category_28
+    subreaktor_id: Subreaktor_4
+  CategorySubreaktor_30: 
+    category_id: Category_30
+    subreaktor_id: Subreaktor_4
+  CategorySubreaktor_31: 
+    category_id: Category_31
+    subreaktor_id: Subreaktor_4
+  CategorySubreaktor_32: 
+    category_id: Category_32
+    subreaktor_id: Subreaktor_4
+  CategorySubreaktor_33: 
+    category_id: Category_33
+    subreaktor_id: Subreaktor_4
+  CategorySubreaktor_34: 
+    category_id: Category_34
+    subreaktor_id: Subreaktor_4
+  CategorySubreaktor_35: 
+    category_id: Category_35
+    subreaktor_id: Subreaktor_4
+  CategorySubreaktor_36: 
+    category_id: Category_36
+    subreaktor_id: Subreaktor_4
+  CategorySubreaktor_37: 
+    category_id: Category_37
+    subreaktor_id: Subreaktor_4
+  CategorySubreaktor_38: 
+    category_id: Category_38
+    subreaktor_id: Subreaktor_4
+  CategorySubreaktor_39: 
+    category_id: Category_39
+    subreaktor_id: Subreaktor_4
+  CategorySubreaktor_40: 
+    category_id: Category_40
+    subreaktor_id: Subreaktor_4
+  CategorySubreaktor_41: 
+    category_id: Category_41
+    subreaktor_id: Subreaktor_4
+  CategorySubreaktor_42: 
+    category_id: Category_25
+    subreaktor_id: Subreaktor_4
+  CategorySubreaktor_43: 
+    category_id: Category_43
+    subreaktor_id: Subreaktor_5
+  CategorySubreaktor_44: 
+    category_id: Category_44
+    subreaktor_id: Subreaktor_5
+  CategorySubreaktor_45: 
+    category_id: Category_45
+    subreaktor_id: Subreaktor_5
+  CategorySubreaktor_46: 
+    category_id: Category_46
+    subreaktor_id: Subreaktor_5
+  CategorySubreaktor_47: 
+    category_id: Category_47
+    subreaktor_id: Subreaktor_5
+  CategorySubreaktor_48: 
+    category_id: Category_48
+    subreaktor_id: Subreaktor_5
+  CategorySubreaktor_49: 
+    category_id: Category_49
+    subreaktor_id: Subreaktor_5
+  CategorySubreaktor_50: 
+    category_id: Category_50
+    subreaktor_id: Subreaktor_5
+  CategorySubreaktor_51: 
+    category_id: Category_51
+    subreaktor_id: Subreaktor_5
+  CategorySubreaktor_52: 
+    category_id: Category_52
+    subreaktor_id: Subreaktor_5
+  CategorySubreaktor_53: 
+    category_id: Category_53
+    subreaktor_id: Subreaktor_5
+  CategorySubreaktor_54: 
+    category_id: Category_54
+    subreaktor_id: Subreaktor_5
+  CategorySubreaktor_55: 
+    category_id: Category_55
+    subreaktor_id: Subreaktor_5
+  CategorySubreaktor_56: 
+    category_id: Category_56
+    subreaktor_id: Subreaktor_6
+  CategorySubreaktor_57: 
+    category_id: Category_57
+    subreaktor_id: Subreaktor_6
+  CategorySubreaktor_58: 
+    category_id: Category_58
+    subreaktor_id: Subreaktor_6
+  CategorySubreaktor_59: 
+    category_id: Category_45
+    subreaktor_id: Subreaktor_6
+  CategorySubreaktor_60: 
+    category_id: Category_60
+    subreaktor_id: Subreaktor_6
+  CategorySubreaktor_61: 
+    category_id: Category_61
+    subreaktor_id: Subreaktor_6
+  CategorySubreaktor_62: 
+    category_id: Category_62
+    subreaktor_id: Subreaktor_6
+  CategorySubreaktor_63: 
+    category_id: Category_63
+    subreaktor_id: Subreaktor_6
+  CategorySubreaktor_64: 
+    category_id: Category_48
+    subreaktor_id: Subreaktor_6
+  CategorySubreaktor_65: 
+    category_id: Category_34
+    subreaktor_id: Subreaktor_6
+  CategorySubreaktor_66: 
+    category_id: Category_66
+    subreaktor_id: Subreaktor_6
+  CategorySubreaktor_67: 
+    category_id: Category_67
+    subreaktor_id: Subreaktor_6
+  CategorySubreaktor_68: 
+    category_id: Category_68
+    subreaktor_id: Subreaktor_6
+  CategorySubreaktor_69: 
+    category_id: Category_69
+    subreaktor_id: Subreaktor_6
+  CategorySubreaktor_70: 
+    category_id: Category_70
+    subreaktor_id: Subreaktor_6
+  CategorySubreaktor_71: 
+    category_id: Category_72
+    subreaktor_id: Subreaktor_5
+  CategorySubreaktor_72: 
+    category_id: Category_73
+    subreaktor_id: Subreaktor_5
+    

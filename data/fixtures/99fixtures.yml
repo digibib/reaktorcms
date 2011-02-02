@@ -1,0 +1,21 @@
+sfGuardUser: 
+  sfGuardUser_1337: 
+    username: superadmin
+    password: 1337admin
+    culture: 'no'
+    created_at: 2008-03-05 18:30:37
+    last_login: 2008-03-05 23:16:00
+    is_active: 1
+    is_verified: 1
+    is_super_admin: 1
+    show_content: 1
+    email: reaktor-test@linpro.no
+    email_private: 1
+    name: admin
+    name_private: 0
+    dob: 1980-01-01 00:00:00
+    sex: 2
+    description: Hest er best
+    msn: reaktor@msn.no
+    icq: 54321
+    homepage: http://reaktor.lab.linpro.no

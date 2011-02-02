@@ -1,0 +1,64 @@
+.sf_comment_form div {
+margin: 0 0 10px 0;
+}
+
+.sf_comment_form fieldset {
+padding: 0;
+}
+
+.sf_comment_form label {
+margin: 0;
+padding: 0;
+display: block;
+}
+
+.sf_comment_form input, .sf_comment_form textarea {
+padding: 1px 0 1px 10px;
+min-width: 30em;
+background: #fff url(../images/input-shadow.gif) top left repeat-x;
+}
+
+.sf_comment_form textarea {
+height: 10em;
+}
+
+.sf_comment_form .form_error {
+color: red;
+font-weight: bold;
+}
+
+.sf_comment_form input.submit {
+color: #666;
+width: auto;
+border: 1px #666 solid;
+height: 2.2em;
+margin: 0 0 2em 0;
+padding: 0 5px;
+font-size: 1em;
+min-width: 0;
+background: none;
+background-color: #ececec;
+}
+
+.sf_comment_form input.submit:hover {
+color: #ececec;
+border: 1px #ececec solid;
+background-color: #666;
+}
+
+.sf_comment_form .required input, .sf_comment_form .required textarea {
+background: #fff url(../images/input-shadow-required.gif) top left no-repeat;
+}
+
+.sf_comment_form_error {
+color: red;
+font-weight: bold;
+}
+
+#sf_comment_ajax_indicator {
+width: 20px;
+height: 20px;
+margin: 0;
+padding: 0;
+background: transparent url(../images/indicator.gif) top left no-repeat;
+}

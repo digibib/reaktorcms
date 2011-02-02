@@ -1,0 +1,78 @@
+#All required fields should be no as they are handled in the action based on draft or submission
+#Look at validateEdit() function for details. All other validation handled here.
+methods:
+  post:               [author, description, title, production, resources, tags, meta_license]
+
+fillin:
+  enabled: true
+
+names:
+  author:
+    required:         no
+    required_msg:     Please enter the author
+    validators:       myStringValidator
+    
+  description:
+    required:         no
+    required_msg:     Please enter a valid description
+    validators:       myTextValidator
+ 
+  title:
+    required:         no
+    required_msg:     Title should be at least 3 characters
+    validators:       myTitleValidator
+ 
+  production:
+    required:         no
+    class:            myTextValidator
+
+  resources:
+    required:         no
+    validators:       myUrlFieldValidator, myTextValidator
+
+  tags:
+    required:         no
+    required_msg:     You should enter some keywords so your work can be found by other users
+    validators:       myCsvValidator
+
+  meta_license:
+    required:         no
+    required_msg:     Please select the license that best describes this work
+
+myStringValidator:
+  class: sfStringValidator
+  param:
+    min:            3
+    min_error:      Enter at least 3 characters
+    max:            40
+    max_error:      Enter less than 40 characters   
+
+myTitleValidator:
+  class: myArtworkTitleValidator
+  param:
+    invalid_error:  Invalid title! <br /> Use letters, numbers, spaces, hyphens and underscores only
+    # Valid characters are specified in app.yml
+  
+
+myTextValidator:
+  class: sfStringValidator
+  param:
+    min:            5
+    min_error:      Enter at least 5 characters
+    max:            500
+    max_error:      Enter less than 500 characters
+    
+myCsvValidator:
+  class: sfStringValidator
+  param:
+    min:            3
+    min_error:      Enter at least 3 characters
+    max:            300
+    max_error:      Enter fewer keywords
+    
+myUrlFieldValidator:
+  class: myUrlFieldValidator
+  param:
+    url_error:      Please enter valid URLs, one per line
+    format_error:   An invalid URL has been specified
+  

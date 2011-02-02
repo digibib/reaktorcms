@@ -1,0 +1,13 @@
+generator:
+  class:              sfPropelAdminGenerator
+  param:
+    model_class:      Residence
+    theme:            default
+
+    list:
+      title:          Residences 
+      display:        [id, =name]      
+      
+    edit:
+      title:          Edit residence
+      display:        [name, level]  

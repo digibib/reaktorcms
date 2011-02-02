@@ -1,0 +1,21 @@
+test:
+  propel:
+    class:      sfPropelDatabase
+    param:
+      phptype:  mysql
+      host:     localhost
+      database: reaktor_test
+      username: reaktor_user
+      password: cT0PHPCm #Crack team of PHP code monkeys :)
+      encoding: utf8
+      
+all:
+  propel:
+    class:      sfPropelDatabase
+    param:
+      phptype:  mysql
+      host:     localhost
+      database: reaktor
+      username: reaktor_user
+      password: cT0PHPCm #Crack team of PHP code monkeys :)
+      encoding: utf8

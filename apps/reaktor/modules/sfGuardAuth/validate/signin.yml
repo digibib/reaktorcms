@@ -1,0 +1,18 @@
+methods:
+  post: [username, password]
+
+names:
+  username:
+    required:         true
+    required_msg:     Username required
+    validators:       [userValidator]
+
+  password:
+    required:         true
+    required_msg:     Password required
+
+userValidator:
+    class:            reaktorAuth
+    param:
+      password_field: password
+      remember_field: remember

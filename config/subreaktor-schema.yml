@@ -1,0 +1,12 @@
+propel:
+  _attributes:      { package: lib.model }
+  
+  subreaktor:
+    id:
+    reference:        { type: varchar, size: 15, required: true }
+    lokalreaktor:     { type: boolean, required: true, default: false }
+    live:             { type: boolean, required: true, default: false }
+    subreaktor_order: { type: integer, required: false, default: 0 }
+  
+  subreaktor_i18n:
+    name:             { type: varchar, size: 255, required: true }  

@@ -1,0 +1,96 @@
+@CHARSET "UTF-8";
+
+#content_main
+{
+  width: 880px;
+}
+
+#artwork_main_container
+{
+  width: 670px;
+}
+
+#artwork_div, #artwork_div img
+{
+  max-width: 670px;
+  
+}
+  
+#menu_bar, #lang_bar, #font_selector_block, #sidebar, #artwork_actions_and_favourites,
+#embed_links, #socialBookmarks, #lightwindow, #lightwindow_overlay,
+#artwork_favourite_links_container, #artwork_reportunsuitable, #artwork_rating, #footer_menu
+{
+  display: none;
+}
+
+#footer_images
+{
+  border-bottom: 0px solid #000;
+}
+
+#artwork_rating_print 
+{ 
+  display: block;
+  padding-top: 5px;
+  width: 90px;
+  float: right;
+}
+
+#header_block
+{
+  border-bottom: 1px dotted #ccc;
+  padding-bottom: 0px;
+  height: 80px;
+  margin-bottom: 5px;
+  width: 720px;  
+  
+}
+  
+#artwork_comments
+{
+  page-break-before: always;
+  width: 880px;
+}
+
+.comment_buttons
+{
+  border-bottom: 1px dotted #CCCCCC;
+  height: 1px;
+  padding: 0px;
+}
+
+
+.comment_buttons input, .commentbutton
+{
+  display: none;
+}
+
+.comment_header_total
+{
+  border-bottom: 2px dotted #CCCCCC;
+  border-top: 2px dotted #CCCCCC;
+}
+
+h4
+{
+  margin-top: 8px;
+}
+
+#header_image
+{
+  bottom: 10px;
+}
+
+#artwork_info_header h2
+{
+  font-size: 1.5em;
+}
+
+body
+{
+  font-size: 10pt;
+}
+
+.portfolio_image_list {
+    width: 720px;
+  }

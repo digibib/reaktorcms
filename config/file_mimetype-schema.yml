@@ -1,0 +1,7 @@
+propel:
+  _attributes:      { package: lib.model }
+  
+  file_mimetype:
+    id:
+    mimetype:       { type: varchar, size: 100, required: true }
+    identifier:     { type: varchar, required: true, size: 20 }

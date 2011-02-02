@@ -1,0 +1,21 @@
+#! /bin/bash
+
+DIR=`pwd`
+
+if [ -z "$1" ]
+then
+	echo "Usage: $0 path/to/symfony"
+else
+	rm -f $DIR/../log/*.log
+	echo "Old logs removed"
+
+	cd $1
+	symfony propel-insert-sql reaktor
+	symfony propel-load-data reaktor prod data/fixtures/00*
+	cd -
+
+	echo "Running import script"
+	echo
+	ruby -d $DIR/../bin/run-import -l 2>&1 | tee $DIR/../log/run-import-debug.log
+fi
+

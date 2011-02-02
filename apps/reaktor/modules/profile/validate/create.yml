@@ -1,0 +1,86 @@
+methods: [post, get]
+fillin:
+  enabled:  true
+
+magickDateValidator:
+  class:          myMagickDateValidator
+  param:
+    class:        sfGuardUser
+    column:       dob
+    date_error:   The date you entered is not valid
+    date_incomplete: Please select a complete date
+    
+doubleCheckEmailValidator:
+  class:         sfEmailValidator
+  param:
+    class:       sfGuardUser
+    column:      email
+    strict:      true
+    email_error: This email address is invalid
+
+fields:
+  #username
+  username_profile:
+    required:
+      msg:       You must enter a username
+    sfPropelUniqueValidator:
+      class: sfGuardUser
+      column: username
+      unique_error: This username is already in use
+    sfRegexValidator:
+      match:  Yes
+      match_error: Only letters (A-Å), numbers, and -_@ are valid characters
+      pattern:  /^([A-Za-z0-9@_-\søåæäöØÅÆÖÄ])+$/
+    sfStringValidator:
+      min:       2
+      min_error: Please enter a longer username
+      max:       30
+      max_error: Please enter fewer than 30 characters      
+  #email
+  email:
+    required:
+      msg:       Please enter an email address
+    sfEmailValidator:
+      email_error:  This email address is invalid
+      strict: false
+    sfPropelUniqueValidator:
+      class: sfGuardUser
+      column: email      
+      unique_error: This email is already in use
+    doubleCheckEmailValidator:
+  #passwords
+  password_profile:
+    required:
+      msg:       You must choose a password
+    myPasswordValidator:
+      min:       6
+      min_error: Password must be longer than 5 characters
+  password_repeat:
+    required:
+      msg:       You must type the password twice
+    sfCompareValidator:
+      check: password_profile
+      compare_error: The passwords do not match. Please try again.
+  #residence
+  residence_id:
+    required: 
+      msg: You must choose where your residence is
+  #dob
+  dob:
+    required:
+      msg: Please choose the date you were born #{ name: Published, params: date_format='dd/MM' }
+    magickDateValidator:
+    #sfDateValidator:           
+  #gender         
+  sex:
+    required:
+      msg: Please choose your sex
+  
+  terms_and_conditions:
+    required:
+      msg: You must indicate that you have read and understood the terms and conditions of Reaktor
+  recaptcha_response_field:
+    required:
+      msg: Please fill out the CAPTCHA correctly my friend
+    sfReCaptchaValidator:
+  

@@ -1,0 +1,17 @@
+--- sfAdminGenerator.class.php	2008-08-05 10:16:54.000000000 +0200
++++ /tmp/sfAdminGenerator.class.php	2008-08-05 10:34:25.000000000 +0200
+@@ -671,6 +671,14 @@
+       $params = $this->getObjectTagParams($params, array('size' => 7));
+       return "input_tag($name, $default_value, $params)";
+     }
++    /* Many-to-many relations, if through-class is set, use it to populate drop-down <juneih@linpro.no> */  
++    else if ($params['through_class']) 
++    {
++      $array_options =  "_get_options_from_objects(sfPropelManyToMany::getAllObjects(new " .$this->getClassName(). ", '" .$params['through_class'] . "', NULL, 'doSelect'))";
++      $options = "options_for_select($array_options, $default_value , array('include_blank'=>true))";
++       
++      return "select_tag($name, $options);";
++    }    
+     else
+     {
+       $params = $this->getObjectTagParams($params, array('disabled' => true));

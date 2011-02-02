@@ -1,0 +1,95 @@
+image_list:
+  creator:               
+    - MAKERNOTE.OwnerName
+  description.creation:  # This becomes "Method of production" 
+    - IFD0.Software
+    - IFD0.Model
+  type:                   
+    - FILE.MimeType
+  format.width:
+    - COMPUTED.Width
+  format.height:          
+    - COMPUTED.Height
+  date.creation:
+    - EXIF.DateTimeOriginal
+    - IFD0.DateTime
+  format.size:            
+    - FILE.FileSize
+  format.aperture:
+    - COMPUTED.ApertureFNumber
+    - EXIF.FNumber
+  format.shutter:
+    - EXIF.ExposureTime
+  format.focalLength:
+    - EXIF.FocalLength
+  description.camera:
+    - IFD0.Model
+  description.software:
+    - IFD0.Software
+  
+
+audio_list:
+  creator:                
+    - tags.id3v2.artist.0
+    - tags.id3v1.artist.0
+    - tags.vorbiscomment.encoded-by.0
+    - tags.ape.artist.0
+  creator.publisher:
+    - tags.id3v2.publisher.0
+    - tags.id3v1.publisher.0
+    - tags.ape.publisher.0
+  creator.composer:
+    - tags.id3v2.composer.0
+    - tags.id3v1.composer.0
+    - tags.vorbiscomment.composer.0
+    - tags.ape.composer.0
+  title:                  
+    - tags.id3v2.title.0
+    - tags.id3v1.title.0
+    - tags.vorbiscomment.title.0
+    - tags.ape.title.0
+  description.abstract:
+    - tags.id3v2.comment.0
+    - tags.id3v1.comment.0
+    - tags.vorbiscomment.description.0
+    - tags.vorbiscomment.comment.0
+    - tags.ape.description.0
+  description.artist:
+    - tags.id3v2.artist.0
+    - tags.id3v1.artist.0
+    - tags.vorbiscomment.artist.0
+    - tags.ape.artist.0
+  description.album:
+    - tags.id3v2.album.0
+    - tags.id3v1.album.0
+    - tags.vorbiscomment.album.0
+    - tags.ape.album.0
+  description.genre:
+    - tags.id3v2.genre.0
+    - tags.id3v1.genre.0
+    - tags.vorbiscomment.genre.0
+    - tags.ape.genre.0
+  description.track:
+    - tags.id3v2.track.0
+    - tags.id3v1.track.0
+    - tags.vorbiscomment.tracknumber.0
+    - tags.ape.track.0
+  format.duration:
+    - playing_time
+  format.samplerate:
+    - sample_rate
+  format.bitratemode:
+    - bitrate_mode
+  format:
+    - format_name
+  date:
+    - tags.id3v2.year.0
+    - tags.id3v1.year.0
+    - tags.vorbiscomment.date.0
+    - tags.ape.yaer.0
+  license:
+    - tags.vorbiscomment.license.0
+    
+# Add new formats where applicable, the system will go down the list and stop when it finds a useable value
+# For example, in the case of description.creation, the Software value will be checked and if not found
+# Then the Model value will be checked.

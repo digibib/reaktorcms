@@ -1,0 +1,100 @@
+= sfModelTestPlugin plugin =
+
+[[PageOutline]]
+
+The `sfModelTestPlugin` is a symfony plugin for quickly creating unit tests that require database interaction. Was "sfModelTestPlugin."
+
+== Features ==
+
+ * Uses a separate test database
+ * Automatically reloads test data before each group of tests
+ * Easy to install and use
+ * Support for Propel 1.2, Propel 1.3, and Doctrine
+ 
+== Installation ==
+
+  * Uncompress the archive
+  
+    {{{  
+    #!sh
+      cd /path/to/your/symfony/project/plugins/
+      tar -xzf /path/to/sfModelTestPlugin-1.0.0.tgz
+    }}}
+
+  * Create a database for testing. To load the schema, just use your existing sql
+
+    {{{
+    #!sh
+      mysql -u username -p myApp_test < data/sql/lib.model.schema.sql
+    }}}
+
+  * Add the test database to databases.yml
+
+    {{{  
+    #!yml
+      all:
+        propel:
+          class:      sfPropelDatabase
+          param:
+            phptype:  mysql
+            host:     localhost
+            database: myApp
+            username: myUser
+            password: myPasswd
+      test:
+        propel:
+          class:      sfPropelDatabase
+          param:
+            phptype:  mysql
+            host:     localhost
+            database: myApp_test
+            username: myUser
+            password: myPasswd
+    }}}
+
+  * Create one or more YAML data files for testing, and put them in tests/fixtures (or wherever). These files are just like the test data files you might put in data/fixtures, except they will be reloaded into the test database at the beginning of every test method. (see "Usage")
+
+  * Create your unit tests! You will need to include the following two lines at the top of your unit tests, (replacing 'myApp' with, of course, the name of your app):
+
+    {{{  
+    #!php
+      define('SF_APP', 'myApp');
+      include(dirname(__FILE__).'/../../plugins/sfModelTestPlugin/bootstrap/model-unit.php');
+    }}}
+
+== Usage ==
+
+Unit tests that use this plugin are almost identical in form and function to those in Ruby on Rails. A unit test file will look like this:
+  {{{  
+  #!php
+    define('SF_APP', 'myApp');
+    include(dirname(__FILE__).'/../../plugins/sfModelTestPlugin/bootstrap/model-unit.php');
+
+    class myUnitTest extends sfPropelTest
+    {
+      public function test_user()
+      {
+        $user = new User();
+        $user->setFirstName('Joe');
+        $user->setLastName('Smith');
+        $user->setUsername('bobbyjoe');
+        $user->save();
+
+        $joe = UserPeer::getBy(UserPeer::USERNAME, 'bobbyjoe');
+        $this->ok($joe, 'Joe exists!');
+      }
+
+      public function test_dataDelete()
+      {
+        $joe = UserPeer::getBy(UserPeer::USERNAME, 'bobbyjoe');
+        $this->ok(!$joe, 'Joe no longer exists.');
+      }
+    }
+
+    $test = new myUnitTest('/path/to/data.yml');
+    $test->execute();
+  }}}
+
+Above, sfPropelTest extends an abstract class called sfModelTest, which itself extends lime_test. sfDoctrineTest and sfPropel13Test are also bundled with the plugin. Each unit test is a class that extends one of these. If you are familiar with Rails, the above should look familiar. If not, here is the quick summary:
+For every test case, you write a class; every class method that begins with "test_" gets called in turn; before each test method is called, the data is reloaded and the setup() method is called (if you defined one); after each test method is called, the teardown() method is called (if you defined one).
+All the test functions available from lime are methods of your class, so call them with $this. The argument to the constructor tells the test where to find the test data. It can be a file, a directory (all YAML files in the directory will be loaded) or nothing (all YAML files in "test/fixtures" will be loaded.)

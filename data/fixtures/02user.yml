@@ -1,0 +1,357 @@
+sfGuardUser: 
+  sfGuardUser_1: 
+    username: admin
+    password: admin
+    culture: 'no'
+    created_at: 2008-03-05 18:30:37
+    last_login: 2008-03-05 23:16:00
+    is_active: 1
+    is_verified: 1
+    is_super_admin: 1
+    show_content: 1
+    email: reaktor-test@linpro.no
+    email_private: 1
+    name: admin
+    name_private: 0
+    dob: 1980-01-01 00:00:00
+    sex: 2
+    description: Hest er best
+    residence_id: Residence_1
+    msn: reaktor@msn.no
+    icq: 54321
+    homepage: http://reaktor.lab.linpro.no
+  sfGuardUser_2: 
+    username: monkeyboy
+    password: monkeyboy
+    culture: 'no'
+    created_at: 2008-03-05 18:30:37
+    is_active: 1
+    is_verified: 1
+    is_super_admin: 0
+    show_content: 1
+    email: monkeyboy@linpro.no
+    email_private: 1
+    name: monkey johns son
+    name_private: 0
+    dob: 1990-12-24 00:00:00
+    sex: 1
+    description: >
+      Monkey is the name, coding is the game.
+      Now - choose your weapon!
+    residence_id: Residence_4
+    msn: monkeyboy@hotmail.com
+    icq: 55323
+    homepage: http://reaktor.lab.linpro.no
+    opt_in: 1
+  sfGuardUser_3: 
+    username: userboy
+    password: userboy
+    culture: 'no'
+    created_at: 2008-03-05 18:30:37
+    is_active: 1
+    is_verified: 1
+    is_super_admin: 0
+    show_content: 1
+    email: userboy@linpro.no
+    email_private: 1
+    name: User Boy
+    name_private: 0
+    dob: 2000-03-08 00:00:00
+    sex: 1
+    description: >
+      I am a normal user, no groups or
+      priveledges whatsoever <|:o(8
+    residence_id: Residence_6
+    msn: userboy@hotmail.com
+    icq: 123456
+    homepage: http://reaktor.lab.linpro.no
+    opt_in: 1
+  sfGuardUser_4: 
+    username: leo
+    password: leo
+    culture: 'no'
+    created_at: 2008-03-05 18:30:37
+    is_active: 1
+    is_verified: 1
+    is_super_admin: 0
+    show_content: 1
+    email: anne-lena.westrum@kie.oslo.kommune.no
+    email_private: 1
+    name: Anne-Lena Westrum
+    name_private: 0
+    dob: 1977-04-20 00:00:00
+    sex: 2
+    description: I'm the owner don't you know :)
+    residence_id: Residence_4
+    homepage: http://minreaktor.no
+    opt_in: 1
+  sfGuardUser_5:
+    username: Kerry
+    password: kerry
+    culture: 'no'
+    created_at: 2008-04-07 21:00:00
+    is_active: 1
+    is_verified: 1
+    show_content: 1
+    email: kerry@nowhere.com
+    email_private: 0
+    name: Kerry
+    name_private: 1
+    dob: 1979-07-02 21:00:00
+    sex: 2
+    description: Just Kerry
+    residence_id: Residence_2
+    homepage: http://kerry.com
+    opt_in: 1
+  sfGuardUser_6:
+    username: dave
+    password: dave
+    culture: 'no'
+    created_at: 2008-04-07 22:00:00
+    is_active: 1
+    is_verified: 1
+    show_content: 0
+    email: dave@nowhere.com
+    email_private: 1
+    name: Dave
+    name_private: 1
+    dob: 1979-07-02 22:00:00
+    sex: 2
+    description: Just Dave
+    residence_id: Residence_7
+    homepage: http://dave.com
+  sfGuardUser_7:
+    username: languageboy
+    password: languageboy
+    culture: 'no'
+    created_at: 2008-05-08 13:45:00
+    is_active: 1
+    is_verified: 1
+    show_content: 1
+    email: languageboy@nowhere.com
+    email_private: 1
+    name: Language boy
+    name_private: 1
+    dob: 1979-07-02 22:00:00
+    sex: 1
+    description: I am the LANGUAGE BOY!
+    residence_id: Residence_7
+    homepage: http://google.com/translate
+  sfGuardUser_8:
+    username: editorialboy1
+    password: editorialboy1
+    culture: 'no'
+    created_at: 2008-05-08 13:45:00
+    is_active: 1
+    is_verified: 1
+    show_content: 1
+    email: reaktor-editorialboy1@linpro.no
+    email_private: 1
+    name: Ed I. Torialboy
+    name_private: 1
+    dob: 1973-12-12 10:00:00
+    sex: 1
+    description: I am ED I. TORIALBOY!
+    residence_id: Residence_7
+    homepage: http://vg.no
+  sfGuardUser_9:
+    username: editorialboy2
+    password: editorialboy2
+    culture: 'no'
+    created_at: 2008-05-08 13:45:00
+    is_active: 1
+    is_verified: 1
+    show_content: 1
+    email: reaktor-editorialboy2@linpro.no
+    email_private: 1
+    name: Ed I. Torialboy II
+    name_private: 1
+    dob: 1973-12-12 10:00:00
+    sex: 1
+    description: I am ED I. TORIALBOY II!
+    residence_id: Residence_7
+    homepage: http://vg.no
+  sfGuardUser_10:
+    username: editorialboy3
+    password: editorialboy3
+    culture: 'no'
+    created_at: 2008-05-08 13:45:00
+    is_active: 1
+    is_verified: 1
+    show_content: 1
+    email: reaktor-editorialboy3@linpro.no
+    email_private: 1
+    name: Ed I. Torialboy III
+    name_private: 1
+    dob: 1973-12-12 10:00:00
+    sex: 1
+    description: I am ED I. TORIALBOY III!
+    residence_id: Residence_7
+    homepage: http://vg.no
+  sfGuardUser_11:
+    username: articleboy
+    password: articleboy
+    culture: 'no'
+    created_at: 2008-05-08 13:45:00
+    is_active: 1
+    is_verified: 1
+    show_content: 1
+    email: reaktor-articleboy@linpro.no
+    email_private: 1
+    name: Article Boy
+    name_private: 1
+    dob: 1973-12-12 10:00:00
+    sex: 1
+    description: I am Article Boy! Bow before me!
+    residence_id: Residence_5
+    homepage: http://dagbladet.no
+  sfGuardUser_12: 
+    username: veteran
+    algorithm: sha1
+    password: veteran
+    created_at: 2008-08-11 10:50:54
+    is_active: 1
+    is_super_admin: 0
+    is_verified: 1
+    show_content: 1
+    culture: en
+    email: veteran@linpro.no
+    email_private: 1
+    name_private: 0
+    dob: 1993-01-01
+    sex: 1
+    residence_id: Residence_19
+    opt_in: 0
+    editorial_notification: 0
+    show_login_status: 1
+    dob_is_derived: 1
+    need_profile_check: 1
+    
+UserInterest: 
+  UserInterest_1_4: 
+    user_id: sfGuardUser_2
+    subreaktor_id: Subreaktor_4
+  UserInterest_2_1: 
+    user_id: sfGuardUser_3
+    subreaktor_id: Subreaktor_1
+  UserInterest_2_2: 
+    user_id: sfGuardUser_3
+    subreaktor_id: Subreaktor_2
+  UserInterest_2_3: 
+    user_id: sfGuardUser_3
+    subreaktor_id: Subreaktor_3
+    
+
+sfGuardUserGroup: 
+  sfGuardUserGroup_1_1: 
+    user_id: sfGuardUser_1
+    group_id: sfGuardGroup_1
+  sfGuardUserGroup_1_3: 
+    user_id: sfGuardUser_1
+    group_id: sfGuardGroup_3
+  sfGuardUserGroup_1_4: 
+    user_id: sfGuardUser_1
+    group_id: sfGuardGroup_4
+  sfGuardUserGroup_1_5: 
+    user_id: sfGuardUser_1
+    group_id: sfGuardGroup_5
+  sfGuardUserGroup_1_6: 
+    user_id: sfGuardUser_1
+    group_id: sfGuardGroup_6
+  sfGuardUserGroup_1_7: 
+    user_id: sfGuardUser_1
+    group_id: sfGuardGroup_7
+  sfGuardUserGroup_1_8: 
+    user_id: sfGuardUser_1
+    group_id: sfGuardGroup_8
+  sfGuardUserGroup_1_9: 
+    user_id: sfGuardUser_1
+    group_id: sfGuardGroup_9
+  sfGuardUserGroup_1_10: 
+    user_id: sfGuardUser_1
+    group_id: sfGuardGroup_10
+  sfGuardUserGroup_1_11: 
+    user_id: sfGuardUser_1
+    group_id: sfGuardGroup_11
+  sfGuardUserGroup_2_2: 
+    user_id: sfGuardUser_2
+    group_id: sfGuardGroup_2
+  sfGuardUserGroup_3_2: 
+    user_id: sfGuardUser_3
+    group_id: sfGuardGroup_2
+  sfGuardUserGroup_4_2: 
+    user_id: sfGuardUser_4
+    group_id: sfGuardGroup_2
+  sfGuardUserGroup_5_2: 
+    user_id: sfGuardUser_5
+    group_id: sfGuardGroup_2
+  sfGuardUserGroup_6_2: 
+    user_id: sfGuardUser_6
+    group_id: sfGuardGroup_2
+  sfGuardUserGroup_7_2: 
+    user_id: sfGuardUser_7
+    group_id: sfGuardGroup_2
+  sfGuardUserGroup_7_4: 
+    user_id: sfGuardUser_7
+    group_id: sfGuardGroup_4
+  sfGuardUserGroup_8_2: 
+    user_id: sfGuardUser_8
+    group_id: sfGuardGroup_2
+  sfGuardUserGroup_8_3: 
+    user_id: sfGuardUser_8
+    group_id: sfGuardGroup_3
+  sfGuardUserGroup_8_5: 
+    user_id: sfGuardUser_8
+    group_id: sfGuardGroup_5
+  sfGuardUserGroup_8_6: 
+    user_id: sfGuardUser_8
+    group_id: sfGuardGroup_6
+  sfGuardUserGroup_8_7: 
+    user_id: sfGuardUser_8
+    group_id: sfGuardGroup_7
+  sfGuardUserGroup_9_3: 
+    user_id: sfGuardUser_9
+    group_id: sfGuardGroup_3
+  sfGuardUserGroup_9_8: 
+    user_id: sfGuardUser_9
+    group_id: sfGuardGroup_8
+  sfGuardUserGroup_10_3: 
+    user_id: sfGuardUser_10
+    group_id: sfGuardGroup_3
+  sfGuardUserGroup_10_11: 
+    user_id: sfGuardUser_10
+    group_id: sfGuardGroup_11
+  sfGuardUserGroup_11_3: 
+    user_id: sfGuardUser_11
+    group_id: sfGuardGroup_3
+  sfGuardUserGroup_11_11: 
+    user_id: sfGuardUser_11
+    group_id: sfGuardGroup_11
+  sfGuardUserGroup_12_2: 
+    user_id: sfGuardUser_12
+    group_id: sfGuardGroup_2
+UserResource:
+  Resource_1:
+    user_id: sfGuardUser_3
+    url: http://photoshop.com
+  Resource_2:
+    user_id: sfGuardUser_3
+    url: http://gimp.org
+  Resource_3:
+    user_id: sfGuardUser_3
+    url: http://vg.no
+  Resource_4:
+    user_id: sfGuardUser_3
+    url: http://facebook.com     
+  Resource_5:
+    user_id: sfGuardUser_1
+    url: http://photoshop.com
+  Resource_6:
+    user_id: sfGuardUser_4
+    url: http://gimp.org
+  Resource_7:
+    user_id: sfGuardUser_2
+    url: http://vg.no
+  Resource_8:
+    user_id: sfGuardUser_5
+    url: http://facebook.com  

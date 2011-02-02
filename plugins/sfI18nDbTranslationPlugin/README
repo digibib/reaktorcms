@@ -1,0 +1,38 @@
+= sfI18nDbTranslation plugin =
+
+== Overview ==
+
+This plugin provides an admin interface to update translations stored in a database
+
+== Installation ==
+
+To install sfI18nDbTranslation:
+
+{{{
+symfony plugin-install local|global http://bemused.org/symfony/sfI18nDbTranslation
+}}}
+
+Enable the plugin in apps/backend/config/settings.yml:
+
+{{{
+    enabled_modules:        [default, sfTransUnit, sfCatalogue]
+}}}
+
+== Usage ==
+
+Create an entry for each language in the catalogue table.  Edit the plugins/sfI18nDbTranslation/data/fixtures/fixtures.yml, then update the data using
+
+{{{
+symfony propel-load-data frontend  plugins/sfI18nDbTranslationPlugin/data/fixtures
+}}}
+
+== Known limitations/TODO ==
+   - 'Use comment for all translations' checkbox doesn't work
+   - html pages are ugly
+   - delete button doesn't delete all translations on trans_unit page (should it?)
+   - lots of other stuff probably
+
+== License ==
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.

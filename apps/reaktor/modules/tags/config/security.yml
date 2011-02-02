@@ -1,0 +1,7 @@
+listTags:
+  is_secure: on # This is an admin function
+  credentials: [[tagadministrator]]
+
+#All users should be able to view tags
+all:
+  is_secure: off

@@ -1,0 +1,11 @@
+all:
+  is_secure: on
+  credentials: [[staff]] #OR
+
+
+
+listPromotionalEmailRecipients:
+  is_secure: on
+  credentials: listoptinuseremails
+
+

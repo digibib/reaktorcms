@@ -1,0 +1,978 @@
+Tag: 
+  Tag_1: 
+    name: fred
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 4
+  Tag_2: 
+    name: bob
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 3
+  Tag_3: 
+    name: jim
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 3
+  Tag_4: 
+    name: elephant
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 8
+  Tag_5: 
+    name: sugar cube
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 10
+  Tag_6: 
+    name: monkeydust
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 10
+  Tag_7: 
+    name: zoidberg
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 8
+  Tag_8: 
+    name: gardening
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 9
+  Tag_9: 
+    name: japan
+    approved: 0
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 5
+  Tag_10: 
+    name: rest
+    approved: 0
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 4
+  Tag_11: 
+    name: subway
+    approved: 0
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 6
+  Tag_12: 
+    name: lady
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 4
+  Tag_13: 
+    name: php
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 3
+  Tag_14: 
+    name: cookbook
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 8
+  Tag_15: 
+    name: car
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 3
+  Tag_16: 
+    name: ford
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 4
+  Tag_17: 
+    name: focus
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 5
+  Tag_18: 
+    name: saudi arabia
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 12
+  Tag_19: 
+    name: bahrain
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 7
+  Tag_20: 
+    name: squash
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 6
+  Tag_21: 
+    name: boat
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 4
+  Tag_22: 
+    name: water
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 5
+  Tag_23: 
+    name: psalive
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 7
+  Tag_24: 
+    name: bird
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 4
+  Tag_25: 
+    name: wet
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 3
+  Tag_26: 
+    name: eden project
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 12
+  Tag_27: 
+    name: fingers
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 7
+  Tag_28: 
+    name: strange
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 7
+  Tag_29: 
+    name: count
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 5
+  Tag_30: 
+    name: text
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 4
+  Tag_31: 
+    name: filler
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 6
+  Tag_32: 
+    name: abigail
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 7
+  Tag_33: 
+    name: statue
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 6
+  Tag_34: 
+    name: frogner
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 7
+  Tag_35: 
+    name: dave
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 4
+  Tag_36: 
+    name: scuba diving
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 12
+  Tag_37: 
+    name: egypt
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 5
+  Tag_38: 
+    name: robin
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 5
+  Tag_39: 
+    name: space
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 5
+  Tag_40: 
+    name: sound
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 5
+  Tag_41: 
+    name: marianne
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 8
+  Tag_42: 
+    name: bus
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 3
+  Tag_43: 
+    name: latin
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 5
+  Tag_44: 
+    name: snow
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 4
+  Tag_45: 
+    name: ski
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 3
+  Tag_46: 
+    name: sam
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-01-01 01:01:00
+    width: 3
+  Tag_47: 
+    name: bollocks
+    approved: 0
+    width: 8
+  Tag_48: 
+    name: birds
+    approved: 0
+    width: 5
+  Tag_49: 
+    name: random crappy long tag
+    approved: 0
+    width: 22
+  Tag_50: 
+    name: monkey
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-04-07 21:52:30
+    width: 6
+  Tag_51: 
+    name: fluffy
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-04-07 21:52:38
+    width: 6
+  Tag_52: 
+    name: lake district
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-04-07 21:52:37
+    width: 13
+  Tag_53: 
+    name: lemur
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-04-07 21:53:10
+    width: 5
+  Tag_54: 
+    name: lakes
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-04-07 21:53:08
+    width: 5
+  Tag_55: 
+    name: wildlife
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-04-07 21:53:06
+    width: 8
+  Tag_56: 
+    name: animal
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-04-07 21:53:03
+    width: 6
+  Tag_57: 
+    name: fuckit
+    approved: 0
+    width: 6
+  Tag_58: 
+    name: bil
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-04-24 13:41:17
+    width: 3
+  Tag_59: 
+    name: bike
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-04-24 13:41:15
+    width: 4
+  Tag_60: 
+    name: filming
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-04-24 13:41:43
+    width: 7
+  Tag_61: 
+    name: camera
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-04-24 13:41:42
+    width: 6
+  Tag_62: 
+    name: crazy
+    approved: 0
+    width: 5
+  Tag_63: 
+    name: funny
+    approved: 0
+    approved_by: sfGuardUser_4
+    approved_at: 2008-04-25 16:24:54
+    width: 5
+  Tag_64: 
+    name: grass
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-04-25 16:27:23
+    width: 5
+  Tag_65: 
+    name: field
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-04-25 16:27:21
+    width: 5
+  Tag_66: 
+    name: camping
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-04-25 16:27:29
+    width: 7
+  Tag_67: 
+    name: russ
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-04-25 16:28:22
+    width: 4
+  Tag_68: 
+    name: red
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-04-25 16:29:23
+    width: 3
+  Tag_69: 
+    name: silly
+    approved: 0
+    approved_by: sfGuardUser_4
+    approved_at: 2008-04-25 16:29:52
+    width: 5
+  Tag_70: 
+    name: norefjell
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-04-25 16:30:17
+    width: 9
+  Tag_71: 
+    name: coach
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-04-25 16:30:15
+    width: 5
+  Tag_72: 
+    name: baby
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-04-25 16:30:52
+    width: 4
+  Tag_73: 
+    name: cute
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-04-25 16:30:50
+    width: 4
+  Tag_74: 
+    name: park
+    approved: 1
+    approved_by: sfGuardUser_4
+    approved_at: 2008-04-25 16:31:31
+    width: 4
+  Tag_75: 
+    name: magic
+    approved: 1
+    approved_by: sfGuardUser_2
+    approved_at: 2008-05-15 11:57:59
+  Tag_76: 
+    name: roundabout
+    approved: 1
+    approved_by: sfGuardUser_2
+    approved_at: 2008-05-15 11:58:01
+  Tag_77: 
+    name: swindon
+    approved: 1
+    approved_by: sfGuardUser_2
+    approved_at: 2008-05-15 11:58:02
+  Tag_78: 
+    name: driving
+    approved: 1
+    approved_by: sfGuardUser_2
+    approved_at: 2008-05-15 11:57:56
+  Tag_79: 
+    name: tourist
+    approved: 1
+    approved_by: sfGuardUser_2
+    approved_at: 2008-05-15 11:58:04
+  Tag_80: 
+    name: england
+    approved: 1
+    approved_by: sfGuardUser_2
+    approved_at: 2008-05-15 11:57:58
+
+Tagging: 
+  Tagging_1: 
+    tag_id: Tag_9
+    taggable_model: ReaktorFile
+    taggable_id: 1
+    parent_approved: 0
+    parent_user_id: sfGuardUser_3
+  Tagging_2: 
+    tag_id: Tag_11
+    taggable_model: ReaktorFile
+    taggable_id: 1
+    parent_approved: 0
+    parent_user_id: sfGuardUser_3
+  Tagging_3: 
+    tag_id: Tag_1
+    taggable_model: ReaktorFile
+    taggable_id: 1
+    parent_approved: 0
+    parent_user_id: sfGuardUser_3
+  Tagging_4: 
+    tag_id: Tag_15
+    taggable_model: ReaktorFile
+    taggable_id: 2
+    parent_approved: 1
+    parent_user_id: sfGuardUser_3
+  Tagging_5: 
+    tag_id: Tag_17
+    taggable_model: ReaktorFile
+    taggable_id: 2
+    parent_approved: 1
+    parent_user_id: sfGuardUser_3
+  Tagging_6: 
+    tag_id: Tag_58
+    taggable_model: ReaktorFile
+    taggable_id: 2
+    parent_approved: 1
+    parent_user_id: sfGuardUser_3
+  Tagging_7: 
+    tag_id: Tag_59
+    taggable_model: ReaktorFile
+    taggable_id: 2
+    parent_approved: 1
+    parent_user_id: sfGuardUser_3
+  Tagging_8: 
+    tag_id: Tag_52
+    taggable_model: ReaktorFile
+    taggable_id: 2
+    parent_approved: 1
+    parent_user_id: sfGuardUser_3
+  Tagging_9: 
+    tag_id: Tag_54
+    taggable_model: ReaktorFile
+    taggable_id: 2
+    parent_approved: 1
+    parent_user_id: sfGuardUser_3
+  Tagging_10: 
+    tag_id: Tag_60
+    taggable_model: ReaktorFile
+    taggable_id: 3
+    parent_approved: 1
+    parent_user_id: sfGuardUser_3
+  Tagging_11: 
+    tag_id: Tag_18
+    taggable_model: ReaktorFile
+    taggable_id: 3
+    parent_approved: 1
+    parent_user_id: sfGuardUser_3
+  Tagging_12: 
+    tag_id: Tag_61
+    taggable_model: ReaktorFile
+    taggable_id: 3
+    parent_approved: 1
+    parent_user_id: sfGuardUser_3
+  Tagging_13: 
+    tag_id: Tag_21
+    taggable_model: ReaktorFile
+    taggable_id: 3
+    parent_approved: 1
+    parent_user_id: sfGuardUser_3
+  Tagging_14: 
+    tag_id: Tag_24
+    taggable_model: ReaktorFile
+    taggable_id: 4
+    parent_approved: 1
+    parent_user_id: sfGuardUser_3
+  Tagging_15: 
+    tag_id: Tag_51
+    taggable_model: ReaktorFile
+    taggable_id: 4
+    parent_approved: 1
+    parent_user_id: sfGuardUser_3
+  Tagging_16: 
+    tag_id: Tag_26
+    taggable_model: ReaktorFile
+    taggable_id: 4
+    parent_approved: 1
+    parent_user_id: sfGuardUser_3
+  Tagging_17: 
+    tag_id: Tag_38
+    taggable_model: ReaktorFile
+    taggable_id: 4
+    parent_approved: 1
+    parent_user_id: sfGuardUser_3
+  Tagging_18: 
+    tag_id: Tag_27
+    taggable_model: ReaktorFile
+    taggable_id: 5
+    parent_approved: 1
+    parent_user_id: sfGuardUser_2
+  Tagging_19: 
+    tag_id: Tag_62
+    taggable_model: ReaktorFile
+    taggable_id: 5
+    parent_approved: 0
+    parent_user_id: sfGuardUser_2
+  Tagging_20: 
+    tag_id: Tag_41
+    taggable_model: ReaktorFile
+    taggable_id: 6
+    parent_approved: 0
+    parent_user_id: sfGuardUser_2
+  Tagging_21: 
+    tag_id: Tag_44
+    taggable_model: ReaktorFile
+    taggable_id: 6
+    parent_approved: 0
+    parent_user_id: sfGuardUser_2
+  Tagging_22: 
+    tag_id: Tag_44
+    taggable_model: ReaktorFile
+    taggable_id: 7
+    parent_approved: 0
+    parent_user_id: sfGuardUser_2
+  Tagging_23: 
+    tag_id: Tag_46
+    taggable_model: ReaktorFile
+    taggable_id: 7
+    parent_approved: 0
+    parent_user_id: sfGuardUser_2
+  Tagging_24: 
+    tag_id: Tag_41
+    taggable_model: ReaktorFile
+    taggable_id: 7
+    parent_approved: 0
+    parent_user_id: sfGuardUser_2
+  Tagging_25: 
+    tag_id: Tag_45
+    taggable_model: ReaktorFile
+    taggable_id: 7
+    parent_approved: 0
+    parent_user_id: sfGuardUser_2
+  Tagging_26: 
+    tag_id: Tag_32
+    taggable_model: ReaktorFile
+    taggable_id: 8
+    parent_approved: 1
+    parent_user_id: sfGuardUser_3
+  Tagging_27: 
+    tag_id: Tag_34
+    taggable_model: ReaktorFile
+    taggable_id: 8
+    parent_approved: 1
+    parent_user_id: sfGuardUser_3
+  Tagging_28: 
+    tag_id: Tag_33
+    taggable_model: ReaktorFile
+    taggable_id: 8
+    parent_approved: 1
+    parent_user_id: sfGuardUser_3
+  Tagging_29: 
+    tag_id: Tag_50
+    taggable_model: ReaktorFile
+    taggable_id: 9
+    parent_approved: 0
+    parent_user_id: sfGuardUser_5
+  Tagging_30: 
+    tag_id: Tag_54
+    taggable_model: ReaktorFile
+    taggable_id: 9
+    parent_approved: 0
+    parent_user_id: sfGuardUser_5
+  Tagging_31: 
+    tag_id: Tag_52
+    taggable_model: ReaktorFile
+    taggable_id: 9
+    parent_approved: 0
+    parent_user_id: sfGuardUser_5
+  Tagging_32: 
+    tag_id: Tag_55
+    taggable_model: ReaktorFile
+    taggable_id: 9
+    parent_approved: 0
+    parent_user_id: sfGuardUser_5
+  Tagging_33: 
+    tag_id: Tag_53
+    taggable_model: ReaktorFile
+    taggable_id: 10
+    parent_approved: 1
+    parent_user_id: sfGuardUser_5
+  Tagging_34: 
+    tag_id: Tag_50
+    taggable_model: ReaktorFile
+    taggable_id: 10
+    parent_approved: 1
+    parent_user_id: sfGuardUser_5
+  Tagging_35: 
+    tag_id: Tag_54
+    taggable_model: ReaktorFile
+    taggable_id: 10
+    parent_approved: 1
+    parent_user_id: sfGuardUser_5
+  Tagging_36: 
+    tag_id: Tag_55
+    taggable_model: ReaktorFile
+    taggable_id: 10
+    parent_approved: 1
+    parent_user_id: sfGuardUser_5
+  Tagging_37: 
+    tag_id: Tag_63
+    taggable_model: ReaktorFile
+    taggable_id: 1
+    parent_approved: 0
+    parent_user_id: sfGuardUser_3
+  Tagging_38: 
+    tag_id: Tag_64
+    taggable_model: ReaktorFile
+    taggable_id: 2
+    parent_approved: 1
+    parent_user_id: sfGuardUser_3
+  Tagging_39: 
+    tag_id: Tag_65
+    taggable_model: ReaktorFile
+    taggable_id: 2
+    parent_approved: 1
+    parent_user_id: sfGuardUser_3
+  Tagging_40: 
+    tag_id: Tag_66
+    taggable_model: ReaktorFile
+    taggable_id: 2
+    parent_approved: 1
+    parent_user_id: sfGuardUser_3
+  Tagging_41: 
+    tag_id: Tag_67
+    taggable_model: ReaktorFile
+    taggable_id: 3
+    parent_approved: 1
+    parent_user_id: sfGuardUser_3
+  Tagging_42: 
+    tag_id: Tag_67
+    taggable_model: ReaktorFile
+    taggable_id: 2
+    parent_approved: 1
+    parent_user_id: sfGuardUser_3
+  Tagging_43: 
+    tag_id: Tag_22
+    taggable_model: ReaktorFile
+    taggable_id: 3
+    parent_approved: 1
+    parent_user_id: sfGuardUser_3
+  Tagging_44: 
+    tag_id: Tag_64
+    taggable_model: ReaktorFile
+    taggable_id: 4
+    parent_approved: 1
+    parent_user_id: sfGuardUser_3
+  Tagging_45: 
+    tag_id: Tag_8
+    taggable_model: ReaktorFile
+    taggable_id: 4
+    parent_approved: 1
+    parent_user_id: sfGuardUser_3
+  Tagging_46: 
+    tag_id: Tag_66
+    taggable_model: ReaktorFile
+    taggable_id: 4
+    parent_approved: 1
+    parent_user_id: sfGuardUser_3
+  Tagging_47: 
+    tag_id: Tag_61
+    taggable_model: ReaktorFile
+    taggable_id: 4
+    parent_approved: 1
+    parent_user_id: sfGuardUser_3
+  Tagging_48: 
+    tag_id: Tag_68
+    taggable_model: ReaktorFile
+    taggable_id: 4
+    parent_approved: 1
+    parent_user_id: sfGuardUser_3
+  Tagging_49: 
+    tag_id: Tag_9
+    taggable_model: ReaktorFile
+    taggable_id: 5
+    parent_approved: 0
+    parent_user_id: sfGuardUser_2
+  Tagging_50: 
+    tag_id: Tag_11
+    taggable_model: ReaktorFile
+    taggable_id: 5
+    parent_approved: 0
+    parent_user_id: sfGuardUser_2
+  Tagging_51: 
+    tag_id: Tag_10
+    taggable_model: ReaktorFile
+    taggable_id: 5
+    parent_approved: 0
+    parent_user_id: sfGuardUser_2
+  Tagging_52: 
+    tag_id: Tag_69
+    taggable_model: ReaktorFile
+    taggable_id: 5
+    parent_approved: 0
+    parent_user_id: sfGuardUser_2
+  Tagging_53: 
+    tag_id: Tag_63
+    taggable_model: ReaktorFile
+    taggable_id: 5
+    parent_approved: 0
+    parent_user_id: sfGuardUser_2
+  Tagging_54: 
+    tag_id: Tag_70
+    taggable_model: ReaktorFile
+    taggable_id: 6
+    parent_approved: 0
+    parent_user_id: sfGuardUser_2
+  Tagging_55: 
+    tag_id: Tag_45
+    taggable_model: ReaktorFile
+    taggable_id: 6
+    parent_approved: 0
+    parent_user_id: sfGuardUser_2
+  Tagging_56: 
+    tag_id: Tag_71
+    taggable_model: ReaktorFile
+    taggable_id: 6
+    parent_approved: 0
+    parent_user_id: sfGuardUser_2
+  Tagging_57: 
+    tag_id: Tag_42
+    taggable_model: ReaktorFile
+    taggable_id: 6
+    parent_approved: 0
+    parent_user_id: sfGuardUser_2
+  Tagging_58: 
+    tag_id: Tag_70
+    taggable_model: ReaktorFile
+    taggable_id: 7
+    parent_approved: 0
+    parent_user_id: sfGuardUser_2
+  Tagging_59: 
+    tag_id: Tag_72
+    taggable_model: ReaktorFile
+    taggable_id: 8
+    parent_approved: 1
+    parent_user_id: sfGuardUser_3
+  Tagging_60: 
+    tag_id: Tag_73
+    taggable_model: ReaktorFile
+    taggable_id: 8
+    parent_approved: 1
+    parent_user_id: sfGuardUser_3
+  Tagging_61: 
+    tag_id: Tag_64
+    taggable_model: ReaktorFile
+    taggable_id: 9
+    parent_approved: 0
+    parent_user_id: sfGuardUser_5
+  Tagging_62: 
+    tag_id: Tag_56
+    taggable_model: ReaktorFile
+    taggable_id: 9
+    parent_approved: 0
+    parent_user_id: sfGuardUser_5
+  Tagging_63: 
+    tag_id: Tag_63
+    taggable_model: ReaktorFile
+    taggable_id: 9
+    parent_approved: 0
+    parent_user_id: sfGuardUser_5
+  Tagging_64: 
+    tag_id: Tag_73
+    taggable_model: ReaktorFile
+    taggable_id: 9
+    parent_approved: 0
+    parent_user_id: sfGuardUser_5
+  Tagging_65: 
+    tag_id: Tag_69
+    taggable_model: ReaktorFile
+    taggable_id: 9
+    parent_approved: 0
+    parent_user_id: sfGuardUser_5
+  Tagging_66: 
+    tag_id: Tag_74
+    taggable_model: ReaktorFile
+    taggable_id: 10
+    parent_approved: 1
+    parent_user_id: sfGuardUser_5
+  Tagging_67: 
+    tag_id: Tag_51
+    taggable_model: ReaktorFile
+    taggable_id: 10
+    parent_approved: 1
+    parent_user_id: sfGuardUser_5
+  Tagging_68: 
+    tag_id: Tag_73
+    taggable_model: ReaktorFile
+    taggable_id: 10
+    parent_approved: 1
+    parent_user_id: sfGuardUser_5
+  Tagging_69: 
+    tag_id: Tag_74
+    taggable_model: ReaktorFile
+    taggable_id: 11
+    parent_approved: 1
+    parent_user_id: sfGuardUser_6
+  Tagging_70: 
+    tag_id: Tag_62
+    taggable_model: ReaktorFile
+    taggable_id: 11
+    parent_approved: 1
+    parent_user_id: sfGuardUser_6
+  Tagging_71: 
+    tag_id: Tag_1
+    taggable_model: ReaktorFile
+    taggable_id: 11
+    parent_approved: 1
+    parent_user_id: sfGuardUser_6
+  Tagging_72: 
+    tag_id: Tag_75
+    taggable_model: ReaktorFile
+    taggable_id: 12
+    parent_approved: 1
+    parent_user_id: sfGuardUser_6
+  Tagging_73: 
+    tag_id: Tag_76
+    taggable_model: ReaktorFile
+    taggable_id: 12
+    parent_approved: 1
+    parent_user_id: sfGuardUser_6
+  Tagging_74: 
+    tag_id: Tag_77
+    taggable_model: ReaktorFile
+    taggable_id: 12
+    parent_approved: 1
+    parent_user_id: sfGuardUser_6
+  Tagging_75: 
+    tag_id: Tag_78
+    taggable_model: ReaktorFile
+    taggable_id: 12
+    parent_approved: 1
+    parent_user_id: sfGuardUser_6
+  Tagging_76: 
+    tag_id: Tag_79
+    taggable_model: ReaktorFile
+    taggable_id: 12
+    parent_approved: 1
+    parent_user_id: sfGuardUser_6
+  Tagging_77: 
+    tag_id: Tag_80
+    taggable_model: ReaktorFile
+    taggable_id: 12
+    parent_approved: 1
+    parent_user_id: sfGuardUser_6
+  Tagging_78: 
+    tag_id: Tag_43
+    taggable_model: Article
+    taggable_id: 1
+    parent_approved: 1
+    parent_user_id: sfGuardUser_4
+  Tagging_79: 
+    tag_id: Tag_1
+    taggable_model: Article
+    taggable_id: 1
+    parent_approved: 1
+    parent_user_id: sfGuardUser_4
+  Tagging_80: 
+    tag_id: Tag_43
+    taggable_model: Article
+    taggable_id: 2
+    parent_approved: 1
+    parent_user_id: sfGuardUser_4
+  Tagging_81: 
+    tag_id: Tag_34
+    taggable_model: Article
+    taggable_id: 2
+    parent_approved: 1
+    parent_user_id: sfGuardUser_4
+  Tagging_82: 
+    tag_id: Tag_31
+    taggable_model: Article
+    taggable_id: 2
+    parent_approved: 1
+    parent_user_id: sfGuardUser_4
+  Tagging_83: 
+    tag_id: Tag_31
+    taggable_model: Article
+    taggable_id: 1
+    parent_approved: 1
+    parent_user_id: sfGuardUser_4
+  Tagging_84: 
+    tag_id: Tag_70
+    taggable_model: ReaktorFile
+    taggable_id: 13
+    parent_approved: 1
+    parent_user_id: sfGuardUser_2
+  Tagging_85: 
+    tag_id: Tag_12
+    taggable_model: ReaktorFile
+    taggable_id: 13
+    parent_approved: 1
+    parent_user_id: sfGuardUser_2
+    

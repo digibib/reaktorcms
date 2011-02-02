@@ -1,0 +1,8 @@
+fillin:
+  enabled: true
+  
+fields:
+  relate_article_select:
+    required:
+      msg: Please choose article to relate
+       

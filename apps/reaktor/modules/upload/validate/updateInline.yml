@@ -1,0 +1,16 @@
+fields:
+  newimage:
+    methods:         post
+    required:
+      msg:           Select a file
+    file:            true
+    sfFileValidator: 
+      mime_types:
+        - 'image/jpeg'
+        - 'image/pjpeg'
+        - 'image/png'
+        - 'image/x-png'
+        - 'image/gif'
+      mime_types_error: Invalid image
+      max_size:         100000000
+      max_size_error:   File too big 

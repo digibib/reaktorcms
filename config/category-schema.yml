@@ -1,0 +1,21 @@
+propel:
+  _attributes:      { package: lib.model }
+  
+  category:
+    id:
+    basename:       { type: varchar, size: 75, required: true }
+  
+  category_i18n:
+    name:           { type: varchar, size: 75, required: true }
+    
+  category_artwork:
+    id:
+    category_id:    { type: integer, foreignTable: category, foreignReference: id, required: true; }
+    artwork_id:     { type: integer, foreignTable: reaktor_artwork, foreignReference: id, required: true; }
+    added_by:       { type: integer, foreignTable: sf_guard_user, foreignReference: id, required: true; }
+    created_at:     { type: timestamp, required: true; }
+    
+  category_subreaktor:
+    id:
+    category_id:    { type: integer, foreignTable: category, foreignReference: id, required: true; }
+    subreaktor_id:  { type: integer, foreignTable: subreaktor, foreignReference: id, required: true; }

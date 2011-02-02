@@ -1,0 +1,56 @@
+generator:
+  class:              sfPropelAdminGenerator
+  param:
+    model_class:      sfGuardGroup
+    theme:            default
+
+    list:
+      title:          Group list
+      display:        [id, =name, description, is_editorial_team, is_enabled ]
+      filters:        [ is_editorial_team, is_enabled ]
+      fields:
+        is_editorial_team:
+          name:       Editorial team
+        is_enabled:
+          name:       Enabled
+      object_actions:
+        _edit:        { action: ~, credentials: editgroup }
+        _delete:      { action: ~, credentials: deletegroup }
+      actions:
+        _create:      { name: Create new group, action: ~, credentials: editgroup }
+
+    edit:
+      title:           Edit "%%name%%" group
+      fields:
+        name:
+          params:      size=20
+          name:        Group name
+        description:
+          name:        Group description
+        is_enabled:
+          name:        Is enabled
+        is_editorial_team:
+          name:        Is an editorial team
+        permissions_help:
+          name:        "Information"
+          help:        "Below is a list of permissions that you can give to users in this user group/editorial team. Check each permission you want to apply to this group, then save your changes.<br /><br />All users in this user group/editorial team will then automatically inherit the permissions you select below."
+        permissions:
+          type:        admin_check_list
+          name:        Available permissions
+          params:      through_class=sfGuardGroupPermission
+        members_help:
+          name:        "Information"
+          help:        "The list to the right contains all the members in this group/team, and the one to the left contains the rest.<br /><br />Select one or more users (hold down the CTRL-key to select multiple users), then use the blue arrows between the boxes to move users in or out of the group/team. Remember to save your changes when you're done."
+        members:
+          type:        admin_double_list
+          name:        Members
+          params:      through_class=sfGuardUserGroup
+      actions:
+        _save:         { name: Save, action: ~, credentials: editgroup }
+        _list:         { name: Cancel, action: ~, credentials: listgroup  }
+        _delete:       { name: Delete group, action: ~, credentials: deletegroup  }
+      display:
+        "Information":               [ name, description ]
+        "Editorial team settings":   [ is_enabled, is_editorial_team ]
+        "Group/team permissions":    [ _permissions_help, permissions ]
+        "Members":                   [ _members_help, members ]

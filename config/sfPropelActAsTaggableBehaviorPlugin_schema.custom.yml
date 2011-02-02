@@ -1,0 +1,15 @@
+<?php if(!@is_callable(array('sfPropelDatabaseSchema', 'convertOldToNewYaml'))) throw new Exception('You must install the sfPropelAlternativeSchemaPlugin to use this schema, since it extends an existing plugin schema') ?>
+propel:
+  _attributes:    { package: plugins.sfPropelActAsTaggableBehaviorPlugin.lib.model }
+
+  tag:
+    _attributes:      { phpName: Tag, package: plugins.sfPropelActAsTaggableBehaviorPlugin.lib.model }
+    approved:         { type: tinyint, required: true, default: 0 }
+    approved_by:      { type: integer, foreignTable: sf_guard_user, required: false, foreignReference: id }
+    approved_at:      { type: timestamp, required: false }
+    width:            { type: integer, required: false }
+  
+  tagging:
+    parent_approved:  { type: tinyint, required: true, default: 0 }
+    tag_id:           { foreignTable: tag, foreignReference: id, required: true, type: integer }
+    parent_user_id:   { foreignTable: sf_guard_user, foreignReference: id, required: true, type: integer }

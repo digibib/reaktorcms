@@ -1,0 +1,7 @@
+#/bin/sh
+
+if [ ! -d "/var/www/webalizer/`date +%Y`" ] 
+then
+mkdir /var/www/webalizer/`date +%Y`
+fi
+webalizer -p -o /var/www/webalizer/`date +%Y`

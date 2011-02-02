@@ -1,0 +1,25 @@
+all:
+  sfPropelActAsCommentableBehaviorPlugin:
+    anonymous:
+      enabled:        true
+      layout:
+        name:         required
+        email:        required
+        title:        optional
+        comment:      required
+      name:           Anonymous User
+    user:
+      enabled:        true
+      layout:
+        title:        optional
+        comment:      required
+      table:          sf_guard_user
+      id:             id
+      class:          sfGuardUser
+      id_method:      getId
+      toString:       __toString
+      save_name:      false
+    namespaces:
+      frontend:       -
+      backend:        administrator
+    use_ajax:         true

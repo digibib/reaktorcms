@@ -1,0 +1,22 @@
+Index: app.yml
+===================================================================
+--- app.yml	(revision 2632)
++++ app.yml	(working copy)
+@@ -35,7 +35,7 @@
+   
+   sf_google_analytics_plugin:
+     enabled:      on
+-    profile_id:   UA-4885488-1
++    profile_id:   UA-5811483-1
+     tracker:      google
+ 
+   recaptcha:
+@@ -47,7 +47,7 @@
+     opt_in_email_blocks:  20 #set this to 0 to not use any blocks
+     pma_readonly_user:    pma_user   #PHPMyAdmin user
+     pma_password:         R3ak+0rpmA
+-    ga_tracker_number:    UA-4885488-1 #The google analytics tracker number - currently reaktor.lab.linpro.no
++    ga_tracker_number:    UA-5811483-1 #The google analytics tracker number - currently reaktor.lab.linpro.no
+ 
+ ### Remember if you change anything in this file you need to clear the cache! ###
+     

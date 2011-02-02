@@ -1,0 +1,11 @@
+delete:
+  credentials:  deletegroup
+
+list:
+  credentials:  listgroup  
+  
+edit:
+  credentials:  editgroup
+
+all:
+  credentials:  listgroup

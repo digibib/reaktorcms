@@ -1,0 +1,127 @@
+
+<head>
+
+	<title>Scrollable HTML playlist</title>
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+	<link rel="stylesheet" type="text/css" href="css/scrollable-playlist.css"/>
+	
+	<script src="js/jquery.pack.js"></script>
+	<script src="js/jquery.mousewheel.js"></script>
+	<script src="js/jquery.scrollable.min.js"></script>
+	
+	<script src="js/flashembed.min.js"></script>	
+	<script src="js/flow.playlist.js"></script>
+	
+	
+	<script type="text/javascript"> 
+	 
+		$(document).ready(function() {
+				
+			// setup playlist
+			$("div.items").playlist("../FlowPlayerDark.swf", {initialScale:'scale'}, {loop:true});
+
+			// setup scrolling				
+			$("div.playlist").scrollable({size:3});		
+		}); 
+		
+	</script>
+	
+</head>
+
+<div id="page">
+
+	<h1>Scrollable <em>HTML playlist</em></h1>
+
+	<p>
+		Following playlist is implemented with <a href="http://www.flowplayer.org/tools/flow-playlist.html">flow.playlist</a> and <a href="http://www.flowplayer.org/tools/scrollable.html">jquery.scrollable</a>.
+	</p>	 
+	
+	
+	<!-- player -->
+	<a id="player">
+		<img src="img/3m.jpg" />
+		<div class="play"></div>
+	</a>
+	
+	
+	<!-- the playlist --> 
+	<div class="playlist">
+	
+		<div class="items">
+
+			
+			<a href="http://blip.tv/file/get/KimAronson-TwentySeconds59483.flv">
+				<p>Palm trees, building and the sun</p>		
+				<p class="time">0:20 min</p>
+			</a>
+
+			<a href="http://blip.tv/file/get/KimAronson-TwentySeconds58192.flv">
+				<p>"Happy feet" in front of car window</p>		
+				<p class="time">0:21 min</p>
+			</a>
+			
+			<a href="http://blip.tv/file/get/KimAronson-TwentySeconds63617.flv">
+				<p>Lake merritt in Oakland</p>		
+				<p class="time">0:21 min</p>
+			</a>
+		
+			<a href="http://blip.tv/file/get/KimAronson-TwentySeconds64268.flv">
+				<p>Hotel room 215 in San Francisco</p>		
+				<p class="time">0:22 min</p>
+			</a>  
+			
+			<a href="http://blip.tv/file/get/KimAronson-TwentySeconds67463.flv">
+				<p>Yom Kippur in Berkeley</p>		
+				<p class="time">0:21 min</p>
+			</a>			
+			
+			<a href="http://blip.tv/file/get/KimAronson-TwentySeconds65459.flv">
+				<p>Driwing Golden gate bridge</p>		
+				<p class="time">0:21 min</p>
+			</a>			
+			
+			<a href="http://blip.tv/file/get/KimAronson-TwentySeconds70930.flv">
+				<p>Eating Sushi</p>		
+				<p class="time">0:21 min</p>
+			</a>			
+			
+			<a href="http://blip.tv/file/get/KimAronson-TwentySeconds72119.flv">
+				<p>Big spider web</p>		
+				<p class="time">0:23 min</p>
+			</a>			
+			
+			<a href="http://blip.tv/file/get/KimAronson-TwentySeconds71844.flv">
+				<p>Random Miniature Characters</p>		
+				<p class="time">0:21 min</p>
+			</a>			
+			
+			<a href="http://blip.tv/file/get/KimAronson-TwentySeconds73213.flv">
+				<p>Things on the table</p>		
+				<p class="time">0:21 min</p>
+			</a>			
+			
+			<a href="http://blip.tv/file/get/KimAronson-TwentySeconds75235.flv">
+				<p>Two little girls hand in hand</p>		
+				<p class="time">0:21 min</p>
+			</a>			   
+			
+		</div>
+		
+		<div class="navi"></div>
+		
+	</div>
+
+	<!-- clear previous floatings -->	
+	<br clear="all" />
+	<br />
+	
+	<p class="less">
+		Try scrolling with mousewheel and arrow keys. Notice that play/pause buttons are "in sync" between player and playlist. Spacebar toggles the play/pause state. 
+	</p>
+	
+	<p>
+		<button onClick="location.href='index.html'">&laquo; back to examples</button>
+	</p>
+	
+</div>
+

@@ -1,0 +1,7 @@
+fillin:
+  enabled: true
+
+fields:
+  recommend_in_subreaktor:
+    required: 
+      msg: Please choose the subReaktor you want this artwork to be recommended in

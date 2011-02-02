@@ -1,0 +1,7 @@
+<?php if(!@is_callable(array('sfPropelDatabaseSchema', 'convertOldToNewYaml'))) throw new Exception('You must install the sfPropelAlternativeSchemaPlugin to use this schema, since it extends an existing plugin schema') ?>
+propel:
+  _attributes:        { package: plugins.sfPropelActAsRatableBehaviorPlugin.lib.model }
+
+  sf_ratings:
+    _attributes:      { phpName: sfRating, package: plugins.sfPropelActAsRatableBehaviorPlugin.lib.model }
+    rated_at:         { type: timestamp, required: true }  

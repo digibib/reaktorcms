@@ -1,0 +1,86 @@
+
+<!-- 
+	A minimal setup to get you started. This configuration is the same
+	as in Quick Start documentation:
+	
+	http://flowplayer.org/player/quick-start.html
+-->
+
+<head>  
+	<!-- 
+		include flashembed - which is a general purpose tool for 
+		inserting Flash on your page. Following line is required.
+	-->
+	<script type="text/javascript" src="flashembed.min.js"></script> 
+
+	<!-- some minimal styling, can be removed -->
+	<style>
+		body {
+			background-color:#333;
+			padding-top:100px;		
+			text-align:center;
+			font-family:"trebuchet ms", verdana, "bitstream vera sans";
+			color:#fff;
+		}
+	</style>
+	
+</head>
+
+
+<h2>Simple flowplayer example</h2>
+
+
+<script>
+/*
+ * window.onload event occurs after all HTML elements have been loaded
+ * this is a good place to setup your Flash elements
+ */
+window.onload = function() {  
+   
+    /*
+      use flashembed to place flowplayer into HTML element 
+      whose id is "example" (below this script tag)
+    */
+    flashembed("example", 
+   
+		/* 
+			first argument supplies standard Flash parameters. See full list:
+			http://kb.adobe.com/selfservice/viewContent.do?externalId=tn_12701
+		*/
+      {
+         src:'../FlowPlayerDark.swf',
+			width: 468, 
+			height: 350
+      },
+		
+      /*
+			second argument is Flowplayer specific configuration. See full list:
+			http://flowplayer.org/player/configuration.html
+		*/
+      {config: {   
+			videoFile: 'http://community.flowplayer.org/video/honda_commercial.flv'
+      }} 
+   );
+}
+</script>
+
+<!-- this DIV is where your Flowplayer will be placed. it can be anywhere -->
+<div id="example"></div>
+
+
+<!-- help text -->
+<p>
+	
+	If you are running this example locally and cannot see any video running <br />
+	then  you need to edit your 
+	<a style="color:yellow"
+		href="http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager04.html">
+		Flash security settings
+	</a>.
+	
+</p>
+
+<p style="color:#999;font-size:12px">
+	Select "Edit locations" &gt; "Add location" &gt; "Browse for files" and select
+	FlowPlayerDark.swf you just downloaded.
+</p>

@@ -1,0 +1,13 @@
+#! /bin/bash
+
+mysqladmin -uroot -f drop reaktor
+mysqladmin -uroot create reaktor
+symfony clear-cache
+symfony propel-build-model
+symfony propel-build-sql  
+symfony propel-insert-sql
+symfony propel-load-data reaktor
+
+mysqladmin -uroot -f drop reaktor_test
+mysqladmin -uroot create reaktor_test
+cat data/sql/*.sql | mysql -u root reaktor_test

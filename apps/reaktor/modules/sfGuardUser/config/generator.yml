@@ -1,0 +1,100 @@
+generator:
+  class:              sfPropelAdminGenerator
+  param:
+    model_class:      sfGuardUser
+    theme:            default
+
+    list:
+      title:          List of users
+      display:        [ =username, created_at, last_login, is_active, is_verified, show_content ]
+      fields:
+        is_active:    { name: Activated }
+        is_verified:  { name: Verified }
+        show_content: { name: Shows content }   
+        groups:       
+          type: admin_check_list 
+          params: through_class=sfGuardUserGroup     
+      filters:        [ username, email, name, is_active, is_verified, show_content, groups]
+      object_actions:
+        _edit:        { action: ~, credentials: edituser }
+        viewcomments: { name: View user comments, action: listComments, icon: user_comment.png }    
+        showprofile:  { name: Show user portfolio, action: showPortfolio, icon: icon_profile.png }
+        showcontent:  { name: Manage user content, action: showUserContent, icon: page_find.png }
+      actions:
+        _create:      { name: Create a new user, action: ~, credentials: edituser }
+      max_per_page:   20
+
+    edit:
+      title:           'Edit %%username%% user'
+      actions:
+        _save:         { name: Save, action: ~, credentials: edituser }
+        _list:         { name: Cancel, action: ~, credentials: listuser  }
+        _delete:       
+          name:         Delete user
+          action:       ~
+          credentials: deleteuser
+          params:      confirm=Er du sikker på at du vil slette denne brukeren? 
+      fields:
+        password:
+        password_bis:  { name: Repeat password }
+        email:         { name: Email address, params: size=30 }
+        name:          { name: Full name, params: size=30 }
+        dob:           { name: Date of birth }
+        username:
+          name:        Username
+          params:      size=20
+        interests:
+          name:        Interests
+          type:        admin_check_list
+          params:      through_class=UserInterest
+        is_active:
+          credentials: editprofile
+          name:        Activated
+        show_content:
+          name:        Show this users content
+        email_private:
+          name:        Hide email
+        name_private:
+          name:        Hide full name
+        is_verified:
+          name:        Verified
+        #residence_id:
+          #name:        Location
+          #type:        select_tag
+          #params:      related_class=Residence include_custom="Choose residence"
+        msn:
+          params:      size=30
+          credentials: editprofile
+        icq:
+          params:      size=20
+          credentials: editprofile
+        homepage:
+          params:      size=40
+          credentials: editprofile
+        phone:
+          params:      size=15
+          credentials: editprofile
+        avator:
+          name:        User Avatar
+        
+        sex:
+          params:      include_custom="Please select"
+        groups_help:
+          name:        ""
+          help:        "The user will automatically inherit the permissions defined in the groups you select below.<br />If this user is a part of any editorial teams, you should also check them in the list below.<br /><br /><b>Tip: </b><br />By hovering over a user group name/editorial team name, you can see which permissions this user group/editorial team gives the user."
+        groups:        { name: "", credentials: editprofile, type: admin_check_list, params: through_class=sfGuardUserGroup }
+        permissions_help:
+          name:        ""
+          help:        "If a user inherits a permission from a group membership, a green tick will be displayed next to the permission name, and the second checkbox will be enabled. (<b>Note:</b> If you change group membership with the checkboxes above, you must save the changes before you will see the new ticks).<br /><br />Use this list <b>only</b> to add or remove permissions in special cases. Usually, group memberships will control what the user can do."
+        permissions:
+          name:        ""
+          credentials: editprofile
+          type:        admin_check_list
+          params:      through_class=sfGuardUserPermission
+        last_login:    { type: plain, credentials: editprofile }
+      display:
+        "Basic details":          [ username, _password, _password_bis, is_active, show_content, email, is_verified, _dob, _sex, _avator, _residence_id ]
+        "Groups/team membership": [ _groups_help, _groups, _editorial_notification ]
+        "Optional details":       [ email_private, _interests, name, name_private, msn, icq, homepage, phone ]
+        "Permission settings":    [ _permissions_help, _permissions ]
+        

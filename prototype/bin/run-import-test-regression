@@ -1,0 +1,15 @@
+#! /bin/bash
+
+DIR=`pwd`
+
+mysqladmin drop -f reaktor_imp
+mysqladmin create reaktor_imp
+mysql reaktor_imp < $DIR/reaktor.sql
+
+rm -rf $DIR/data/*
+
+$DIR/run-import | tee $DIR/run-import.log
+
+ls $DIR/data >> $DIR/run-import.log
+
+diff -u $DIR/run-import-test-base.log $DIR/run-import.log && echo "No regressions found"

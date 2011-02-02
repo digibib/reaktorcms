@@ -1,0 +1,7 @@
+myPageSuccess:
+  components:
+    sidebar_articles: [articles, myPageArticles]
+
+all:
+  javascripts: [prototype, inlineupload, main]
+

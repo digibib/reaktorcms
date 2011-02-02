@@ -1,0 +1,10 @@
+propel:
+  _attributes:      { package: lib.model }
+  
+  recommended_artwork:
+    id:    
+    artwork:         { type: integer, required: true, foreignTable: reaktor_artwork, foreignReference: id }
+    subreaktor:      { type: integer, required: true, foreignTable: subreaktor, foreignReference: id }
+    localsubreaktor: { type: integer, foreignTable: subreaktor, foreignReference: id }
+    updated_by:      { type: integer, required: true, foreignTable: sf_guard_user, foreignReference: id}
+    updated_at:

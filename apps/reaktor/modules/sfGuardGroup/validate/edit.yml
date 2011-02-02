@@ -1,0 +1,27 @@
+methods:
+  post:
+    - "sf_guard_group{name}"
+    - "associated_permissions"
+
+names:
+  sf_guard_group{name}:
+    required:     yes
+    required_msg: Please enter a group name
+    validators:   nameUniqueValidator
+    
+  associated_permissions:
+    required:     yes
+    validators:   myMagickArrayValidator
+    
+myMagickArrayValidator:
+  class:          myMagickArrayValidator
+  param:
+    min:       1
+    min_error: Please select at least one permission
+
+nameUniqueValidator:
+  class:          sfPropelUniqueValidator
+  param:
+    class:        sfGuardGroup
+    column:       name
+    unique_error: This group name already exists

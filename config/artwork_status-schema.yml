@@ -1,0 +1,10 @@
+propel:
+  _attributes:      { package: lib.model }
+  
+  artwork_status:
+    id:
+    name:           { type: varchar, size: 30, required: true }
+
+  artwork_status_i18n:
+    id:
+    description:    { type: varchar, size: 30, required: true }

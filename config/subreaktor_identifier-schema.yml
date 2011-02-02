@@ -1,0 +1,10 @@
+# Links subreaktors to file types, the same as the ones in file table "identifier"
+# Used by artwork edit for example, when choosing a subreaktor based on the uploaded file
+
+propel:
+  _attributes:      { package: lib.model }
+  
+  subreaktor_identifier:
+    id:
+    subreaktor_id:   { type: integer, required: true, foreignTable: subreaktor, foreignReference: id }
+    identifier:      { type: varchar, required: true, size: 20 }

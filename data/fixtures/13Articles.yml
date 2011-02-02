@@ -1,0 +1,444 @@
+ArticleFile: 
+  ArticleFile_1: 
+    filename: 1219391213_1_talenter_i_tusj.jpg
+    path: /opt/reaktor/web/uploads/attachments/
+    uploaded_by: sfGuardUser_1
+    uploaded_at: 2008-08-22 09:46:52
+    file_mimetype_id: FileMimetype_2
+  ArticleFile_2: 
+    filename: 1219391824_1_jack-russell-terrier.jpg
+    path: /opt/reaktor/web/uploads/attachments/
+    uploaded_by: sfGuardUser_1
+    uploaded_at: 2008-08-22 09:57:03
+    file_mimetype_id: FileMimetype_2
+Article: 
+  Article_1: 
+    created_at: 2008-08-22 09:18:55
+    author_id: sfGuardUser_4
+    base_title: Lorem Ipsum
+    permalink: Lorem_Ipsum
+    ingress: >
+      Lorem ipsum dolor sit amet, consectetuer
+      adipiscing elit. Suspendisse consequat
+      sagittis dui. Aenean tincidunt pulvinar
+      neque. In fermentum, purus eu iaculis
+      ultricies, augue urna accumsan arcu, vel
+      pulvinar turpis massa non neque. Nunc
+      congue dapibus libero. Vivamus ut quam.
+      In pede. Proin ac leo. Phasellus
+      fermentum lacus quis eros. Sed dignissim
+      elit volutpat massa interdum rutrum.
+      Cras non felis vel dolor vestibulum
+      lacinia.
+    content: |
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse consequat sagittis dui. Aenean tincidunt pulvinar neque. In fermentum, purus eu iaculis ultricies, augue urna accumsan arcu, vel pulvinar turpis massa non neque. Nunc congue dapibus libero. Vivamus ut quam. In pede. Proin ac leo. Phasellus fermentum lacus quis eros. Sed dignissim elit volutpat massa interdum rutrum. Cras non felis vel dolor vestibulum lacinia.
+      
+      Nullam porttitor purus in nunc. Sed quis pede vel orci faucibus aliquet. Duis adipiscing. Cras at leo. Morbi tortor nunc, adipiscing at, facilisis quis, lobortis imperdiet, ligula. Donec faucibus consequat mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam erat volutpat. Phasellus ipsum. Duis et turpis ac augue dictum accumsan. Curabitur dictum risus non justo. Sed consequat, ligula vel varius euismod, arcu justo accumsan massa, ut porta elit massa sed tellus. Praesent eleifend euismod sapien. Proin pede mi, condimentum vitae, rhoncus ut, facilisis eu, justo. In tellus odio, aliquet quis, adipiscing a, tristique mollis, justo. Pellentesque ac leo nec est iaculis pellentesque.
+      
+      Nam id nunc. Donec magna ante, elementum sed, venenatis at, ornare in, ipsum. Aliquam erat volutpat. Aliquam ac lectus. Phasellus consequat odio et sapien. Vivamus eu ligula ac libero varius congue. Pellentesque tincidunt, justo vitae ultricies tincidunt, mauris justo aliquam pede, ac tristique nibh leo in dui. Nunc ut lacus. Nulla eu lectus. Nullam pretium, diam sit amet euismod viverra, leo lectus imperdiet odio, at elementum ipsum nulla eget est. In hac habitasse platea dictumst. Praesent ut mi. Fusce ultricies, erat vel blandit porta, justo nisi tempus metus, sed bibendum velit mi et lorem. Suspendisse id arcu sit amet elit semper pellentesque. Maecenas risus lacus, iaculis non, consequat id, iaculis id, tortor. Aenean ipsum leo, aliquet vitae, adipiscing a, eleifend sit amet, augue. Donec congue sagittis risus. Pellentesque eu turpis. Integer fringilla dictum metus.
+    updated_at: 2008-08-22 09:18:55
+    updated_by: 1
+    article_type: 1
+    article_order: 0
+    status: 2
+    is_sticky: 0
+    frontpage: 0
+  Article_2: 
+    created_at: 2008-08-22 09:18:55
+    author_id: sfGuardUser_4
+    base_title: What is Lorem Ipsum?
+    permalink: What_is_Lorem_Ipsum_
+    ingress: >
+      Lorem Ipsum is simply dummy text of the
+      printing and typesetting industry. Lorem
+      Ipsum has been the industry's standard
+      dummy text ever since the 1500s, when an
+      unknown printer took a galley of type
+      and scrambled it to make a type specimen
+      book. It has survived not only five
+      centuries, but also the leap into
+      electronic typesetting, remaining
+      essentially unchanged.
+    content: |
+      What is Lorem Ipsum?
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      
+      Why do we use it?
+      It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+      
+      Where does it come from?
+      Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+    updated_at: 2008-08-22 09:18:55
+    updated_by: 1
+    article_type: 1
+    article_order: 0
+    status: 2
+    is_sticky: 0
+    frontpage: 0
+  Article_3: 
+    created_at: 2008-08-22 09:18:55
+    author_id: sfGuardUser_4
+    base_title: What is up in the tech world?
+    permalink: What_is_up_in_the_tech_world_
+    ingress: >
+      This is an example of how to include RSS
+      feeds in your articles
+    content: >
+      <p>Here are the latest stories from
+      OSNews.com:
+      [feed=http://osnews.com/files/recent.xml]4[/feed]
+       <strong>Where does it come
+      from?</strong> This is automatically
+      fetched from the URL provided in this
+      article. Sweet!</p>
+    updated_at: 2008-08-22 10:12:52
+    updated_by: 1
+    article_type: 6
+    article_order: 0
+    status: 2
+    is_sticky: 0
+    frontpage: 1
+  Article_4: 
+    created_at: 2008-08-22 09:21:42
+    author_id: sfGuardUser_1
+    base_title: Talenter i tusj
+    permalink: Talenter_i_tusj
+    ingress: Lyst til å vise frem din tusjtalenter?
+    content: |
+      <p><img src="../../../../../uploads/attachments/1219391213_1_talenter_i_tusj.jpg" alt="" width="418" height="90" align="left" /></p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p><span style="font-size: 11px; font-family: Verdana;"><span class="richtext">N&aring; er h&oslash;stens Talenter i tusj resultater p&aring; plass!</span></span><br /><span style="font-size: 11px; font-family: Verdana;"><span class="richtext">Mandag 10. desember kl 17 &aring;pner utstillingen p&aring; SERIETEKET, Deichmanske bibliotek p&aring; Gr&uuml;nerl&oslash;kka.
+      <p class="richtext">Talenter i tusj er et nybegynnerkurs i tegneserietegning for unge mellom 12 og 16 &aring;r som SERIETEKET avholder to ganger i &aring;ret. Resultatet denne gangen er 18 fantastisk flotte og kreative tegneserier.</p>
+      <p class="richtext">Kursledere har v&aelig;rt Flu Hartberg <em>Fagprat</em> og Geir Moen <em>De fire store</em> og <em>N&aring;r de d&oslash;de v&aring;kner</em>. Kurset var st&oslash;ttet av Kulturr&aring;det.</p>
+      <p class="richtext">Utstillingen vil st&aring; fram til 13. januar p&aring; SERIETEKET - men vil for alltid v&aelig;re dokumentert her p&aring; Reaktor.</p>
+      </span></span></p>
+    updated_at: 2008-08-22 09:49:26
+    updated_by: 1
+    article_type: 2
+    article_order: 0
+    expires_at: 2008-12-31 00:00:00
+    status: 2
+    banner_file_id: ArticleFile_1
+    is_sticky: 1
+    frontpage: 1
+  Article_5: 
+    created_at: 2008-08-22 09:53:45
+    author_id: sfGuardUser_1
+    base_title: Fotoeditering i GIMP
+    permalink: Fotoeditering_i_GIMP
+    ingress: >
+      Ikke råd til å betale for Photoshop?
+      Har du prøvd Gimp?
+    content: |
+      <h1>Om Gimp</h1>
+      <p>Gimp st&aring;r for "Gnu image manipulation                            program", og er opprinnelig laget for Linux operativsystemet.                            Det er et sv&aelig;rt avansert bildebehandlingsprogram som                            ofte sammenlignes med Adobe PhotoShop, og har i mange                            &aring;r har v&aelig;rt Unix- og Linux brukeres f&oslash;rstevalg for &aring;                            bearbeide bilder eller lage grafikk med. Det kan brukes                            i mange ulike operativsystemer, deriblant Microsoft                            Windows og Mac. Programmet er utviklet p&aring; frivillig                            basis av mange programmerere fra hele verden, etter                            at studentene Spencer Kimball og Peter Mattis startet                            prosjektet sommeren 1995, ved Berkeley Universitet i                            California, USA.</p>
+      <p>&nbsp;</p>
+      <h1>OS versjoner</h1>
+      <p>Gimp finnes for flere ulike operativsystem og plattformer:<br /> GNU/Linux, Apple Darwin/Mac OSX, Microsoft Windows95, 98, NT4, 2000, og XP, OpenBSD, NetBSD, og FreeBSD, Solaris, SunOS, AIX, HP-UX, Tru64, Digital Unix,  OSF/1, IRIX, OS/2, og BeOS.</p>
+      <p>&nbsp;</p>
+      <h1>Installere Gimp i Windows</h1>
+      <p>P&aring; websiden til Gimp kan du laste ned Windows-versjonen. For at Gimp skal fungere i Windows m&aring; du ogs&aring; laste ned GTK, et grafisk "bibliotek" som er n&oslash;dvendig for &aring; kunne bruke  det grafiske brukergrensesnittet til Gimp. GTK m&aring; installeres f&oslash;rst. B&aring;de GTK og Gimp er  "pakket inn" i vanlige Windows installerings-filer (exe-filer), og installeres p&aring;  vanlig windows-m&aring;te, etter at du har pakket dem ut av zip-filene. N&aring;r du dobbel  klikker p&aring; exe-filene starter installasjons-programmet, som gir veiledende informasjon  underveis i installasjons-prosessen. Det anbefales at du ogs&aring; installerer brukermanualen  til Gimp, slik at du har tilgang til denne via &laquo;Hjelp&raquo;-menyen i Gimp. Brukermanualen  kan du ogs&aring; laste ned fra Gimp&acute; s webside, og installasjonen foreg&aring;r p&aring; samme m&aring;te,  ved at du laster ned en exe-fil (innpakket i en zip-fil), som starter opp et  installasjons-program med veiledende instruksjoner n&aring;r du dobbel klikker den.</p>
+    updated_at: 2008-08-22 09:55:08
+    updated_by: 1
+    article_type: 1
+    article_order: 0
+    status: 2
+    is_sticky: 0
+    frontpage: 0
+  Article_6: 
+    created_at: 2008-08-22 09:56:32
+    author_id: sfGuardUser_1
+    base_title: Hvordan ta dyrebilder
+    permalink: Hvordan_ta_dyrebilder
+    ingress: >
+      Når du skal fotografere dyr - ville
+      eller tamme - er det en ting du bør ha
+      i tillegg til kamera - nemlig
+      tålmodighet. Rikelig med tålmodighet.
+      Og selvsagt god tid. For du bør belage
+      deg på en del venting på de riktige
+      situasjoner. Men tar du deg tid, øker
+      også sjansene for å få noen fine
+      blinkskudd. Det hjelper også å ha et
+      stativ - slik at du er "skuddklar" på
+      kort varsel når anledningen byr seg.
+    content: |
+      <p><span style="font-family: Arial,Helvetica,sans-serif; font-size: x-small;"><strong>Generelt</strong><br /> Konsentrer deg gjerne om en type bilder om gangen - f. eks. oversiktsbilder,          n&aring;r de spiser, andre aktiviteter, n&aelig;rbilder osv. Da vil du          jobbe p&aring; en langt mer rolig og strukturert m&aring;te, og du f&aring;r          en f&oslash;ling med n&aring;r du har tatt mange nok bilder av de ulike          situasjoner. Dette prinsippet gjelder ogs&aring; i andre situasjoner,          med mindre situasjonen tilsier noe annet.</span></p>
+      <p align="left"><span style="font-family: Arial,Helvetica,sans-serif; font-size: x-small;">Ha alltidtid          ny film eller tomt minnekort i kamera n&aring;r du forventer "noe          stort" skal skje. Om du har noen bilder igjen p&aring; filmen - bytt          til ny i et rolig &oslash;yeblikk. Du g&aring;r glipp av mange blinkskudd          hvis du m&aring; skifte film midt i en stor "happeningen". </span></p>
+      <p align="left"><span style="font-family: Arial,Helvetica,sans-serif; font-size: x-small;"><strong>Uventede          situasjoner </strong><br /> V&aelig;r p&aring; vakt for spesielle hendelser. Pr&oslash;v &aring; se          for deg hvilke situasjoner som kan oppst&aring;. Da kan du f&aring; mange          artige bilder slik som her - der det ser ut som om f&oslash;llet hvisker          noe i &oslash;ret til moren. </span></p>
+      <p align="left"><span style="font-family: Arial,Helvetica,sans-serif; font-size: x-small;"><strong>Ville          dyr</strong><br /> &Aring; fotografere ville dyr ute i naturen er som regel litt av en t&aring;lmodighetspr&oslash;ve.          Men noen ganger har man bare flaks - og dumper midt oppi det. Da gjelder          det &aring; beholde roen, slik at dyret ikke blir forstyrret for mye og          stikker. Beveg deg rolig og ikke lag skarpe lyder. Mens du gj&oslash;r          klar utstyret, b&oslash;r du ikke v&aelig;re "p&aring; jakt"          etter dyret samtidig. Dette oppfatter de som regel, og forsvinner. Pr&oslash;v          &aring; finne ut hvor det beveger seg og leit etter naturlige &aring;pninger          i greiner etc. V&AElig;R T&Aring;LMODIG. Stresser du - blir det garantert          mislykket. </span></p>
+      <p align="left"><span style="font-family: Arial,Helvetica,sans-serif; font-size: x-small;"><strong>I          sitt rette element</strong><br /> Er du heldig - og ikke opptrer truende mot dyret, kan du f&aring; flere          blinkskudd og den venner seg til b&aring;de deg og lydene du lager. Du          kan n&aring; ha f&aring;tt en enest&aring;ende mulighet til &aring; portrettere          "N&oslash;tte-liten" i sitt rette element. Etter hvert vil du          opptre sikrere i slike situasjoner, og sjansen vil &oslash;ke for at du          f&aring;r flere slike opplevelser og nye bidrag til albumet.</span></p>
+    updated_at: 2008-08-22 09:59:03
+    updated_by: 1
+    article_type: 1
+    article_order: 0
+    status: 2
+    is_sticky: 0
+    frontpage: 0
+  Article_7: 
+    created_at: 2008-08-22 10:06:53
+    author_id: sfGuardUser_1
+    base_title: Forskjellen på tags og kategorier
+    permalink: Forskjellen_paa_tags_og_kategorier
+    ingress: >
+      Vi bibliotekarer er jo vant til
+      kategorier. Men nå, med Web 2.0 har et
+      nytt konsept kalt tags dukket opp. Hva
+      er dette, og hvordan er det forskjellig
+      fra kategorier?
+    content: >
+      <p>Tags er rett og slett
+      n&oslash;kkelord, s som du f&oslash;rer
+      opp idet du oppretter en artikkel et
+      verk eller en fil.</p>
+    updated_at: 2008-08-22 10:07:10
+    updated_by: 1
+    article_type: 3
+    article_order: 0
+    status: 2
+    is_sticky: 0
+    frontpage: 0
+  Article_8: 
+    created_at: 2008-08-22 10:08:35
+    author_id: sfGuardUser_1
+    base_title: Om Reaktor
+    permalink: Om_Reaktor
+    content: |
+      <p style="font-family: Verdana; font-size: 11px; font-weight: bold;"><span class="richtext">
+      <h1 class="richtext">REAKTOR - DITT EGET DIGITALE BIBLIOTEK!</h1>
+      </span></p>
+      <p><span style="font-size: 11px; font-family: Verdana;"><span class="richtext">Reaktor er et nettsted der alle kan publisere egenproduserte verk i en rekke forskjellige formater: film, foto, animasjon, musikk, tegneserier, illustrasjon og tekst. Reaktor er et nettsamfunn der brukerne kan f&aring; tilbakemelding p&aring; det de lager, og f&aring; tips fra andre om hvordan de kan utvikle seg videre.<br /><br /> Reaktor gir alle mulighet til &aring; oppleve publisert materiale som er vurdert og kategorisert av en fagredaksjon. Nettstedet har enkle og intuitive brukergrensesnitt og gode hjelpeverkt&oslash;y for egenproduksjon.<br /><br />
+      <h1 class="richtext">HVA KAN REAKTOR BRUKES TIL?</h1>
+      <br /> <strong>Publisere</strong><br /><br /> Brukerne kan selv laste opp egne verk: filmer, foto, animasjoner, musikk, tegneserier, illustrasjoner og tekster.<br /><br /> Verkene godkjennes av en fagredaksjon f&oslash;r de blir publisert for &aring; hindre misbruk og for &aring; sikre at innholdet ikke bryter norsk lov.<br /><br /> <strong>F&aring; hjelp til &aring; produsere</strong><br /><br /> Gjennom gode hjelperessurser f&aring;r brukerne hjelp til &aring; produsere egne verk. Hjelperessursene best&aring;r ogs&aring; av teoretisk stoff som gir brukeren et grunnlag for &aring; g&aring; mer i dybden.<br /><br /> Brukere med erfaring og kunnskap kan veilede andre ved &aring; gi gode r&aring;d og tips.<br /><br /> <strong>Oppleve</strong><br /><br /> Reaktor tilbyr et vidt spekter av multimedialt innhold som er organisert slik at verkene er lette &aring; finne p&aring; tvers av innhold og form. Utvalgte verk fremheves spesielt.<br /><br /> <strong>Gi og f&aring; tilbakemelding</strong><br /><br /> Brukerne kan gi kommentarer til verkene i Reaktor. Slik kan man f&aring; konstruktive tilbakemeldinger og gode r&aring;d. Brukerne kan ogs&aring; gi karakter til andres verk. De verkene som er best likt vies ekstra oppmerksomhet</span></span></p>
+    updated_at: 2008-08-22 10:09:06
+    updated_by: 1
+    article_type: 4
+    article_order: 2
+    status: 2
+    is_sticky: 0
+    frontpage: 0
+  Article_9: 
+    created_at: 2008-08-22 10:12:10
+    author_id: sfGuardUser_1
+    base_title: Kontakt oss hvis du har spørsmål
+    permalink: Kontakt_oss_hvis_du_har_spoersmaal
+    ingress: >
+      Velkommen til Reaktor, dette er et
+      relativt nytt system, og du er invitert
+      til å teste systemet.
+    content: >
+      <p>Hvis du finner feil kan du ta kontakt
+      med oss p&aring; you@yourhost.no.</p>
+    updated_at: 2008-08-22 10:12:38
+    updated_by: 1
+    article_type: 4
+    article_order: 4
+    status: 2
+    is_sticky: 0
+    frontpage: 0
+  Article_10: 
+    created_at: 2008-08-22 10:12:10
+    author_id: sfGuardUser_1
+    base_title: Login help
+    permalink: login_help
+    ingress: >
+      Dette er en login help artikkel.
+    content: >
+      Dette er en login help artikkel som ikke har noen hjelp enda..
+    updated_at: 2008-08-22 10:12:38
+    updated_by: 1
+    article_type: 4
+    article_order: 1
+    status: 2
+    is_sticky: 0
+    frontpage: 0
+  Article_11: 
+    created_at: 2008-08-22 10:12:10
+    author_id: sfGuardUser_1
+    base_title: Vilkår for publisering
+    permalink: terms_and_conditions
+    ingress: 
+    content: |
+      <h1><span style="font-size: 11px; font-family: Verdana;">VILK&Aring;R FOR PUBLISERING I REAKTOR</span></h1>
+      <ul>
+      <li><span style="font-size: 11px; font-family: Verdana;">Ved &aring; publisere det jeg har laget i Reaktor, tillater jeg Deichmanske Bibliotek &aring; gi andre Reaktorbrukere lesetilgang til mitt arbeid.</span></li>
+      <li><span style="font-size: 11px; font-family: Verdana;">N&aring;r andre Reaktorbrukere f&aring;r lesetilgang til mitt arbeid, betyr dette ogs&aring; at andre Reaktorbrukere har mulighet til &aring; kopiere mitt arbeid, elektronisk eller analogt, til privat bruk.</span></li>
+      <li><span style="font-size: 11px; font-family: Verdana;">Jeg er kjent med at jeg bare kan publisere det jeg selv lager i Reaktor. Jeg kan ogs&aring; bruke arbeid som allerede finnes i Reaktor med kopirettigheten "Jeg tillater andre Reaktorbrukere fri kopiering av mitt arbeid" som grunnlag for mitt eget arbeid, men da m&aring; jeg oppgi kilden jeg bruker.</span></li>
+      </ul>
+      <p>&nbsp;</p>
+      <h1 class="richtext">FORKLARING</h1>
+      <p><span style="font-size: 11px; font-family: Verdana;">
+      <p class="richtextafterheading">&Aring; legge ut noe p&aring; Internett tilh&oslash;rer opphavsmannens enerett. &Aring; legge ut noe p&aring; Internett regnes som "offentlig fremf&oslash;ring" i juridisk forstand, jfr <a href="http://www.lovdata.no/all/hl-19610512-002.html" target="_blank">&Aring;ndsverkloven</a> &sect; 2,3 ledd. Det er bare opphavsmannen, eller den som har f&aring;tt godkjennelse av opphavsmannen, som kan legge ut noe p&aring; Internett.</p>
+      <p class="richtext">Selv om et dokument allerede ligger p&aring; Internett, er det likevel bare opphavsmannen, eller den som har f&aring;tt godkjennelse fra opphavsmannen, som kan legge ut dokumentet p&aring; en annen nettside.</p>
+      <p class="richtext">At et dokument ligger p&aring; Internett med opphavsmannens samtykke, betyr heller ikke at dokumentet fritt kan kopieres - uavhengig om dokumentet kopieres elektronisk, eller om det tas utskrift av dokumentet.</p>
+      <p class="richtext">Derimot kan alle dokument som ligger p&aring; Internett, kopieres innenfor &aring;vl. &sect;12 - regelen om privatkopiering. Privatpersoner kan ta kopier eller skrive ut det de finner p&aring; Internett, men alts&aring; ikke legge ut disse dokumentene p&aring; egen hjemmeside eller redigere dem og legge dem ut.</p>
+      </span></p>
+    updated_at: 2008-08-28 09:47:50
+    updated_by: 1
+    article_type: 4
+    article_order: 3
+    status: 2
+    is_sticky: 0
+    frontpage: 0
+ArticleCategory: 
+  ArticleCategory_1: 
+    article_id: Article_1
+    category_id: Category_1
+  ArticleCategory_2: 
+    article_id: Article_2
+    category_id: Category_54
+  ArticleCategory_3: 
+    article_id: Article_6
+    category_id: Category_3
+ArticleSubreaktor: 
+  ArticleSubreaktor_1: 
+    article_id: Article_6
+    subreaktor_id: Subreaktor_1
+  ArticleSubreaktor_2: 
+    article_id: Article_5
+    subreaktor_id: Subreaktor_1
+  ArticleSubreaktor_3: 
+    article_id: Article_1
+    subreaktor_id: Subreaktor_1
+
+ArticleI18n: 
+  ArticleI18n_1_no: 
+    id: Article_1
+    culture: 'no'
+    title: Lorem Ipsum
+  ArticleI18n_2_no: 
+    id: Article_2
+    culture: 'no'
+    title: What is Lorem Ipsum?
+  ArticleI18n_3_no: 
+    id: Article_3
+    culture: 'no'
+    title: What is up in the tech world?
+  ArticleI18n_4_no: 
+    id: Article_4
+    culture: 'no'
+    title: Talenter i tusj
+  ArticleI18n_5_no: 
+    id: Article_5
+    culture: 'no'
+    title: Fotoeditering i GIMP
+  ArticleI18n_6_no: 
+    id: Article_6
+    culture: 'no'
+    title: Hvordan ta dyrebilder
+  ArticleI18n_7_no: 
+    id: Article_7
+    culture: 'no'
+    title: Forskjellen på tags og kategorier
+  ArticleI18n_8_no: 
+    id: Article_8
+    culture: 'no'
+    title: Om Reaktor
+  ArticleI18n_9_no: 
+    id: Article_9
+    culture: 'no'
+    title: Kontakt
+  ArticleI18n_10_no: 
+    id: Article_10
+    culture: 'no'
+    title: Hjelp
+  ArticleI18n_11_no: 
+    id: Article_11
+    culture: 'no'
+    title: Vilkår for bruk
+  ArticleI18n_1_nn: 
+    id: Article_1
+    culture: 'nn'
+    title: Lorem Ipsum
+  ArticleI18n_2_nn: 
+    id: Article_2
+    culture: 'nn'
+    title: What is Lorem Ipsum?
+  ArticleI18n_3_nn: 
+    id: Article_3
+    culture: 'nn'
+    title: What is up in the tech world?
+  ArticleI18n_4_nn: 
+    id: Article_4
+    culture: 'nn'
+    title: Talenter i tusj
+  ArticleI18n_5_nn: 
+    id: Article_5
+    culture: 'nn'
+    title: Fotoeditering i GIMP
+  ArticleI18n_6_nn: 
+    id: Article_6
+    culture: 'nn'
+    title: Hvordan ta dyrebilder
+  ArticleI18n_7_nn: 
+    id: Article_7
+    culture: 'nn'
+    title: Forskjellen på tags og kategorier
+  ArticleI18n_8_nn: 
+    id: Article_8
+    culture: 'nn'
+    title: Om Reaktor
+  ArticleI18n_9_nn: 
+    id: Article_9
+    culture: 'nn'
+    title: Kontakt
+  ArticleI18n_10_nn: 
+    id: Article_10
+    culture: 'nn'
+    title: Hjelp
+  ArticleI18n_11_nn: 
+    id: Article_11
+    culture: 'nn'
+    title: Vilkår for bruk
+  ArticleI18n_1_en: 
+    id: Article_1
+    culture: 'en'
+    title: Lorem Ipsum
+  ArticleI18n_2_en: 
+    id: Article_2
+    culture: 'en'
+    title: What is Lorem Ipsum?
+  ArticleI18n_3_en: 
+    id: Article_3
+    culture: 'en'
+    title: What is up in the tech world?
+  ArticleI18n_4_en: 
+    id: Article_4
+    culture: 'en'
+    title: Tusj-talents
+  ArticleI18n_5_en: 
+    id: Article_5
+    culture: 'en'
+    title: Editing photos in GIMP
+  ArticleI18n_6_en: 
+    id: Article_6
+    culture: 'en'
+    title: How to take animal pictures
+  ArticleI18n_7_en: 
+    id: Article_7
+    culture: 'en'
+    title: Tags and categories - what's the difference
+  ArticleI18n_8_en: 
+    id: Article_8
+    culture: 'en'
+    title: About Reaktor
+  ArticleI18n_9_en: 
+    id: Article_9
+    culture: 'en'
+    title: Contact us
+  ArticleI18n_10_en: 
+    id: Article_10
+    culture: 'en'
+    title: Help
+  ArticleI18n_11_en: 
+    id: Article_11
+    culture: 'en'
+    title: Terms and conditions
+
+ArticleAttachment: 
+  ArticleAttachment_2: 
+    article_id: Article_6
+    file_id: ArticleFile_2

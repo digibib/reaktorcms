@@ -1,0 +1,7 @@
+propel:
+  _attributes:      { package: lib.model }
+  
+  reaktor_artwork_file:
+    artwork_id:        { type: integer, primaryKey: true, foreignTable: reaktor_artwork, required: true, foreignReference: id}
+    file_id:           { type: integer, primaryKey: true, foreignTable: reaktor_file, required: true, foreignReference: id}
+    file_order:        { type: integer, required: false, default: 1 }

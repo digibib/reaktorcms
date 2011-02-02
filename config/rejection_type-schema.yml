@@ -1,0 +1,11 @@
+propel:
+  _attributes:      { package: lib.model }
+  
+  rejection_type:
+    id:
+    basename:      { type: varchar, size: 255, required: true}
+
+  rejection_type_i18n:
+    id:
+    name:           { type: varchar, size: 255, required: true}
+    description:    { type: longvarchar, required: true}

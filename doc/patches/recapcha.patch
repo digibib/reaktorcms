@@ -1,0 +1,15 @@
+Index: apps/reaktor/config/app.yml
+===================================================================
+--- apps/reaktor/config/app.yml	(revision 1813)
++++ apps/reaktor/config/app.yml	(working copy)
+@@ -38,8 +38,8 @@
+     tracker:      google
+ 
+   recaptcha:
+-    publickey:            6Lf7mQIAAAAAAG0NGOQMemqzYMViFHl4Egu0qHH-
+-    privatekey:           6Lf7mQIAAAAAAO26Xy8xoRmfqKvteF_v7oohruog
++    publickey:            6Lc8qwIAAAAAAPg7-iBn4ruTwax1LQG4v3pgWlyO
++    privatekey:           6Lc8qwIAAAAAALcqJDd2E32AjekpoZGOywwe1R1W
+   
+   admin:
+     commentlistmax:       10

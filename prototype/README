@@ -1,0 +1,92 @@
+THE PROGRAM
+-----------
+
+./run-import
+./run-import-debug
+./run-import-test-regression
+
+
+The current state of the implementation is that it is heavily
+connected to the Reaktor project. However it should be easy to adopt
+and generalize the code to handle other database migration scenarios.
+
+
+
+THE DATABASES
+-------------
+
+- The prototype's database is a PostgreSQL database.
+  
+    sudo createuser <unix user name>
+    createdb reaktor
+    psql < reaktor-fulldump-2008-03-03.sql
+  
+  The datamodel is documented in reaktor-datamodell.pdf
+
+- The reaktor database is defined in reaktor.sql
+
+    mysqladmin -uroot create reaktor_imp
+    mysql -uroot -e 'grant all on reaktor_imp.* to <unix user name>@localhost'
+    mysql reaktor_imp < reaktor.sql
+
+  Remember to update reaktor.sql when ever the schema changes.
+
+
+
+THE SCHEMA MAPPING
+------------------
+
+The data is imported row by row from one database A to another
+database B.
+
+Each table in A has a defined mapping handled by the PrototypeTableMap
+class.
+
+For each row and column in A we examine a mapping that defines how
+these data relates to the schema in B. Based on this mapping INSERT
+statements are generated and executed.
+
+A column in A might map in several different ways:
+
+ - Directly to a column in B. This is handled by the ReaktorColumn
+   class.
+
+ - It is a basis for a new row in B. This is handled by the ReaktorRow
+   class (Basically an array of ReaktorColumns).
+
+ - It might not have any value for B. Handled by the IGNORE class
+
+ - It is a basis for several rows in B. This is not handled yet.
+
+
+
+FILTERS
+-------
+
+A column value A might encoded in a different way in B. This is
+handled by filters.
+
+
+TOOLS
+-----
+
+run-import-test-regression
+ 
+    Checks the output of run-import against a previous run that is
+    assumed to be correct looking for regressions.
+
+    It sets up a fresh database before it runs the import.
+
+run-import-debug
+  
+    Runs the import with all logging enabled.    
+    
+    It sets up a fresh database before it runs the import.
+
+
+import_to_dev
+
+    Copies the imported data to the development database so that the
+    results can be examined in the web interface.
+
+

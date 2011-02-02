@@ -1,0 +1,20 @@
+#All users should be able to view subreaktors
+list:
+  credentials: [ subreaktoradministrator, subreaktorcategorizer ]
+  is_secure:   on
+
+edit:
+  credentials: [ subreaktoradministrator, subreaktorcategorizer ]
+  is_secure:   on
+
+add:
+  credentials: subreaktoradministrator
+  is_secure:   on
+
+delete:
+  credentials: subreaktoradministrator
+  is_secure:   on
+  
+all:
+  is_secure: off
+  

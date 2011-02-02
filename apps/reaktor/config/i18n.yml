@@ -1,0 +1,17 @@
+prod:
+  default_culture:     'no'
+  source:              MySQL
+  database:            mysql://reaktor_user:cT0PHPCm@localhost/reaktor
+  debug:               on
+  cache:               off
+  untranslated_prefix: ""
+  untranslated_suffix: ""
+  
+dev:
+  default_culture:     'no'
+  source:              MySQL
+  database:            mysql://reaktor_user:cT0PHPCm@localhost/reaktor
+  debug:               on
+  cache:               off
+  untranslated_prefix: ""
+  untranslated_suffix: ""

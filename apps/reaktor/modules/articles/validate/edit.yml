@@ -1,0 +1,18 @@
+methods: [ post ]
+
+fillin:
+  enabled:  true
+  param:
+    content_type: xml
+    
+fields:
+  article_type:
+    sfNumberValidator:
+      nan_error:        "You must specify an article type"
+      min:              1
+      min_error:        "You must specify an article type"
+    sfRegexValidator:
+      match:  Yes
+      match_error: Only letters (A-Å), numbers, and -_? are valid characters
+      pattern:  /^([A-Za-z0-9\?_-\søåæäöØÅÆÖÄ])+$/
+

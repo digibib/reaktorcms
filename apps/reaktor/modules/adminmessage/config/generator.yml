@@ -1,0 +1,28 @@
+generator:
+  class:              sfPropelAdminGenerator
+  param:
+    model_class:      AdminMessage
+    theme:            default
+
+    edit:
+      title:          Add a new system message
+      display:        [message, expires_at]      
+      fields:
+        expires_at:  
+          params:     readonly=readonly      
+
+    list:
+      peer_method:    doSelectJoinsfGuardUser
+      title:          System messages outbox
+      display:        [=message, sender, updated_at, expires_at]
+      fields:
+        sender:       
+          name:       Sent/Updated by
+      object_actions:
+        _delete:      ~
+        _edit:        ~
+      max_per_page:   10
+
+      
+        
+        

@@ -1,0 +1,23 @@
+propel:
+  _attributes:      { package: lib.model }
+  
+  reaktor_artwork:
+    id:
+    user_id:            { type: integer, foreignTable: sf_guard_user, required: true, foreignReference: id }
+    artwork_identifier: { type: varchar, size: 20, required: true }
+    created_at:         { type: timestamp, required: true }
+    submitted_at:       { type: timestamp, required: false }
+    actioned_at:        { type: timestamp, required: false }
+    modified_flag:      { type: timestamp, required: false}
+    title:              { type: varchar, size: 255, required: true }
+    actioned_by:        { type: integer, required: true }
+    status:             { type: integer, foreignTable: artwork_status, required: true, foreignReference: id, onDelete: restrict }
+    description:        { type: longvarchar }
+    modified_note:      { type: longvarchar }
+    artwork_order:      { type: integer, default: 0 }
+    average_rating:     { type: float, default: 0 }
+    team_id:            { type: integer, foreignTable: sf_guard_group, required: true, foreignReference: id }
+    under_discussion:   { type: integer, size: 1, default: 0, required: true }
+    multi_user:         { type: integer, size: 1, default: 0, required: true }
+    first_file_id:      { type: integer, foreignTable: reaktor_file, foreignReference: id }
+    deleted:            { type: integer, default: 0 }

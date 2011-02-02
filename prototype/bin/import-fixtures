@@ -1,0 +1,20 @@
+#!/bin/bash
+# This script imports fixture data to symfony
+#
+# Author Robert Strind <robert@linpro.no>
+#
+FIXTURES=data/fixtures/*fixtures.yml
+
+if [ -z "$2" ]
+then
+	echo "Usage: $0 PATH DATABASENAME"
+        echo "PATH describes path to a symfony installation"
+        echo "DATABASENAME is the name of the database to import fixture data"
+else
+	cd $1
+	symfony cc
+	symfony propel-insert-sql $2
+	symfony propel-load-data $2 prod $FIXTURES
+	cd -
+fi
+

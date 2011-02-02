@@ -1,0 +1,15 @@
+delete:
+  credentials:  deletepermission
+
+list:
+  credentials:  listpermission  
+  
+edit:
+  credentials:  editpermission
+
+update_profile:
+  is_secure: on
+  credentials: [ editprofile ] 
+
+all:
+  credentials:  [ listpermission, editprofile ]

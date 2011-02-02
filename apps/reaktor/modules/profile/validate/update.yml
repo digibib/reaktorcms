@@ -1,0 +1,114 @@
+methods: [post, get]
+fillin:
+  enabled:  true
+
+magickDateValidator:
+  class:          myMagickDateValidator
+  param:
+    class:        sfGuardUser
+    column:       dob
+    date_error:   The date you entered is not valid
+    date_incomplete: Please select a complete date
+
+doubleCheckEmailValidator:
+  class:         sfEmailValidator
+  param:
+    class:       sfGuardUser
+    column:      email
+    strict:      true
+    email_error: This email address is invalid
+    
+doubleCheckMsnValidator:
+  class:         sfEmailValidator
+  param:
+    class:       sfGuardUser
+    column:      msn
+    strict:      true
+    email_error: This email address is invalid
+
+fields:
+  #username
+  username_profile:
+    required:
+      msg:       You must enter a username
+    sfPropelUniqueValidator:
+      class: sfGuardUser
+      column: username
+      unique_error: This username is already in use
+    sfRegexValidator:
+      match:  Yes
+      match_error: Only letters A to Å, numbers, and -_@ are valid characters for username
+      pattern: /^([A-Za-z0-9@_-\søåæäöØÅÆÖÄ])+$/
+    sfStringValidator:
+      min:       2
+      min_error: Please enter a longer username
+      max:       30
+      max_error: Please enter fewer than 30 characters 
+  #email
+  email:
+    sfEmailValidator:
+      email_error:  This email address is invalid
+      strict: false
+    sfPropelUniqueValidator:
+      class: sfGuardUser
+      column: email
+      unique_error: This email is already in use
+    doubleCheckEmailValidator:
+  #passwords 
+  password_profile:
+    group:  password_group
+    myPasswordValidator:
+      min: 6
+      min_error: password must be longer than 5 characters
+  password_repeat:
+    group:  password_group
+    sfCompareValidator:
+      check: password_profile
+      compare_error: The passwords do not match. Please retry.
+  #residence
+  residence_id:
+    required:
+      msg: You must choose where your residence is
+  #dob
+  dob:
+    required:
+      msg: Please choose your date of birth
+    magickDateValidator:
+  #gender
+  sex:
+    required:
+      msg: Please choose your sex
+  
+  #msn, icq, homepage and phone have very little space to display error messages, be careful!
+  
+  #msn  
+  msn:
+    sfEmailValidator:
+      strict: false
+      email_error:  This msn address is invalid
+    doubleCheckMsnValidator:    
+  #icq
+  icq:
+    sfNumberValidator:
+      nan_error: Please enter a number
+      min: 9999
+      min_error: The number is too low
+      max: 999999999999999
+      max_error: The number is too high
+  #homepage:
+  homepage:
+    sfUrlValidator:
+      url_error: This URL is invalid
+  #phone
+  phone:
+    sfRegexValidator:
+      match:  Yes
+      match_error: This is not a phone number  
+      pattern: /^([0-9\s+])+$/
+    sfStringValidator:
+      min:  5
+      min_error: This phone number is too short
+      max: 15
+      max_error: This phone number is too long
+      
+

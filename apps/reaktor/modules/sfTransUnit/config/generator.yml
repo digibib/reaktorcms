@@ -1,0 +1,51 @@
+generator:
+  class:              sfPropelAdminGenerator
+  param:
+    model_class: TransUnit
+    theme: default
+
+    fields:
+      filemodule:                     { name: Module/Template }
+
+    list:
+      title: Translation list
+      max_per_page: 50
+      display: [_lang, =source, target, comments, translated, _filemodule ]
+      
+      filters: [source, target, _translated, _catfilter, filename, module,  comments]
+      object_actions:
+        _edit: ~
+        _delete: ~
+        # sort: source
+      fields:
+        source: { params: disabled=false }
+        translated: { params: disabled=false, type: boolean }
+        _lang: { params: lang }
+        catfilter: { name: language }
+      actions:
+        # _search:      { name: Search for new untranslated text, action: ~ }
+        _create:      { name: Create new , action: ~ }
+        
+    create:
+      title: create Translation
+      display: [source, comments]
+      fields:
+        source: { params: disabled=false size=80, type: input_tag }
+        comments: { params: disabled=false size=80×5, type: textarea_tag }
+      actions:
+        _list: ~
+        _save: ~
+        _delete: ~
+
+    edit:
+      title: "Edit Translation"
+      display: [source, _target]
+      fields:
+        source: { params: disabled=true size=80, type: input_tag, name: Opprinnelig tekst }
+        # comments: { params: disabled=false size=80x5, type: textarea_tag }
+      actions:
+        previous: { name: Previous string, action: previousString, icon: backend/next.png }
+        _list: ~
+        _save: ~
+        next: { name: Next string, action: nextString, icon: backend/next.png }
+        _delete: ~

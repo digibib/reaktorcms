@@ -1,0 +1,5 @@
+#!/bin/bash
+# Remove old logs
+rm -f log/*.log
+echo "Old logs removed."
+

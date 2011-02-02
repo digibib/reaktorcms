@@ -1,0 +1,5 @@
+sf_asset_upload_form:
+  class:              sfFileValidator
+  param:
+    max_size:         100000000
+    max_size_error:   Max size is 100MB

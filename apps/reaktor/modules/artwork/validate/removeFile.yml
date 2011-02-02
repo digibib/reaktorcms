@@ -1,0 +1,40 @@
+fillin:
+  enabled:  true
+  
+validators:  
+  doubleCheckEmailValidator:
+    class:         sfEmailValidator
+    param: 
+      strict:      true
+      email_error: This email address has an incorrect format
+   
+  myEmailValidator:
+    class:         sfEmailValidator
+    param:      
+      email_error: This email address contains non-acceptable values
+      strict: false
+    
+
+fields:
+  subject:
+    required:
+      msg:              Please enter a title
+  rejectionmsg:
+    required:
+      msg:              Please enter a rejection message    
+  to:
+    required:
+      msg:              Please enter an email address
+    myEmailValidator:
+    doubleCheckEmailValidator: 
+  cc:
+    myEmailValidator:
+    doubleCheckEmailValidator:
+  from:
+    required:
+      msg:              Please enter an e-mail address
+    myEmailValidator:
+    doubleCheckEmailValidator:
+  rejectiontype:
+    required:
+      msg:              Please choose why this file is being removed

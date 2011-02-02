@@ -1,0 +1,155 @@
+ReportBookmark: 
+  ReportBookmark_1: 
+    title: All approved
+    description: >
+      All approved artworks - no other filters
+      applied
+    args: >
+      /category_id/17/editorial_team_id/5/editorial_team_member_id/1/status_check/1/status_value/3/subreaktor_id/1
+    type: artwork
+    list_order: 0
+  ReportBookmark_2: 
+    title: All rejected
+    description: >
+      All rejected artwork - no other filters
+      applied
+    args: >
+      /category_id/17/editorial_team_id/5/editorial_team_member_id/1/status_check/1/status_value/4/subreaktor_id/1
+    type: artwork
+    list_order: 2
+  ReportBookmark_3: 
+    title: All under discussion
+    description: >
+      All artwork that is currently marked
+      under discussion
+    args: >
+      /category_id/17/editorial_team_id/5/editorial_team_member_id/1/status_value/4/subreaktor_id/1/under_discussion_check/1
+    type: artwork
+    list_order: 1
+  ReportBookmark_4: 
+    title: All awaiting approval
+    description: >
+      All artwork that is currently submitted
+      for approval
+    args: >
+      /category_id/17/editorial_team_id/5/editorial_team_member_id/1/status_check/1/status_value/2/subreaktor_id/1
+    type: artwork
+    list_order: 5
+  ReportBookmark_7: 
+    title: All this month
+    description: >
+      Artworks that have been submitted in the
+      current month (dynamic)
+    args: >
+      /category_id/17/current_month_check/1/editorial_team_id/5/editorial_team_member_id/1/status_value/2/subreaktor_id/1
+    type: artwork
+    list_order: 0
+  ReportBookmark_6: 
+    title: Awaiting approval in Tekst
+    description: >
+      Artwork in tekst subreaktor that has
+      been submitted and is awaiting approval
+    args: >
+      /category_id/17/editorial_team_id/5/editorial_team_member_id/1/status_check/1/status_value/2/subreaktor_check/1/subreaktor_id/6
+    type: artwork
+    list_order: 3
+  ReportBookmark_8: 
+    title: All registered users
+    description: >
+      This report will return all the
+      registered users on the system,
+      regardless of status
+    args: >
+      /execute/userReport/residence/1/sex/1
+    type: user
+    list_order: 1
+  ReportBookmark_9: 
+    title: All registered this month
+    description: >
+      All the users that have registered this
+      month (dynamic)
+    args: >
+      /current_month_check/1/execute/userReport/residence/1/sex/1
+    type: user
+    list_order: 2
+  ReportBookmark_10: 
+    title: Active uploaders this month
+    description: >
+      The users that have been most active
+      when uploading content this month
+    args: >
+      /execute/activityReport
+    type: user
+    list_order: 3
+  ReportBookmark_11: 
+    title: Most comments this month
+    description: >
+      The users that have been most active at
+      commenting this month
+    args: >
+      /current_month_activity_check/1/execute/activityReport/reportType/1
+    type: user
+    list_order: 4
+  ReportBookmark_12: 
+    title: Active users
+    description: >
+      Users that have commented or written
+      comments or uploaded
+    args: >
+      /commentedArtwork/1/execute/userReport/publishedArtwork/1/residence/1/sex/1/voted/1
+    type: user
+    list_order: 5
+  ReportBookmark_13: 
+    title: Passive users
+    description: >
+      Users that have not uploaded, commented
+      or voted
+    args: >
+      /commentAndOr/1/execute/userReport/notCommentedArtwork/1/notPublishedArtwork/1/notVoted/1/residence/1/sex/1/voteAndOr/1
+    type: user
+    list_order: 6
+  ReportBookmark_14: 
+    title: Active non-uploaders
+    description: >
+      Users who have commented and voted but
+      have not published anything
+    args: >
+      /commentAndOr/1/commentedArtwork/1/execute/userReport/notPublishedArtwork/1/residence/1/sex/1voteAndOr/1/voted/1
+    type: user
+    list_order: 7
+  ReportBookmark_15: 
+    title: Super-active male users
+    description: >
+      Male users that have uploaded, commented
+      and voted
+    args: >
+      /commentAndOr/1/commentedArtwork/1/execute/userReport/publishedArtwork/1/residence/1/sex/1/sex_check/1/voteAndOr/1/voted/1
+    type: user
+    list_order: 8
+  ReportBookmark_16: 
+    title: Super-active Female users
+    description: >
+      Female users that have uploaded,
+      commented and voted
+    args: >      
+      /commentAndOr/1/commentedArtwork/1/execute/userReport/publishedArtwork/1/residence/1/sex/2/sex_check/1/voteAndOr/1/voted/1
+    type: user
+    list_order: 0
+  ReportBookmark_17: 
+    title: Active female users
+    description: >
+      Female users that have commented,
+      uploaded or voted
+    args: > 
+      /commentedArtwork/1/execute/userReport/publishedArtwork/1/residence/1/sex/2/sex_check/1/voted/1
+    type: user
+    list_order: 0
+  ReportBookmark_18: 
+    title: Active male users
+    description: >
+      Male users that have commented, voted or
+      uploaded
+    args: >
+      /commentedArtwork/1/execute/userReport/publishedArtwork/1/residence/1/sex/1/sex_check/1/voted/1
+    type: user
+    list_order: 0

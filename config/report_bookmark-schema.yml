@@ -1,0 +1,10 @@
+propel:
+  _attributes:      { package: lib.model }
+  
+  report_bookmark:
+    id:
+    title:          { type: varchar, size: 255, required: true }
+    description:    { type: longvarchar, required: true }
+    args:           { type: longvarchar, required: true }
+    type:           { type: varchar, size: 10, required: true, default: artwork } 
+    list_order:     { type: integer, default: 0 } 

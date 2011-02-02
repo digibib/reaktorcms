@@ -1,0 +1,33 @@
+propel:
+  _attributes:      { package: lib.model }
+  
+  messages:
+    id:
+    to_user_id:                { type: integer, required: true,  foreignTable: sf_guard_user, foreignReference: id }
+    from_user_id:              { type: integer, required: true,  foreignTable: sf_guard_user, foreignReference: id }
+    subject:                   { type: varchar, size: 255, required: false }
+    message:                   { type: longvarchar, required: false }
+    timestamp:                 { type: timestamp, required: true }
+    deleted_by_from:           { type: integer, required: true, default: 0 }
+    deleted_by_to:             { type: integer, required: true, default: 0 }
+    is_read:                   { type: boolean, required: true, default: false }
+    is_ignored:                { type: boolean, required: true, default: false }
+    is_archived:               { type: boolean, required: true, default: false }
+    reply_to:                  { type: integer, default: 0 }
+
+  messages_ignored_user:
+    id:
+    user_id:                   { type: integer, required: true,  foreignTable: sf_guard_user, foreignReference: id }
+    ignores_user_id:           { type: integer, required: true,  foreignTable: sf_guard_user, foreignReference: id }
+        
+  admin_message:
+    id: 
+    subject:                   { type: varchar, size: 255, required: false }
+    message:                   { type: longvarchar, required: true}
+    author:                   { type: integer, required: true, foreignTable: sf_guard_user, foreignReference: id }
+    updated_at:
+    expires_at:                { type: timestamp, required: true }
+    is_deleted:                { type: boolean,  default: false }
+    
+
+     

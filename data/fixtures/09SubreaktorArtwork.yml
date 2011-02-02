@@ -1,0 +1,63 @@
+# These values link subreaktors to artworks
+
+SubreaktorArtwork:
+  SubreaktorArtwork_1:
+    subreaktor_id: Subreaktor_1
+    artwork_id: ReaktorArtwork_1
+
+  SubreaktorArtwork_2:
+    subreaktor_id: Subreaktor_1 
+    artwork_id: ReaktorArtwork_2
+
+  SubreaktorArtwork_3:
+    subreaktor_id: Subreaktor_1 
+    artwork_id: ReaktorArtwork_7
+
+  SubreaktorArtwork_4:
+    subreaktor_id: Subreaktor_1 
+    artwork_id: ReaktorArtwork_8        
+
+  SubreaktorArtwork_5:
+    subreaktor_id: Subreaktor_5
+    artwork_id: ReaktorArtwork_9
+
+  SubreaktorArtwork_6:
+    subreaktor_id: Subreaktor_6 
+    artwork_id: ReaktorArtwork_3
+
+  SubreaktorArtwork_7:
+    subreaktor_id: Subreaktor_3 
+    artwork_id: ReaktorArtwork_4
+
+  SubreaktorArtwork_8:
+    subreaktor_id: Subreaktor_4 
+    artwork_id: ReaktorArtwork_5        
+
+  SubreaktorArtwork_9:
+    subreaktor_id: Subreaktor_6 
+    artwork_id: ReaktorArtwork_6
+  
+  SubreaktorArtwork_10: 
+    subreaktor_id: Subreaktor_2
+    artwork_id: ReaktorArtwork_10
+
+  SubreaktorArtwork_11: 
+    subreaktor_id: Subreaktor_3
+    artwork_id: ReaktorArtwork_11
+
+LokalreaktorArtwork:
+  lokalreaktorwork_1:
+    subreaktor_id: Subreaktor_7
+    artwork_id: ReaktorArtwork_1
+
+  lokalreaktorwork_2:
+    subreaktor_id: Subreaktor_7
+    artwork_id: ReaktorArtwork_3
+
+  lokalreaktorwork_3:
+    subreaktor_id: Subreaktor_7
+    artwork_id: ReaktorArtwork_5
+
+  lokalreaktorwork_4:
+    subreaktor_id: Subreaktor_7
+    artwork_id: ReaktorArtwork_8

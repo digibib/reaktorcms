@@ -1,0 +1,235 @@
+### Remember if you change anything in this file you need to clear the cache! ###
+
+all:
+  rss:
+    title:                Reaktor
+    email:                reaktor@deichman.no
+    authorname:           Reaktor
+    url:                                        #appended to site url
+    artwork_items:        10
+    
+  reaktor_url:            http://reaktor
+  image_path:             images
+  logged_in_time:         1800     # The number of seconds that a user is counted since they logged in
+  main_title:             Reaktor  # This is fixed so can be used as a fallback if you don't want the automatic subreaktor
+                                   # and admin attachments (for example)
+  site_title:             Reaktor  # Make sure this one is the same as the one in view.yml for consistency - 
+                                   # it is dynamically set - don't rely on it to always be this value!
+  title_seperator:        " ~ "    # In between the main site title defined in view.yml and the custom page title
+  admin_logo:             "logoAdmin.gif"    # Default is logoAdmin.gif
+  redaksjon_logo:         "reaktor_red.gif"  # Default is reaktor_red.gif
+  help_email:             "help@minreaktor.no"
+  
+  fixed_articles:
+    terms_and_conditions: "Vilkaar_for_bruk" # The permalink to the article that contains the terms and conditions
+    login_help:           "login_help" # The permalink to the article that is associated with the login help link
+  
+  files:
+    location_identifiers:              # The list of possible identifiers, add to this if adding a new /content directory
+      image:           image           # Uses associative array so form helpers work correctly, assigning values to keys
+      pdf:             pdf
+      audio:           audio
+      video:           video
+      flash_animation: flash_animation
+      text:            text
+  
+  sf_google_analytics_plugin:
+    enabled:      on
+    profile_id:   UA-4885488-1
+    tracker:      google
+
+  recaptcha:
+    publickey:            6Lf7mQIAAAAAAG0NGOQMemqzYMViFHl4Egu0qHH-
+    privatekey:           6Lf7mQIAAAAAAO26Xy8xoRmfqKvteF_v7oohruog
+  
+  admin:
+    commentlistmax:       10
+    opt_in_email_blocks:  20 #set this to 0 to not use any blocks
+    pma_readonly_user:    pma_user   #PHPMyAdmin user
+    pma_password:         R3ak+0rpmA
+    ga_tracker_number:    UA-4885488-1 #The google analytics tracker number - currently reaktor.lab.linpro.no
+
+### Remember if you change anything in this file you need to clear the cache! ###
+    
+  upload:
+    upload_dir:           content
+    image_dir:            image
+    video_dir:            video
+    audio_dir:            audio
+    pdf_dir:              pdf
+    text_dir:             text
+    flash_animation_dir:  flash_animation
+    attachment_dir:       /%sf_upload_dir_name%/attachments
+    max_image_width:      700
+    max_image_height:     700
+    image_extensions:     [jpg, png, gif]        #Deprecated in favour of mime types from DB
+    pdf_extensions:       [pdf]                  #Deprecated in favour of mime types from DB
+    audio_extensions:     [mp3, wav]             #Deprecated in favour of mime types from DB
+    video_extensions:     [mpg, mpeg, avi, swf]  #Deprecated in favour of mime types from DB
+    text_extensions:      [txt]                  #Deprecated in favour of mime types from DB
+    max_thumb_height:     150
+    max_thumb_width:      150
+    fix_thumb_height:     160
+    fix_thumb_width:      240
+    fix_mini_height:      65
+    fix_mini_width:       78
+    pdf_thumb_width:      116 #Try to maintain A4/letter aspect ratio - NOT USED WITH FIXED HEIGHTS YET, THUMB STORY COMING SOON :)
+    pdf_thumb_height:     150
+    thumb_allowed_mime:  
+      audio:            ['image/jpeg', 'image/jpg', 'image/pjpeg'] #Allowed mime types for audio thumbnails - other types will inherit from upload/validators/uploadInline.yml
+    crop_safe_mime:     ['image/jpeg', 'image/pjpeg', 'image/png', 'image/x-png'] # Mime types that do not need to be checked for animation frames when cropping
+  
+  sf_guard_plugin:
+    profile_class:               sfGuardUserData
+    remember_key_expiration_age: <?php echo 15*24*3600 ?> # Default is 15 days (must be supplied in seconds)
+    remember_cookie_name:        "ReaktorRemember" # Default is sfRemember
+
+  subreaktors:
+    logo_path:            %sf_web_dir%/images/
+    subcategory_list_length: 7
+
+### Remember if you change anything in this file you need to clear the cache! ###
+
+  profile:
+    max_image_width:      48
+    max_image_height:     48
+    max_age:              105  #Birthyear before 1902 and after 2038 will cause an overflow 
+    min_password_length:  6
+    email_template:       apps/reaktor/modules/profile/data/mail.ini
+    avatar_path:          %sf_web_dir%/%sf_upload_dir_name%/profile_images/
+    avatar_url:           /%sf_upload_dir_name%/profile_images/
+    portfolio_pagination: 21
+  artwork:
+    content_path:         ../content/
+    max_score:            6
+    pagination:           10
+    sender:               The reaktor team
+    sender_email:         reaktor@deichman.no
+    valid_title_chars:    "a-z0-9-_\søåæäöØÅÆÖÄ!?'\""   #Regular expression format 
+    max_title_length:     100                      # More than 255 will be cropped by the database
+    min_title_length:     3
+    teaser_len:           22
+    other_by_user:        6                        # Number of artworks to show in the "other work by <user>" section on artwork page
+    other_usrs_also_like: 6                        # Number of artworks to show in the "Users who like this arwork also like" section on artwork show page  
+    
+    additional_file_types:
+      text:               ["pdf"]  #Additional file types that these artwork types can contain
+      pdf:                ["text"]
+    
+    show_navigation:      ["text", "pdf", "video", "flash_animation"] # Artwork types that have next/previous links on display
+      
+  articles:
+    teaser_len:           100
+    help_max_count:         5
+    internal_max_count:     5
+    footer_max_count:       5
+    my_page_max_count:      5
+    regular_max_count:      5
+    
+
+  tagging:
+    minimum_tags:         0                        # Tags required by each uploaded file (set 0 for none required)
+    max_length:           35                       # More than 255 will be cropped by the database
+    min_length:           2
+    cloud_type:           pretty                   # fugly = display numbers in tag cloud | pretty = do not display numbers     
+  
+  category:
+    max_count_on_reaktors: 3
+    
+  home:
+    list_length:          5
+    max_tags:             40                        # The maximum number of tags to show on the home page tag cloud
+    max_tag_length:       1000                      # The maximum number of character space the tag cloud can occupy 
+
+  message:
+    max_length:           500                       # The maximum number of chars to show in the inline message box
+
+
+### Remember if you change anything in this file you need to clear the cache! ###
+
+  sfPropelActAsCommentableBehaviorPlugin:
+    use_ajax:         true
+    css:              false
+    anonymous:
+      enabled:        false
+      layout:
+        name:         required
+        email:        required
+        title:        required
+        comment:      required
+      name:           Anonymous User
+    user:
+      enabled:        true
+      layout:
+        title:        required
+        comment:      require
+      table:          sf_guard_user
+      id:             id
+      class:          sfGuardUser
+      id_method:      getId
+      toString:       __toString
+    namespaces:
+      backend:        administrator
+    count:
+      enabled:        true
+      method:         setSfCommentCount
+      namespace:      frontend
+
+  rating:
+    star_width: 20
+    
+    
+    
+  userlist:
+    exclude:               ["admin", "editorialboy1", "editorialboy2", "editorialboy3", "articleboy", "languageboy", ]
+
+  .editorial_team_competitions_array:
+    editorial_team_competitions:
+    # Example competition assignment follows
+      competition1:                          # This can be anything, just give a unique meaningful title
+        start:       2008-04-04              # yyyy-mm-dd - the date these categories/subreaktors will be checked from
+        end:         2008-04-11              # yyyy-mm-dd - the date to stop checking
+        subreaktors: ["foto"]                # List of subreaktors/formats that the artwork must be part of (will generally be one)              
+        categories:  [3]                     # List of category IDs that the artwork can be assigned to (will generally be one but can be a list)
+        team:        "konkurranse_redaksjon" # The editorial team that the artwork will be assigned to
+
+  editorial_team_assignment:
+    #example:               [example_redaksjon, foto_redaksjon]
+    # Example_redaksjon would be set if they are enabled, if not it would fall to foto_redaksjon, and if that fails it would go to default (below)
+    groruddalen:           ["groruddalen_redaksjon"]
+    foto:                  ["assign_by_residence"]
+    tegneserier:           ["serieteket_redaksjon"]
+    tegning:               ["assign_by_residence"] 
+    film:                  ["assign_by_residence"]
+    lyd:                   ["musikk_redaksjon"]
+    tekst:                 ["assign_by_residence"]
+  # Who gets the ones that don't match? For example when lots of teams are on holiday. This group should never be on holiday,
+  # as it will always recieve the assignment regardless. This should be a single group, not a list.
+  
+  editorial_team_default:   "deichman_redaksjon"      
+  # If "assign_by_residence" is set as one of the options (above) the following lists will decide which team takes the assignment
+  # based on the where the user lives. Residence IDs can be seen next to the list of residences via the admin interface 
+  # If IDs are duplicated, the first one found will be matched - so you can have a chain of backups if you feel like it
+  
+  .editorial_team_assign_by_residence_array:
+    editorial_team_assign_by_residence:
+      deichman_redaksjon:          [1, 2, 3, 5, 10, 11, 12, 14, 16, 17, 18, 19, 21, 22, 23, 24]
+      trondheim_redaksjon:         [4, 6, 7, 9, 8, 13, 25, 15, 26]
+      groruddalen_redaksjon:       [20]
+    
+  # Backup teams can be assigned for individual teams in the case of assign_by_residence, if a team is unavailable this backup 
+  # list will be checked before falling back to the absolute default defined above. 
+  editorial_team_backup_teams:
+    deichman_redaksjon:          ["trondheim_redaksjon"]
+    trondheim_redaksjon:         ["deichman_redaksjon"]
+  
+  reports:
+    bookmarks_to_show: 5  
+
+  sf_use_process_cache: apc
+
+test:
+  artwork:
+    content_path:         content/
+
+### Remember if you change anything in this file you need to clear the cache! ###

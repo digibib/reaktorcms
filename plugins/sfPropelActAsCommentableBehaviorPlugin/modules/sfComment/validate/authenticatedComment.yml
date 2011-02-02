@@ -1,0 +1,44 @@
+<?php
+$config_user = array('enabled'   => true, 
+                     'layout'    => array('title' => 'optionnal', 
+                                          'comment' => 'required'), 
+                     'table'     => 'sf_guard_user', 
+                     'id'        => 'id', 
+                     'class'     => 'sfGuardUser', 
+                     'id_method' => 'getUserId', 
+                     'toString'  => '__toString', 
+                     'save_name' => false);
+
+$config_user = sfConfig::get('app_sfPropelActAsCommentableBehaviorPlugin_user', $config_user);
+?>
+
+fields:
+<?php if (isset($config_user['layout']['name']) && ($config_user['layout']['name'] == 'required')): ?>
+  sf_comment_name:
+    required:
+      msg:             Your name is required
+<?php endif; ?>
+
+<?php if (isset($config_user['layout']['email']) && ($config_user['layout']['email'] == 'required')): ?>
+  sf_comment_email:
+    required:
+      msg:             Your email is required
+    sfEmailValidator:
+      strict:          true
+      email_error:     This email address is invalid
+<?php endif; ?>
+
+<?php if (isset($config_user['layout']['title']) && ($config_user['layout']['title'] == 'required')): ?>
+  sf_comment_title:
+    required:
+      msg:             A title is required
+<?php endif; ?>
+
+  sf_comment:
+    required:
+      msg:             The message is required
+
+fillin:
+  enabled:            true
+  param:
+    name:             sf_comment_form

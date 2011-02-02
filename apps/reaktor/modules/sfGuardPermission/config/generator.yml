@@ -1,0 +1,45 @@
+generator:
+  class:              sfPropelAdminGenerator
+  param:
+    model_class:      sfGuardPermission
+    theme:            default
+
+    list:
+      title:          Permission list
+      display:        [=name, description]
+      actions:
+        _create:      { name: Create new specific permission, action: ~, credentials: editpermission }
+      object_actions:
+        _edit:        { action: ~, credentials: editpermission }
+        _delete:      { action: ~, credentials: deletepermission }
+      filters:        [ name ]
+      
+
+    edit:
+      title:          Edit "%%name%%" permission
+      fields:
+        name:
+          params:      size=20
+        description:
+          credentials: translator
+          help:        "To edit this description, please use the translation interface"
+        permissions:
+          type:        admin_check_list
+          name:        Groups
+          params:      through_class=sfGuardGroupPermission
+          help:        <br />Select which group(s) to have this permission
+        members_help:
+          name:        ""
+          help:        "<b>Remember that users mainly get their permission(s) from their group/team membership, not from this list.</b><br /><br />The list to the right contains all the users who has this permission <b>explicitly</b> set, and the one to the left contains the rest.<br /><br />Select one or more users (hold down the CTRL-key to select multiple users), then use the blue arrows between the boxes to move users. Remember to save your changes when you're done."
+        members:
+          type:        admin_double_list
+          name:        Users with this permission
+          params:      through_class=sfGuardUserPermission
+      actions:
+        _save:         { name: Save, action: ~, credentials: editpermission }
+        _list:         { name: Cancel, action: ~, credentials: listpermission  }
+        _delete:       { name: Delete permission, action: ~, credentials: deletepermission }
+      display:
+        "Information":                 [ name, description ]
+        "Groups with this permission": [ permissions ]
+        "Users with this permission explicitly set": [ _members_help, members ]

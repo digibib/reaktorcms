@@ -1,0 +1,6 @@
+all:
+  credentials:  translator
+  is_secure:    on
+  
+setCulture:
+  is_secure: off

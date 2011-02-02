@@ -1,0 +1,1470 @@
+# Please always add a route for every possible URL combination - this will become crucial
+# When we come to install i18n because we will likely be adding country codes to the URLs
+# Which we can do via this file and will take effect globally, providing you have used routing rules.
+# We also want to hide paths to plugins wherever possible - Symfony should be transparent to the user
+# Adding routes also enforces rules and stops bogus values being sent to the action
+
+#Ajax requests with short URLS :)
+
+updateContentSidebar:
+  url: /updateContentSidebar/:user
+  param: { module: userContent, action: updateSidebar }
+  
+updateFileList:
+  url: /updateFileList/:artworkId
+  param: { module: artwork, action: updateFileList }
+
+updateArtworkTagList:
+  url: /updateArtworkTagList/:fileId/:artworkId
+  param: { module: artwork, action: updateArtworkTagList }
+
+#articles
+orderarticlesupdate:
+  url: /articles/order/update
+  param: { module: articles, action: orderArticlesUpdate }
+  
+orderarticles:
+  url: /:sf_culture/admin/articles/order/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: articles, action: orderArticles }
+
+relatearticle:
+  url: /article/relate/:id
+  param: { module: articles, action: relateArticle }
+  
+unrelatearticle:
+  url: /article/unrelate/:article1/:article2
+  param: { module: articles, action: unrelateArticle}
+
+setarticleexpirationdate:
+  url: /article/expire/:article_id/*
+  param: { module: articles, action: setExpirationDate}
+
+relateartworktoarticle:
+  url: /:sf_culture/admin/article/relatetoartwork/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: articles, action: relateToArtwork}
+
+browsearticleartworks:
+  url: /:sf_culture/admin/article/edit/browse/artworks/:article_id/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: listArtworksPopup}
+
+browsearticlefiles:
+  url: /:sf_culture/admin/article/edit/:article_id/browse/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: filelist, action: browseFiles}
+
+editarticle:
+  url: /:sf_culture/admin/article/edit/:article_id/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: articles, action: edit}
+
+listarticles:
+  url: /:sf_culture/admin/articles/list/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: articles, action: list }
+
+showarticle_attachments:
+  url: /:sf_culture/article/attachments/:article_id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: articles, action: showArticleAttachments}
+
+showarticle_artworks:
+  url: /:sf_culture/article/artwork/:article_id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: articles, action: showArticleArtworkRelations}
+
+article_set_banner:
+  url: /:sf_culture/article/:article_id/banner/attach/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: articles, action: attachBannerToArticle}
+
+article_attach:
+  url: /:sf_culture/article/:article_id/attach/:file_id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: articles, action: attachToArticle}
+
+nuke_article_attachment:
+  url: /:sf_culture/article/:article_id/nuke/attachment/:attachment_id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: articles, action: nukeAttachment}
+
+nuke_related_artwork_from_article:
+  url: /:sf_culture/article/:article_id/nuke/artwork/:artwork_id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: articles, action: nukeArtworkRelation}
+
+articlecalendar_type:
+  url: /:sf_culture/article/calendar/:article_type/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: articles, action: calendar}
+  
+createarticle:
+  url: /:sf_culture/admin/article/create/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: articles, action: edit}
+
+article_admin:
+  url: /:sf_culture/admin/article/:permalink
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: articles, action: view}
+
+article:
+  url: /:sf_culture/article/:permalink
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: articles, action: view}
+
+latestarticlebytype:
+  url: /:sf_culture/article/:type/latest
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: articles, action: view, latest: true }
+  
+subreaktorarticle:
+  url: /:sf_culture/:subreaktor/article/:permalink
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: articles, action: view}
+  
+article_editor:
+  url:   /:sf_culture/article/tinymce
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: article, action: tinymceJs, sf_format: js }
+
+#messaging
+
+sendmessage:
+  url: /:sf_culture/message/send
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: messaging, action: sendMessageAction}
+  
+markmessageread:
+  url: /:sf_culture/message/markRead/:id/
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: messaging, action: markMessageRead}
+
+newMessages:
+  url: /:sf_culture/message/getNewMessages
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: messaging, action: getNewMessages}
+
+updateMessageCounter:
+  url: /:sf_culture/message/updateMessageCounter
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: messaging, action: updateMessageCounter}
+
+updateMessageContentAjax:
+  url: /:sf_culture/message/updateMessageContentAjax
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: messaging, action: messageContentAjax}
+
+ignoreuser:
+  url: /:sf_culture/message/ignoreUser/:id/:do/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: messaging, action: ignoreUser}
+
+deletemessage:
+  url: /:sf_culture/message/deleteMessage/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: messaging, action: deleteMessage}
+
+add_favourite:
+  url: /:sf_culture/favourite/add/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: favourite, action: add}
+
+remove_favourite:
+  url: /:sf_culture/favourite/remove/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: favourite, action: remove}
+
+restoremessage:
+  url: /:sf_culture/message/restoreMessage/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: messaging, action: restoreMessage}
+  
+adminmessage:
+  url: /:sf_culture/admin/message
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: adminmessage, action: list }
+ 
+messageinbox:
+  url: /:sf_culture/message/inbox/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: messaging, action: messageInbox}
+
+#Profiles and user routes
+
+checkusername:
+  url: /checkusername/*
+  param: { module: profile, action: checkUsername}
+
+userlist:
+  url: /:sf_culture/list/users/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: sfGuardUser, action: listUsers}
+
+subreaktoruserlist:
+  url: /:subreaktor/:sf_culture/list/users/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: sfGuardUser, action: listUsers}
+
+updateprofile:
+  url: /:sf_culture/profile/update/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: profile, action: update}
+
+subreaktorupdateprofile:
+  url: /:sf_culture/:subreaktor/profile/update/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: profile, action: update}
+
+changepassword:
+  url: /:sf_culture/profile/changepassword/:username/:key/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: profile, action: changePassword}
+
+subreaktorchangepassword:
+  url: /:sf_culture/:subreaktor/profile/changepassword/:username/:key/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: profile, action: changePassword}
+
+subreaktormypage:
+  url: /:sf_culture/:subreaktor/mypage/:user
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: profile, action: myPage}
+  
+activate:
+  url: /:sf_culture/profile/activate/:key
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: profile, action: activate}
+
+changeemail:
+  url: /:sf_culture/profile/changeemail/:key/:new_email_key
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: profile, action: changeemail}
+
+mypage:
+  url: /:sf_culture/mypage/:user
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: profile, action: myPage}
+
+portfolio:
+  url: /:sf_culture/portfolio/:user/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: profile, action: portfolio}
+  
+subreaktorportfolio:
+  url: /:sf_culture/:subreaktor/portfolio/:user/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: profile, action: portfolio}
+  
+subreaktoraddresource:
+  url: /:sf_culture/:subreaktor/addresource/:user
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: profile, action: addResource }
+  
+addresource:
+  url: /:sf_culture/addresource/:user
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: profile, action: addResource }
+  
+subreaktorremoveresource:
+  url: /:sf_culture/:subreaktor/removeresource/:user/:resourceid
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: profile, action: removeResource }
+  
+removeresource:
+  url: /:sf_culture/removeresource/:user/:resourceid
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: profile, action: removeResource }
+  
+subreaktorallusercomments:
+  url: /:sf_culture/:subreaktor/list/comments/user/:user_id/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: sfComment, action: listComments }
+
+allusercomments:
+  url: /:sf_culture/list/comments/user/:user_id/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: sfComment, action: listComments }
+
+subreaktormyusercomments:
+  url: /:sf_culture/:subreaktor/list/comments/username/:username/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: sfComment, action: listComments }
+
+myusercomments:
+  url: /:sf_culture/list/comments/username/:username/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: sfComment, action: listComments }
+
+subreaktorallusersmatchinginterests:
+  url: /:sf_culture/:subreaktor/list/matchingusers/:user_id/:all
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: profile, action: listMatchingUsers }
+
+allusersmatchinginterests:
+  url: /:sf_culture/list/matchingusers/:user_id/:all
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: profile, action: listMatchingUsers }
+
+lokalreaktor:
+  url: /:sf_culture/admin/lokalreaktor/edit/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: lokalreaktor, action: edit}  
+
+listignoredusers:
+  url: /:sf_culture/admin/listIgnoredUsers/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: listIgnoredUsers}    
+
+listoptinusers:
+  url: /:sf_culture/admin/listPromotionalEmailRecipients
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: listPromotionalEmailRecipients}    
+      
+listreportedcontent:
+  url: /:sf_culture/admin/list/file/reported
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: listReportedContent}
+  
+listrejectedfiles:
+  url: /:sf_culture/admin/list/file/rejected
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: listRejectedFiles}
+  
+listmyteams:
+  url: /:sf_culture/admin/list/myteams/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: editorialTeams }
+
+unapproved_listmyteams:
+  url: /:sf_culture/admin/list/unapprovedmyteams/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: listUnapprovedMyTeams }
+
+unapproved_listotherteam:
+  url: /:sf_culture/admin/list/unapprovedotherteams/:team
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: listUnapprovedOtherTeams }
+
+unapproved_listotherteams:
+  url: /:sf_culture/admin/list/unapprovedotherteams/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: listUnapprovedOtherTeams }
+
+rejection_type_chosen:
+  url: /:sf_culture/admin/rejection_type/chosen
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: rejectionTypeChosen }
+  
+rejectiontypeupdate:
+  url: /:sf_culture/admin/rejection_type/update
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: rejectionTypeUpdate }
+
+rejectiontypeshow:
+  url: /:sf_culture/admin/rejection_type/show/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: rejectionTypeShow }
+
+rejectiontypedelete:
+  url: /:sf_culture/admin/rejection_type/delete/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: rejectionTypeDelete }
+
+rejectiontypes:
+  url: /:sf_culture/admin/settings/rejection_types
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: rejectionType }
+
+rejectiontypecreate:
+  url: /:sf_culture/admin/rejection_type/create
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: rejectionTypeCreate }
+
+artworkstatusupdate:
+  url: /:sf_culture/admin/artwork_status/update
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: artworkStatusUpdate }
+
+artworkslistmodified:
+  url: /:sf_culture/admin/artwork/list_modified/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: listModified }
+
+artworkstatusshow:
+  url: /:sf_culture/admin/artwork_status/show/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: artworkStatusShow }
+
+artworkstatuses:
+  url: /:sf_culture/admin/settings/artwork_statuses
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: artworkStatus }
+
+historyactionupdate:
+  url: /:sf_culture/admin/history_action/update
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: historyActionUpdate }
+
+historyactions:
+  url: /:sf_culture/admin/settings/history_actions
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: historyActions }
+
+AJAX_browse_unrelated_artworks:
+  url: /:sf_culture/ajax/artwork/:id/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: relatedFilter }
+
+subreaktornameupdate:
+  url: /:sf_culture/admin/translate/subreaktorname/update
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: subreaktorNameUpdate }
+
+subreaktornameedit:
+  url: /:sf_culture/admin/translate/subreaktorname/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: subreaktorNameEdit }
+
+subreaktornames:
+  url: /:sf_culture/admin/translate/subreaktorname
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: subreaktorNames }
+
+sfguardpermissiondescriptionupdate:
+  url: /:sf_culture/admin/translate/permissiondescription/update
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: permissionDescriptionUpdate }
+
+sfguardpermissiondescriptionedit:
+  url: /:sf_culture/admin/translate/permissiondescription/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: permissionDescriptionEdit }
+
+sfguardpermissiondescriptionlist:
+  url: /:sf_culture/admin/translate/permissiondescriptions
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: permissionDescriptionsList }
+
+listcategories:
+  url: /:sf_culture/admin/settings/categories
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: categoryList }
+  
+subreaktorlistcategories:
+  url: /:sf_culture/:subreaktor/admin/settings/categories
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: categoryList }
+  
+categoryupdate:
+  url: /:sf_culture/admin/category/update
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: categoryUpdate }
+
+subreaktorcategoryupdate:
+  url: /:sf_culture/:subreaktor/admin/category/update
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: categoryUpdate }
+
+editCategory:
+  url: /:sf_culture/admin/category/edit/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: categoryEdit }
+
+renameCategory:
+  url: /:sf_culture/admin/category/rename/:id/:basename
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: categoryRename }
+
+subreaktoreditCategory:
+  url: /:sf_culture/:subreaktor/admin/category/edit/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: categoryEdit }
+
+newCategory:
+  url: /:sf_culture/admin/category/new
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: newCategory }
+
+subreaktornewCategory:
+  url: /:sf_culture/:subreaktor/admin/category/new
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: newCategory }
+
+commentsbyuser:
+  url: /:sf_culture/admin/list/comments/user/:user_id/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: sfComment, action: listComments }
+
+reportedcomments:
+  url: /:sf_culture/admin/list/comments/reported/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: listReportedComments }
+  
+unsuitablecomments:
+  url: /:sf_culture/admin/list/comments/unsuitable/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: listUnsuitableComments }
+
+listreportedfiles:
+  url: /:sf_culture/admin/list/files/reported
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: listReportedContent }
+
+listcommentsbydate:
+  url: /:sf_culture/admin/list/comments/*                     # Allow no date to be specified
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: listComments }  
+
+editadminmessage:
+  url: /:sf_culture/admin/message/edit/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: adminmessage, action: edit }
+
+listadminmessage:
+  url: /:sf_culture/admin/message/list/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: adminmessage, action: list }
+
+createadminmessage:
+  url: /:sf_culture/admin/message/create
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: adminmessage, action: create }
+
+listusers:
+  url: /:sf_culture/admin/list/users/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: sfGuardUser, action: list }
+
+edituser:
+  url: /:sf_culture/admin/edit/user/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: sfGuardUser, action: edit }
+  
+createuser:
+  url: /:sf_culture/admin/user/create
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: sfGuardUser, action: create }
+
+saveuser:
+  url: /:sf_culture/admin/save/user
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: sfGuardUser, action: save }
+
+listgroups:
+  url: /:sf_culture/admin/list/groups/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: sfGuardGroup, action: list }
+  
+editgroup:
+  url: /:sf_culture/admin/edit/group/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: sfGuardGroup, action: edit }
+
+savegroup:
+  url: /:sf_culture/admin/save/group
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: sfGuardGroup, action: save }
+
+listpermissions:
+  url: /:sf_culture/admin/list/permissions/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: sfGuardPermission, action: list }
+  
+editpermissions:
+  url: /:sf_culture/admin/edit/permissions/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: sfGuardPermission, action: edit }
+
+savepermissions:
+  url: /:sf_culture/admin/save/permissions
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: sfGuardPermission, action: save }
+
+listrejected:
+  url: /:sf_culture/admin/list/rejected
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: listRejected }
+
+listdiscussion: 
+  url: /:sf_culture/admin/list/discussion
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: listDiscussion }
+
+commentscalendar:
+  url: /:sf_culture/admin/comments/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: {module: admin, action: commentsCalendar }
+
+createcompositeartwork:
+  url: /:sf_culture/admin/artwork/createcomposite                   
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: createCompositeArtwork }
+
+admin:
+  url: /:sf_culture/admin                   
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: index }
+
+admin_functions:
+  url: /:sf_culture/admin/functions/:mode
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: adminFunctions }
+
+admin_home:
+  url: /:sf_culture/admin                   
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: index }
+
+taglist:
+  url: /:sf_culture/admin/tags/list/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: tags, action: listTags }
+
+admin_addtag:
+  url: /:sf_culture/admin/tags/add/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: tags, action: addTag }
+
+taglist_unapproved:
+  url: /:sf_culture/admin/tags/unapproved/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: tags, action: listTags, unapproved: 1 }
+
+listsubreaktors:
+  url: /:sf_culture/admin/list/subreaktors
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: subreaktors, action: list }
+
+addsubreaktor:
+  url: /:sf_culture/admin/add/subreaktors
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: subreaktors, action: add }
+  
+editsubreaktor:
+  url: /:sf_culture/admin/edit/subreaktors/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: subreaktors, action: edit }
+  
+updatesubreaktor:
+  url: /:sf_culture/admin/update/subreaktors/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: subreaktors, action: update }
+  
+deletesubreaktor:
+  url: /:sf_culture/admin/delete/subreaktors/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: subreaktors, action: delete }
+  
+adminupdatesubreaktororder:
+  url: /:sf_culture/admin/updateorder/subreaktors/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: subreaktors, action: updateOrder }
+
+listrecommended:
+  url: /:sf_culture/admin/list/recommended
+  requirements: {sf_culture: (?:no|nn|en) }
+  param: {module: admin, action: listRecommended }
+
+approvedartwork:
+  url: /:sf_culture/admin/list/approved
+  requirements: {sf_culture: (?:no|nn|en) }
+  param: {module: admin, action: listApproved }
+
+listcompositeartwork:
+  url: /:sf_culture/admin/list/composite
+  requirements: {sf_culture: (?:no|nn|en) }
+  param: {module: admin, action: listComposite }
+
+approvedartwork_year:
+  url: /:sf_culture/admin/list/approved/:year
+  requirements: {sf_culture: (?:no|nn|en) }
+  param: {module: admin, action: listApproved }
+
+approvedartwork_month:
+  url: /:sf_culture/admin/list/approved/:year/:month/*
+  requirements: {sf_culture: (?:no|nn|en) }
+  param: {module: admin, action: listApproved }
+
+rejectedartwork:
+  url: /:sf_culture/admin/list/rejected
+  requirements: {sf_culture: (?:no|nn|en) }
+  param: {module: artwork, action: listRejected }
+
+rejectedartwork_year:
+  url: /:sf_culture/admin/list/rejected/:year
+  requirements: {sf_culture: (?:no|nn|en) }
+  param: {module: artwork, action: listRejected }
+
+rejectedartwork_month:
+  url: /:sf_culture/admin/list/rejected/:year/:month/*
+  requirements: {sf_culture: (?:no|nn|en) }
+  param: {module: artwork, action: listRejected }
+
+residences:
+  url: /:sf_culture/admin/list/residences/*
+  requirements: {sf_culture: (?:no|nn|en) }
+  param: {module: residence, action: list }
+  
+residence_edit:
+  url: /:sf_culture/admin/edit/residence/:id
+  requirements: {sf_culture: (?:no|nn|en) }
+  param: {module: residence, action: edit }
+  
+residence_delete:
+  url: /:sf_culture/admin/delete/residence/:id
+  requirements: {sf_culture: (?:no|nn|en) }
+  param: {module: residence, action: delete }
+
+pma:
+  url: /admin/pma
+  param: { module: admin, action: PMA}
+
+setLang:
+  url: /lang/:lang/*
+  param: {module: sfTransUnit, action: setCulture }
+
+# File upload & Management
+
+resolveuploadid:
+  url: /resolveUploadFileId/*
+  param: { module: upload, action: resolveUploadFileId }
+
+resolveartworkid:
+  url: /resolveArtworkId/*
+  param: { module: artwork, action: resolveArtworkId }
+
+updateartworkeditorialteam:
+  url: /:sf_culture/artwork/update/editorialteam/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: updateEditorialTeam } 
+
+removefilefromartwork:
+  url: /:sf_culture/artwork/removefile/:artwork/:file
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: removeFileFromArtwork } 
+
+artworkupdatefield:
+  url: /:sf_culture/artwork/update/:id/:field
+  requirements: { sf_culture: (?:no|nn|en), field: (?:title|description|files) }
+  param: { module: artwork, action: update }
+
+cropImage:
+  url: /:sf_culture/upload/thumbnailcrop/:fileId
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: upload, action: thumbnailCrop }
+
+subreaktorcropImage:
+  url: /:sf_culture/:subreaktor/upload/thumbnailcrop/:fileId
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: upload, action: thumbnailCrop }
+
+uploadcropimage:
+  url: /:sf_culture/upload/crop/:file
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: upload, action: crop }
+
+subreaktoruploadcropimage:
+  url: /:sf_culture/:subreaktor/upload/crop/:file
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: upload, action: crop }
+
+subreaktorupdate_content:
+  url: /:sf_culture/:subreaktor/update/:artwork_id/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: upload, action: upload}
+
+update_content:
+  url: /:sf_culture/update/:artwork_id/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: upload, action: upload}
+  
+upload_attachment:
+  url: /:sf_culture/upload/attachment/:article_id/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: upload, action: uploadAttachment}
+ 
+new_text:
+  url: /:sf_culture/textsubmit
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: upload, action: upload, mce_data: ' '}
+  
+subreaktornew_text:
+  url: /:sf_culture/:subreaktor/textsubmit
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: upload, action: upload, mce_data: ' '}  
+  
+subreaktoredit_upload:
+  url: /:sf_culture/:subreaktor/upload/edit/:fileId/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: upload, action: edit}
+
+edit_upload:
+  url: /:sf_culture/upload/edit/:fileId/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: upload, action: edit}
+
+subreaktorinline_upload:
+  url: /:sf_culture/:subreaktor/upload/inline
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: upload, action: updateInline}
+ 
+inline_upload:
+  url: /:sf_culture/upload/inline
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: upload, action: updateInline}
+ 
+subreaktormy_content:
+  url: /:sf_culture/:subreaktor/mypage/content/manage/:mode
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: userContent, action: manage }
+  
+my_content:
+  url: /:sf_culture/mypage/content/manage/:mode
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: userContent, action: manage }
+    
+user_content:
+  url: /:sf_culture/admin/content/manage/:user/:mode
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: userContent, action: manage }
+
+subreaktoruser_content:
+  url: /:sf_culture/admin/content/manage/:user/:mode
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: userContent, action: manage }
+
+subreaktormy_content_filtered:
+  url: /:sf_culture/content/manage/:mode/:year
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: userContent, action: manage }
+
+my_content_filtered:
+  url: /:sf_culture/content/manage/:mode/:year
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: userContent, action: manage }
+    
+user_content_filtered:
+  url: /:sf_culture/admin/content/manage/:user/:mode/:year
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: userContent, action: manage }
+
+admin_link_existing_file:
+  url: /:sf_culture/admin/content/link/:user/:artworkId
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: userContent, action: manage, mode: link }
+
+admin_link_existing_file_allusers:
+  url: /:sf_culture/admin/content/:user/linkall/:artworkId/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: userContent, action: manage, mode: link, allusers: true }
+
+subreaktorlink_existing_file:
+  url: /:sf_culture/:subreaktor/content/link/:artworkId
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: userContent, action: manage, mode: link }
+
+link_existing_file:
+  url: /:sf_culture/content/link/:artworkId
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: userContent, action: manage, mode: link }
+
+addToCollection:
+  url: /:sf_culture/content/executeLink/:artworkId/:fileId
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: userContent, action: add }
+
+subreaktoraddToCollection:
+  url: /:sf_culture/:subreaktor/content/executeLink/:artworkId/:fileId
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: userContent, action: add }
+
+adminaddToCollection:
+  url: /:sf_culture/admin/content/:user/executeLink/:artworkId/:fileId
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: userContent, action: add }
+
+getartworklist:
+  url: /:sf_culture/content/getArtworkList/:fileId
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: userContent, action: getArtworkList }
+
+removeFromCollection:
+  url: /:sf_culture/content/executeRemove/:artworkId/:fileId
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: userContent, action: remove }
+
+adminremoveFromCollection:
+  url: /:sf_culture/admin/content/:user/executeRemove/:artworkId/:fileId/:allusers
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: userContent, action: remove }
+
+subreaktordelete_file:
+  url: /:sf_culture/:subreaktor/upload/delete/:fileId
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: upload, action: deleteFile }
+
+delete_file:
+  url: /:sf_culture/upload/delete/:fileId
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: upload, action: deleteFile }
+
+hide_file:
+  url: /:sf_culture/file/remove/:fileId
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: userContent, action: hideFile }
+
+subreaktorremove_file_create:
+  url: /:sf_culture/:subreaktor/artwork/remove/:artworkId/:fileId/create
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: unlink, mode: create }
+  
+remove_file_create:
+  url: /:sf_culture/artwork/remove/:artworkId/:fileId/create
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: unlink, mode: create }
+  
+subreaktorremove_file_link:
+  url: /:sf_culture/:subreaktor/artwork/remove/:artworkId/:fileId/link
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: unlink, mode: link }
+
+remove_file_link:
+  url: /:sf_culture/artwork/remove/:artworkId/:fileId/link
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: unlink, mode: link }
+
+subreaktorcategory_action:
+  url: /:sf_culture/:subreaktor/artwork/categoryAction
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: categoryAction }
+
+category_action:
+  url: /:sf_culture/artwork/categoryAction
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: categoryAction }
+
+category_autocomplete:
+  url: /:sf_culture/category/autocomplete
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: categoryAutocomplete }
+
+subreaktorremove_artwork_file:
+  url: /:sf_culture/:subreaktor/artwork/remove/:artworkId/:fileId
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: unlink, mode: remove }
+
+remove_artwork_file:
+  url: /:sf_culture/artwork/remove/:artworkId/:fileId
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: unlink, mode: remove }
+
+subreaktorreport_file:
+  url: /:sf_culture/:subreaktor/artwork/:id/:title/reportfile/:file
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: reportfile }
+  
+report_file:
+  url: /:sf_culture/artwork/:id/:title/reportfile/:file
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: reportfile }
+
+removefilemessage:
+  url: /:sf_culture/admin/artwork/removefilemessage/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: removeFileMessage}
+  
+subreaktorupload_content:
+  url: /:sf_culture/:subreaktor/upload
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: upload, action: upload}
+  
+upload_content:
+  url: /:sf_culture/upload
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: upload, action: upload}
+
+
+# Content server
+
+content_server:
+  url: /content/:id/:filename
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: contentServer, action: contentServer}
+
+content_thumb:
+  url: /content/:id/thumb/:filename
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: contentServer, action: contentThumb}
+
+content_mini:
+  url: /content/:id/mini/:filename
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: contentServer, action: contentMini}
+
+content_original:
+  url: /content/:id/original/:filename
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: contentServer, action: contentOriginal}
+
+# Artwork display / management
+
+artwork_link:
+  url: /:sf_culture/upload/link/:link_artwork_id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: upload, action: upload}
+
+subreaktorartwork_link:
+  url: /:sf_culture/:subreaktor/upload/link/:link_artwork_id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: upload, action: upload}
+  
+subreaktorshow_artwork_file:
+  url: /:sf_culture/:subreaktor/artwork/show/:id/:file/:title
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: show }
+
+show_artwork_file:
+  url: /:sf_culture/artwork/show/:id/:file/:title
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: show }
+
+subreaktorshow_artwork:
+  url: /:sf_culture/:subreaktor/artwork/show/:id/:title
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: show }
+
+show_artwork:
+  url: /:sf_culture/artwork/show/:id/:title
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: show }
+
+show_artwork_titleless:
+  url: /:sf_culture/artwork/show/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: show }
+  
+subreaktorshow_artwork_metadata:
+  url: /:sf_culture/:subreaktor/artwork/showmetadata/:id/:title
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: showMetadata }
+
+show_artwork_metadata:
+  url: /:sf_culture/artwork/showmetadata/:id/:title
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: showMetadata }
+  
+remove_metadata:
+  url: /:sf_culture/artwork/removemetadata/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: removeMetadata }
+  
+show_artwork_xml:
+  url: /:sf_culture/artwork/showxml/:id/:format
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: showXML }
+  
+subreaktoredit_artwork:
+  url: /:sf_culture/:subreaktor/artwork/edit/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: edit}
+
+edit_artwork:
+  url: /:sf_culture/artwork/edit/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: edit}
+
+edit_nodecor_artwork:
+  url: /:sf_culture/artwork/edit_nodecor/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: edit}
+
+re_transcode_file:
+  url: /:sf_culture/artwork/edit/retranscode/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: reTranscode}
+
+transcoderlog:
+  url: /:sf_culture/artwork/transcoderlog/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: transcoderLog}
+
+show_discussion:
+  url: /:sf_culture/admin/discuss/:type/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: discuss }
+
+subreaktorshow_discussion:
+  url: /:sf_culture/:subreaktor/admin/discuss/:type/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: discuss }
+
+subreaktorrejectartwork:
+  url: /:sf_culture/:subreaktor/artwork/reject/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: rejectArtwork}
+
+rejectartwork:
+  url: /:sf_culture/artwork/reject/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: rejectArtwork}
+
+subreaktorartwork_status:
+  url: /:sf_culture/:subreaktor/artwork/changeartworkstatus/:status/:id 
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: changeArtworkStatus} 
+
+artwork_mark_discussion:
+  url: /:sf_culture/admin/artwork_status/discussion/:id/:status
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: changeDiscussionStatus, type: artwork }
+
+file_mark_discussion:
+  url: /:sf_culture/admin/file_status/discussion/:id/:status
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: changeDiscussionStatus, type: file }
+
+artwork_status:
+  url: /:sf_culture/artwork/changeartworkstatus/:status/:id 
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: changeArtworkStatus } 
+
+artwork_status_returndetails:
+  url: /:sf_culture/artwork/changeartworkstatus/returndetails/:status/:id 
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: changeArtworkStatus,  returndetails: true} 
+  
+accept_artwork_modifications:
+  url: /:sf_culture/artwork/acceptartworkmodifications/:id 
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: acceptArtworkModifications } 
+  
+accept_file_modifications:
+  url: /:sf_culture/artwork/acceptfilemodifications/:id 
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: acceptFileModifications } 
+  
+subreaktorartworklist:
+  url: /:sf_culture/:subreaktor/artworklist/:user
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: list}
+
+artworklist:
+  url: /:sf_culture/artworklist/:user
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: list}
+
+subreaktorremovefile:
+  url: /:sf_culture/:subreaktor/artwork/removefile/:artworkId/:fileId
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: removeFileMessage}
+  
+removefile:
+  url: /:sf_culture/artwork/removefile/:artworkId/:fileId
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: removeFileMessage}
+  
+subreaktorflag_ok_file:
+  url: /:sf_culture/:subreaktor/artwork/okfile/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: OkFile}
+
+flag_ok_file:
+  url: /:sf_culture/artwork/okfile/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: OkFile}
+
+subreaktorflag_suitable_file:
+  url: /:sf_culture/:subreaktor/artwork/suitablefile/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: suitableFile}
+  
+flag_suitable_file:
+  url: /:sf_culture/artwork/suitablefile/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: suitableFile}
+
+subreaktorartworklastartworksfromuseraction:
+  url: /:sf_culture/:subreaktor/artwork/lastartworksfromuseraction/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: lastArtworksFromUserAction }
+
+artworklastartworksfromuseraction:
+  url: /:sf_culture/artwork/lastartworksfromuseraction/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: lastArtworksFromUserAction }
+
+relateartwork:
+  url: /:sf_culture/artwork/relate/:id/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: relateArtwork}
+  
+crosslink_all_artworks:
+  url: /:sf_culture/artwork/crossrelate/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: crossRelateArtwork}
+ 
+removeartworkrelation:
+  url: /:sf_culture/artwork/removerelation/:viewartwork/:relatedartwork
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: removeArtworkRelation }
+  
+addartworkrecommendation:
+  url: /:sf_culture/artwork/add/recommendation/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: addRecommendation } 
+  
+artworkupdate:
+  url: /:sf_culture/artwork/update
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: artwork, action: update }
+
+# Tags and tagging
+
+subreaktorfindtags:
+  url: /:sf_culture/:subreaktor/tags/find/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: tags, action: find }
+
+subreaktorfindcategory:
+  url: /:sf_culture/:subreaktor/category/:category/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: tags, action: findcategory }
+
+findtags:
+  url: /:sf_culture/tags/find/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: tags, action: find }
+
+subreaktorfindsubreaktortags:
+  url: /:sf_culture/:subreaktor/tags/find/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: tags, action: find }
+
+findsubreaktortags:
+  url: /:sf_culture/tags/find/:tag
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: tags, action: find }
+
+tags:
+  url: /:sf_culture/tags/index/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: tags, action: index}
+
+# Login and user routes
+
+subreaktorsf_guard_signin:
+  url: /:sf_culture/:subreaktor/login
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: sfGuardAuth, action: signin }
+
+sf_guard_signin:
+  url: /:sf_culture/login
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: sfGuardAuth, action: signin }
+
+subreaktorsf_guard_signout:
+  url: /:sf_culture/:subreaktor/logout
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: sfGuardAuth, action: signout }
+
+sf_guard_signout:
+  url: /:sf_culture/logout
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: sfGuardAuth, action: signout }
+
+#deprecated - now ajax only profile/passRequest
+#sf_guard_password: 
+#  url: /:sf_culture/request_password
+#  requirements: { sf_culture: (?:no|nn|en) }
+#  param: { module: profile, action: password }
+
+#register_alternate:
+#  url: /:sf_culture/register_alternate
+#  param:  { module: sfGuardUser, action: create }
+
+subreaktorregister:
+  url: /:sf_culture/:subreaktor/register
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: profile, action: register}
+  
+register:
+  url: /:sf_culture/register
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: profile, action: register}
+  
+subreaktorprofile:
+  url: /:sf_culture/:subreaktor/profile
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: profile, action: edit}
+  
+profile:
+  url: /:sf_culture/profile
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: profile, action: edit}
+
+otherprofile:
+  url: /:sf_culture/profile/edit/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: profile, action: edit}
+  
+subreaktorotherprofile:
+  url: /:sf_culture/:subreaktor/profile/edit/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: profile, action: edit}
+  
+viewotherprofile:
+  url: /:sf_culture/admin/edit/user/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: sfGuardUser, action: edit }
+
+#Translation
+
+trans_list:
+  url: /:sf_culture/admin/translation/list/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: sfTransUnit, action: list}
+
+trans_edit:
+  url: /:sf_culture/admin/translation/edit/:msg_id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: sfTransUnit, action: edit}
+
+trans_edit2:
+  url: /:sf_culture/admin/translation/edit/msg_id/:msg_id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: sfTransUnit, action: edit}
+
+trans_unit_setculture:
+  url: /:sf_culture/trans_unit/setCulture/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: sfTransUnit, action: setCulture}
+
+translateFormAction:
+  url: /:sf_culture/translate/new
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: sfTransUnit, action: newTranslation}
+  
+subreaktortranslateFormAction:
+  url: /:sf_culture/:subreaktor/translate/new
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: sfTransUnit, action: newTranslation}
+
+#RSS Feeds
+
+adminfeed:
+  url: /:sf_culture/feed/admin/:slug/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: feed, action: adminFeed }
+
+subreaktoradminfeed:
+  url: /:sf_culture/:subreaktor/feed/admin/:slug/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: feed, action: adminFeed }
+
+artworkfeed:
+  url: /:sf_culture/feed/:slug
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: feed, action: artworkFeed }
+
+subreaktorartworkfeed:
+  url: /:sf_culture/:subreaktor/feed/:slug
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: feed, action: artworkFeed }
+
+showfilefeed:
+  url: /:sf_culture/feed/:slug/:id/files
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: feed, action: fileFeed }
+
+subreaktorshowfilefeed:
+  url: /:sf_culture/:subreaktor/feed/:slug/:id/files
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: feed, action: fileFeed }
+   
+userfeed:
+  url: /:sf_culture/feed/:slug/:username/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: feed, action: userFeed }
+
+subreaktoruserfeed:
+  url: /:sf_culture/:subreaktor/feed/:slug/:username/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: feed, action: userFeed }
+
+feedindex:
+  url: /:sf_culture/rssfeeds
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: feed, action: list }
+
+subreaktorfeedindex:
+  url: /:sf_culture/:subreaktor/rssfeeds
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: feed, action: list }
+  
+# Report rules
+
+deletereport:
+  url: /:sf_culture/admin/reports/delete/:id
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: reports, action: deleteReport }
+  
+userreports:
+  url: /:sf_culture/admin/reports/user/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: reports, action: userReports }
+  
+most_active:
+  url: /:sf_culture/admin/mostactiveusers
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: admin, action: getMostActiveUsers }
+
+  
+artworkreports:
+  url: /:sf_culture/admin/reports/artwork/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: reports, action: artworkReports }
+
+showReportBookmarks:
+  url: /:sf_culture/admin/reports/bookmarks
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: reports, action: showBookmarks }
+
+reportBookmarkSave:
+  url: /:sf_culture/admin/reports/bookmark/savenew
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: reports, action: saveNewBookmark }
+  
+# default rules 
+
+subreaktorhome:
+  url: /:sf_culture/:subreaktor
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: subreaktors, action: index }
+
+home: 
+  url: /
+  param: { module: home, action: index }
+
+home_translated:
+  url: /:sf_culture
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: home, action: index }
+
+default_trick:
+  url: /:sf_culture/default/index
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { module: home, action: error404 }
+
+default_index:
+  url: /:sf_culture/:module
+  requirements: { sf_culture: (?:no|nn|en) }
+  param: { action: index }
+
+default:
+  url: /:sf_culture/:module/:action/*
+  requirements: { sf_culture: (?:no|nn|en) }
+  
+

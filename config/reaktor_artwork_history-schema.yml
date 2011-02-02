@@ -1,0 +1,13 @@
+propel:
+  _attributes:      { package: lib.model }
+  
+  reaktor_artwork_history:
+    id:
+    artwork_id:     { type: integer, foreignTable: reaktor_artwork, foreignReference: id }
+    file_id:        { type: integer, foreignTable: reaktor_artwork, foreignReference: id }    
+    created_at:
+    #status_at:      { type: timestamp, required: false }
+    modified_flag:  { type: timestamp, required: false}
+    user_id:        { type: integer, foreignTable: sf_guard_user, required: true, foreignReference: id }
+    status:         { type: integer, foreignTable: artwork_status, required: true, foreignReference: id, onDelete: restrict }
+    comment:        { type: longvarchar }

@@ -1,0 +1,32 @@
+<?php if(!@is_callable(array('sfPropelDatabaseSchema', 'convertOldToNewYaml'))) throw new Exception('You must install the sfPropelAlternativeSchemaPlugin to use this schema, since it extends an existing plugin schema') ?>
+
+propel:
+  _attributes:    { package: plugins.sfPropelActAsCommentableBehaviorPlugin.lib.model }
+
+  # a comment applies to one Propel object
+  # a comment is defined by :
+  # - a title
+  # - a text
+  # - an author (set the related  user model in app.yml)
+  # - a creation date
+  sf_comment:
+    _attributes:       { phpName: sfComment, package: plugins.sfPropelActAsCommentableBehaviorPlugin.lib.model }
+    id:                { phpName: Id, type: integer, required: true, primaryKey: true, autoincrement: true }
+    parent_id:         integer
+    commentable_model: varchar(30)
+    commentable_id:    integer
+    namespace:         varchar(50)
+    title:             longvarchar
+    text:              longvarchar
+    author_id:         integer
+    author_name:       varchar(50)
+    author_email:      varchar(100)
+    created_at:
+    _indexes:
+      comments_index:  [namespace, commentable_model, commentable_id]
+      object_index:    [commentable_model, commentable_id]
+      author_index:    [author_id]
+    _attributes:      { phpName: sfComment, package: plugins.sfPropelActAsCommentableBehaviorPlugin.lib.model }
+    unsuitable:       { type: integer, required: true, default: 0 }
+    author_id:        { type: integer, required: true, foreignTable: sf_guard_user, foreignReference: id }  
+    email_notify:       { type: integer, required: true, default: 0 }

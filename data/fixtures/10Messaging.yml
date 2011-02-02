@@ -1,0 +1,7 @@
+# System message when the system has been rebuilt
+
+AdminMessage:
+  AdminMessage_1:
+    message: System has been updated! 
+    author: sfGuardUser_1
+    expires_at: <?php echo strtotime('+120 seconds') ?>

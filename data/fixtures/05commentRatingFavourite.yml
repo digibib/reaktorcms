@@ -1,0 +1,292 @@
+sfComment: 
+  sfComment_1: 
+    commentable_model: ReaktorArtwork
+    commentable_id: 1
+    namespace: frontend
+    title: Something I made
+    text: She made me giggle when I saw her :D
+    author_id: sfGuardUser_3
+    created_at: 2008-04-07 13:18:36
+    unsuitable: 0
+  sfComment_2: 
+    commentable_model: ReaktorArtwork
+    commentable_id: 3
+    namespace: frontend
+    title: Nice PDF?
+    text: |
+      Anybody like my PDF?
+      
+      bøøøøøøøø
+    author_id: sfGuardUser_3
+    created_at: 2008-04-07 13:19:10
+    unsuitable: 0
+  sfComment_3: 
+    commentable_model: ReaktorArtwork
+    commentable_id: 2
+    namespace: frontend
+    title: This is a very fancy gallery, no?
+    text: >
+      Looks like I'm the only person making
+      comments then :(
+    author_id: sfGuardUser_3
+    created_at: 2008-04-07 13:19:45
+    unsuitable: 0
+  sfComment_4: 
+    commentable_model: ReaktorArtwork
+    commentable_id: 4
+    namespace: frontend
+    title: Hey Monkey!
+    text: |
+      Nice Vid :D
+      
+      I especially like the fingers
+    author_id: sfGuardUser_3
+    created_at: 2008-04-07 13:20:13
+    unsuitable: 0
+  sfComment_5: 
+    parent_id: 4
+    commentable_model: ReaktorArtwork
+    commentable_id: 4
+    namespace: frontend
+    title: Haha
+    text: Cheers Monkey
+    author_id: sfGuardUser_2
+    created_at: 2008-04-07 13:21:16
+    unsuitable: 0
+  sfComment_6: 
+    commentable_model: ReaktorArtwork
+    commentable_id: 4
+    namespace: frontend
+    title: My note... !
+    text: >
+      Personally, I like the way the fingers
+      are all the same length... !
+    author_id: sfGuardUser_2
+    created_at: 2008-04-07 13:21:38
+    unsuitable: 0
+  sfComment_7: 
+    commentable_model: ReaktorArtwork
+    commentable_id: 2
+    namespace: frontend
+    title: Sheesh
+    text: |
+      Calm down Userboy... there aren't exactly a flood of visiors yet are there?
+      
+      Give it time... God Påske!
+    author_id: sfGuardUser_2
+    created_at: 2008-04-07 13:22:27
+    unsuitable: 0
+  sfComment_8: 
+    commentable_model: ReaktorArtwork
+    commentable_id: 3
+    namespace: frontend
+    title: Huh?
+    text: |
+      It's just a pdf... calm down.
+      
+      åøæøåøæøå &lt;--- Random :D
+    author_id: sfGuardUser_2
+    created_at: 2008-04-07 13:23:02
+    unsuitable: 0
+  sfComment_9: 
+    commentable_model: ReaktorArtwork
+    commentable_id: 5
+    namespace: frontend
+    title: Music to my ears
+    text: hmm... !
+    author_id: sfGuardUser_2
+    created_at: 2008-04-07 13:23:44
+    unsuitable: 0
+  sfComment_10: 
+    commentable_model: ReaktorArtwork
+    commentable_id: 7
+    namespace: frontend
+    title: Like my monkeys?
+    text: I do!
+    author_id: sfGuardUser_5
+    created_at: 2008-04-07 21:28:17
+    unsuitable: 0
+  sfComment_11: 
+    commentable_model: ReaktorArtwork
+    commentable_id: 2
+    namespace: frontend
+    title: Great
+    text: Great picture mate!
+    author_id: sfGuardUser_5
+    created_at: 2008-04-07 21:28:39
+    unsuitable: 0
+  sfComment_12: 
+    commentable_model: ReaktorArtwork
+    commentable_id: 4
+    namespace: frontend
+    title: WTF
+    text: I mean seriously, wtf?
+    author_id: sfGuardUser_5
+    created_at: 2008-04-07 21:29:06
+    unsuitable: 1
+  sfComment_13: 
+    parent_id: 4
+    commentable_model: ReaktorArtwork
+    commentable_id: 4
+    namespace: frontend
+    title: Not me
+    text: I have to disagree... they freak me out
+    author_id: sfGuardUser_5
+    created_at: 2008-04-07 21:29:23
+    unsuitable: 0
+  sfComment_14: 
+    commentable_model: ReaktorArtwork
+    commentable_id: 2
+    namespace: frontend
+    title: Wow
+    text: I love this pic mate! Nice one... !
+    author_id: sfGuardUser_5
+    created_at: 2008-04-07 21:30:18
+    unsuitable: 0
+  sfComment_15: 
+    parent_id: 7
+    commentable_model: ReaktorArtwork
+    commentable_id: 2
+    namespace: frontend
+    title: huh?
+    text: God what?
+    author_id: sfGuardUser_5
+    created_at: 2008-04-07 21:30:35
+    unsuitable: 1
+  sfComment_16: 
+    commentable_model: ReaktorArtwork
+    commentable_id: 3
+    namespace: frontend
+    title: What?
+    text: |
+      I come looking for porn and all I get is a lousy PDF :(
+      
+      I must say I am disappointed... !
+    author_id: sfGuardUser_5
+    created_at: 2008-04-07 21:32:35
+    unsuitable: 0
+  sfComment_17: 
+    commentable_model: ReaktorArtwork
+    commentable_id: 3
+    namespace: frontend
+    title: C1alis at net prices
+    text: |
+      Please your woman today!
+    author_id: sfGuardUser_5
+    created_at: 2008-05-07 13:15:15
+    unsuitable: 2
+  sfComment_18:
+    parent_id: 2
+    commentable_model: ReaktorArtwork
+    commentable_id: 3
+    namespace: frontend
+    title: Short in bed?
+    text: |
+      Go to myenlargement.ru and give your p3n1s a lift! 
+    author_id: sfGuardUser_5
+    created_at: 2008-05-07 13:15:15
+    unsuitable: 1
+  sfComment_19:
+    parent_id: 2
+    commentable_model: ReaktorArtwork
+    commentable_id: 3
+    namespace: frontend
+    title: I hate Colin
+    text: |
+      Colin is nothing but a spongy stack of vapid grits  
+    author_id: sfGuardUser_5
+    created_at: 2008-04-07 12:15:15
+    unsuitable: 1
+  sfComment_20: 
+    commentable_model: ReaktorArtwork
+    commentable_id: 2
+    namespace: administrator
+    title: A comment
+    text: I just wanted to comment
+    author_id: sfGuardUser_1
+    created_at: 2008-07-11 11:24:10
+    unsuitable: 0
+    email_notify: 0
+    
+sfRating: 
+  sfRating_1: 
+    ratable_model: ReaktorArtwork
+    ratable_id: 4
+    user_id: 3
+    rating: 4
+  sfRating_2: 
+    ratable_model: ReaktorArtwork
+    ratable_id: 3
+    user_id: 2
+    rating: 3
+  sfRating_3: 
+    ratable_model: ReaktorArtwork
+    ratable_id: 2
+    user_id: 2
+    rating: 6
+  sfRating_4: 
+    ratable_model: ReaktorArtwork
+    ratable_id: 4
+    user_id: 5
+    rating: 5
+  sfRating_5: 
+    ratable_model: ReaktorArtwork
+    ratable_id: 2
+    user_id: 5
+    rating: 5
+  sfRating_6: 
+    ratable_model: ReaktorArtwork
+    ratable_id: 3
+    user_id: 5
+    rating: 4
+
+
+Favourite:
+  Favourite_1:
+    user_id: sfGuardUser_2
+    artwork_id: ReaktorArtwork_2
+    fav_type: artwork
+  Favourite_2:
+    user_id: sfGuardUser_4
+    artwork_id: ReaktorArtwork_2
+    fav_type: artwork
+  Favourite_3:
+    user_id: sfGuardUser_3
+    artwork_id: ReaktorArtwork_4
+    fav_type: artwork
+  Favourite_4:
+    user_id: sfGuardUser_4
+    artwork_id: ReaktorArtwork_1
+    fav_type: artwork
+  Favourite_5:
+    user_id: sfGuardUser_5
+    artwork_id: ReaktorArtwork_6
+    fav_type: artwork
+  Favourite_6:
+    user_id: sfGuardUser_6
+    artwork_id: ReaktorArtwork_2
+    fav_type: artwork
+  Favourite_7:
+    user_id: sfGuardUser_1
+    artwork_id: ReaktorArtwork_2
+    fav_type: artwork
+  Favourite_8:
+    user_id: sfGuardUser_2
+    friend_id: sfGuardUser_1
+    fav_type: user
+  Favourite_9:
+    user_id: sfGuardUser_2
+    friend_id: sfGuardUser_4
+    fav_type: user
+  Favourite_10:
+    user_id: sfGuardUser_2
+    friend_id: sfGuardUser_5
+    fav_type: user
+  Favourite_11:
+    user_id: sfGuardUser_2
+    friend_id: sfGuardUser_6
+    fav_type: user
+  Favourite_12:
+    user_id: sfGuardUser_6
+    friend_id: sfGuardUser_2
+    fav_type: user

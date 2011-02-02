@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>FlowPlayer</title>
+<script type="text/javascript" src="swfobject.js"></script>
+<script src="jquery.js"></script>
+<script src="this.js"></script>
+<script type="text/javascript">
+var darks = "000000, 333333, 444444, 353b70, 70515f, 24603e";
+var lights = "ffffff, dddddd, f7f455, 00ecf3, c2f39e, ffaaf0";
+	
+var flowPlayerLight;
+var flowPlayerDark;
+
+var config = { 
+	autoPlay: false,
+	enableAds: false, 
+	playList: [ { url: 'splash01.png', overlayId: 'play' }, { url: 'http://flowplayer.org/video/honda_accord.flv' } ],
+	initialScale: 'scale',
+	useNativeFullScreen: true
+ };
+
+function writePlayer(target, swf, id) {
+	var fo = new SWFObject(swf, id, "468", "350", "7", "#ffffff", true);
+	// need this next line for local testing, it's optional if your swf is on the same domain as your html page
+	fo.addParam("allowScriptAccess", "always");
+	fo.addParam("allowFullScreen", "true");
+	fo.write(target);
+}
+
+function init() {
+	flowPlayerLight = document.getElementById("FlowPlayerLight");
+	flowPlayerLight.setConfig(config);
+	flowPlayerDark = document.getElementById("FlowPlayerDark");
+	flowPlayerDark.setConfig(config);
+}
+
+function setColor(color, skin) {
+	config.controlBarBackgroundColor = color;
+	var player = skin == 'light' ? flowPlayerLight : flowPlayerDark;
+	player.setConfig(config);
+}
+
+
+window.onload = init;
+
+</script>
+
+</head>
+<body bgcolor="#CCCCCC">
+
+<style>
+	.player {
+		margin-bottom:10px;
+		background:url(skin-dark.png) 40px 2px no-repeat;		
+		width:400px;
+		height:30px; 
+	}
+	
+	.player.light {
+		background-image:url(skin-light.png);	
+	}
+</style> 
+
+<script language="JavaScript">
+	
+	function newPlayer(colors, clazz) {
+		var players = $("#players");		
+		
+		arr = colors.split(", ")
+		$.each(arr, function(i, color) {
+			var player = $('<div class="player ' +clazz+ '" onclick="setColor(0x' +color+ ', \'' +clazz+ '\')"></div>');
+			player.css("backgroundColor", "#" + color);			
+			players.append(player);		
+		});
+	}	
+	
+	$(function() { 
+		newPlayer(darks, 'dark');
+		$("#players").append("<h1 style='margin:20px 0'>Light skin</h1>");
+		$("#players").append("<div id='flowplayerholder2'>");
+		$("#players").append("<p>Click on the images below to change skins.</p>");
+		writePlayer("flowplayerholder2", "FlowPlayerLight.swf", "FlowPlayerLight");
+		newPlayer(lights, 'light'); 				
+	});
+</script>
+
+<h1>Dark skin</h1>
+<div id="flowplayerholder">
+	This will be replaced by the player. 
+</div>
+<script type="text/javascript">
+writePlayer("flowplayerholder", "FlowPlayerDark.swf", "FlowPlayerDark");
+</script>
+<p>Click on the images below to change skins.</p>
+<div id="players"></div>
+
+</body>
+</html>

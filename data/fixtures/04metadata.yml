@@ -1,0 +1,454 @@
+FileMetadata: 
+  FileMetadata_1: 
+    file: ReaktorFile_1
+    meta_element: creator
+    meta_qualifier: 
+    meta_value: Spartacus
+  FileMetadata_2: 
+    file: ReaktorFile_2
+    meta_element: creator
+    meta_qualifier: 
+    meta_value: Uncle Sam
+  FileMetadata_4: 
+    file: ReaktorFile_6
+    meta_element: creator
+    meta_qualifier: 
+    meta_value: Bob
+  FileMetadata_5: 
+    file: ReaktorFile_6
+    meta_element: description
+    meta_qualifier: abstract
+    meta_value: Something Kjellm uploaded
+  FileMetadata_6: 
+    file: ReaktorFile_6
+    meta_element: description
+    meta_qualifier: creation
+    meta_value: >
+      Kinda out there... 
+  FileMetadata_7: 
+    file: ReaktorFile_6
+    meta_element: relation
+    meta_qualifier: references
+    meta_value: |
+      http://www.google.co.uk
+      http://eatmymonkeydust.com
+  FileMetadata_8: 
+    file: ReaktorFile_6
+    meta_element: subject
+    meta_qualifier: 
+    meta_value: >
+      text, latin, filler, snow, ski,
+      marianne, sam
+  FileMetadata_9: 
+    file: ReaktorFile_6
+    meta_element: license
+    meta_qualifier: 
+    meta_value: free_use
+  FileMetadata_10: 
+    file: ReaktorFile_1
+    meta_element: license
+    meta_qualifier: 
+    meta_value: free_use
+  FileMetadata_11: 
+    file: ReaktorFile_2
+    meta_element: license
+    meta_qualifier: 
+    meta_value: contact
+  FileMetadata_12: 
+    file: ReaktorFile_3
+    meta_element: license
+    meta_qualifier: 
+    meta_value: free_use
+  FileMetadata_13: 
+    file: ReaktorFile_1
+    meta_element: title
+    meta_qualifier: 
+    meta_value: Japan subway
+  FileMetadata_14: 
+    file: ReaktorFile_2
+    meta_element: title
+    meta_qualifier: 
+    meta_value: PHP Cookbook
+  FileMetadata_15: 
+    file: ReaktorFile_3
+    meta_element: title
+    meta_qualifier: 
+    meta_value: Filming in Saudi Arabia
+  FileMetadata_16: 
+    file: ReaktorFile_6
+    meta_element: title
+    meta_qualifier: 
+    meta_value: My first nice sound clip
+  FileMetadata_17: 
+    file: ReaktorFile_5
+    meta_element: title
+    meta_qualifier: 
+    meta_value: Some crazy fingers
+  FileMetadata_18: 
+    file: ReaktorFile_7
+    meta_element: license
+    meta_qualifier: 
+    meta_value: free_use
+  FileMetadata_19: 
+    file: ReaktorFile_6
+    meta_element: license
+    meta_qualifier: 
+    meta_value: no_allow
+  FileMetadata_20: 
+    file: ReaktorFile_5
+    meta_element: license
+    meta_qualifier: 
+    meta_value: contact
+  FileMetadata_21: 
+    file: ReaktorFile_1
+    meta_element: description
+    meta_qualifier: abstract
+    meta_value: |
+      What is this crazy lady doing?
+      Well, I suppose if you spend every day on the subway... !
+  FileMetadata_22: 
+    file: ReaktorFile_1
+    meta_element: subject
+    meta_qualifier: 
+    meta_value: japan, rest, subway, lady
+  FileMetadata_23: 
+    file: ReaktorFile_2
+    meta_element: description
+    meta_qualifier: abstract
+    meta_value: >
+      It might be a picture of my car, but
+      underneath lies a useful PDF :o)
+  FileMetadata_24: 
+    file: ReaktorFile_2
+    meta_element: description
+    meta_qualifier: creation
+    meta_value: >
+      I didn't produce this, although I did
+      take the picture for the thumbnail!
+  FileMetadata_25: 
+    file: ReaktorFile_2
+    meta_element: subject
+    meta_qualifier: 
+    meta_value: php, cookbook, car, ford, focus
+  FileMetadata_26: 
+    file: ReaktorFile_3
+    meta_element: description
+    meta_qualifier: abstract
+    meta_value: >
+      On the water between Bahrain and Saudi
+      Arabia, filming an interview
+  FileMetadata_27: 
+    file: ReaktorFile_3
+    meta_element: description
+    meta_qualifier: creation
+    meta_value: >
+      Clearly I didn't take this picture, that
+      was probably Sean!
+  FileMetadata_28: 
+    file: ReaktorFile_3
+    meta_element: subject
+    meta_qualifier: 
+    meta_value: >
+      Saudi Arabia, Bahrain, Squash, boat,
+      water, psalive
+  FileMetadata_29: 
+    file: ReaktorFile_3
+    meta_element: creator
+    meta_qualifier: 
+    meta_value: Sean
+  FileMetadata_30: 
+    file: ReaktorFile_5
+    meta_element: description
+    meta_qualifier: abstract
+    meta_value: Something Kjellm uploaded
+  FileMetadata_31: 
+    file: ReaktorFile_5
+    meta_element: description
+    meta_qualifier: creation
+    meta_value: No idea who created this, or why!
+  FileMetadata_32: 
+    file: ReaktorFile_5
+    meta_element: subject
+    meta_qualifier: 
+    meta_value: fingers, strange, count
+  FileMetadata_33: 
+    file: ReaktorFile_5
+    meta_element: creator
+    meta_qualifier: 
+    meta_value: Some dude
+  FileMetadata_34: 
+    file: ReaktorFile_7
+    meta_element: description
+    meta_qualifier: abstract
+    meta_value: Something Kjellm uploaded
+  FileMetadata_35: 
+    file: ReaktorFile_7
+    meta_element: description
+    meta_qualifier: creation
+    meta_value: >
+      Somebody pressed the latin filler text
+      button
+  FileMetadata_36: 
+    file: ReaktorFile_7
+    meta_element: subject
+    meta_qualifier: 
+    meta_value: text, latin, filler
+  FileMetadata_37: 
+    file: ReaktorFile_7
+    meta_element: creator
+    meta_qualifier: 
+    meta_value: Spartacus
+  FileMetadata_38: 
+    file: ReaktorFile_7
+    meta_element: title
+    meta_qualifier: 
+    meta_value: Random plain text
+  FileMetadata_39: 
+    file: ReaktorFile_7
+    meta_element: license
+    meta_qualifier: 
+    meta_value: contact
+  FileMetadata_40: 
+    file: ReaktorFile_4
+    meta_element: description
+    meta_qualifier: abstract
+    meta_value: Taken inside the Eden Project
+  FileMetadata_41: 
+    file: ReaktorFile_4
+    meta_element: description
+    meta_qualifier: creation
+    meta_value: |
+      EOS 350D
+      f/2.8
+      1/80
+      ISO: 100
+      50mm
+  FileMetadata_42: 
+    file: ReaktorFile_4
+    meta_element: subject
+    meta_qualifier: 
+    meta_value: bird, wet, Eden project
+  FileMetadata_43: 
+    file: ReaktorFile_4
+    meta_element: creator
+    meta_qualifier: 
+    meta_value: Russ
+  FileMetadata_44: 
+    file: ReaktorFile_4
+    meta_element: title
+    meta_qualifier: 
+    meta_value: Wet Robin
+  FileMetadata_45: 
+    file: ReaktorFile_4
+    meta_element: license
+    meta_qualifier: 
+    meta_value: contact
+  FileMetadata_46: 
+    file: ReaktorFile_8
+    meta_element: description
+    meta_qualifier: abstract
+    meta_value: Loving the B&W
+  FileMetadata_47: 
+    file: ReaktorFile_8
+    meta_element: description
+    meta_qualifier: creation
+    meta_value: |
+      EOS 350D
+      f/6.3
+      1/50
+      ISO: 100
+      40mm
+  FileMetadata_48: 
+    file: ReaktorFile_8
+    meta_element: subject
+    meta_qualifier: 
+    meta_value: abigail, statue, frogner
+  FileMetadata_49: 
+    file: ReaktorFile_8
+    meta_element: creator
+    meta_qualifier: 
+    meta_value: Russ
+  FileMetadata_50: 
+    file: ReaktorFile_8
+    meta_element: title
+    meta_qualifier: 
+    meta_value: Abigail at Frogner
+  FileMetadata_51: 
+    file: ReaktorFile_8
+    meta_element: license
+    meta_qualifier: 
+    meta_value: contact
+  FileMetadata_52: 
+    file: ReaktorFile_9
+    meta_element: description
+    meta_qualifier: creation
+    meta_value: Me and my camera
+  FileMetadata_53: 
+    file: ReaktorFile_9
+    meta_element: type
+    meta_qualifier: 
+    meta_value: image/jpeg
+  FileMetadata_54: 
+    file: ReaktorFile_9
+    meta_element: format
+    meta_qualifier: width
+    meta_value: 2996
+  FileMetadata_55: 
+    file: ReaktorFile_9
+    meta_element: format
+    meta_qualifier: height
+    meta_value: 2084
+  FileMetadata_56: 
+    file: ReaktorFile_9
+    meta_element: date
+    meta_qualifier: creation
+    meta_value: 2007:06:19 14:37:01
+  FileMetadata_57: 
+    file: ReaktorFile_9
+    meta_element: format
+    meta_qualifier: size
+    meta_value: 5280277
+  FileMetadata_58: 
+    file: ReaktorFile_9
+    meta_element: creator
+    meta_qualifier: 
+    meta_value: dave
+  FileMetadata_59: 
+    file: ReaktorFile_9
+    meta_element: title
+    meta_qualifier: 
+    meta_value: Cute monkeys
+  FileMetadata_60: 
+    file: ReaktorFile_9
+    meta_element: description
+    meta_qualifier: abstract
+    meta_value: Cute monkeys!!
+  FileMetadata_61: 
+    file: ReaktorFile_9
+    meta_element: license
+    meta_qualifier: 
+    meta_value: contact
+  FileMetadata_62: 
+    file: ReaktorFile_10
+    meta_element: description
+    meta_qualifier: creation
+    meta_value: Me and my camera
+  FileMetadata_63: 
+    file: ReaktorFile_10
+    meta_element: type
+    meta_qualifier: 
+    meta_value: image/jpeg
+  FileMetadata_64: 
+    file: ReaktorFile_10
+    meta_element: format
+    meta_qualifier: width
+    meta_value: 1432
+  FileMetadata_65: 
+    file: ReaktorFile_10
+    meta_element: format
+    meta_qualifier: height
+    meta_value: 1040
+  FileMetadata_66: 
+    file: ReaktorFile_10
+    meta_element: date
+    meta_qualifier: creation
+    meta_value: 2007:06:19 11:29:26
+  FileMetadata_67: 
+    file: ReaktorFile_10
+    meta_element: format
+    meta_qualifier: size
+    meta_value: 1302543
+  FileMetadata_68: 
+    file: ReaktorFile_10
+    meta_element: creator
+    meta_qualifier: 
+    meta_value: dave
+  FileMetadata_69: 
+    file: ReaktorFile_10
+    meta_element: title
+    meta_qualifier: 
+    meta_value: Nice monkeys
+  FileMetadata_70: 
+    file: ReaktorFile_10
+    meta_element: description
+    meta_qualifier: abstract
+    meta_value: Actually Lemurs... !
+  FileMetadata_71: 
+    file: ReaktorFile_10
+    meta_element: license
+    meta_qualifier: 
+    meta_value: no_allow
+  FileMetadata_72: 
+    file: ReaktorFile_11
+    meta_element: creator
+    meta_qualifier: 
+    meta_value: June
+  FileMetadata_73: 
+    file: ReaktorFile_11
+    meta_element: title
+    meta_qualifier: 
+    meta_value: Nice cartoon
+  FileMetadata_74: 
+    file: ReaktorFile_11
+    meta_element: description
+    meta_qualifier: abstract
+    meta_value: A cartoon I don't understand... 
+  FileMetadata_75: 
+    file: ReaktorFile_11
+    meta_element: description
+    meta_qualifier: creation
+    meta_value: >
+      June uploaded it and I nicked it to put
+      in the fixtures
+  FileMetadata_76: 
+    file: ReaktorFile_11
+    meta_element: license
+    meta_qualifier: 
+    meta_value: free_use
+  FileMetadata_77: 
+    file: ReaktorFile_12
+    meta_element: creator
+    meta_qualifier: 
+    meta_value: dave
+  FileMetadata_78: 
+    file: ReaktorFile_12
+    meta_element: title
+    meta_qualifier: 
+    meta_value: Magic roundabout - Swindon
+  FileMetadata_79: 
+    file: ReaktorFile_12
+    meta_element: relation
+    meta_qualifier: references
+    meta_value: >
+      http://en.wikipedia.org/wiki/Magic_Roundabout_(Swindon)
+  FileMetadata_80: 
+    file: ReaktorFile_12
+    meta_element: license
+    meta_qualifier: 
+    meta_value: free_use
+  FileMetadata_81: 
+    file: ReaktorFile_12
+    meta_element: description
+    meta_qualifier: abstract
+    meta_value: Yes it exists
+  FileMetadata_82: 
+    file: ReaktorFile_12
+    meta_element: description
+    meta_qualifier: creation
+    meta_value: Nicked it from Google images
+  FileMetadata_83: 
+    file: ReaktorFile_13
+    meta_element: title
+    meta_qualifier: 
+    meta_value: Magic animations
+  FileMetadata_84: 
+    file: ReaktorFile_13
+    meta_element: description
+    meta_qualifier: abstract
+    meta_value: '''tis my magic animation file! Watch it! Oh, and you need sound.'
+  FileMetadata_85: 
+    file: ReaktorFile_13
+    meta_element: license
+    meta_qualifier: 
+    meta_value: by-sa
+  

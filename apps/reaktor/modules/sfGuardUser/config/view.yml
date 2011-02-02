@@ -1,0 +1,2 @@
+all:
+  javascripts: [prototype, main, inlineupload]

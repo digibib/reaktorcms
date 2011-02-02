@@ -1,0 +1,17 @@
+methods:
+  post:
+    - "admin_message{message}"
+    - "admin_message{expires_at}"
+
+names:
+  admin_message{message}:
+    required: yes
+    required_msg: Please write the system message, this field cannot be blank
+  admin_message{expires_at}:
+    required: yes
+    required_msg: Please choose a date and time this message should expire
+    sfDateValidator:
+      
+
+fillin:
+  activate: on  

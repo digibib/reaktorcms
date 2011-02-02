@@ -1,0 +1,26 @@
+propel:
+  _attributes:      { package: lib.model }
+  
+  catalogue:
+    cat_id: { type: integer, size: 11,  required: true, autoincrement: true, primaryKey: true }
+    name: { type: varchar, size: 100, required: true,  default: '' }
+    source_lang: { type: varchar, size: 100, required: true,  default: '' }
+    target_lang: { type: varchar, size: 100, required: true,  default: '' }
+    date_created: { type: integer, size: 11, required: true,  default: 0 }
+    date_modified: { type: integer, size: 11, required: true,  default: 0 }
+    author: { type: varchar, size: 255, required: true,  default: '' }
+    description: { type: varchar, size: 255, required: true,  default: '' }
+
+  trans_unit:
+    msg_id: { type: integer, size: 11, required: true, autoincrement: true, primaryKey: true }
+    cat_id: { type: integer, size: 11, required: true, default: 1, foreignTable: catalogue, foreignReference: cat_id }
+    id:     { type: varchar, size: 255, default: '' }
+    source: { type: longvarchar, required: true  }
+    target: { type: longvarchar, required: true  }
+    module: { type: varchar, size: 255, default: '' }
+    filename: { type: varchar, size: 255, default: '' }
+    comments: { type: longvarchar }
+    date_added: { type: integer, size: 11, required: true, default: 0 }
+    date_modified: { type: integer, size: 11, required: true, default: 0 }
+    author: { type: varchar, size: 255, required: true, default: ''}
+    translated: { type: boolean, size: 1, required: true, default: 0 }

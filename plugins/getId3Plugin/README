@@ -1,0 +1,23 @@
+= getId3 plugin =
+
+== Overview ==
+
+This plugin is a package of the getId3 project available from sourceforge
+
+== Installation ==
+
+To install getId3Plugin:
+
+{{{
+symfony plugin-install local|global symfony/getId3Plugin
+}}}
+
+== Usage ==
+
+This plugin gives you access to the getId3 libraries, 
+see http://getid3.sourceforge.net/ for details and docs
+
+== License ==
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.

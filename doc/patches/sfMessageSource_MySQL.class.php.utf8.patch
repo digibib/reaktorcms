@@ -1,0 +1,13 @@
+Index: sfMessageSource_MySQL.class.php
+===================================================================
+--- sfMessageSource_MySQL.class.php	(revision 11922)
++++ sfMessageSource_MySQL.class.php	(working copy)
+@@ -220,6 +220,8 @@
+   {
+     $variant = mysql_real_escape_string($variant, $this->db);
+ 
++	mysql_set_charset(sfConfig::get("sf_encoding", "utf8"), $this->db);
++
+     $statement =
+       "SELECT t.id, t.source, t.target, t.comments
+         FROM trans_unit t, catalogue c

@@ -1,0 +1,68 @@
+
+<head>
+
+	<title>Simple playlist example</title>
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+	<link rel="stylesheet" type="text/css" href="css/simple-playlist.css"/>
+	
+	<script src="js/jquery.pack.js"></script>
+	<script src="js/flashembed.min.js"></script>
+	<script src="js/flow.playlist.js"></script>
+	
+
+	<script type="text/javascript"> 
+	
+		// setup playlist 
+		$(function() {			
+			$("#playlist").playlist("../FlowPlayerDark.swf", {initialScale:'scale'}, {loop:true});
+		}); 
+		
+	</script>     
+
+</head>
+
+<div id="page">
+
+	<h1>Simple playlist example using <em>flow.playlist</em></h1>
+
+	<p>
+		Following playlist is implemented with <a href="http://www.flowplayer.org/tools/flow-playlist.html">flow.playlist</a>.
+	</p>	 
+
+	
+	<!-- player is initially loaded with splash screen and play button -->
+	<a id="player">
+		<img src="img/3m.jpg" />
+		<div class="play"></div>
+	</a>
+	
+	<!-- this is our playlist -->
+	<div id="playlist">
+
+		<a href="http://blip.tv/file/get/N8inpasadena-Flowers457.flv">
+			<p>Colorful flowers and leaves.</p>		
+			<p class="time">2:04 min</p>
+		</a>
+	
+		<a href="http://blip.tv/file/get/KimAronson-TwentySeconds59483.flv">
+			<p>Palm trees, big building and sun</p>		
+			<p class="time">0:20 min</p>
+		</a>
+		
+		<a href="http://blip.tv/file/get/Behappy-clouds106.flv">
+			<p>Sky turning gray in short time</p>		
+			<p class="time">0:03 min</p>
+		</a>
+		
+	</div>
+
+	<!-- clear floatings -->
+	<br clear="all" />
+
+	<p>
+		<button onClick="location.href='index.html'">&laquo; back to examples</button>
+	</p>
+	
+</div>
+
+

@@ -1,0 +1,28 @@
+Pre production notes:
+
+Files to be removed before production:
+
+* /doc/pre-production (this file)
+* /cache and /log should be cleared
+* /modules/home/templates/phpinfoSuccess.php
+* web/images/reaktor_windows.jpg
+
+Files to be modified before production:
+
+* /modules/home/actions/actions.class.php - remove phpinfo class
+* /config/propel.ini - Should be modified to suit server settings if needed
+* /config/databases.yml - Should be modified to suit server settings if needed
+* ALL /fixtures contents sitewide should have no test data, just production-ready data
+* /test - should be appropriate for production environment
+* Front controllers should be cleared
+* Windows specific config files (winconfig) to be removed
+* _header.php - remove revision information
+
+Database actions
+
+* All tables should be rebuilt and then appropriate fixtures loaded if necessary
+
+Production server pre-requisites
+
+* imagemagick
+* Check PHP is compiled with exif support

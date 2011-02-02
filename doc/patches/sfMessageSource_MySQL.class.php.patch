@@ -1,0 +1,40 @@
+--- sfMessageSource_MySQL.class.php_old	2008-06-11 13:35:00.000000000 +0200
++++ sfMessageSource_MySQL.class.php	2008-06-11 12:34:29.000000000 +0200
+@@ -133,7 +133,7 @@
+    */
+   function __destruct()
+   {
+-    @mysql_close($this->db);
++    //@mysql_close($this->db);
+   }
+ 
+   /**
+@@ -366,7 +366,7 @@
+    * @param string the catalogue to add to
+    * @return boolean true if saved successfuly, false otherwise.
+    */
+-  function save($catalogue = 'messages')
++  function save($catalogue = 'messages', $locations = array())
+   {
+     $messages = $this->untranslated;
+ 
+@@ -402,6 +402,19 @@
+         ({$cat_id}, {$count},'{$message}',$time)";
+       mysql_query($statement, $this->db);
+     }
++    foreach ($locations as $location)
++    {
++      $message = mysql_real_escape_string($location['message'], $this->db);
++      $module = $location['file'];
++      $file = substr($module, strripos($module, DIRECTORY_SEPARATOR) + 1);
++      $module = str_replace('/' . $file, '', substr($module, strripos($module, 'apps/reaktor') + 13));
++      
++      $statement = "UPDATE trans_unit set 
++        filename = '{$file}', 
++        module = '{$module}' 
++        where source = '${message}'";
++      mysql_query($statement, $this->db);
++    }
+     if ($inserted > 0)
+     {
+       $this->updateCatalogueTime($cat_id, $variant);

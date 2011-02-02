@@ -1,0 +1,15 @@
+all:
+  stylesheets: [/css/lightwindow]
+  javascripts: [lightwindow]
+
+indexSuccess:
+  http_metas:
+    Pragma: no-cache
+    Cache-Control: no-cache
+
+listUnapprovedOtherTeamsSuccess:
+  http_metas:
+    Pragma: no-cache
+    Cache-Control: no-cache
+
+

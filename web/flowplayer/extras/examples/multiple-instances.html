@@ -1,0 +1,54 @@
+
+<head>
+
+	<title>Multiple Flowplayer instances</title>
+	<script src="js/jquery.pack.js"></script>
+	<script src="js/flashembed.min.js"></script>
+	<script src="js/flow.embed.js"></script>	
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+	<link rel="stylesheet" type="text/css" href="css/multiple-instances.css"/>
+	
+	<script>
+	
+		// this simple call does the magic
+		$(function() {
+			$("a.flowplayer").flowembed("../FlowPlayerDark.swf",  {initialScale:'scale'});		
+		});  
+		
+	</script>               
+
+</head>
+
+<div id="page">
+
+	<h1>Multiple Flowplayer instances</h1>
+
+	<p>
+		This page uses <a href="http://www.flowplayer.org/tools/flow-embed.html">flow.embed</a> 		 
+		to include multiple player instances smoothly.
+	</p>
+	
+	<p>
+		<a class="flowplayer" href="http://blip.tv/file/get/KimAronson-TwentySeconds59483.flv">
+			<img src="img/2m.jpg" />
+		</a>
+	</p>
+	
+
+	<p>
+		<a class="flowplayer" href="http://blip.tv/file/get/N8inpasadena-Flowers457.flv">
+			<img src="img/1m.jpg" />
+		</a>
+	</p>
+	
+	<p>
+		<a class="flowplayer" href="http://blip.tv/file/get/Behappy-clouds106.flv">
+			<img src="img/3m.jpg" />
+		</a>
+	</p>
+	
+	<p>
+		<button onClick="location.href='index.html'">&laquo; back to examples</button>
+	</p>
+	
+</div>

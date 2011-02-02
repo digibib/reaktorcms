@@ -1,0 +1,37 @@
+--- actions.class.php~	2008-08-05 09:06:45.000000000 +0200
++++ actions.class.php	2008-08-05 09:14:11.000000000 +0200
+@@ -349,6 +349,13 @@
+   {
+ <?php if ($this->getParameterValue('list.filters')): ?>
+ <?php foreach ($this->getColumns('list.filters') as $column): $type = $column->getCreoleType() ?>
++<?php // many-to-many support
++      //first, we need params for through_class
++      $user_params = $this->getParameterValue('edit.fields.'.$column->getName().'.params');
++      $user_params = is_array($user_params) ? $user_params : sfToolkit::stringToArray($user_params);
++      $through_class = isset($user_params['through_class']) ? $user_params['through_class'] : '';
++?>
++            
+ <?php if (($column->isPartial() || $column->isComponent()) && $this->getParameterValue('list.fields.'.$column->getName().'.filter_criteria_disabled')) continue ?>
+     if (isset($this->filters['<?php echo $column->getName() ?>_is_empty']))
+     {
+@@ -397,6 +404,20 @@
+     {
+ <?php if ($type == CreoleTypes::CHAR || $type == CreoleTypes::VARCHAR || $type == CreoleTypes::LONGVARCHAR): ?>
+       $c->add(<?php echo $this->getPeerClassName() ?>::<?php echo strtoupper($column->getName()) ?>, strtr($this->filters['<?php echo $column->getName() ?>'], '*', '%'), Criteria::LIKE);
++
++<?php elseif ($through_class):  // many-to-many  
++  // get Column name constants
++  $class             = $this->getClassName();
++  $related_column    = sfPropelManyToMany::getRelatedColumn($class, $through_class);
++  $this_column       = sfPropelManyToMany::getColumn($class, $through_class);
++  $pka               = $this->getPrimaryKey();
++  $pk_column         = $this->getPeerClassName() . '::' . $pka[0]->getColumnName();
++  $middlecolumn_this = $through_class . 'Peer::' . strtoupper($this_column->getColumnName());
++  $middlecolumn_related = $through_class . 'Peer::' . strtoupper($related_column->getColumnName());
++?>
++      $c->addJoin(<?php echo $pk_column ?>, <?php echo $middlecolumn_this ?>);
++      $c->add(<?php echo $middlecolumn_related ?>, $this->filters['<?php echo $column->getName() ?>']);
++
+ <?php else: ?>
+       $c->add(<?php echo $this->getPeerClassName() ?>::<?php echo strtoupper($column->getName()) ?>, $this->filters['<?php echo $column->getName() ?>']);
+ <?php endif; ?>

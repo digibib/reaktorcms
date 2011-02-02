@@ -1,0 +1,7 @@
+propel:
+  _attributes:        { package: lib.model }
+  
+  user_resource:
+    id:
+    user_id:          {type: integer, primaryKey: true, required: true, foreignTable: sf_guard_user, foreignReference: id, onDelete: cascade}
+    url:              {type: varchar, size: 255, required: true}

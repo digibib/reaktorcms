@@ -1,0 +1,188 @@
+<?php
+
+/*******************************************************************************
+ * Run coverage analyzis
+ */
+
+$cov = file_get_contents(dirname(__FILE__).'/coverage');
+
+/* Remove <?php */
+$cov = substr($cov, 5);
+
+/* Add verbosity to get it to report line numbers */
+$cov = preg_replace('/(\$c->verbose =) false/', '\1 true', $cov);
+
+/* Run */
+ob_start();
+eval($cov);
+$res = split("\n", ob_get_clean());
+
+/*******************************************************************************
+ * Generate report
+ */
+
+define('SF_OUTPUT_DIR', SF_ROOT_DIR . '/doc/coverage');
+
+
+$html_head = '<html><head></head><body>';
+$html_tail = '</html>';
+
+$index_page = fopen(SF_OUTPUT_DIR . '/index.html', 'w');
+fwrite($index_page, $html_head);
+fwrite($index_page, '<h1>Coverage report</h1>');
+fwrite($index_page, '<p>Generated at ' . date('c'). '</p>');
+fwrite($index_page, '<table>');
+
+$total = 'NA';
+
+for ($i = 0; $i < count($res); $i++) {
+  $line = $res[$i];
+  //echo $line, "\n";
+  if (preg_match('
+        /^
+         (?:\x1b\[\d\d(?:;\d\d)?(?:;\d)?m)? # Optional Ansi escape (adds color) 
+         (\S+)                              # File name
+         \s+ 
+         (\d+)%                             # percent covered
+         (?:\x1b\[0m)?                      # Optional Ansi escape (reset colors)
+        $/x', $line, $matches)) {
+    //echo "\tFile\n";
+    list($junk, $file, $coverage) = $matches;
+    write_index_row($index_page, $i, $file, $coverage);
+  } else if (strpos($line, "# missing:") !== false) {
+    //echo "\tMissing\n";
+    write_file_report($file, $i-1, $line);
+  } else if (preg_match('/TOTAL COVERAGE:\s+(\S+)/', $line, $matches)) {
+    //echo "\tTotal\n";
+    $total = $matches[1];
+  } else if (preg_match('/^\s*$/', $line)) {
+    //echo "\tBlank\n";
+    ;
+  } else {
+    echo 'Unhandled line: ', $line, "\n";
+  }
+}
+
+fwrite($index_page, '</table>');
+fwrite($index_page, "<p>Total coverage: $total</p>");
+fwrite($index_page, $html_tail);
+
+fclose($index_page);
+
+/*******************************************************************************
+ *
+ */
+
+/**
+ * FIX
+ */
+function file_report_file_name($id, $analyzed_file_name) {
+  return $id . '-' . urlencode(basename($analyzed_file_name)) . '.html';
+}
+
+
+/**
+ * FIX
+ */
+function write_index_row($html_file, $id, $test_file_name, $coverage_percent) {
+  if ($coverage_percent == 100) {
+    $style = 'background-color: #ddffdd';
+  }
+  elseif ($coverage_percent >= 80) {
+    $style = 'background-color: #ffff99';
+  }
+  else {
+    $style = 'background-color: #ffdddd';
+  }
+
+  fwrite($html_file,
+         sprintf('<tr style="%s"><td>%s</td><td align="right">%d%%</td></tr>',
+                 $style,
+                 ($coverage_percent == 100 
+                  ? $test_file_name 
+                  : '<a href="' . file_report_file_name($id, $test_file_name) . '">' . $test_file_name . '</a>'), 
+                 $coverage_percent)
+         );
+}
+
+
+/**
+ * FIX
+ */ 
+function write_file_report($analyzed_file, $id, $missing_str) {
+  global $html_head, $html_tail;
+
+  $file_real_name = SF_ROOT_DIR.'/'.$analyzed_file.'.php';
+  $test_file = file_get_contents($file_real_name);
+  if (!$test_file) {
+    echo 'failed to read file: ', $file_real_name, "\n";
+  }
+  else {
+    /* The call to substr removes the <code> tag that surrounds the
+     * highlighted source code. The tag is added later but then with
+     * the first line number inside. */
+    $test_file = substr(highlight_string($test_file, true), 6);
+    $test_file = split("<br />", $test_file);
+    
+    $html_file = fopen(SF_OUTPUT_DIR . '/' . file_report_file_name($id, $analyzed_file), "w");
+    fwrite($html_file, $html_head);
+    fwrite($html_file, '<code>');
+    
+    $line_info = parse_missing_str($missing_str);
+    
+    $prev_bg = 'green';
+    for ($i = 0; $i < count($test_file); $i++) {
+      if (preg_match('/^\s*$/', $test_file[$i])) {
+        $bg = $prev_bg;
+      }
+      elseif (array_key_exists($i+1, $line_info)) {
+        $bg = 'red';
+      }
+      else {
+        $bg = 'green';
+      }
+      fwrite($html_file, "<span style=\"color:black;background-color:$bg\">" . format_line_number($i+1) . '</span>  ');
+      fwrite($html_file, $test_file[$i]);
+      fwrite($html_file, "<br/>\n");
+      $prev_bg = $bg;
+    }
+    
+    fwrite($html_file, $html_tail);
+    fclose($html_file);
+  }
+}
+
+
+/**
+ * FIX
+ */ 
+function format_line_number($num) {
+  return str_replace(' ', '&nbsp;', sprintf('% 4d', $num)); 
+}
+
+
+/**
+ * FIX
+ */ 
+function parse_missing_str($missing_str) {
+  $token = strtok(substr($missing_str, strpos($missing_str, ':')+1), ' ');
+  $lines = array();
+  while ($token !== false) {
+    if (is_numeric($token)) {
+      $lines[$token] = 1;
+    }
+    else {
+      /* Range [X - Y] */
+      $start = (int)substr($token, 1);
+      $token = strtok(' '); /* A dash */
+      $stop  = (int)substr(strtok(' '), 0, -1);
+
+      for ($i = $start; $i <= $stop; $i++) {
+        $lines[$i] = 1;
+      }
+    }
+
+    $token = strtok(' ');
+  }
+  return $lines;
+}

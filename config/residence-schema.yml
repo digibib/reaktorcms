@@ -1,0 +1,16 @@
+propel:
+  _attributes:      { package: lib.model }
+  
+  residence_level:
+    id:
+    levelname:           { type: varchar, size: 255, required: true }
+    listorder:           { type: integer, size: 2 } 
+  
+  residence_level_i18n:
+    name:           { type: varchar, size: 255, required: true } 
+   
+  residence:
+    id:
+    name:           { type: varchar, size: 255, required: true }
+    level:          { type: integer, foreignTable: residence_level, required: true, foreignReference: id} 
+    parent:         { type: integer, required: false }

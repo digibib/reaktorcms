@@ -1,0 +1,22 @@
+default:
+  http_metas:
+    content-type: text/html
+    content-style-type: text/css
+    content-script-type: text/javascript
+
+  metas:
+    title:        Reaktor                 # Make sure this is the same in app.yml
+    robots:       index, follow
+    description:  Reaktor er et nettsted for deg med interesse for film, foto, animasjon, musikk, tegneserier, tekst og tegning. Her kan du legge ut egne verk, kommentere andres og bli kjent med folk med samme interesse. Reaktor er gratis og aapen for alle!
+    keywords:     reaktor, minreaktor, minreaktor.no, egenproduserte verk, verk, egenprodusert, egenproduserte, foto, bilder, tegning, grafikk, illustrasjon, film, animasjon, kortfilm, flash, tegneserier, tekst, dikt, fortellinger, lyd, musikk, deichman, deichmanske bibliotek
+    language:     en
+
+  stylesheets:    [main: {media: all}, /css/print: {media: print}]
+
+  javascripts:    [dw_cookies.js, dw_sizerdx.js, prototype.js, scriptaculous.js, main.js, VM_FlashContent.js]
+
+  has_layout:     on
+  layout:         layout
+
+  components:
+    sidebar_articles: [sidebar, sidebarArticles]

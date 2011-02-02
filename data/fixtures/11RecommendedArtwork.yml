@@ -1,0 +1,17 @@
+# These values links an artwork to a subreaktor, including subreaktors within a localreaktor
+# The relations will be displayed/listed in an admin backend, and updated by admins by clicking
+# links next to artworks 
+
+RecommendedArtwork: 
+  RecommendedArtwork_1: 
+    artwork: ReaktorArtwork_8
+    subreaktor: Subreaktor_7     #Grorudalen
+    localsubreaktor: Subreaktor_1 #Photo
+    updated_by: sfGuardUser_2    
+    updated_at: 2008-05-06 14:52:37    
+  RecommendedArtwork_2: 
+    artwork: ReaktorArtwork_9
+    subreaktor: Subreaktor_5     #Cartoon
+    updated_by: sfGuardUser_2
+    updated_at: 2008-05-06 14:53:37
+

@@ -1,0 +1,30 @@
+<?php
+
+/*
+ * This file is part of the symfony package.
+ * (c) 2004-2006 Fabien Potencier <fabien.potencier@symfony-project.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+/**
+ *
+ * @package    symfony
+ * @subpackage plugin
+ * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
+ * @version    SVN: $Id: sfGuardPermission.php 5760 2007-10-30 07:51:16Z francois $
+ */
+class sfGuardPermission extends PluginsfGuardPermission
+{
+	function __toString()
+	{
+		return $this->getDescription();
+	}
+	
+	public function hydrate (ResultSet $rs, $startcol = 1)
+	{
+		parent::hydrate($rs, $startcol);
+		$this->setculture(sfContext::getInstance()->getUser()->getCulture());
+	}
+}

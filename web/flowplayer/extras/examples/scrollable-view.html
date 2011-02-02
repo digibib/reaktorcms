@@ -1,0 +1,131 @@
+
+<head>
+
+	<title>Scrollable view</title>
+	
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+	<link rel="stylesheet" type="text/css" href="css/scrollable-view.css"/>
+	
+	<script src="js/jquery.pack.js"></script>
+	<script src="js/flashembed.min.js"></script>
+	<script src="js/jquery.mousewheel.js"></script>
+	<script src="js/jquery.scrollable.min.js"></script>
+	<script src="js/flow.embed.js"></script>	
+	
+	<script>
+		$(function() {
+				
+			$("a.flowplayer").flowembed("../FlowPlayerDark.swf", {
+				initialScale:'scale',
+				hideControls:true
+			});
+			
+			$("div.scrollable").scrollable({
+				horizontal:true, 
+				size:1, 
+				onSeek:onClipDone
+			}); 
+			
+		});	
+	</script>
+	
+</head>
+
+<div id="page">	
+
+	<h1>Multiple player instances is <em>tabbed pane</em></h1>
+	
+	<p>
+		This kind of navigational system is easy to do with <a href="http://www.flowplayer.org/tools/flow-embed.html">flow.embed</a> and 
+		
+		<a href="http://www.flowplayer.org/tools/scrollable.html">jquery.scrollable</a>.
+	</p>
+	
+	<div class="scrollable">
+	
+		<ul class="navi">
+			<li><a>First video</a></li>
+			<li><a>Second video</a></li>
+			<li><a>Third video</a></li>
+			<li><a>Fourth video</a></li>
+		</ul>
+		
+		<br clear="all"/>
+		
+		<a class="prev"></a>
+	
+		<div class="items">
+			<div>
+				<a class="flowplayer" href="http://blip.tv/file/get/Behappy-clouds106.flv">
+					<img src="img/1m.jpg" />
+				</a>
+				
+				<h2>First video</h2>
+				
+				<p>
+					Sed ut magna. Duis condimentum purus non nisi. Praesent justo. 
+					Suspendisse urna mi, malesuada vitae, molestie ut, sodales eu, sem.
+				</p>		
+			</div>
+		
+			<div>	
+				<a class="flowplayer" href="http://blip.tv/file/get/N8inpasadena-Flowers457.flv">
+					<img src="img/3m.jpg" />
+				</a>
+				
+				<h2>Second video</h2>
+				
+				<p>
+					Vivamus vulputate. Vestibulum eget eros sit amet ligula 
+					vestibulum tincidunt. Vivamus id orci nec metus pretium rhoncus. 
+					Donec tortor nisi, viverra id, fringilla sed, euismod feugiat, pede.
+				</p>		
+			</div>		
+			
+			<div>
+				<a class="flowplayer" href="http://blip.tv/file/get/KimAronson-TwentySeconds59483.flv">
+					<img src="img/2m.jpg" />
+				</a>
+				
+				<h2>Third video</h2>
+				
+				<p>
+					Nullam dui. Vestibulum diam neque, vehicula non, dapibus non, lacinia in, neque. 
+				</p>		
+				
+				<p>
+					Tellus mi aliquet diam, eu semper tellus ante a massa. Cras leo massa, blandit vitae, pharetra ve.
+				</p>
+			</div>
+		
+			<div>	
+				<a class="flowplayer" href="http://blip.tv/file/get/KimAronson-TwentySeconds58192.flv">
+					<img src="img/3m.jpg" />
+				</a>
+				
+				<h2>Fourth video</h2>
+				
+				<p>
+					Nullam sit amet arcu vel mi commodo sodales. Donec a augue. In semper magna sit amet tortor. Aenean id ligula. Nulla facilisi.
+				</p>		
+			</div>
+		</div>
+		
+		<a class="next"></a>
+		
+	</div>
+
+	<br clear="all" />
+	<br />
+	
+	<p class="less">
+		You can also use mousewheel to switch between tabs. 
+	</p>
+	
+	<p>
+		<button onClick="location.href='index.html'">&laquo; back to examples</button>
+	</p>
+	
+</div>
+
+

@@ -1,0 +1,17 @@
+propel:
+  _attributes:      { package: lib.model }
+  
+  history:
+    id:
+    created_at:
+    action_id:      { type: integer, foreignTable: history_action, required: true, foreignReference: id }
+    user_id:        { type: integer, foreignTable: sf_guard_user, required: true, foreignReference: id }
+    object_id:      { type: integer}
+    extra_details:  { type: longvarchar }
+  
+  history_action:
+    id:
+    name:           { type: varchar, size: 50 }
+
+  history_action_i18n:
+    description:    { type: longvarchar, required: true}

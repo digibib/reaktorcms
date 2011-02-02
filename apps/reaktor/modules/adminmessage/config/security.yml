@@ -1,0 +1,15 @@
+edit:
+  credentials:  createsystemadminmessages
+  is_secure:    on
+
+delete:
+  credentials:  deletesystemadminmessages
+  is_secure:    on
+
+list:
+  credentials:  listsystemadminmessages
+  is_secure:    on  
+  
+all:
+  credentials:  listsystemadminmessages
+  is_secure:    on

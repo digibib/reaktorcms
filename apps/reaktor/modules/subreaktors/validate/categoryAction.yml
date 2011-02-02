@@ -1,0 +1,7 @@
+fillin:
+  enabled: true
+  
+fields:
+  category:
+    required:
+      msg:    You must enter a category name

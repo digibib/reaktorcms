@@ -1,0 +1,407 @@
+= sfPropelAlternativeSchemaPlugin - Extension to the Propel schema syntax =
+
+== Overview ==
+
+This plugin extends the symfony model generator, based on Propel, to allow a schema to override another one. Using this plugin, you can add columns, change table names, or the database connection without modifying existing schemas. 
+
+It also provides a new optional YAML syntax for defining database schemas, more explicit and more readable than the current one. Finally, this alternative schema syntax adds a few new features to schemas, such as the ability to define a behavior from a schema.
+
+== Installation ==
+ 
+To install the plugin for a symfony project, the usual process is to use the symfony command line:
+{{{
+$ php symfony plugin-install http://plugins.symfony-project.com/sfPropelAlternativeSchemaPlugin
+}}}
+
+Alternatively, if you don't have PEAR installed, you can download the latest package attached to this plugin's wiki page and extract it under your project's `plugins/` directory.
+
+Clear the cache to enable the autoloading to find the new classes:
+{{{
+$ php symfony cc
+}}}
+
+That's it, you are ready to override existing schemas and write schemas with the new syntax.
+
+== Customizing an existing schema ==
+
+Once the plugin is installed, schemas can be customized by other schemas. This is great for plugin schemas, for instance, to allow users to override some of the plugin's schema settings (such as the connection, the table names, etc), or to allow one plugin to extend another plugin.
+
+When building the model, the plugin will look for custom YAML files for each schema, following this rule:
+
+    Original schema name                     | Custom schema name
+    -----------------------------------------|------------------------
+    config/schema.yml                        | schema.custom.yml
+    config/foobar_schema.yml                 | foobar_schema.custom.yml
+    plugins/myPlugin/config/schema.yml       | myPlugin_schema.custom.yml
+    plugins/myPlugin/config/foo_schema.yml   | myPlugin_foo_schema.custom.yml
+
+Custom schemas will be looked for in the application's and plugins' `config/` directories, so a plugin can override another plugin's schema, and there can be more than one customization per schema.
+
+The plugin will merge the two schemas in a smart way, as follows:
+
+{{{
+# Original schema
+#################
+propel:
+  cd_user:
+    _attributes:    { phpName: User }
+    first_name:     { type: varchar, size: 255, default: "Anonymous" }
+    last_name:      varchar(50)
+    age:            { type: integer, required: true, index: true }
+    created_at:
+  
+  ij_article:
+    _attributes:    { phpName: Article }
+    title:          varchar(50)
+    user_id:        { type: integer }
+    created_at:
+    _foreignKeys:
+      -
+        foreignTable: cd_user
+        onDelete:     cascade
+        references:
+          - { local: user_id, foreign: id }
+
+# Custom schema
+###############
+myConnection:
+  ab_group:
+    _attributes:    { phpName: Group, package: foo.bar.lib.model }
+    id:
+    name:           varchar(50)
+  
+  ef_user:
+    _attributes:    { phpName: User, isI18N: true, i18nTable: cd_user_i18n }
+    ab_group_id:
+  
+  ij_article:
+    updated_at:
+
+# Resulting schema
+##################
+myConnection:
+  ef_user:
+    _attributes:    { phpName: User, isI18N: true, i18nTable: cd_user_i18n }
+    first_name:     { type: varchar, size: 255, default: "Anonymous" }
+    last_name:      varchar(50)
+    age:            { type: integer, required: true, index: true }
+    created_at:
+    ab_group_id:
+  
+  ij_article:
+    _attributes:    { phpName: Article }
+    title:          varchar(50)
+    user_id:        { type: integer }
+    created_at:
+    updated_at:
+    _foreignKeys:
+      -
+        foreignTable: cd_user
+        onDelete:     cascade
+        references:
+          - { local: user_id, foreign: id }
+
+  ab_group:
+    _attributes:    { phpName: Group, package: foo.bar.lib.model }
+    id:
+    name:           varchar(50)
+}}}
+
+When merging two tables, the plugin will consider the table's `phpName` as a key, and therefore you can change the name of a table in the database, provided that you keep the same `phpName` in the schema.
+
+== New schema syntax ==
+
+As an alternative to the current `schema.yml` syntax (which still works), this plugin proposes a new way to define a database schema.
+
+Consider the following schema, using the current syntax:
+
+{{{
+propel:
+  _attributes:      { noXsd: false, defaultIdMethod: none, package: lib.model }
+  ab_group:
+    _attributes:    { phpName: Group, package: foo.bar.lib.model }
+    id:
+    name:           varchar(50)
+    
+  cd_user:
+    _attributes:    { phpName: User, isI18N: true, i18nTable: cd_user_i18n }
+    first_name:     { type: varchar, size: 255, default: "Anonymous" }
+    last_name:      varchar(50)
+    age:            { type: integer, required: true, index: true }
+    ab_group_id:
+    created_at:
+  
+  cd_user_i18n:
+    description:    longvarchar
+    
+  ef_article:
+    title:          { type: longvarchar, required: true, index: unique }
+    stripped_title: { type: longvarchar, required: true, primaryKey: true, sequence: my_custom_sequence_name }
+    user_id:
+    my_group:       { type: integer, foreignTable: ab_group, foreignReference: id, onDelete: setnull }
+    created_at:     timestamp
+    updated_at:
+
+  ij_article:
+    _attributes:    { phpName: Article }
+    title:          varchar(50)
+    user_id:        { type: integer }
+    _foreignKeys:
+      -
+        foreignTable: cd_user
+        onDelete:     cascade
+        references:
+          - { local: user_id, foreign: id }
+    created_at:
+    _indexes:
+      my_index:       [title, user_id]
+    _uniques:
+      my_other_index: [created_at]
+  
+  ab_group_i18n:
+    motto:            longvarchar
+}}}
+
+With the alternative syntax, you can write it as follows:
+
+{{{
+connection:           propel
+noXsd:                false
+defaultIdMethod:      none
+package:              lib.model
+
+classes:
+  Group:
+    tableName:        ab_group
+    package:          foo.bar.lib.model
+    columns:
+      id:
+      name:           varchar(50)
+  
+  User:
+    tableName:        cd_user
+    isI18N:           true
+    i18nTable:        cd_user_i18n
+    columns:
+      first_name:     { type: varchar, size: 255, default: "Anonymous" }
+      last_name:      varchar(50)
+      age:            { type: integer, required: true, index: true }
+      ab_group_id:
+      created_at:
+  
+  CdUserI18n:
+    columns:
+      description:    longvarchar
+  
+  EfArticle:
+    columns:
+      title:          { type: longvarchar, required: true, index: unique }
+      stripped_title: { type: longvarchar, required: true, primaryKey: true, sequence: my_custom_sequence_name }
+      user_id:
+      my_group:       { type: integer, foreignClass: Group, foreignReference: id, onDelete: setnull }
+      created_at:     timestamp
+      updated_at:
+  
+  Article:
+    tableName:        ij_article
+    columns:
+      title:          varchar(50)
+      user_id:        { type: integer }
+      created_at:
+    foreignKeys:
+      -
+        foreignTable: cd_user
+        onDelete:     cascade
+        references:
+          - { local: user_id, foreign: id }
+    indexes:
+      my_index:       [title, user_id]
+    uniques:
+      my_other_index: [created_at]
+  
+  AbGroupI18n:
+    columns:
+      motto:          longvarchar
+}}}
+
+The main difference is that you declare classes, not tables, using the table `phpName` as a key. If you don't define a `tableName`, the plugin will determine one automatically based on the `phpName` using `sfInflector::underscore()`.
+
+This alternative syntax is also more explicit, since you must create entries for `classes` and `columns`. But it gets rid of the ugly `_attributes` hack of the current syntax.
+
+The `connection` parameter is optional. If it is not set, it will take `propel` as a default value.
+
+Note that you can define foreign keys either with the usual `foreignTable` attribute, which expects a table name, or via the new `foreignClass` attribute, which expects a class name.
+
+Last but not least, all the 'magic' of the current syntax is still there (auto definition of primary keys, foreign keys, i18n tables, etc.).
+
+Once you have defined such a schema, rebuild the model as usual:
+
+{{{
+$ php symfony propel-build-model
+}}}
+
+The plugin will recognize the alternative syntax automatically. Note that you can have, in a project, schemas with mixed current and alternative syntax.
+
+== Behaviors ==
+
+The alternative schema syntax allows you to define behaviors directly from the schema itself. To allow the support for these schema behaviors, you must change two lines in the 'Builder Settings' section of your project's `propel.ini`:
+
+{{{
+// In config/propel.ini
+; builder settings
+propel.builder.peer.class              = plugins.sfPropelAlternativeSchemaPlugin.lib.SfAlternativePeerBuilder
+propel.builder.object.class            = plugins.sfPropelAlternativeSchemaPlugin.lib.SfAlternativeObjectBuilder
+}}}
+
+Now you can add a `behaviors` section for each class that you define in a schema, as follows:
+
+{{{
+classes:
+  Article:
+    columns:
+      title:          varchar(50)
+    behaviors:
+      paranoid:       { column: deleted_at }
+}}}
+
+Of course, don't forget to rebuild the model after you modify your schema.
+
+It is also possible to define behaviors in the current syntax if you enabled the custom builder in the `propel.ini`. Just add a leading underscore before the `behaviors` key and define behaviors the same a above:
+
+{{{
+propel:
+  ij_article:
+    _attributes:    { phpName: Article }
+    title:          varchar(50)
+    _behaviors:
+      paranoid:     { column: deleted_at }
+}}}
+
+
+Note: Incidentally, behaviors entered this way are registered both in the model and peer classes, which seems to solve some problems with behaviors (like #1229).
+
+== Mixed schemas ==
+
+The schema customization works whatever the original schema syntax and whatever the custom schemas syntax. This means that you can customize an existing schema with the old syntax using a custom schema with the new syntax, and vice-versa. The plugin will do the conversion internally so that the merge is always possible.
+
+Note that the schema merge is easier to understand when considering the alternative syntax for both the original and the custom schema. In fact, this is the internal format used by the plugin for the merge. The following listing is the same example as the one in the "Customizing an existing schema" section, except it uses the alternative schema syntax... and behaviors.
+
+{{{
+# Original schema
+#################
+classes:
+  User:
+    tableName:        cd_user
+    columns:
+      first_name:     { type: varchar, size: 255, default: "Anonymous" }
+      last_name:      varchar(50)
+      age:            { type: integer, required: true, index: true }
+      created_at:
+  
+  Article:
+    tableName:        ij_article
+    columns:
+      title:          varchar(50)
+      user_id:        { type: integer }
+      created_at:
+    foreignKeys:
+      -
+        foreignTable: cd_user
+        onDelete:     cascade
+        references:
+          - { local: user_id, foreign: id }
+
+# Custom schema
+###############
+connection: myConnection
+classes:
+  Group:
+    tableName:        ab_group
+    package:          foo.bar.lib.model
+    behaviors:        [paranoid]
+    columns:
+      id:
+      name:           varchar(50)
+
+  User:
+    tableName:        ef_user
+    isI18N:           true
+    i18nTable:        cd_user_i18n
+    columns:
+      ab_group_id:
+  
+  Article:
+    columns:
+      updated_at:
+
+# Resulting schema
+##################
+connection: myConnection
+classes:
+  Group:
+    tableName:        ab_group
+    package:          foo.bar.lib.model
+    behaviors:        [paranoid]
+    columns:
+      id:
+      name:           varchar(50)
+  
+  User:
+    tableName:        cd_user
+    isI18N:           true
+    i18nTable:        cd_user_i18n
+    columns:
+      first_name:     { type: varchar, size: 255, default: "Anonymous" }
+      last_name:      varchar(50)
+      age:            { type: integer, required: true, index: true }
+      ab_group_id:
+      created_at:
+  
+  Article:
+    tableName:        ij_article
+    columns:
+      title:          varchar(50)
+      user_id:        { type: integer }
+      created_at:
+      updated_at:
+    foreignKeys:
+      -
+        foreignTable: cd_user
+        onDelete:     cascade
+        references:
+          - { local: user_id, foreign: id }
+}}}
+
+For clarity, it is recommended to use the alternative schema syntax as much as possible.
+
+== Checking that the plugin is installed ==
+
+Alternative schemas can sometimes look like normal YAML schemas. If this plugin is not installed, the usual schema interpreter may try to transform a schema with the alternative syntax into an XML schema, but based on the usual syntax. This will most probably cause problems.
+
+To avoid this, you should check that the plugin is installed before trying to interpret an alternative YAML schema. To do so, a good trick is to take advantage of the fact that YAML files are executed as PHP files before being converted to arrays. So add the following line on top of every alternative YAML schema:
+
+{{{
+<?php if(!is_callable(array('sfPropelDatabaseSchema', 'convertOldToNewYaml'))) throw new Exception('You must install the sfPropelAlternativeSchemaPlugin to use this schema') ?>
+}}}
+
+== Todo ==
+
+ * Refactor `sfPropelDatabaseSchema` to use the new schema syntax internally
+ 
+== Changelog ==
+
+=== Trunk ===
+
+=== 2007-10-18 | 1.0.0 Stable === 
+
+ * francois: Added support for behaviors in the old syntax, too
+ * francois: Added new/old YAML syntax conversion. It is now possible to customize an old schema even if it doesn't use the alternative syntax.
+ * francois: Added a fix for the too late initialization of behaviors in symfony when adding hooks to custom class
+ * francois: Added a way to define behaviors from the schema
+ * francois: Added a new `foreignClass` column attribute to define a foreign key from a phpName rather than from a tableName
+ * francois: Added section about plugin check in README
+ * francois: Fixed a problem with model class names beginning with a lowercase character
+
+=== 2007-10-05 | 0.9.0 Beta === 
+
+ * francois: initial release

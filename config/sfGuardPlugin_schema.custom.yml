@@ -1,0 +1,50 @@
+<?php if(!@is_callable(array('sfPropelDatabaseSchema', 'convertOldToNewYaml'))) throw new Exception('You must install the sfPropelAlternativeSchemaPlugin to use this schema, since it extends an existing plugin schema') ?>
+propel:
+  _attributes:        { package: plugins.sfGuardPlugin.lib.model }
+  
+  sf_guard_user:
+    _attributes:      { phpName: sfGuardUser } 
+    is_verified:      { type: boolean, required: false, default: 0 }
+    show_content:     { type: boolean, required: false, default: 0 }
+    culture:          { type: varchar, size: 10, required: false, default: 'no' }
+    email:            { type: varchar, size: 128, required: true }
+    email_private:    { type: boolean, required: false, default: 1 }
+    new_email:        { type: varchar, size: 128, required: false }
+    new_email_key:    { type: varchar, size: 128, required: false }
+    new_password_key: { type: varchar, size: 128, required: false }
+    key_expires:      { type: timestamp, required: false }
+    name:             { type: varchar, size: 128, required: false }
+    name_private:     { type: boolean, required: false, default: 0 }
+    dob:              { type: bu_date, required: true }
+    sex:              { type: integer, size: 1, required: true}
+    description:      { type: longvarchar, required: false }
+    residence_id:     { type: integer, required: true, foreignTable: residence, foreignReference: id }    
+    avatar:           { type: varchar, size: 255, required: false }
+    msn:              { type: varchar, size: 128, required: false }
+    icq:              { type: integer, required: false }
+    homepage:         { type: varchar, size: 256, required: false }
+    phone:            { type: varchar, size: 32, required: false }
+    opt_in:           { type: boolean, required: false, default: 0 }
+    editorial_notification: { type: integer, required: false, default: 0 }
+    show_login_status: { type: integer, required: false, default: 1 }
+    last_active:      { type: timestamp, required: false }
+    
+    # The following are import related - need_profile_check could also be used later, it's a flag to alert the user of possible issues
+    # in their profile information. First_reaktor_login is for historical purposes so we can see when people first hit the new Reaktor site
+    # We can also see how many "veteran" prototype users migrate, and how many choose not to.
+    dob_is_derived:      { type: integer, required: true, default: 0 }
+    need_profile_check:  { type: integer, size: 1, required: true, default: 0 }
+    first_reaktor_login: { type: timestamp, required: false }
+    
+  sf_guard_group:
+    _attributes:       { phpName: sfGuardGroup }
+    is_editorial_team: { type: boolean, required: false, default: 0 }
+    is_enabled:        { type: boolean, required: false, default: 0 }
+
+  sf_guard_user_permission:
+    _attributes:    { phpName: sfGuardUserPermission }
+    exclude:        { type: boolean, required: false, default: 0 }
+
+  sf_guard_permission_i18n:
+    _attributes:    { phpName: sfGuardPermissionI18n }
+    description:    { type: longvarchar, required: true }

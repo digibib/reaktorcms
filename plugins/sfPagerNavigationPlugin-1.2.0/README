@@ -1,0 +1,43 @@
+= sfPagerNavigation plugin =
+
+== Overview ==
+
+This plugin adds a new helper group, `PagerNavigation`, with three new helpers. They add interface controls for paginated lists, either with links to pages or with AJAX ([http://www.symfony-project.com/demo/pager.html online demo])
+
+== Installation ==
+
+To install sfPagerNavigationPlugin, type:
+
+{{{
+$ symfony plugin-install http://plugins.symfony-project.com/sfPagerNavigationPlugin
+}}}
+
+== Usage ==
+
+=== Regular pager ===
+
+{{{
+<?php use_helper('PagerNavigation') ?>
+
+<?php echo pager_navigation($pager, '@rule?key=param') ?>
+}}}
+
+=== Ajax pager ===
+
+{{{
+<?php use_helper('PagerNavigation') ?>
+
+<?php echo remote_pager(array(
+  'url'      => 'pager/ajaxPager',
+  'update'   => 'ajax_pager',
+), $pager) ?>
+
+<noscript>
+  <?php echo pager_navigation($pager, 'pager/index') ?>
+</noscript>
+}}}
+
+== License ==
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.

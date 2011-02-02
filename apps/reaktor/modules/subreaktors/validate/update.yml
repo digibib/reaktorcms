@@ -1,0 +1,18 @@
+fillin:
+  enabled: true
+  
+fields:
+  subreaktor_reference:
+    myMagickWorkingRegexValidator:
+      match: Yes
+      match_error: Please use only alphanumeric characters in the reference
+      pattern: /[0-9a-zA-Z]*/
+    sfPropelUniqueValidator:
+      class: Subreaktor
+      column: reference
+      unique_error: This subReaktor reference already exists
+    sfLokalReaktorNameValidator:
+      url_error: This reference URL is already in use
+      max_len: 15
+      max_len_error: The reference length cannot be longer than 15 chars
+

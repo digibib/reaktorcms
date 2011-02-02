@@ -1,0 +1,13 @@
+# Import configuration data
+#
+from_db_name = databasename
+from_db_user = admin
+from_db_password = secret
+
+to_db_name = new_db_name
+to_db_user = super_admin
+to_db_password = ultra_secret_password
+
+path_symfony = /path/to/symfony/application
+path_imported_content = /path/to/imported/content
+path_data = /path/do/text/data/files

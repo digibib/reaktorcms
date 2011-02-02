@@ -1,0 +1,59 @@
+propel:
+  _attributes:      { package: lib.model }
+  
+  article:
+    id:
+    created_at:
+    author_id:      { type: integer, foreignTable: sf_guard_user, required: true, foreignReference: id }
+    base_title:     { type: varchar, size: 255, required: true }
+    permalink:      { type: varchar, size: 255, required: true }
+    ingress:        { type: longvarchar }
+    content:        { type: longvarchar, required: true }
+    updated_at:     { type: timestamp }
+    updated_by:     { type: integer, required: true, default: 0 }
+    article_type:   { type: integer, required: true }
+    article_order:  { type: integer, required: true }
+    expires_at:     { type: timestamp }
+    status:         { type: integer, required: true }
+    published_at:   { type: timestamp }
+    banner_file_id: { type: integer, default: 0, foreignTable: article_file, required: false, foreignReference: id }
+    is_sticky:      { type: boolean, default: false }
+    frontpage:      { type: integer, default: 0 }
+
+  article_i18n:
+    title:          { type: varchar, size: 255, required: true }
+
+  article_article_relation:
+    id:
+    created_at:
+    first_article:  { type: integer, foreignTable: article, required: true, foreignReference: id }
+    second_article: { type: integer, foreignTable: article, required: true, foreignReference: id }    
+    created_by:     { type: integer, required: true, foreignTable: sf_guard_user, foreignReference: id }
+
+  article_artwork_relation:
+    id:
+    created_at:
+    article_id: { type: integer, required: true, foreignTable: article, foreignReference: id }
+    artwork_id: { type: integer, required: true, foreignTable: reaktor_artwork, foreignReference: id }
+    created_by: { type: integer, required: true, foreignTable: sf_guard_user, foreignReference: id }
+
+  article_file:
+    id:
+    filename:         { type: varchar, size: 255, required: true }
+    path:             { type: varchar, size: 255, required: true }
+    uploaded_by:      { type: integer, foreignTable: sf_guard_user, required: true, foreignReference: id }
+    uploaded_at:      { type: timestamp, required: true }
+    description:      { type: varchar, size: 255 }
+    file_mimetype_id: { type: integer, foreignTable: file_mimetype, required: true, foreignReference: id }
+
+  article_category:
+    article_id:  { type: integer, foreignTable: article, required: true, foreignReference: id }
+    category_id: { type: integer, foreignTable: category, required: true, foreignReference: id }
+
+  article_subreaktor:
+    article_id:    { type: integer, foreignTable: article, required: true, foreignReference: id }
+    subreaktor_id: { type: integer, foreignTable: subreaktor, required: true, foreignReference: id }
+
+  article_attachment:
+    article_id: { type: integer, foreignTable: article, required: true, foreignReference: id }
+    file_id:    { type: integer, foreignTable: article_file, required: true, foreignReference: id }

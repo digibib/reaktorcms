@@ -1,0 +1,10 @@
+propel:
+  _attributes:      { package: lib.model }
+  
+  favourite:
+    id:
+    user_id:                { type: integer, required: true,  foreignTable: sf_guard_user, foreignReference: id }
+    artwork_id:             { type: integer, required: true,  foreignTable: reaktor_artwork, foreignReference: id }
+    article_id:             { type: integer, required: true,  foreignTable: article, foreignReference: id }
+    friend_id:              { type: integer, required: true,  foreignTable: sf_guard_user, foreignReference: id }
+    fav_type:               { type: varchar, size: 8, required: true}

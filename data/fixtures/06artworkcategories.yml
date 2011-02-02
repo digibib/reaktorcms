@@ -1,0 +1,121 @@
+CategoryArtwork: 
+  CategoryArtwork_1: 
+    category_id: Category_12
+    artwork_id: ReaktorArtwork_1
+    added_by: sfGuardUser_2
+    created_at: 2008-05-15 18:01:09
+  CategoryArtwork_2: 
+    category_id: Category_8
+    artwork_id: ReaktorArtwork_1
+    added_by: sfGuardUser_2
+    created_at: 2008-05-15 18:01:11
+  CategoryArtwork_3: 
+    category_id: Category_4
+    artwork_id: ReaktorArtwork_2
+    added_by: sfGuardUser_2
+    created_at: 2008-05-15 18:01:27
+  CategoryArtwork_4: 
+    category_id: Category_8
+    artwork_id: ReaktorArtwork_2
+    added_by: sfGuardUser_2
+    created_at: 2008-05-15 18:01:29
+  CategoryArtwork_5: 
+    category_id: Category_12
+    artwork_id: ReaktorArtwork_2
+    added_by: sfGuardUser_2
+    created_at: 2008-05-15 18:01:34
+  CategoryArtwork_6: 
+    category_id: Category_56
+    artwork_id: ReaktorArtwork_3
+    added_by: sfGuardUser_2
+    created_at: 2008-05-15 18:01:52
+  CategoryArtwork_7: 
+    category_id: Category_67
+    artwork_id: ReaktorArtwork_3
+    added_by: sfGuardUser_2
+    created_at: 2008-05-15 18:01:55
+  CategoryArtwork_8: 
+    category_id: Category_24
+    artwork_id: ReaktorArtwork_4
+    added_by: sfGuardUser_2
+    created_at: 2008-05-15 18:02:03
+  CategoryArtwork_9: 
+    category_id: Category_23
+    artwork_id: ReaktorArtwork_4
+    added_by: sfGuardUser_2
+    created_at: 2008-05-15 18:02:05
+  CategoryArtwork_10: 
+    category_id: Category_40
+    artwork_id: ReaktorArtwork_5
+    added_by: sfGuardUser_2
+    created_at: 2008-05-15 18:02:14
+  CategoryArtwork_11: 
+    category_id: Category_36
+    artwork_id: ReaktorArtwork_5
+    added_by: sfGuardUser_2
+    created_at: 2008-05-15 18:02:16
+  CategoryArtwork_12: 
+    category_id: Category_56
+    artwork_id: ReaktorArtwork_6
+    added_by: sfGuardUser_2
+    created_at: 2008-05-15 18:02:23
+  CategoryArtwork_13: 
+    category_id: Category_62
+    artwork_id: ReaktorArtwork_6
+    added_by: sfGuardUser_2
+    created_at: 2008-05-15 18:02:24
+  CategoryArtwork_14: 
+    category_id: Category_68
+    artwork_id: ReaktorArtwork_6
+    added_by: sfGuardUser_2
+    created_at: 2008-05-15 18:02:28
+  CategoryArtwork_15: 
+    category_id: Category_3
+    artwork_id: ReaktorArtwork_7
+    added_by: sfGuardUser_2
+    created_at: 2008-05-15 18:02:34
+  CategoryArtwork_16: 
+    category_id: Category_10
+    artwork_id: ReaktorArtwork_7
+    added_by: sfGuardUser_2
+    created_at: 2008-05-15 18:02:37
+  CategoryArtwork_17: 
+    category_id: Category_3
+    artwork_id: ReaktorArtwork_8
+    added_by: sfGuardUser_2
+    created_at: 2008-05-15 18:02:48
+  CategoryArtwork_18: 
+    category_id: Category_10
+    artwork_id: ReaktorArtwork_8
+    added_by: sfGuardUser_2
+    created_at: 2008-05-15 18:02:49
+  CategoryArtwork_19: 
+    category_id: Category_54
+    artwork_id: ReaktorArtwork_9
+    added_by: sfGuardUser_2
+    created_at: 2008-05-15 18:03:04
+  CategoryArtwork_20: 
+    category_id: Category_48
+    artwork_id: ReaktorArtwork_9
+    added_by: sfGuardUser_2
+    created_at: 2008-05-15 18:02:58
+  CategoryArtwork_21: 
+    category_id: Category_44
+    artwork_id: ReaktorArtwork_9
+    added_by: sfGuardUser_2
+    created_at: 2008-05-15 18:03:07
+  CategoryArtwork_22: 
+    category_id: Category_19
+    artwork_id: ReaktorArtwork_10
+    added_by: sfGuardUser_2
+    created_at: 2008-05-15 18:03:29
+  CategoryArtwork_23: 
+    category_id: Category_21
+    artwork_id: ReaktorArtwork_11
+    added_by: sfGuardUser_2
+    created_at: 2008-05-15 18:03:29
+  CategoryArtwork_24: 
+    category_id: Category_22
+    artwork_id: ReaktorArtwork_11
+    added_by: sfGuardUser_2
+    created_at: 2008-05-15 18:03:29

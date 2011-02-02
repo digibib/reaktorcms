@@ -1,0 +1,10 @@
+propel:
+  _attributes:      { package: lib.model }
+  
+  related_artwork:
+    id:
+    first_artwork:  { type: integer, required: true, foreignTable: reaktor_artwork, foreignReference: id }
+    second_artwork: { type: integer, required: true, foreignTable: reaktor_artwork, foreignReference: id }
+    created_at:     { type: timestamp, required: true }
+    created_by:     { type: integer, required: true, foreignTable: sf_guard_user, foreignReference: id }
+    order_by:       { type: integer, required: false, default: 0 }

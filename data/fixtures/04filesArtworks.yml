@@ -1,0 +1,403 @@
+ReaktorFile: 
+  ReaktorFile_1: 
+    filename: myimage.jpg
+    user_id: sfGuardUser_3
+    realpath: image0044.jpg
+    thumbpath: image0044.jpg
+    originalpath: image0044.jpg
+    original_mimetype_id: 2
+    converted_mimetype_id: 2
+    thumbnail_mimetype_id: 2
+    uploaded_at: 2008-02-10 12:54:08
+    modified_at: 2008-02-10 12:54:08
+    identifier: image
+    under_discussion: 0
+    deleted: 0
+  ReaktorFile_2: 
+    filename: mydoc.pdf
+    user_id: sfGuardUser_3
+    realpath: >
+      1202926111_1__O__Reilly__PHP__Cookbook_.pdf
+    thumbpath: >
+      1202926111_1__O__Reilly__PHP__Cookbook_.pdf.jpg
+    originalpath: >
+      1202926111_1__O__Reilly__PHP__Cookbook_.pdf
+    original_mimetype_id: 3
+    converted_mimetype_id: 3
+    thumbnail_mimetype_id: 2
+    uploaded_at: 2008-02-12 13:12:09
+    modified_at: 2008-02-12 13:12:09
+    identifier: pdf
+    deleted: 0
+  ReaktorFile_3: 
+    filename: lovely.jpg
+    user_id: sfGuardUser_3
+    realpath: 1204733647_1_IMG_5382.JPG
+    thumbpath: 1204733647_1_IMG_5382.JPG
+    originalpath: 1204733647_1_IMG_5382.JPG
+    original_mimetype_id: 2
+    converted_mimetype_id: 2
+    thumbnail_mimetype_id: 2
+    uploaded_at: 2007-01-01 01:01:54
+    modified_at: 2007-01-01 01:01:54
+    identifier: image
+    deleted: 0
+  ReaktorFile_4: 
+    filename: wetbird.jpg
+    user_id: sfGuardUser_3
+    realpath: 1204735759_1_IMG_1252.jpg
+    thumbpath: 1204735759_1_IMG_1252.jpg
+    originalpath: 1204735759_1_IMG_1252.jpg
+    original_mimetype_id: 2
+    converted_mimetype_id: 2
+    thumbnail_mimetype_id: 2
+    uploaded_at: 2007-02-01 01:01:54
+    modified_at: 2007-02-01 01:01:54
+    identifier: image
+    deleted: 0
+  ReaktorFile_5: 
+    filename: fingers.flv
+    user_id: sfGuardUser_2
+    realpath: fingers.flv
+    thumbpath: fingers.flv.jpg
+    originalpath: fingers.flv
+    original_mimetype_id: 4
+    converted_mimetype_id: 4
+    thumbnail_mimetype_id: 2
+    uploaded_at: 2008-02-10 14:54:08
+    modified_at: 2008-02-10 14:54:08
+    identifier: video
+    deleted: 0
+  ReaktorFile_6: 
+    filename: space-door.mp3
+    user_id: sfGuardUser_2
+    realpath: space-door.mp3
+    thumbpath: space-door.mp3.jpg
+    originalpath: space-door.mp3
+    original_mimetype_id: 5
+    converted_mimetype_id: 5
+    thumbnail_mimetype_id: 2
+    uploaded_at: 2008-02-10 14:54:09
+    modified_at: 2008-02-10 14:54:09
+    identifier: audio
+    deleted: 0
+  ReaktorFile_7: 
+    filename: dolor_sit.txt
+    user_id: sfGuardUser_2
+    realpath: dolor_sit.txt
+    thumbpath: dolor_sit.txt.jpg
+    originalpath: dolor_sit.txt
+    original_mimetype_id: 9
+    converted_mimetype_id: 9
+    thumbnail_mimetype_id: 2
+    uploaded_at: 2008-02-20 13:10:17
+    modified_at: 2008-02-20 13:10:17
+    identifier: text
+    deleted: 0
+  ReaktorFile_8: 
+    filename: abigail_frogner.jpg
+    user_id: sfGuardUser_3
+    realpath: 1204736133_1_IMG_3154x.jpg
+    thumbpath: 1204736133_1_IMG_3154x.jpg
+    originalpath: 1204736133_1_IMG_3154x.jpg
+    original_mimetype_id: 2
+    converted_mimetype_id: 2
+    thumbnail_mimetype_id: 2
+    uploaded_at: 2007-03-01 01:01:54
+    modified_at: 2007-03-01 01:01:54
+    identifier: image
+    deleted: 0
+  ReaktorFile_9: 
+    filename: IMG_0318.JPG
+    user_id: sfGuardUser_5
+    realpath: 1207596441_5_IMG_0318.JPG
+    thumbpath: 1207596441_5_IMG_0318.JPG
+    originalpath: 1207596441_5_IMG_0318.JPG
+    original_mimetype_id: 2
+    converted_mimetype_id: 2
+    thumbnail_mimetype_id: 2
+    uploaded_at: 2008-04-07 21:27:23
+    modified_at: 2008-04-07 21:27:23
+    identifier: image
+    deleted: 0
+  ReaktorFile_10: 
+    filename: IMG_0057c.jpg
+    user_id: sfGuardUser_5
+    realpath: 1207596762_5_IMG_0057c.jpg
+    thumbpath: 1207596762_5_IMG_0057c.jpg
+    originalpath: 1207596762_5_IMG_0057c.jpg
+    original_mimetype_id: 2
+    converted_mimetype_id: 2
+    thumbnail_mimetype_id: 2
+    uploaded_at: 2008-04-07 21:32:43
+    modified_at: 2008-04-07 21:32:43
+    reported_at: 2008-04-08 22:14:10
+    reported:    6
+    total_reported_ever: 24
+    identifier: image
+    deleted: 0
+  ReaktorFile_11: 
+    filename: mcartoon.gif
+    user_id: sfGuardUser_6
+    realpath: 1210074241_1_mcartoon.gif
+    thumbpath: 1210074241_1_mcartoon.gif
+    originalpath: 1210074241_1_mcartoon.gif
+    original_mimetype_id: 7
+    converted_mimetype_id: 7
+    thumbnail_mimetype_id: 7
+    uploaded_at: 2008-05-06 13:44:02
+    modified_at: 2008-05-06 13:44:02
+    reported: 0
+    total_reported_ever: 0
+    identifier: image
+  ReaktorFile_12: 
+    filename: swindonRAB.jpg
+    user_id: sfGuardUser_6
+    realpath: 1210845302_6_swindonRAB.jpg
+    thumbpath: 1210845302_6_swindonRAB.jpg
+    originalpath: 1210845302_6_swindonRAB.jpg
+    original_mimetype_id: 2
+    converted_mimetype_id: 2
+    thumbnail_mimetype_id: 2
+    uploaded_at: 2008-05-15 11:55:03
+    modified_at: 2008-05-15 11:55:03
+    reported: 0
+    total_reported_ever: 0
+    marked_unsuitable: 0
+    identifier: image
+    deleted: 0
+  ReaktorFile_13: 
+    filename: 31D108EFB82DBA8654FD35499218B9A111B3E96792071F3DDCC0FE97FD4D517E.swf
+    user_id: sfGuardUser_2
+    realpath: 1216811137_2_31D108EFB82DBA8654FD35499218B9A111B3E96792071F3DDCC0FE97FD4D517E.swf
+    thumbpath: 
+    originalpath: 1216811137_2_31D108EFB82DBA8654FD35499218B9A111B3E96792071F3DDCC0FE97FD4D517E.swf
+    original_mimetype_id: 6
+    converted_mimetype_id: 6
+    thumbnail_mimetype_id: 5
+    uploaded_at: 2008-07-23 13:05:38
+    modified_at: 2008-07-23 13:05:38
+    reported: 0
+    total_reported_ever: 0
+    marked_unsuitable: 0
+    identifier: flash_animation
+    deleted: 0
+    
+ReaktorArtwork: 
+  ReaktorArtwork_1: 
+    user_id: sfGuardUser_3
+    artwork_identifier: image
+    created_at: 2008-03-05 18:30:37
+    submitted_at: 2008-03-02 21:28:08
+    title: The wonderful painting
+    status: ArtworkStatus_2
+    description: This painting is wonderful
+    artwork_order: 0
+    deleted: 0
+    average_rating: 0
+    team_id: sfGuardGroup_9
+    first_file_id: ReaktorFile_1
+  ReaktorArtwork_2: 
+    user_id: sfGuardUser_3
+    artwork_identifier: image
+    created_at: 2008-03-05 18:30:37
+    submitted_at: 2008-02-20 21:30:54
+    actioned_at: 2008-03-10 21:00:00
+    title: The fancy gallery
+    actioned_by: 1
+    status: ArtworkStatus_3
+    description: This is an awesome gallery
+    artwork_order: 0
+    deleted: 0
+    average_rating: 5.5
+    team_id: sfGuardGroup_5
+    under_discussion: 1
+    first_file_id: ReaktorFile_3
+  ReaktorArtwork_3: 
+    user_id: sfGuardUser_3
+    artwork_identifier: pdf
+    created_at: 2008-03-05 18:30:37
+    submitted_at: 2008-01-23 21:31:21
+    actioned_at: 2008-03-03 21:31:27
+    title: My Pdf
+    actioned_by: 0
+    status: ArtworkStatus_3
+    description: This pdf is the bomb
+    artwork_order: 0
+    deleted: 0
+    average_rating: 3.5
+    team_id: sfGuardGroup_9
+    first_file_id: ReaktorFile_2
+  ReaktorArtwork_4: 
+    user_id: sfGuardUser_2
+    artwork_identifier: video
+    created_at: 2008-03-05 18:30:37
+    submitted_at: 2008-03-02 21:31:35
+    actioned_at: 2008-03-02 21:31:41
+    title: Fingers
+    actioned_by: 0
+    status: ArtworkStatus_3
+    description: Fingers, what more do you want?
+    artwork_order: 0
+    deleted: 0
+    average_rating: 4.5
+    team_id: sfGuardGroup_8
+    first_file_id: ReaktorFile_5
+  ReaktorArtwork_5: 
+    user_id: sfGuardUser_2
+    artwork_identifier: audio
+    created_at: 2008-03-05 18:30:37
+    submitted_at: 2008-02-14 21:31:50
+    title: Spacy
+    actioned_by: 0
+    status: ArtworkStatus_2
+    description: woooooosh
+    artwork_order: 0
+    deleted: 0
+    average_rating: 0
+    team_id: sfGuardGroup_6
+    first_file_id: ReaktorFile_6
+  ReaktorArtwork_6: 
+    user_id: sfGuardUser_2
+    artwork_identifier: text
+    created_at: 2008-03-05 18:30:37
+    submitted_at: 2008-01-07 21:32:05
+    title: Dolor Sit
+    actioned_by: 0
+    status: ArtworkStatus_2
+    description: Lorem Ipsum blah blah blah
+    artwork_order: 0
+    deleted: 0
+    average_rating: 0
+    team_id: sfGuardGroup_7
+    first_file_id: ReaktorFile_7
+  ReaktorArtwork_7: 
+    user_id: sfGuardUser_5
+    artwork_identifier: image
+    created_at: 2008-04-07 21:28:03
+    submitted_at: 2008-04-07 21:28:03
+    title: Cute monkeys
+    actioned_by: 0
+    status: ArtworkStatus_2
+    description: Awwwww, so cute
+    artwork_order: 0
+    deleted: 0
+    average_rating: 0
+    team_id: sfGuardGroup_5
+    first_file_id: ReaktorFile_9
+  ReaktorArtwork_8: 
+    user_id: sfGuardUser_5
+    artwork_identifier: image
+    created_at: 2008-04-07 21:33:25
+    submitted_at: 2008-04-07 21:33:25
+    actioned_at: 2008-04-08 21:31:27
+    title: Nice monkeys
+    actioned_by: 1
+    status: ArtworkStatus_3
+    description: W00t
+    artwork_order: 0
+    deleted: 0
+    average_rating: 0
+    team_id: sfGuardGroup_5
+    first_file_id: ReaktorFile_10
+  ReaktorArtwork_9: 
+    user_id: sfGuardUser_6
+    artwork_identifier: image
+    created_at: 2008-05-06 13:45:41
+    submitted_at: 2008-05-06 13:45:41
+    actioned_at: 2008-05-06 13:46:27
+    title: Nice cartoon
+    actioned_by: 1
+    status: ArtworkStatus_3
+    description: Did it make you laugh too?
+    artwork_order: 0
+    deleted: 0
+    average_rating: 0
+    team_id: sfGuardGroup_10
+    first_file_id: ReaktorFile_11
+  ReaktorArtwork_10: 
+    user_id: sfGuardUser_6
+    artwork_identifier: image
+    created_at: 2008-05-15 11:56:46
+    submitted_at: 2008-05-15 11:56:46
+    actioned_at: 2008-05-15 11:57:39
+    title: Magic roundabout - Swindon
+    actioned_by: 1
+    status: ArtworkStatus_3
+    description: 'It''s magic, don''t you think?'
+    artwork_order: 0
+    deleted: 0
+    average_rating: 0
+    team_id: sfGuardGroup_5
+    first_file_id: ReaktorFile_12
+  ReaktorArtwork_11: 
+    user_id: sfGuardUser_2
+    artwork_identifier: flash_animation
+    created_at: 2008-07-23 13:05:38
+    submitted_at: 2008-07-23 13:05:38
+    actioned_at: 2008-07-23 13:05:38
+    title: Magic animations
+    actioned_by: 1
+    status: ArtworkStatus_3
+    description: '''tis my magic animation file! Watch it! Oh, and you need sound.'
+    artwork_order: 0
+    deleted: 0
+    average_rating: 0
+    team_id: sfGuardGroup_10
+    first_file_id: ReaktorFile_13
+       
+
+    
+ReaktorArtworkFile: 
+  ReaktorArtworkFile_1_1: 
+    artwork_id: ReaktorArtwork_1
+    file_id: ReaktorFile_1
+    file_order: 1
+  ReaktorArtworkFile_2_3: 
+    artwork_id: ReaktorArtwork_2
+    file_id: ReaktorFile_3
+    file_order: 1
+  ReaktorArtworkFile_2_4: 
+    artwork_id: ReaktorArtwork_2
+    file_id: ReaktorFile_4
+    file_order: 1
+  ReaktorArtworkFile_2_8: 
+    artwork_id: ReaktorArtwork_2
+    file_id: ReaktorFile_8
+    file_order: 1
+  ReaktorArtworkFile_3_2: 
+    artwork_id: ReaktorArtwork_3
+    file_id: ReaktorFile_2
+    file_order: 1
+  ReaktorArtworkFile_4_5: 
+    artwork_id: ReaktorArtwork_4
+    file_id: ReaktorFile_5
+    file_order: 1
+  ReaktorArtworkFile_5_6: 
+    artwork_id: ReaktorArtwork_5
+    file_id: ReaktorFile_6
+    file_order: 1
+  ReaktorArtworkFile_6_7: 
+    artwork_id: ReaktorArtwork_6
+    file_id: ReaktorFile_7
+    file_order: 1
+  ReaktorArtworkFile_7_9: 
+    artwork_id: ReaktorArtwork_7
+    file_id: ReaktorFile_9
+    file_order: 1
+  ReaktorArtworkFile_8_10: 
+    artwork_id: ReaktorArtwork_8
+    file_id: ReaktorFile_10
+    file_order: 1
+  ReaktorArtworkFile_9_11: 
+    artwork_id: ReaktorArtwork_9
+    file_id: ReaktorFile_11
+    file_order: 1
+  ReaktorArtworkFile_10_12: 
+    artwork_id: ReaktorArtwork_10
+    file_id: ReaktorFile_12
+    file_order: 1
+  ReaktorArtworkFile_11_13: 
+    artwork_id: ReaktorArtwork_11
+    file_id: ReaktorFile_13
+    file_order: 1

@@ -1,0 +1,6 @@
+fillin:
+  enabled:  true
+  
+fields:
+  notify_value:
+   required: true

@@ -1,0 +1,150 @@
+/**
+ * Based on http://komodomedia.com/blog/samples/star_rating/example2.htm
+ * Styles for the star rater 
+ */
+table.rating_details_table td.sf_rating_bar_bg {
+	background: #ADD8E6;
+}
+
+table.rating_details_table div {
+	background: blue;
+}
+
+.star-rating, .star-rating-non-interactive {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	height: 25px;
+	position:relative;
+	overflow:hidden;
+}
+
+.star-rating {
+	background: url(../images/alt_star.gif) top left repeat-x;
+	float: left;
+	width: 20px;		
+}
+.star-rating-non-interactive {
+  float: right;
+  width: 120px;
+}
+.star-rating, .star-rating-non-interactive {
+	padding: 0;
+	margin: 0;
+	height: 20px;
+}
+.star-rating-non-interactive li {
+  padding: 1px;
+}
+.star-rating li a{
+	display: block;
+	width: 20px;
+	height: 25px;
+	line-height: 25px;		
+	text-decoration: none;
+	text-indent: -9000px;
+	z-index: 20;
+	position: absolute;
+	padding: 0;
+	overflow: hidden;
+}
+.star-rating li a:hover{
+	background: url(../images/alt_star.gif) left bottom;
+	z-index: 2;
+	left: 0;
+	border:none;
+}
+.star-rating a.r1star{
+	left: 0;
+}
+.star-rating a.r1star:hover{
+	width:20px;
+}
+.star-rating a.r2stars{
+	left:20px;
+}
+.star-rating a.r2stars:hover{
+	width: 40px;
+}
+.star-rating a.r3stars{
+	left: 40px;
+}
+.star-rating a.r3stars:hover{
+	width: 60px;
+}
+.star-rating a.r4stars{
+	left: 60px;
+}	
+.star-rating a.r4stars:hover{
+	width: 80px;
+}
+.star-rating a.r5stars{
+	left: 80px;
+}
+.star-rating a.r5stars:hover{
+	width: 100px;
+}
+.star-rating a.r6stars{
+	left: 100px;
+}
+.star-rating a.r6stars:hover{
+	width: 120px;
+}
+.star-rating a.r7stars{
+	left: 120px;
+}
+.star-rating a.r7stars:hover{
+	width: 140px;
+}
+.star-rating a.r8stars{
+	left: 140px;
+}
+.star-rating a.r8stars:hover{
+	width: 160px;
+}
+.star-rating a.r9stars{
+	left: 160px;
+}
+.star-rating a.r9stars:hover{
+	width: 180px;
+}
+.star-rating a.r10stars{
+	left: 180px;
+}
+.star-rating a.r10stars:hover{
+	width: 200px;
+}
+.star-rating li.current-rating{
+	background: url(/images/alt_star.gif) left center;
+	position: absolute;
+	height: 25px;
+	display: block;
+	text-indent: -9000px;
+	z-index: 1;
+	left:0px;
+}
+
+.star-rating li.current-rating-1{
+	background: url(/images/reaktor_rating1.gif) left center;
+	position: absolute;
+	height: 25px;
+	display: block;
+	text-indent: -9000px;
+	z-index: 0;
+	left:0px;
+}
+
+.star-rating li.current-rating-2{
+	background: url(/images/reaktor_rating2.gif) left center;
+	position: absolute;
+	height: 25px;
+	display: block;
+	text-indent: -9000px;
+	z-index: 0;
+	left:0px;
+}
+
+/* remove halo effect in firefox   */
+a:active{
+	outline: none;
+}

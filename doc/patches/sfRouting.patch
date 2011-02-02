@@ -1,0 +1,48 @@
+Index: controller/sfRouting.class.php
+===================================================================
+--- controller/sfRouting.class.php	(revision 9827)
++++ controller/sfRouting.class.php	(working copy)
+@@ -106,12 +106,22 @@
+       {
+         foreach ($request->getParameterHolder()->getAll() as $key => $value)
+         {
++          if (is_array($value)) 
++          {
++            $retval = $this->_loopParameters(urlencode($key), $value, $names);
++            $params = array_merge($params, $retval);
++            continue;
++          }
+           if ($key == 'module' || $key == 'action' || in_array($key, $names))
+           {
+             continue;
+           }
++          if (empty($value))
++          {
++            continue;
++          }
+ 
+-          $params[] = $key.'='.$value;
++          $params[] = urlencode($key).'='.urlencode($value);
+         }
+       }
+ 
+@@ -121,6 +131,19 @@
+       return $internal_uri.($params ? '?'.implode('&', $params) : '');
+     }
+   }
++  private function _loopParameters($prefix, $parameters, $skiplist)
++  {
++    $params = array();
++    foreach($parameters as $key => $value)
++    {
++      if (in_array($value, $skiplist) || empty($value))
++      {
++        continue;
++      }
++      $params[] = $prefix. '[' .urlencode($key). ']='.urlencode($value);
++    }
++    return $params;
++  }
+ 
+   /**
+    * Gets the current compiled route array.

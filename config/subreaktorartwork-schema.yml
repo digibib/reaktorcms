@@ -1,0 +1,7 @@
+propel:
+  _attributes:      { package: lib.model }
+  
+  subreaktor_artwork:
+    id:
+    subreaktor_id:    { type: integer, required: true, foreignTable: subreaktor, foreignReference: id }
+    artwork_id:       { type: integer, required: true, foreignTable: reaktor_artwork, foreignReference: id }

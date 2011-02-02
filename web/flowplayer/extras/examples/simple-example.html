@@ -1,0 +1,77 @@
+
+<!-- 
+	A minimal setup to get you started. This configuration is the same
+	as in our Quick Start documentation:
+	
+	http://flowplayer.org/player/quick-start.html
+-->
+
+<head>  
+
+	<title>Simple Flowplayer example</title>
+	
+	<!-- 
+		include flashembed - which is a general purpose tool for 
+		inserting Flash on your page. Following line is required.
+	-->
+	<script type="text/javascript" src="js/flashembed.min.js"></script>
+	
+	<!-- some minimal styling, can be removed -->
+	<link rel="stylesheet" type="text/css" href="css/common.css"/>
+
+
+	<script>
+	/*
+	 * window.onload event occurs after all HTML elements have been loaded
+	 * this is a good place to setup your Flash elements
+	 */
+	window.onload = function() {  
+		
+		 /*
+			use flashembed to place flowplayer into HTML element 
+			whose id is "example" (below this script tag)
+		 */
+		 flashembed("example", 
+		
+			/* 
+				first argument supplies standard Flash parameters. See full list:
+				http://kb.adobe.com/selfservice/viewContent.do?externalId=tn_12701
+			*/
+			{
+				src:'../FlowPlayerDark.swf',
+				width: 400, 
+				height: 290
+			},
+			
+			/*
+				second argument is Flowplayer specific configuration. See full list:
+				http://flowplayer.org/player/configuration.html
+			*/
+			{config: {   
+				autoPlay:false,
+				controlBarBackgroundColor:'0x2e8860',
+				initialScale: 'scale',
+				videoFile: 'http://blip.tv/file/get/N8inpasadena-Flowers457.flv'
+			}} 
+		);
+	}
+	</script>	
+	
+</head>
+
+<div id="page">
+	
+	<h1>Simple Flowplayer <em>example</em></h1>
+
+	<p>
+		View the page source code to familiarize yourself with flowplayer basics.
+	</p>
+	
+	<!-- this DIV is where your Flowplayer will be placed. it can be anywhere -->
+	<div id="example"></div>
+
+	<p>
+		<button onClick="location.href='index.html'">&laquo; back to examples</button>
+	</p>
+	
+</div>

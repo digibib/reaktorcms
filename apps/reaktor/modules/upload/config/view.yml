@@ -1,0 +1,6 @@
+all:
+  stylesheets: [/css/cropper, /css/lightwindow]
+  javascripts: [inlineupload, cropper, lightwindow]
+    
+choiceSuccess:
+  has_layout: false

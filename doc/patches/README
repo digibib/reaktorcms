@@ -1,0 +1,55 @@
+1. Generators, and filtering on many-to-many relations <juneih@linpro.no>
+Generators in Symfony 1.0X does not support filtering on many-to-many
+relations. Patching the following file in the symfony core with their
+respective patch files will fix this problem:
+
+/usr/share/php/data/symfony/generator/sfPropelAdmin/default/template/actions/actions.class.php
+/usr/share/php/symfony/generator/sfAdminGenerator.class.php
+
+Note! The location of your core Symfony files might be in a different
+location.
+Note! Once you've patched the files, you have to clear the cache so the
+generator can create the new correct files. 
+
+
+2. Routing problem <bjori@linpro.no>
+Patch for sfRouting which fixes several issues when retrieving the "internal
+URI":
+
+- urlencode()s request keys and values
+   Protect against key/value corruption
+- Loop over arrays
+   Otherwise we wind up with /Array/ in the paths
+- Skip empty values
+   Protect against seemingly random bogus auto fill-ins 
+
+The file to patch is:
+/usr/share/php/symfony/controller/sfRouting.class.php
+
+Note! The location of your core Symfony files might be in a different
+location.
+
+
+3. Translation, and extracting text for translation from code
+<olepw@linpro.no>
+
+The extraction process has problems with the mysql connection. This patch
+fixes this. 
+
+The file to patch is:
+/usr/share/php/symfony/i18n/sfMessageSource_MySQL.class.php
+
+4. utf8 encoding problem of translated text
+<russ@linpro.no>
+
+Patch file:    sfMessageSource_MySQL.class.php
+file to patch: symfonycodebase/i18n/sfMessageSource_MySQL.class.php
+
+NOTE! Patch 3 and 4 are merged and are now just one patch. 
+
+5. Google analytics patch
+<olepw@linpro.no>
+Changes the google analytics code in app.yml
+
+file to patch: apps/reaktor/config/app-yml
+ 

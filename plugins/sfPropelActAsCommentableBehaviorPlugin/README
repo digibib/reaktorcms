@@ -1,0 +1,413 @@
+= sfPropelActAsCommentableBehaviorPlugin =
+
+== Introduction ==
+This behavior permits to attach comments to Propel objects. It provides a 
+module for enabling comments in your application in less than 3 minutes.
+
+== Features ==
+
+ * add/remove comment(s) on an object
+ * unit-tested
+ * comment module, with ajax support and layout customization
+ * comment namespaces (separate comments for the front-office and the 
+ back-office, for instance)
+ * comment admin-module
+
+== Screenshots ==
+[[Image(sfPropelActAsCommentableBehaviorPlugin_comment_1.png, 25%)]]
+[[Image(sfPropelActAsCommentableBehaviorPlugin_comment_2.png, 25%)]]
+[[Image(sfPropelActAsCommentableBehaviorPlugin_comment_3.png, 25%)]]
+
+
+== Philosophy of the stuff ==
+
+ * commentable objects must have a primary key
+ * comments can only be attached on objects that have already been saved
+ * comments are saved when applied
+
+== Get it installed ==
+
+ * go to your project's root
+
+ * Install the plugin:
+   {{{
+     ./symfony plugin-install http://plugins.symfony-project.com/sfPropelActAsCommentableBehaviorPlugin
+   }}}
+
+ * if not already done, enabled behaviors in config/propel.ini:
+   {{{
+     propel.builder.addBehaviors = true
+   }}}
+
+ * edit the classes that you want to make taggable. For instance, for lib/model/Post.php:
+   {{{
+   #!php
+   <?php
+     class Post extends BasePost
+     {
+     }
+
+     sfPropelBehavior::add('Post', array('sfPropelActAsCommentableBehavior'));
+   }}}
+
+ * rebuild the model:
+   {{{
+     ./symfony propel-build-all
+   }}}
+
+ * clear the cache:
+   {{{
+     ./symfony cc
+   }}}
+
+If you want to take profit of the included comment module, you should also 
+complete the following steps:
+ * activate the "sfComment" module in your app's settings.yml:
+   {{{
+      enabled_modules:   [default, sfComment]
+   }}}
+
+ * add the following lines in your app.yml:
+   {{{
+all:
+  sfPropelActAsCommentableBehaviorPlugin:
+    use_ajax:         true
+    anonymous:
+      enabled:        true
+      layout:
+        name:         required
+        email:        required
+        title:        optional
+        comment:      required
+      name:           Anonymous User
+    user:
+      enabled:        true
+      layout:
+        title:        optional
+        comment:      required
+      table:          sf_guard_user
+      id:             id
+      class:          sfGuardUser
+      id_method:      getId
+      toString:       __toString
+    namespaces:
+      backend:        administrator
+   }}}
+
+=== Optional settings ===
+The plugin has been designed to allow comments from authenticated users, as 
+well as anonymous users. But in general, you will want to adapt the layout of 
+the form, depending on whether the user is authenticated or not. In the app.yml 
+file, you can tweak the default setup:
+ * the '''use_ajax''' rule indicates whether or not the comment system must use 
+ ajax.
+ * the '''anonymous''' rules will tweak the way the plugin handles anonymous 
+ comments:
+   * '''enabled''' : enables or disables anonymous comments.
+   * '''layout''' : defines the layout of the comment form. Required fields 
+   will get a "required class" and will get validated. If you want a field not 
+   to appear (for instance, the "title" field), simply remove the associated 
+   line.
+   * '''name''' : the default name of the user, in case the anonymous comment 
+   form does not as for an author name.
+ * the '''user''' rules will tweak the way the plugin handles comments from 
+ authenticated users:
+   * '''enabled''' : enables or disables comments from authenticated users.
+   * '''layout''' : defines the layout of the comment form. Required fields 
+   will get a "required class" and will get validated. If you want a field not 
+   to appear (for instance, the "title" field), simply remove the associated 
+   line.
+   * '''table''' : name of the table that stores the users data.
+   * '''id''' : name of the primary key of a user in the users table.
+   * '''class''' : class associated to the users.
+   * '''id_method''' : name of a method of your user's class, that permits to 
+   get the authenticated user id. Usually, you will have to define this method 
+   in the myUser.class.php file.
+   * '''toString''' : name of a method that outputs the name of a user (an 
+   instance of the class defined two lines before)
+ * the '''namespaces''' parameter lists the namespaces for which a security 
+ check must be made:
+   * when a namespace is listed under the '''namespaces''' parameter, its value 
+   represents the required credentials for writing in it.
+   * If you use namespaces in your comments, please make sure  that you fill 
+   this parameter accordingly to your needs. For instance, if your application 
+   provide back-office internal comments, you won't want a normal front-office 
+   user being able to add comments on the back-office.
+   * You can of course use your own namespaces names (ie., "backend" and 
+   "frontend" are not compulsory names).
+
+== Usage ==
+
+=== How to use the comments module ===
+You do not have to know the plugin internals in order to get started with the 
+behavior. You simply have to include two components:
+ * one for displaying the comments associated to an object
+ * an other for displaying the comment form
+
+For instance, when displaying a blog post, add in the view PHP file:
+{{{
+#!php
+<h2><?php echo $post->getTitle(); ?></h2>
+
+<p><?php echo $post->getText(); ?></p>
+
+<h3>Comments</h3>
+<?php
+include_component('sfComment', 'commentList', array('object' => $post));
+include_component('sfComment', 'commentForm', array('object' => $post));
+?>
+}}}
+
+By default, the comment list displays all the comments that do not belong to 
+one namespace. If you want to display comments for the namespace "gerard", then 
+simply pass this optionnal parameter to the component:
+
+{{{
+#!php
+<?php
+include_component('sfComment', 'commentList', array('object' => $post, 'namespace' => 'gerard'));
+?>
+}}}
+
+This also works for the comment-form component. This way, the following form 
+will add the comment to the namespace "gerard":
+{{{
+#!php
+<?php
+include_component('sfComment', 'commentList', array('object' => $post, 'namespace' => 'gerard'));
+?>
+}}}
+
+You can protect namespaces from being accessed when the current user does not 
+have some credentials ; have a look at [#Optionalsettings the configuration file] 
+for further informations.
+
+=== Attaching comments to a commentable object ===
+Consider a Propel "Post" class:
+
+{{{
+#!php
+<?php
+class Post extends BasePost
+{
+}
+
+sfPropelBehavior::add('Post', array('sfPropelActAsCommentableBehavior'));
+}}}
+
+When the sfPropelActAsCommentableBehaviorPlugin is applied to the Post class, 
+that class automagically gets commentable:
+{{{
+#!php
+<?php
+$post = new Post();
+// blah
+$post->save();
+$post->addComment('This is a cool comment.');
+$post->addComment(array('title' => 'this is a cool title', 'text' => 'this is a cool comment', 'author_id' => sfContext::getInstance()->getUser()->getUserId()));
+$post->addComment(array('This is a cool comment.', 'this is one other comment'));
+}}}
+
+=== Retrieving one object's comments ===
+It is possible to retrieve comments from a commentable object:
+{{{
+#!php
+<?php
+$post = PostPeer::retrieveByPk(1);
+$comments = $post->getComments();
+
+foreach ($comments as $comment)
+{
+  echo '<p>'.$comment->getText().'</p>';
+}
+}}}
+
+=== Removing one object's comment ===
+Of course, comments can also be removed:
+{{{
+#!php
+<?php
+$post = PostPeer::retrieveByPk(1);
+$post->removeComment(12);
+$post->clearComments();
+}}}
+
+== API ==
+The behavior implement the following methods:
+ * '''addComment($comment)''' - Adds a comment to the object. The "comment" 
+ param can be an associative array (in which each element represents one of the 
+ comment properties), or an array of associative arrays. In this case, it adds 
+ all the comments to the object.
+ * '''clearComments()''' - Deletes all the comments attached to the object
+ * '''getComments($options = array())''' - Returns the list of the comments 
+ attached to the object. The options array can contain several options
+ * '''getNbComments()''' - Returns the number of the comments attached to the 
+ object.
+ * '''removeComment($comment_id)''' - Removes one comment from the object.
+
+== Unit testing ==
+The plugin has been deeply unit-tested. The tests are located in test/unit/sfPropelActAsCommentableBehaviorTest.php. If you want to run them:
+ * install the plugin
+ * configure a model for using it, for instance "Post"
+ * edit this file and, if required, modify the application name and the TEST_CLASS constant, line 3:
+   {{{
+     define('TEST_CLASS', 'Post');
+   }}}
+ * run the tests:
+   {{{
+     php plugins/sfPropelActAsCommentableBehaviorPlugin/test/unit/sfPropelActAsCommentableBehaviorTest.php
+   }}}
+
+== In-depth usage tutorial ==
+This part is a complete tutorial for using the plugin both in front and 
+back-office.
+
+=== Install the plugin ===
+ * go to your project's root
+
+ * Install the plugin:
+   {{{
+     ./symfony plugin-install http://plugins.symfony-project.com/sfPropelActAsCommentableBehaviorPlugin
+   }}}
+
+ * if not already done, enabled behaviors in config/propel.ini:
+   {{{
+     propel.builder.addBehaviors = true
+   }}}
+
+ * edit the classes that you want to make taggable. For instance, for lib/model/Post.php:
+   {{{
+   #!php
+   <?php
+     class Post extends BasePost
+     {
+     }
+
+     sfPropelBehavior::add('Post', array('sfPropelActAsCommentableBehavior'));
+   }}}
+
+ * rebuild the model:
+   {{{
+     ./symfony propel-build-all
+   }}}
+
+ * clear the cache:
+   {{{
+     ./symfony cc
+   }}}
+
+=== Set up the plugin ===
+ * activate the "sfComment" module in the settings.yml of the frontend application:
+   {{{
+      enabled_modules:   [default, sfComment]
+   }}}
+
+ * activate both the "sfComment" and the "sfCommentAdmin" modules in the settings.yml of the backend application:
+   {{{
+      enabled_modules:   [default, sfComment, sfCommentAdmin]
+   }}}
+
+ * add the following lines in the app.yml of both '''applications''':
+   {{{
+all:
+  sfPropelActAsCommentableBehaviorPlugin:
+    use_ajax:         true
+    anonymous:
+      enabled:        true
+      layout:
+        name:         required
+        email:        required
+        title:        optional
+        comment:      required
+      name:           Anonymous User
+    user:
+      enabled:        true
+      layout:
+        title:        optional
+        comment:      required
+      table:          sf_guard_user
+      id:             id
+      class:          sfGuardUser
+      id_method:      getId
+      toString:       __toString
+    namespaces:
+      backend:        administrator
+   }}}
+
+ * tweak these values accordingly to the 
+ [#Optionalsettings previously  explained settings]. Please note that only 
+ administrator can add comments in the comments "backend" namespace.
+
+=== Add comments in front-office ===
+Include the sfComment components where the comments and the commentform should appear:
+{{{
+#!php
+<h2><?php echo $post->getTitle(); ?></h2>
+
+<p><?php echo $post->getText(); ?></p>
+
+<h3>Comments</h3>
+<?php
+include_component('sfComment', 'commentList', array('object' => $post, 'namespace' => 'frontend'));
+include_component('sfComment', 'commentForm', array('object' => $post, 'namespace' => 'frontend'));
+?>
+}}}
+The use of a "namespace" is not required in this case; but it is advised, as it 
+makes it easier to find the comments back.
+
+=== Add comments in back-office ===
+Include the sfComment components where the comments and the commentform shoumd appear:
+{{{
+#!php
+<?php
+include_component('sfComment', 'commentList', array('object' => $post, 'namespace' => 'backend'));
+include_component('sfComment', 'commentForm', array('object' => $post, 'namespace' => 'backend'));
+?>
+}}}
+
+ * you're done! Only users with "administrator" credential are able to add 
+ comments to objects in the back-office, while everyone can add comments in the 
+ front-office. You can tweak the required credentials by modifying the app.yml 
+ file.
+
+=== Comments administration ===
+ * optionnaly, have a look at the sfCommentAdmin module, that uses the 
+ admin-generator for providing a view of all comments.
+
+== License and credits ==
+This plugin is licensed under the MIT license. You can contact the maintainer 
+at [http://lacot.org/ xavier@lacot.org]
+
+== Changelog ==
+
+=== Version 0.4 - 2007-12-10 ===
+ * compatibility with escaping=both mode
+ * Added unique DOM id for each comment, in the form {{{sf_comment_$id}}} 
+ (Nicolas Perriault)
+ * use a session token instead of passing the object id and model in the request 
+ (Nicolas Perriault)
+ * bugfixes, based on a patch from Michael Nolan (closes #2595):
+   * fix anonymous posting (use the token)
+   * pre and post addition hooks
+
+=== version 0.3 - 2007-10-08 ===
+ * added namespaces support
+ * fixed bad index names (thanks to francois)
+ * made getComments() more flexible (closes #2312, thanks to FrankStelzer)
+
+=== version 0.2 - 2007-09-26 ===
+ * added a Symfony module for posting and displaying comments
+   * ajax support
+   * authenticated users support
+   * form customization
+ * added an administration module
+
+=== version 0.1 - 2007-09-13 ===
+Initial public release. Features comments attachment to heterogene Propel 
+objects.
+
+== Roadmap / Wishlist ==
+ * have custom configurations for specific comment-forms (and not only app-wide 
+ configurations)
+ * make use of a captcha plugin, when a clean one will be available.
+ * handle other custom fields in comments.

@@ -1,0 +1,23 @@
+propel:
+  _attributes:      { package: lib.model }
+
+  reaktor_file:
+    id:
+    filename:              { type: varchar, size: 200, required: true }
+    user_id:               { type: integer, foreignTable: sf_guard_user, required: true, foreignReference: id }
+    realpath:              { type: varchar, size: 300, required: true }
+    thumbpath:             { type: varchar, size: 300, required: true }
+    originalpath:          { type: varchar, size: 300, required: true }
+    original_mimetype_id:  { type: integer, required: true}   # These should be foreign keys but the propel joinall
+    converted_mimetype_id: { type: integer, required: true}   # Command had issues with foreign keys that reference the
+    thumbnail_mimetype_id: { type: integer, required: true}   # Same table... maybe it will be fixed in 1.1?
+    uploaded_at:           { type: timestamp, required: true }
+    modified_at:           { type: timestamp, required: true }
+    reported_at:           { type: timestamp, required: false }
+    reported:              { type: integer, size: 8, required: true, default: 0 }
+    total_reported_ever:   { type: integer, size: 8, required: true, default: 0 }
+    marked_unsuitable:     { type: integer, size: 1, required: true, default: 0 }
+    under_discussion:      { type: integer, size: 1, required: true, default: 0 }
+    identifier:            { type: varchar, required: true, size: 20 }
+    hidden:                { type: integer, size: 1, default: 0, required: true }
+    deleted:               { type: integer, default: 0 }

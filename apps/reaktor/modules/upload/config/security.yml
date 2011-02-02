@@ -1,0 +1,3 @@
+updateInline:
+  is_secure: off #Handles own security, stops login box appearing in inline elements!
+  credentials: [[admin, editprofile]]

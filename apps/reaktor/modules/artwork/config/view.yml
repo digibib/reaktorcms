@@ -1,0 +1,27 @@
+all:
+  javascripts: [lightwindow, effects, socialBookmarks]
+  stylesheets: [/css/genericajax: {media: all}, /css/lightwindow, /css/sf_rating, /css/hidefooterimages: {media: print}]
+
+editNodecor:
+  has_layout: false
+
+listDiscussionSuccess:
+  http_metas:
+    Pragma: no-cache
+    Cache-Control: no-cache
+
+listUnapprovedSuccess:
+  http_metas:
+    Pragma: no-cache
+    Cache-Control: no-cache
+
+rejectArtworkSuccess:
+  http_metas:
+    Pragma: no-cache
+    Cache-Control: no-cache
+
+
+listRejectedSuccess:
+  http_metas:
+    Pragma: no-cache
+    Cache-Control: no-cache

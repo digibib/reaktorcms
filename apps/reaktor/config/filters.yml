@@ -1,0 +1,26 @@
+rendering: ~
+web_debug: ~
+security:
+  class: sfGuardBasicSecurityFilter
+
+# generally, you will want to insert your own filters here
+
+sf_google_analytics_plugin:
+  class: sfGoogleAnalyticsFilter
+
+remember:
+  class: rememberMeFilter
+
+adminFilter:
+  class: adminFilter
+userFilter:
+  class: userFilter
+
+cache:     ~
+common:    ~
+flash:     ~
+  
+subreaktorFilter:
+  class: subreaktorFilter
+
+execution: ~

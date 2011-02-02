@@ -1,0 +1,26 @@
+fillin:
+  enabled:  true
+
+fields:
+  subject:
+    required:
+      msg:              Please enter a title
+  rejectionmsg:
+    required:
+      msg:              Please enter a rejection message    
+  to:
+    required:
+      msg:              Please enter an email address
+    sfEmailValidator:
+      email_error:      This email address is invalid  
+  cc:
+    sfEmailValidator:
+      email_error:      This email address is invalid
+  from:
+    required:
+      msg:              Please enter an e-mail address
+    sfEmailValidator:
+      email_error:      This email address is invalid
+  rejectiontype:
+    required:
+      msg:              Please choose why this artwork is rejected

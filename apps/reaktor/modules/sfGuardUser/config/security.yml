@@ -1,0 +1,18 @@
+delete:
+  credentials:  deleteuser
+  is_secure:    on
+
+list:
+  credentials:  listuser
+  is_secure:    on  
+
+listUsers:
+  is_secure:    off
+  
+edit:
+  is_secure:    on
+  credentials:  edituser
+
+all:
+  credentials:  listuser
+  is_secure:    on

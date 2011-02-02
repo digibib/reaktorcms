@@ -1,0 +1,310 @@
+#!/usr/bin/env ruby
+#
+# = Synopsis
+# This script will start the import
+# Options for the import is set from command prompt or in configuration file
+#
+# = Authors
+# * Robert Strind <robert@linpro.no>
+#
+# = Version
+# $Id: $
+
+t = Time.new
+
+#
+# Some constants
+# 
+IMPORT_ROOT = File.expand_path(File.join(File.dirname(__FILE__), '..'))
+LOG_PATH = File.join(IMPORT_ROOT, 'log')
+LIB_PATH = File.join(IMPORT_ROOT, 'lib')
+BIN_PATH = File.join(IMPORT_ROOT, 'bin')
+CONTENT_PATH = File.expand_path(File.join(IMPORT_ROOT, '..', 'content'))
+CONFIG_FILE_PATH = File.join(File.dirname(__FILE__), '..', 'config', 'import.conf')
+
+# Expand ruby search path
+$: << LIB_PATH
+
+require 'optparse'
+require 'parseconfig'
+
+
+require 'import'
+require 'parseconfig_extras'
+require 'symfony'
+
+#
+# Set log path
+#
+Log.set_path(LOG_PATH)
+
+#
+# Commandline options
+#
+cnf = {}
+op = OptionParser.new do |opts|
+  opts.banner = "Usage: #{$0} [-c --config PATH] [options]"
+  
+  #
+  # Path to configuration file
+  #
+  opts.on("-c", "--config-path [PATH]", "Define path to configuration file.",
+    "Commandline options will ovride the configuration file.",
+    "If no argument is spesified, data will be loaded from",
+    "configuration file on path: #{CONFIG_FILE_PATH}"
+  ) do |path|
+    if path.nil?
+      path = CONFIG_FILE_PATH if path.nil?
+      op.warn("Using default configuration file path: #{CONFIG_FILE_PATH}")    
+    end
+    # Read configuration file
+    unless File.exists?(path)
+      op.abort("Configuration file does not exist: #{path}")
+    else
+      # Import configuration data
+      c = ParseConfig.new(path)
+      cnf.merge!(c.get_all)
+    end
+  end
+  
+  opts.on("-s", "--path-symfony PATH", "Define PATH to symfony root directory") do |o|
+    cnf[:path_symfony] = o
+  end
+  
+  opts.on("-f", "--fixtures", "Import fixtures") do |o|
+    cnf[:fixtures] = true
+  end
+  
+  opts.on("-d", "--debug", "Print debug data") do |o|
+    cnf[:debug] = true
+  end
+
+  opts.on("-h", "--help", "Prints this help text") do
+    STDERR.puts opts
+    exit 0
+  end
+  
+  opts.on("-i", "--import-path PATH", "PATH to imported content files.",
+    "Files in this directory will be copied recursively to the symfony content directory"
+  ) do |o|
+    cnf[:path_imported_content] = o
+  end
+  
+  opts.on("-a", "--data-path PATH", "PATH data directory. Textfiles will be created here.",
+    "This options is required from command prompt or config file."
+  ) do |o|
+    cnf[:path_data] = o
+  end
+  
+  opts.separator("")
+  opts.separator("From database options:")
+
+  opts.on("--from-db-name DATABASENAME", "Define DATABASENAME to import from") do |o|
+    cnf[:from_db_name] = o
+  end
+
+  opts.on("--from-db-user USERNAME", "Define USERNAME for the database to import from") do |o|
+    cnf[:from_db_user] = o
+  end
+
+  opts.on("--from-db-password PASSWORD", "Define PASSWORD for the database to import from") do |o|
+    cnf[:from_db_password] = o
+  end
+
+  opts.separator("")
+  opts.separator("To database options:")
+
+  opts.on("--to-db-name DATABASENAME", "Define DATABASENAME to import to") do |o|
+    cnf[:to_db_name] = o
+  end
+
+  opts.on("--to-db-user USERNAME", "Define USERNAME for the database to import to") do |o|
+    cnf[:to_db_user] = o
+  end
+
+  opts.on("--to-db-password PASSWORD", "Define PASSWORD for the database to import to") do |o|
+    cnf[:to_db_password] = o
+  end
+end
+
+#
+# Parse command line
+#
+begin
+  op.parse(*ARGV)
+rescue OptionParser::MissingArgument
+  op.parse(['-h'])
+  op.abort($1)
+rescue OptionParser::InvalidOption
+  op.parse(['-h'])
+  op.abort($1)
+end
+
+#
+# If no arguments, load default configuration file
+#
+if ARGV.length == 0
+  op.parse(["-h"])
+end
+
+#
+# Check for required options
+#
+error = []
+[
+  :from_db_name,
+  :from_db_user,
+  :from_db_password,
+  :to_db_name,
+  :to_db_user,
+  :to_db_password,
+  :path_data,
+  :path_symfony,
+].each do |r|
+  unless cnf[r]
+    error << "Missing required option: #{r.to_s}"
+  end
+end
+
+unless error.empty?
+  STDERR.puts "\nThe following errors was detected:"
+  error.each {|e| STDERR.puts e}
+  STDERR.puts ""
+  op.parse(['-h'])
+  op.abort('Import stopped!')
+end
+
+#
+# Modify symfony configuration files and set permissions
+#
+s = Symfony.new(cnf)
+begin
+  s.cc
+rescue
+  STDERR.puts "run-import: Could not clear cache (symfony cc). See errorlog."
+  Log.write_log(:error, "#{$!}")
+  exit 1
+end
+begin
+  s.configure
+rescue
+  STDERR.puts "run-import: Could not configure symfony. See errorlog."
+  Log.write_log(:error, "#{$!}")
+  exit 1
+end
+begin
+  s.set_permissions
+rescue
+  STDERR.puts "run-import: Could not set permissions in symfony. See errorlog."
+  Log.write_log(:error, "#{$!}")
+  exit 1
+end
+
+#
+# Import fixture data
+#
+if cnf[:fixtures]
+  STDERR.print "%-25s" % 'Importing fixtures'
+  cmd = "#{File.join(BIN_PATH, 'import-fixtures')} #{cnf[:path_symfony]} #{cnf[:to_db_name]} 2>&1"
+  dbg = `#{cmd}`
+  Log.write_log(:import_fixtures, dbg)
+  if dbg.include? 'Exception'
+    puts "Could not import fixtures."
+    puts "Commandline: #{cmd}"
+    exit 1
+  end
+  if dbg.include? 'error'
+    puts "Could not import fixtures."
+    puts "Commandline: #{cmd}"
+    exit 1
+  end
+  STDERR.puts ' [v]'
+end
+
+#
+# Import imported content
+#
+if cnf[:path_imported_content]
+  unless File.directory?(cnf[:path_imported_content])
+    op.abort("Content path is not a directory: #{cnf[:path_imported_content]}")
+  end
+  unless File.exists?(cnf[:path_imported_content])
+    op.abort("Could not copy content files from directory: #{cnf[:path_imported_content]}")
+  end
+  #
+  # Backup content directory
+  #
+  if File.exists?(CONTENT_PATH)
+    STDERR.print "%-25s" % "Backup content directory"
+    `mv -v #{CONTENT_PATH} #{CONTENT_PATH}.bak`
+    Dir.mkdir(CONTENT_PATH)
+    STDERR.puts ' [v]'
+  else
+    STDERR.puts "# WARNING: Content directory, #{CONTENT_PATH}, did not exist."
+  end
+  #
+  # Copy content
+  #
+  unless File.exists?(cnf[:path_imported_content])
+    STDERR.puts "Path to imported content does not exist!"
+    exit
+  end
+  unless File.directory?(cnf[:path_imported_content])
+    STDERR.puts "Path to imported content is not a directory!"
+    exit
+  end
+  STDERR.print "%-25s" % "Copying imported content"
+  `cp -vr #{cnf[:path_imported_content]}/* #{CONTENT_PATH}/ > #{LOG_PATH}/import_content.log`
+  STDERR.print ' [v]'
+  STDERR.puts ' ' + `wc -l #{LOG_PATH}/import_content.log`[/^\d+/] + " files copied."
+end
+
+#
+# Write configuration data
+#
+if cnf[:debug]
+  STDERR.puts "\nRunning import with the following configuration:"
+  cnf.each do |k,v|
+    STDERR.puts "%-25s = %s" % [k,v]
+  end
+  STDERR.puts ""
+end
+
+#
+# Run the import
+#
+import(cnf)
+
+#
+# Postqueries
+#
+puts "Running post queries:"
+serieteket = 262
+serieteket1 = 13439
+query = %Q{
+  UPDATE reaktor_artwork
+  SET user_id = #{serieteket}
+  WHERE user_id = #{serieteket1}
+}
+begin
+  $dbh_ms.execute(query)
+rescue
+    $stderr.puts "### Error in #{__FILE__} on line #{__LINE__}. See errorlog"
+    Log.write_log('error', "Could not execute query:#{query}. Message: #{$!}.")
+    raise
+end
+
+query = %Q{
+UPDATE reaktor_artwork AS ra, reaktor_artwork_file AS raf
+SET ra.first_file_id = raf.file_id
+WHERE ra.id = raf.artwork_id AND raf.file_order = 1;
+}
+begin
+  $dbh_ms.execute(query)
+rescue
+    $stderr.puts "### Error in #{__FILE__} on line #{__LINE__}. See errorlog"
+    Log.write_log('error', "Could not execute query:#{query}. Message: #{$!}.")
+    raise
+end
+
+STDERR.puts "Time used: #{Time.new - t} seconds"

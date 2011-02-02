@@ -1,0 +1,9 @@
+propel:
+  _attributes:      { package: lib.model }
+  
+  file_metadata:
+    id:
+    file:           { type: integer, foreignTable: reaktor_file, required: true, foreignReference: id, onDelete: cascade }
+    meta_element:   { type: varchar, size: 100, required: true }
+    meta_qualifier: { type: varchar, size: 100, required: true }
+    meta_value:     { type: longvarchar, required: true }

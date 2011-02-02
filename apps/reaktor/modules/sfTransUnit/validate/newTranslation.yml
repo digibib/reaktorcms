@@ -1,0 +1,10 @@
+fillin:
+  enabled: true
+
+methods:
+  post:              [basename]
+  
+names:
+  basename:
+    required:         yes
+    required_msg:     Please enter the basename for this translation

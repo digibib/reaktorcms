@@ -1,0 +1,12 @@
+# NOTE! We do not want any robots to index the development server. However, we do want this
+# in the production environment, which this file must be updated when it comes to it
+
+# 
+# Address all robots by using wildcard
+#
+User-agent: *
+
+# 
+# Do not index any of the pages
+#
+Disallow: /

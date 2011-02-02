@@ -1,0 +1,8 @@
+editSuccess:
+  javascripts:  [lightwindow, effects] #tiny_mce/tiny_mce
+  stylesheets:  [/css/genericajax: {media: all}, /css/lightwindow: {media: all}]
+
+orderArticlesSuccess:
+  javascripts: [effects]
+  stylesheets: [/css/genericajax: {media: all} ]
+  
