@@ -1,12 +1,18 @@
+<?php $dbhost_test = $username_test = $password_test = $database_test = null ?>
+<?php $dbhost = $username = $password = $database = "NOT-SET-YET" ?>
+<?php include dirname(__FILE__) . "/db_info.php"; ?>
+<?php $username_test = isset($username_test) ? $username_test : $username ?>
+<?php $password_test = isset($password_test) ? $password_test : $password ?>
+<?php $dbhost_test = isset($dbhost_test) ? $dbhost_test : $dbhost ?>
 test:
   propel:
     class:      sfPropelDatabase
     param:
       phptype:  mysql
-      host:     localhost
-      database: reaktor_test
-      username: reaktor_user
-      password: cT0PHPCm #Crack team of PHP code monkeys :)
+      host:     "<?php echo $dbhost_test ?>"
+      database: "<?php echo $database_test ?>"
+      username: "<?php echo $username_test ?>"
+      password: "<?php echo $password_test ?>"
       encoding: utf8
       
 all:
@@ -14,8 +20,8 @@ all:
     class:      sfPropelDatabase
     param:
       phptype:  mysql
-      host:     localhost
-      database: reaktor
-      username: reaktor_user
-      password: cT0PHPCm #Crack team of PHP code monkeys :)
+      host:     "<?php echo $dbhost ?>"
+      database: "<?php echo $database ?>"
+      username: "<?php echo $username ?>"
+      password: "<?php echo $password ?>"
       encoding: utf8

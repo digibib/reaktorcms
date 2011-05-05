@@ -13,6 +13,7 @@ define('SF_ROOT_DIR', realpath($_test_dir.'/..'));
 
 // symfony directories
 include(SF_ROOT_DIR.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'config.php');
+include(SF_ROOT_DIR.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'db_info.php');
 
 require_once($sf_symfony_lib_dir.'/vendor/lime/lime.php');
 
@@ -40,7 +41,7 @@ if (!defined("NO_CLEAR"))
   {
     if (substr($file, strlen($file) - 3, 3) == "sql")
     {
-      exec("mysql -u reaktor_user --password=cT0PHPCm reaktor_test < ".sfConfig::get("sf_root_dir")."/data/sql/".$file);
+      exec("mysql -u " . $username_test . " --password=" . $password_test . " " . $database_test . " < " .sfConfig::get("sf_root_dir")."/data/sql/".$file);
     }
   }
   
