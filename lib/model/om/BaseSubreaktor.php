@@ -28,10 +28,10 @@ abstract class BaseSubreaktor extends BaseObject  implements Persistent {
 	protected $subreaktor_order = 0;
 
 	
-	protected $collSubreaktorArtworks;
+	protected $collUserInterests;
 
 	
-	protected $lastSubreaktorArtworkCriteria = null;
+	protected $lastUserInterestCriteria = null;
 
 	
 	protected $collRecommendedArtworksRelatedBySubreaktor;
@@ -46,10 +46,10 @@ abstract class BaseSubreaktor extends BaseObject  implements Persistent {
 	protected $lastRecommendedArtworkRelatedByLocalsubreaktorCriteria = null;
 
 	
-	protected $collUserInterests;
+	protected $collArticleSubreaktors;
 
 	
-	protected $lastUserInterestCriteria = null;
+	protected $lastArticleSubreaktorCriteria = null;
 
 	
 	protected $collLokalreaktorArtworks;
@@ -64,10 +64,10 @@ abstract class BaseSubreaktor extends BaseObject  implements Persistent {
 	protected $lastLokalreaktorResidenceCriteria = null;
 
 	
-	protected $collSubreaktorI18ns;
+	protected $collSubreaktorIdentifiers;
 
 	
-	protected $lastSubreaktorI18nCriteria = null;
+	protected $lastSubreaktorIdentifierCriteria = null;
 
 	
 	protected $collCategorySubreaktors;
@@ -76,16 +76,16 @@ abstract class BaseSubreaktor extends BaseObject  implements Persistent {
 	protected $lastCategorySubreaktorCriteria = null;
 
 	
-	protected $collArticleSubreaktors;
+	protected $collSubreaktorI18ns;
 
 	
-	protected $lastArticleSubreaktorCriteria = null;
+	protected $lastSubreaktorI18nCriteria = null;
 
 	
-	protected $collSubreaktorIdentifiers;
+	protected $collSubreaktorArtworks;
 
 	
-	protected $lastSubreaktorIdentifierCriteria = null;
+	protected $lastSubreaktorArtworkCriteria = null;
 
 	
 	protected $alreadyInSave = false;
@@ -319,8 +319,8 @@ abstract class BaseSubreaktor extends BaseObject  implements Persistent {
 				}
 				$this->resetModified(); 			}
 
-			if ($this->collSubreaktorArtworks !== null) {
-				foreach($this->collSubreaktorArtworks as $referrerFK) {
+			if ($this->collUserInterests !== null) {
+				foreach($this->collUserInterests as $referrerFK) {
 					if (!$referrerFK->isDeleted()) {
 						$affectedRows += $referrerFK->save($con);
 					}
@@ -343,8 +343,8 @@ abstract class BaseSubreaktor extends BaseObject  implements Persistent {
 				}
 			}
 
-			if ($this->collUserInterests !== null) {
-				foreach($this->collUserInterests as $referrerFK) {
+			if ($this->collArticleSubreaktors !== null) {
+				foreach($this->collArticleSubreaktors as $referrerFK) {
 					if (!$referrerFK->isDeleted()) {
 						$affectedRows += $referrerFK->save($con);
 					}
@@ -367,8 +367,8 @@ abstract class BaseSubreaktor extends BaseObject  implements Persistent {
 				}
 			}
 
-			if ($this->collSubreaktorI18ns !== null) {
-				foreach($this->collSubreaktorI18ns as $referrerFK) {
+			if ($this->collSubreaktorIdentifiers !== null) {
+				foreach($this->collSubreaktorIdentifiers as $referrerFK) {
 					if (!$referrerFK->isDeleted()) {
 						$affectedRows += $referrerFK->save($con);
 					}
@@ -383,16 +383,16 @@ abstract class BaseSubreaktor extends BaseObject  implements Persistent {
 				}
 			}
 
-			if ($this->collArticleSubreaktors !== null) {
-				foreach($this->collArticleSubreaktors as $referrerFK) {
+			if ($this->collSubreaktorI18ns !== null) {
+				foreach($this->collSubreaktorI18ns as $referrerFK) {
 					if (!$referrerFK->isDeleted()) {
 						$affectedRows += $referrerFK->save($con);
 					}
 				}
 			}
 
-			if ($this->collSubreaktorIdentifiers !== null) {
-				foreach($this->collSubreaktorIdentifiers as $referrerFK) {
+			if ($this->collSubreaktorArtworks !== null) {
+				foreach($this->collSubreaktorArtworks as $referrerFK) {
 					if (!$referrerFK->isDeleted()) {
 						$affectedRows += $referrerFK->save($con);
 					}
@@ -440,8 +440,8 @@ abstract class BaseSubreaktor extends BaseObject  implements Persistent {
 			}
 
 
-				if ($this->collSubreaktorArtworks !== null) {
-					foreach($this->collSubreaktorArtworks as $referrerFK) {
+				if ($this->collUserInterests !== null) {
+					foreach($this->collUserInterests as $referrerFK) {
 						if (!$referrerFK->validate($columns)) {
 							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
 						}
@@ -464,8 +464,8 @@ abstract class BaseSubreaktor extends BaseObject  implements Persistent {
 					}
 				}
 
-				if ($this->collUserInterests !== null) {
-					foreach($this->collUserInterests as $referrerFK) {
+				if ($this->collArticleSubreaktors !== null) {
+					foreach($this->collArticleSubreaktors as $referrerFK) {
 						if (!$referrerFK->validate($columns)) {
 							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
 						}
@@ -488,8 +488,8 @@ abstract class BaseSubreaktor extends BaseObject  implements Persistent {
 					}
 				}
 
-				if ($this->collSubreaktorI18ns !== null) {
-					foreach($this->collSubreaktorI18ns as $referrerFK) {
+				if ($this->collSubreaktorIdentifiers !== null) {
+					foreach($this->collSubreaktorIdentifiers as $referrerFK) {
 						if (!$referrerFK->validate($columns)) {
 							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
 						}
@@ -504,16 +504,16 @@ abstract class BaseSubreaktor extends BaseObject  implements Persistent {
 					}
 				}
 
-				if ($this->collArticleSubreaktors !== null) {
-					foreach($this->collArticleSubreaktors as $referrerFK) {
+				if ($this->collSubreaktorI18ns !== null) {
+					foreach($this->collSubreaktorI18ns as $referrerFK) {
 						if (!$referrerFK->validate($columns)) {
 							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
 						}
 					}
 				}
 
-				if ($this->collSubreaktorIdentifiers !== null) {
-					foreach($this->collSubreaktorIdentifiers as $referrerFK) {
+				if ($this->collSubreaktorArtworks !== null) {
+					foreach($this->collSubreaktorArtworks as $referrerFK) {
 						if (!$referrerFK->validate($columns)) {
 							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
 						}
@@ -664,8 +664,8 @@ abstract class BaseSubreaktor extends BaseObject  implements Persistent {
 		if ($deepCopy) {
 									$copyObj->setNew(false);
 
-			foreach($this->getSubreaktorArtworks() as $relObj) {
-				$copyObj->addSubreaktorArtwork($relObj->copy($deepCopy));
+			foreach($this->getUserInterests() as $relObj) {
+				$copyObj->addUserInterest($relObj->copy($deepCopy));
 			}
 
 			foreach($this->getRecommendedArtworksRelatedBySubreaktor() as $relObj) {
@@ -676,8 +676,8 @@ abstract class BaseSubreaktor extends BaseObject  implements Persistent {
 				$copyObj->addRecommendedArtworkRelatedByLocalsubreaktor($relObj->copy($deepCopy));
 			}
 
-			foreach($this->getUserInterests() as $relObj) {
-				$copyObj->addUserInterest($relObj->copy($deepCopy));
+			foreach($this->getArticleSubreaktors() as $relObj) {
+				$copyObj->addArticleSubreaktor($relObj->copy($deepCopy));
 			}
 
 			foreach($this->getLokalreaktorArtworks() as $relObj) {
@@ -688,20 +688,20 @@ abstract class BaseSubreaktor extends BaseObject  implements Persistent {
 				$copyObj->addLokalreaktorResidence($relObj->copy($deepCopy));
 			}
 
-			foreach($this->getSubreaktorI18ns() as $relObj) {
-				$copyObj->addSubreaktorI18n($relObj->copy($deepCopy));
+			foreach($this->getSubreaktorIdentifiers() as $relObj) {
+				$copyObj->addSubreaktorIdentifier($relObj->copy($deepCopy));
 			}
 
 			foreach($this->getCategorySubreaktors() as $relObj) {
 				$copyObj->addCategorySubreaktor($relObj->copy($deepCopy));
 			}
 
-			foreach($this->getArticleSubreaktors() as $relObj) {
-				$copyObj->addArticleSubreaktor($relObj->copy($deepCopy));
+			foreach($this->getSubreaktorI18ns() as $relObj) {
+				$copyObj->addSubreaktorI18n($relObj->copy($deepCopy));
 			}
 
-			foreach($this->getSubreaktorIdentifiers() as $relObj) {
-				$copyObj->addSubreaktorIdentifier($relObj->copy($deepCopy));
+			foreach($this->getSubreaktorArtworks() as $relObj) {
+				$copyObj->addSubreaktorArtwork($relObj->copy($deepCopy));
 			}
 
 		} 
@@ -730,17 +730,17 @@ abstract class BaseSubreaktor extends BaseObject  implements Persistent {
 	}
 
 	
-	public function initSubreaktorArtworks()
+	public function initUserInterests()
 	{
-		if ($this->collSubreaktorArtworks === null) {
-			$this->collSubreaktorArtworks = array();
+		if ($this->collUserInterests === null) {
+			$this->collUserInterests = array();
 		}
 	}
 
 	
-	public function getSubreaktorArtworks($criteria = null, $con = null)
+	public function getUserInterests($criteria = null, $con = null)
 	{
-				include_once 'lib/model/om/BaseSubreaktorArtworkPeer.php';
+				include_once 'lib/model/om/BaseUserInterestPeer.php';
 		if ($criteria === null) {
 			$criteria = new Criteria();
 		}
@@ -749,36 +749,36 @@ abstract class BaseSubreaktor extends BaseObject  implements Persistent {
 			$criteria = clone $criteria;
 		}
 
-		if ($this->collSubreaktorArtworks === null) {
+		if ($this->collUserInterests === null) {
 			if ($this->isNew()) {
-			   $this->collSubreaktorArtworks = array();
+			   $this->collUserInterests = array();
 			} else {
 
-				$criteria->add(SubreaktorArtworkPeer::SUBREAKTOR_ID, $this->getId());
+				$criteria->add(UserInterestPeer::SUBREAKTOR_ID, $this->getId());
 
-				SubreaktorArtworkPeer::addSelectColumns($criteria);
-				$this->collSubreaktorArtworks = SubreaktorArtworkPeer::doSelect($criteria, $con);
+				UserInterestPeer::addSelectColumns($criteria);
+				$this->collUserInterests = UserInterestPeer::doSelect($criteria, $con);
 			}
 		} else {
 						if (!$this->isNew()) {
 												
 
-				$criteria->add(SubreaktorArtworkPeer::SUBREAKTOR_ID, $this->getId());
+				$criteria->add(UserInterestPeer::SUBREAKTOR_ID, $this->getId());
 
-				SubreaktorArtworkPeer::addSelectColumns($criteria);
-				if (!isset($this->lastSubreaktorArtworkCriteria) || !$this->lastSubreaktorArtworkCriteria->equals($criteria)) {
-					$this->collSubreaktorArtworks = SubreaktorArtworkPeer::doSelect($criteria, $con);
+				UserInterestPeer::addSelectColumns($criteria);
+				if (!isset($this->lastUserInterestCriteria) || !$this->lastUserInterestCriteria->equals($criteria)) {
+					$this->collUserInterests = UserInterestPeer::doSelect($criteria, $con);
 				}
 			}
 		}
-		$this->lastSubreaktorArtworkCriteria = $criteria;
-		return $this->collSubreaktorArtworks;
+		$this->lastUserInterestCriteria = $criteria;
+		return $this->collUserInterests;
 	}
 
 	
-	public function countSubreaktorArtworks($criteria = null, $distinct = false, $con = null)
+	public function countUserInterests($criteria = null, $distinct = false, $con = null)
 	{
-				include_once 'lib/model/om/BaseSubreaktorArtworkPeer.php';
+				include_once 'lib/model/om/BaseUserInterestPeer.php';
 		if ($criteria === null) {
 			$criteria = new Criteria();
 		}
@@ -787,23 +787,23 @@ abstract class BaseSubreaktor extends BaseObject  implements Persistent {
 			$criteria = clone $criteria;
 		}
 
-		$criteria->add(SubreaktorArtworkPeer::SUBREAKTOR_ID, $this->getId());
+		$criteria->add(UserInterestPeer::SUBREAKTOR_ID, $this->getId());
 
-		return SubreaktorArtworkPeer::doCount($criteria, $distinct, $con);
+		return UserInterestPeer::doCount($criteria, $distinct, $con);
 	}
 
 	
-	public function addSubreaktorArtwork(SubreaktorArtwork $l)
+	public function addUserInterest(UserInterest $l)
 	{
-		$this->collSubreaktorArtworks[] = $l;
+		$this->collUserInterests[] = $l;
 		$l->setSubreaktor($this);
 	}
 
 
 	
-	public function getSubreaktorArtworksJoinReaktorArtwork($criteria = null, $con = null)
+	public function getUserInterestsJoinsfGuardUser($criteria = null, $con = null)
 	{
-				include_once 'lib/model/om/BaseSubreaktorArtworkPeer.php';
+				include_once 'lib/model/om/BaseUserInterestPeer.php';
 		if ($criteria === null) {
 			$criteria = new Criteria();
 		}
@@ -812,26 +812,26 @@ abstract class BaseSubreaktor extends BaseObject  implements Persistent {
 			$criteria = clone $criteria;
 		}
 
-		if ($this->collSubreaktorArtworks === null) {
+		if ($this->collUserInterests === null) {
 			if ($this->isNew()) {
-				$this->collSubreaktorArtworks = array();
+				$this->collUserInterests = array();
 			} else {
 
-				$criteria->add(SubreaktorArtworkPeer::SUBREAKTOR_ID, $this->getId());
+				$criteria->add(UserInterestPeer::SUBREAKTOR_ID, $this->getId());
 
-				$this->collSubreaktorArtworks = SubreaktorArtworkPeer::doSelectJoinReaktorArtwork($criteria, $con);
+				$this->collUserInterests = UserInterestPeer::doSelectJoinsfGuardUser($criteria, $con);
 			}
 		} else {
 									
-			$criteria->add(SubreaktorArtworkPeer::SUBREAKTOR_ID, $this->getId());
+			$criteria->add(UserInterestPeer::SUBREAKTOR_ID, $this->getId());
 
-			if (!isset($this->lastSubreaktorArtworkCriteria) || !$this->lastSubreaktorArtworkCriteria->equals($criteria)) {
-				$this->collSubreaktorArtworks = SubreaktorArtworkPeer::doSelectJoinReaktorArtwork($criteria, $con);
+			if (!isset($this->lastUserInterestCriteria) || !$this->lastUserInterestCriteria->equals($criteria)) {
+				$this->collUserInterests = UserInterestPeer::doSelectJoinsfGuardUser($criteria, $con);
 			}
 		}
-		$this->lastSubreaktorArtworkCriteria = $criteria;
+		$this->lastUserInterestCriteria = $criteria;
 
-		return $this->collSubreaktorArtworks;
+		return $this->collUserInterests;
 	}
 
 	
@@ -1115,17 +1115,17 @@ abstract class BaseSubreaktor extends BaseObject  implements Persistent {
 	}
 
 	
-	public function initUserInterests()
+	public function initArticleSubreaktors()
 	{
-		if ($this->collUserInterests === null) {
-			$this->collUserInterests = array();
+		if ($this->collArticleSubreaktors === null) {
+			$this->collArticleSubreaktors = array();
 		}
 	}
 
 	
-	public function getUserInterests($criteria = null, $con = null)
+	public function getArticleSubreaktors($criteria = null, $con = null)
 	{
-				include_once 'lib/model/om/BaseUserInterestPeer.php';
+				include_once 'lib/model/om/BaseArticleSubreaktorPeer.php';
 		if ($criteria === null) {
 			$criteria = new Criteria();
 		}
@@ -1134,36 +1134,36 @@ abstract class BaseSubreaktor extends BaseObject  implements Persistent {
 			$criteria = clone $criteria;
 		}
 
-		if ($this->collUserInterests === null) {
+		if ($this->collArticleSubreaktors === null) {
 			if ($this->isNew()) {
-			   $this->collUserInterests = array();
+			   $this->collArticleSubreaktors = array();
 			} else {
 
-				$criteria->add(UserInterestPeer::SUBREAKTOR_ID, $this->getId());
+				$criteria->add(ArticleSubreaktorPeer::SUBREAKTOR_ID, $this->getId());
 
-				UserInterestPeer::addSelectColumns($criteria);
-				$this->collUserInterests = UserInterestPeer::doSelect($criteria, $con);
+				ArticleSubreaktorPeer::addSelectColumns($criteria);
+				$this->collArticleSubreaktors = ArticleSubreaktorPeer::doSelect($criteria, $con);
 			}
 		} else {
 						if (!$this->isNew()) {
 												
 
-				$criteria->add(UserInterestPeer::SUBREAKTOR_ID, $this->getId());
+				$criteria->add(ArticleSubreaktorPeer::SUBREAKTOR_ID, $this->getId());
 
-				UserInterestPeer::addSelectColumns($criteria);
-				if (!isset($this->lastUserInterestCriteria) || !$this->lastUserInterestCriteria->equals($criteria)) {
-					$this->collUserInterests = UserInterestPeer::doSelect($criteria, $con);
+				ArticleSubreaktorPeer::addSelectColumns($criteria);
+				if (!isset($this->lastArticleSubreaktorCriteria) || !$this->lastArticleSubreaktorCriteria->equals($criteria)) {
+					$this->collArticleSubreaktors = ArticleSubreaktorPeer::doSelect($criteria, $con);
 				}
 			}
 		}
-		$this->lastUserInterestCriteria = $criteria;
-		return $this->collUserInterests;
+		$this->lastArticleSubreaktorCriteria = $criteria;
+		return $this->collArticleSubreaktors;
 	}
 
 	
-	public function countUserInterests($criteria = null, $distinct = false, $con = null)
+	public function countArticleSubreaktors($criteria = null, $distinct = false, $con = null)
 	{
-				include_once 'lib/model/om/BaseUserInterestPeer.php';
+				include_once 'lib/model/om/BaseArticleSubreaktorPeer.php';
 		if ($criteria === null) {
 			$criteria = new Criteria();
 		}
@@ -1172,23 +1172,23 @@ abstract class BaseSubreaktor extends BaseObject  implements Persistent {
 			$criteria = clone $criteria;
 		}
 
-		$criteria->add(UserInterestPeer::SUBREAKTOR_ID, $this->getId());
+		$criteria->add(ArticleSubreaktorPeer::SUBREAKTOR_ID, $this->getId());
 
-		return UserInterestPeer::doCount($criteria, $distinct, $con);
+		return ArticleSubreaktorPeer::doCount($criteria, $distinct, $con);
 	}
 
 	
-	public function addUserInterest(UserInterest $l)
+	public function addArticleSubreaktor(ArticleSubreaktor $l)
 	{
-		$this->collUserInterests[] = $l;
+		$this->collArticleSubreaktors[] = $l;
 		$l->setSubreaktor($this);
 	}
 
 
 	
-	public function getUserInterestsJoinsfGuardUser($criteria = null, $con = null)
+	public function getArticleSubreaktorsJoinArticle($criteria = null, $con = null)
 	{
-				include_once 'lib/model/om/BaseUserInterestPeer.php';
+				include_once 'lib/model/om/BaseArticleSubreaktorPeer.php';
 		if ($criteria === null) {
 			$criteria = new Criteria();
 		}
@@ -1197,26 +1197,26 @@ abstract class BaseSubreaktor extends BaseObject  implements Persistent {
 			$criteria = clone $criteria;
 		}
 
-		if ($this->collUserInterests === null) {
+		if ($this->collArticleSubreaktors === null) {
 			if ($this->isNew()) {
-				$this->collUserInterests = array();
+				$this->collArticleSubreaktors = array();
 			} else {
 
-				$criteria->add(UserInterestPeer::SUBREAKTOR_ID, $this->getId());
+				$criteria->add(ArticleSubreaktorPeer::SUBREAKTOR_ID, $this->getId());
 
-				$this->collUserInterests = UserInterestPeer::doSelectJoinsfGuardUser($criteria, $con);
+				$this->collArticleSubreaktors = ArticleSubreaktorPeer::doSelectJoinArticle($criteria, $con);
 			}
 		} else {
 									
-			$criteria->add(UserInterestPeer::SUBREAKTOR_ID, $this->getId());
+			$criteria->add(ArticleSubreaktorPeer::SUBREAKTOR_ID, $this->getId());
 
-			if (!isset($this->lastUserInterestCriteria) || !$this->lastUserInterestCriteria->equals($criteria)) {
-				$this->collUserInterests = UserInterestPeer::doSelectJoinsfGuardUser($criteria, $con);
+			if (!isset($this->lastArticleSubreaktorCriteria) || !$this->lastArticleSubreaktorCriteria->equals($criteria)) {
+				$this->collArticleSubreaktors = ArticleSubreaktorPeer::doSelectJoinArticle($criteria, $con);
 			}
 		}
-		$this->lastUserInterestCriteria = $criteria;
+		$this->lastArticleSubreaktorCriteria = $criteria;
 
-		return $this->collUserInterests;
+		return $this->collArticleSubreaktors;
 	}
 
 	
@@ -1430,17 +1430,17 @@ abstract class BaseSubreaktor extends BaseObject  implements Persistent {
 	}
 
 	
-	public function initSubreaktorI18ns()
+	public function initSubreaktorIdentifiers()
 	{
-		if ($this->collSubreaktorI18ns === null) {
-			$this->collSubreaktorI18ns = array();
+		if ($this->collSubreaktorIdentifiers === null) {
+			$this->collSubreaktorIdentifiers = array();
 		}
 	}
 
 	
-	public function getSubreaktorI18ns($criteria = null, $con = null)
+	public function getSubreaktorIdentifiers($criteria = null, $con = null)
 	{
-				include_once 'lib/model/om/BaseSubreaktorI18nPeer.php';
+				include_once 'lib/model/om/BaseSubreaktorIdentifierPeer.php';
 		if ($criteria === null) {
 			$criteria = new Criteria();
 		}
@@ -1449,36 +1449,36 @@ abstract class BaseSubreaktor extends BaseObject  implements Persistent {
 			$criteria = clone $criteria;
 		}
 
-		if ($this->collSubreaktorI18ns === null) {
+		if ($this->collSubreaktorIdentifiers === null) {
 			if ($this->isNew()) {
-			   $this->collSubreaktorI18ns = array();
+			   $this->collSubreaktorIdentifiers = array();
 			} else {
 
-				$criteria->add(SubreaktorI18nPeer::ID, $this->getId());
+				$criteria->add(SubreaktorIdentifierPeer::SUBREAKTOR_ID, $this->getId());
 
-				SubreaktorI18nPeer::addSelectColumns($criteria);
-				$this->collSubreaktorI18ns = SubreaktorI18nPeer::doSelect($criteria, $con);
+				SubreaktorIdentifierPeer::addSelectColumns($criteria);
+				$this->collSubreaktorIdentifiers = SubreaktorIdentifierPeer::doSelect($criteria, $con);
 			}
 		} else {
 						if (!$this->isNew()) {
 												
 
-				$criteria->add(SubreaktorI18nPeer::ID, $this->getId());
+				$criteria->add(SubreaktorIdentifierPeer::SUBREAKTOR_ID, $this->getId());
 
-				SubreaktorI18nPeer::addSelectColumns($criteria);
-				if (!isset($this->lastSubreaktorI18nCriteria) || !$this->lastSubreaktorI18nCriteria->equals($criteria)) {
-					$this->collSubreaktorI18ns = SubreaktorI18nPeer::doSelect($criteria, $con);
+				SubreaktorIdentifierPeer::addSelectColumns($criteria);
+				if (!isset($this->lastSubreaktorIdentifierCriteria) || !$this->lastSubreaktorIdentifierCriteria->equals($criteria)) {
+					$this->collSubreaktorIdentifiers = SubreaktorIdentifierPeer::doSelect($criteria, $con);
 				}
 			}
 		}
-		$this->lastSubreaktorI18nCriteria = $criteria;
-		return $this->collSubreaktorI18ns;
+		$this->lastSubreaktorIdentifierCriteria = $criteria;
+		return $this->collSubreaktorIdentifiers;
 	}
 
 	
-	public function countSubreaktorI18ns($criteria = null, $distinct = false, $con = null)
+	public function countSubreaktorIdentifiers($criteria = null, $distinct = false, $con = null)
 	{
-				include_once 'lib/model/om/BaseSubreaktorI18nPeer.php';
+				include_once 'lib/model/om/BaseSubreaktorIdentifierPeer.php';
 		if ($criteria === null) {
 			$criteria = new Criteria();
 		}
@@ -1487,15 +1487,15 @@ abstract class BaseSubreaktor extends BaseObject  implements Persistent {
 			$criteria = clone $criteria;
 		}
 
-		$criteria->add(SubreaktorI18nPeer::ID, $this->getId());
+		$criteria->add(SubreaktorIdentifierPeer::SUBREAKTOR_ID, $this->getId());
 
-		return SubreaktorI18nPeer::doCount($criteria, $distinct, $con);
+		return SubreaktorIdentifierPeer::doCount($criteria, $distinct, $con);
 	}
 
 	
-	public function addSubreaktorI18n(SubreaktorI18n $l)
+	public function addSubreaktorIdentifier(SubreaktorIdentifier $l)
 	{
-		$this->collSubreaktorI18ns[] = $l;
+		$this->collSubreaktorIdentifiers[] = $l;
 		$l->setSubreaktor($this);
 	}
 
@@ -1605,17 +1605,17 @@ abstract class BaseSubreaktor extends BaseObject  implements Persistent {
 	}
 
 	
-	public function initArticleSubreaktors()
+	public function initSubreaktorI18ns()
 	{
-		if ($this->collArticleSubreaktors === null) {
-			$this->collArticleSubreaktors = array();
+		if ($this->collSubreaktorI18ns === null) {
+			$this->collSubreaktorI18ns = array();
 		}
 	}
 
 	
-	public function getArticleSubreaktors($criteria = null, $con = null)
+	public function getSubreaktorI18ns($criteria = null, $con = null)
 	{
-				include_once 'lib/model/om/BaseArticleSubreaktorPeer.php';
+				include_once 'lib/model/om/BaseSubreaktorI18nPeer.php';
 		if ($criteria === null) {
 			$criteria = new Criteria();
 		}
@@ -1624,36 +1624,36 @@ abstract class BaseSubreaktor extends BaseObject  implements Persistent {
 			$criteria = clone $criteria;
 		}
 
-		if ($this->collArticleSubreaktors === null) {
+		if ($this->collSubreaktorI18ns === null) {
 			if ($this->isNew()) {
-			   $this->collArticleSubreaktors = array();
+			   $this->collSubreaktorI18ns = array();
 			} else {
 
-				$criteria->add(ArticleSubreaktorPeer::SUBREAKTOR_ID, $this->getId());
+				$criteria->add(SubreaktorI18nPeer::ID, $this->getId());
 
-				ArticleSubreaktorPeer::addSelectColumns($criteria);
-				$this->collArticleSubreaktors = ArticleSubreaktorPeer::doSelect($criteria, $con);
+				SubreaktorI18nPeer::addSelectColumns($criteria);
+				$this->collSubreaktorI18ns = SubreaktorI18nPeer::doSelect($criteria, $con);
 			}
 		} else {
 						if (!$this->isNew()) {
 												
 
-				$criteria->add(ArticleSubreaktorPeer::SUBREAKTOR_ID, $this->getId());
+				$criteria->add(SubreaktorI18nPeer::ID, $this->getId());
 
-				ArticleSubreaktorPeer::addSelectColumns($criteria);
-				if (!isset($this->lastArticleSubreaktorCriteria) || !$this->lastArticleSubreaktorCriteria->equals($criteria)) {
-					$this->collArticleSubreaktors = ArticleSubreaktorPeer::doSelect($criteria, $con);
+				SubreaktorI18nPeer::addSelectColumns($criteria);
+				if (!isset($this->lastSubreaktorI18nCriteria) || !$this->lastSubreaktorI18nCriteria->equals($criteria)) {
+					$this->collSubreaktorI18ns = SubreaktorI18nPeer::doSelect($criteria, $con);
 				}
 			}
 		}
-		$this->lastArticleSubreaktorCriteria = $criteria;
-		return $this->collArticleSubreaktors;
+		$this->lastSubreaktorI18nCriteria = $criteria;
+		return $this->collSubreaktorI18ns;
 	}
 
 	
-	public function countArticleSubreaktors($criteria = null, $distinct = false, $con = null)
+	public function countSubreaktorI18ns($criteria = null, $distinct = false, $con = null)
 	{
-				include_once 'lib/model/om/BaseArticleSubreaktorPeer.php';
+				include_once 'lib/model/om/BaseSubreaktorI18nPeer.php';
 		if ($criteria === null) {
 			$criteria = new Criteria();
 		}
@@ -1662,23 +1662,93 @@ abstract class BaseSubreaktor extends BaseObject  implements Persistent {
 			$criteria = clone $criteria;
 		}
 
-		$criteria->add(ArticleSubreaktorPeer::SUBREAKTOR_ID, $this->getId());
+		$criteria->add(SubreaktorI18nPeer::ID, $this->getId());
 
-		return ArticleSubreaktorPeer::doCount($criteria, $distinct, $con);
+		return SubreaktorI18nPeer::doCount($criteria, $distinct, $con);
 	}
 
 	
-	public function addArticleSubreaktor(ArticleSubreaktor $l)
+	public function addSubreaktorI18n(SubreaktorI18n $l)
 	{
-		$this->collArticleSubreaktors[] = $l;
+		$this->collSubreaktorI18ns[] = $l;
+		$l->setSubreaktor($this);
+	}
+
+	
+	public function initSubreaktorArtworks()
+	{
+		if ($this->collSubreaktorArtworks === null) {
+			$this->collSubreaktorArtworks = array();
+		}
+	}
+
+	
+	public function getSubreaktorArtworks($criteria = null, $con = null)
+	{
+				include_once 'lib/model/om/BaseSubreaktorArtworkPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collSubreaktorArtworks === null) {
+			if ($this->isNew()) {
+			   $this->collSubreaktorArtworks = array();
+			} else {
+
+				$criteria->add(SubreaktorArtworkPeer::SUBREAKTOR_ID, $this->getId());
+
+				SubreaktorArtworkPeer::addSelectColumns($criteria);
+				$this->collSubreaktorArtworks = SubreaktorArtworkPeer::doSelect($criteria, $con);
+			}
+		} else {
+						if (!$this->isNew()) {
+												
+
+				$criteria->add(SubreaktorArtworkPeer::SUBREAKTOR_ID, $this->getId());
+
+				SubreaktorArtworkPeer::addSelectColumns($criteria);
+				if (!isset($this->lastSubreaktorArtworkCriteria) || !$this->lastSubreaktorArtworkCriteria->equals($criteria)) {
+					$this->collSubreaktorArtworks = SubreaktorArtworkPeer::doSelect($criteria, $con);
+				}
+			}
+		}
+		$this->lastSubreaktorArtworkCriteria = $criteria;
+		return $this->collSubreaktorArtworks;
+	}
+
+	
+	public function countSubreaktorArtworks($criteria = null, $distinct = false, $con = null)
+	{
+				include_once 'lib/model/om/BaseSubreaktorArtworkPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		$criteria->add(SubreaktorArtworkPeer::SUBREAKTOR_ID, $this->getId());
+
+		return SubreaktorArtworkPeer::doCount($criteria, $distinct, $con);
+	}
+
+	
+	public function addSubreaktorArtwork(SubreaktorArtwork $l)
+	{
+		$this->collSubreaktorArtworks[] = $l;
 		$l->setSubreaktor($this);
 	}
 
 
 	
-	public function getArticleSubreaktorsJoinArticle($criteria = null, $con = null)
+	public function getSubreaktorArtworksJoinReaktorArtwork($criteria = null, $con = null)
 	{
-				include_once 'lib/model/om/BaseArticleSubreaktorPeer.php';
+				include_once 'lib/model/om/BaseSubreaktorArtworkPeer.php';
 		if ($criteria === null) {
 			$criteria = new Criteria();
 		}
@@ -1687,96 +1757,26 @@ abstract class BaseSubreaktor extends BaseObject  implements Persistent {
 			$criteria = clone $criteria;
 		}
 
-		if ($this->collArticleSubreaktors === null) {
+		if ($this->collSubreaktorArtworks === null) {
 			if ($this->isNew()) {
-				$this->collArticleSubreaktors = array();
+				$this->collSubreaktorArtworks = array();
 			} else {
 
-				$criteria->add(ArticleSubreaktorPeer::SUBREAKTOR_ID, $this->getId());
+				$criteria->add(SubreaktorArtworkPeer::SUBREAKTOR_ID, $this->getId());
 
-				$this->collArticleSubreaktors = ArticleSubreaktorPeer::doSelectJoinArticle($criteria, $con);
+				$this->collSubreaktorArtworks = SubreaktorArtworkPeer::doSelectJoinReaktorArtwork($criteria, $con);
 			}
 		} else {
 									
-			$criteria->add(ArticleSubreaktorPeer::SUBREAKTOR_ID, $this->getId());
+			$criteria->add(SubreaktorArtworkPeer::SUBREAKTOR_ID, $this->getId());
 
-			if (!isset($this->lastArticleSubreaktorCriteria) || !$this->lastArticleSubreaktorCriteria->equals($criteria)) {
-				$this->collArticleSubreaktors = ArticleSubreaktorPeer::doSelectJoinArticle($criteria, $con);
+			if (!isset($this->lastSubreaktorArtworkCriteria) || !$this->lastSubreaktorArtworkCriteria->equals($criteria)) {
+				$this->collSubreaktorArtworks = SubreaktorArtworkPeer::doSelectJoinReaktorArtwork($criteria, $con);
 			}
 		}
-		$this->lastArticleSubreaktorCriteria = $criteria;
+		$this->lastSubreaktorArtworkCriteria = $criteria;
 
-		return $this->collArticleSubreaktors;
-	}
-
-	
-	public function initSubreaktorIdentifiers()
-	{
-		if ($this->collSubreaktorIdentifiers === null) {
-			$this->collSubreaktorIdentifiers = array();
-		}
-	}
-
-	
-	public function getSubreaktorIdentifiers($criteria = null, $con = null)
-	{
-				include_once 'lib/model/om/BaseSubreaktorIdentifierPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collSubreaktorIdentifiers === null) {
-			if ($this->isNew()) {
-			   $this->collSubreaktorIdentifiers = array();
-			} else {
-
-				$criteria->add(SubreaktorIdentifierPeer::SUBREAKTOR_ID, $this->getId());
-
-				SubreaktorIdentifierPeer::addSelectColumns($criteria);
-				$this->collSubreaktorIdentifiers = SubreaktorIdentifierPeer::doSelect($criteria, $con);
-			}
-		} else {
-						if (!$this->isNew()) {
-												
-
-				$criteria->add(SubreaktorIdentifierPeer::SUBREAKTOR_ID, $this->getId());
-
-				SubreaktorIdentifierPeer::addSelectColumns($criteria);
-				if (!isset($this->lastSubreaktorIdentifierCriteria) || !$this->lastSubreaktorIdentifierCriteria->equals($criteria)) {
-					$this->collSubreaktorIdentifiers = SubreaktorIdentifierPeer::doSelect($criteria, $con);
-				}
-			}
-		}
-		$this->lastSubreaktorIdentifierCriteria = $criteria;
-		return $this->collSubreaktorIdentifiers;
-	}
-
-	
-	public function countSubreaktorIdentifiers($criteria = null, $distinct = false, $con = null)
-	{
-				include_once 'lib/model/om/BaseSubreaktorIdentifierPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		$criteria->add(SubreaktorIdentifierPeer::SUBREAKTOR_ID, $this->getId());
-
-		return SubreaktorIdentifierPeer::doCount($criteria, $distinct, $con);
-	}
-
-	
-	public function addSubreaktorIdentifier(SubreaktorIdentifier $l)
-	{
-		$this->collSubreaktorIdentifiers[] = $l;
-		$l->setSubreaktor($this);
+		return $this->collSubreaktorArtworks;
 	}
 
   public function getCulture()

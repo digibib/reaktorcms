@@ -87,16 +87,16 @@ abstract class BaseReaktorFile extends BaseObject  implements Persistent {
 	protected $asfGuardUser;
 
 	
-	protected $collReaktorArtworks;
-
-	
-	protected $lastReaktorArtworkCriteria = null;
-
-	
 	protected $collReaktorArtworkFiles;
 
 	
 	protected $lastReaktorArtworkFileCriteria = null;
+
+	
+	protected $collReaktorArtworks;
+
+	
+	protected $lastReaktorArtworkCriteria = null;
 
 	
 	protected $collFileMetadatas;
@@ -756,16 +756,16 @@ abstract class BaseReaktorFile extends BaseObject  implements Persistent {
 				}
 				$this->resetModified(); 			}
 
-			if ($this->collReaktorArtworks !== null) {
-				foreach($this->collReaktorArtworks as $referrerFK) {
+			if ($this->collReaktorArtworkFiles !== null) {
+				foreach($this->collReaktorArtworkFiles as $referrerFK) {
 					if (!$referrerFK->isDeleted()) {
 						$affectedRows += $referrerFK->save($con);
 					}
 				}
 			}
 
-			if ($this->collReaktorArtworkFiles !== null) {
-				foreach($this->collReaktorArtworkFiles as $referrerFK) {
+			if ($this->collReaktorArtworks !== null) {
+				foreach($this->collReaktorArtworks as $referrerFK) {
 					if (!$referrerFK->isDeleted()) {
 						$affectedRows += $referrerFK->save($con);
 					}
@@ -829,16 +829,16 @@ abstract class BaseReaktorFile extends BaseObject  implements Persistent {
 			}
 
 
-				if ($this->collReaktorArtworks !== null) {
-					foreach($this->collReaktorArtworks as $referrerFK) {
+				if ($this->collReaktorArtworkFiles !== null) {
+					foreach($this->collReaktorArtworkFiles as $referrerFK) {
 						if (!$referrerFK->validate($columns)) {
 							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
 						}
 					}
 				}
 
-				if ($this->collReaktorArtworkFiles !== null) {
-					foreach($this->collReaktorArtworkFiles as $referrerFK) {
+				if ($this->collReaktorArtworks !== null) {
+					foreach($this->collReaktorArtworks as $referrerFK) {
 						if (!$referrerFK->validate($columns)) {
 							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
 						}
@@ -1151,12 +1151,12 @@ abstract class BaseReaktorFile extends BaseObject  implements Persistent {
 		if ($deepCopy) {
 									$copyObj->setNew(false);
 
-			foreach($this->getReaktorArtworks() as $relObj) {
-				$copyObj->addReaktorArtwork($relObj->copy($deepCopy));
-			}
-
 			foreach($this->getReaktorArtworkFiles() as $relObj) {
 				$copyObj->addReaktorArtworkFile($relObj->copy($deepCopy));
+			}
+
+			foreach($this->getReaktorArtworks() as $relObj) {
+				$copyObj->addReaktorArtwork($relObj->copy($deepCopy));
 			}
 
 			foreach($this->getFileMetadatas() as $relObj) {
@@ -1215,6 +1215,111 @@ abstract class BaseReaktorFile extends BaseObject  implements Persistent {
 			
 		}
 		return $this->asfGuardUser;
+	}
+
+	
+	public function initReaktorArtworkFiles()
+	{
+		if ($this->collReaktorArtworkFiles === null) {
+			$this->collReaktorArtworkFiles = array();
+		}
+	}
+
+	
+	public function getReaktorArtworkFiles($criteria = null, $con = null)
+	{
+				include_once 'lib/model/om/BaseReaktorArtworkFilePeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collReaktorArtworkFiles === null) {
+			if ($this->isNew()) {
+			   $this->collReaktorArtworkFiles = array();
+			} else {
+
+				$criteria->add(ReaktorArtworkFilePeer::FILE_ID, $this->getId());
+
+				ReaktorArtworkFilePeer::addSelectColumns($criteria);
+				$this->collReaktorArtworkFiles = ReaktorArtworkFilePeer::doSelect($criteria, $con);
+			}
+		} else {
+						if (!$this->isNew()) {
+												
+
+				$criteria->add(ReaktorArtworkFilePeer::FILE_ID, $this->getId());
+
+				ReaktorArtworkFilePeer::addSelectColumns($criteria);
+				if (!isset($this->lastReaktorArtworkFileCriteria) || !$this->lastReaktorArtworkFileCriteria->equals($criteria)) {
+					$this->collReaktorArtworkFiles = ReaktorArtworkFilePeer::doSelect($criteria, $con);
+				}
+			}
+		}
+		$this->lastReaktorArtworkFileCriteria = $criteria;
+		return $this->collReaktorArtworkFiles;
+	}
+
+	
+	public function countReaktorArtworkFiles($criteria = null, $distinct = false, $con = null)
+	{
+				include_once 'lib/model/om/BaseReaktorArtworkFilePeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		$criteria->add(ReaktorArtworkFilePeer::FILE_ID, $this->getId());
+
+		return ReaktorArtworkFilePeer::doCount($criteria, $distinct, $con);
+	}
+
+	
+	public function addReaktorArtworkFile(ReaktorArtworkFile $l)
+	{
+		$this->collReaktorArtworkFiles[] = $l;
+		$l->setReaktorFile($this);
+	}
+
+
+	
+	public function getReaktorArtworkFilesJoinReaktorArtwork($criteria = null, $con = null)
+	{
+				include_once 'lib/model/om/BaseReaktorArtworkFilePeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collReaktorArtworkFiles === null) {
+			if ($this->isNew()) {
+				$this->collReaktorArtworkFiles = array();
+			} else {
+
+				$criteria->add(ReaktorArtworkFilePeer::FILE_ID, $this->getId());
+
+				$this->collReaktorArtworkFiles = ReaktorArtworkFilePeer::doSelectJoinReaktorArtwork($criteria, $con);
+			}
+		} else {
+									
+			$criteria->add(ReaktorArtworkFilePeer::FILE_ID, $this->getId());
+
+			if (!isset($this->lastReaktorArtworkFileCriteria) || !$this->lastReaktorArtworkFileCriteria->equals($criteria)) {
+				$this->collReaktorArtworkFiles = ReaktorArtworkFilePeer::doSelectJoinReaktorArtwork($criteria, $con);
+			}
+		}
+		$this->lastReaktorArtworkFileCriteria = $criteria;
+
+		return $this->collReaktorArtworkFiles;
 	}
 
 	
@@ -1390,111 +1495,6 @@ abstract class BaseReaktorFile extends BaseObject  implements Persistent {
 		$this->lastReaktorArtworkCriteria = $criteria;
 
 		return $this->collReaktorArtworks;
-	}
-
-	
-	public function initReaktorArtworkFiles()
-	{
-		if ($this->collReaktorArtworkFiles === null) {
-			$this->collReaktorArtworkFiles = array();
-		}
-	}
-
-	
-	public function getReaktorArtworkFiles($criteria = null, $con = null)
-	{
-				include_once 'lib/model/om/BaseReaktorArtworkFilePeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collReaktorArtworkFiles === null) {
-			if ($this->isNew()) {
-			   $this->collReaktorArtworkFiles = array();
-			} else {
-
-				$criteria->add(ReaktorArtworkFilePeer::FILE_ID, $this->getId());
-
-				ReaktorArtworkFilePeer::addSelectColumns($criteria);
-				$this->collReaktorArtworkFiles = ReaktorArtworkFilePeer::doSelect($criteria, $con);
-			}
-		} else {
-						if (!$this->isNew()) {
-												
-
-				$criteria->add(ReaktorArtworkFilePeer::FILE_ID, $this->getId());
-
-				ReaktorArtworkFilePeer::addSelectColumns($criteria);
-				if (!isset($this->lastReaktorArtworkFileCriteria) || !$this->lastReaktorArtworkFileCriteria->equals($criteria)) {
-					$this->collReaktorArtworkFiles = ReaktorArtworkFilePeer::doSelect($criteria, $con);
-				}
-			}
-		}
-		$this->lastReaktorArtworkFileCriteria = $criteria;
-		return $this->collReaktorArtworkFiles;
-	}
-
-	
-	public function countReaktorArtworkFiles($criteria = null, $distinct = false, $con = null)
-	{
-				include_once 'lib/model/om/BaseReaktorArtworkFilePeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		$criteria->add(ReaktorArtworkFilePeer::FILE_ID, $this->getId());
-
-		return ReaktorArtworkFilePeer::doCount($criteria, $distinct, $con);
-	}
-
-	
-	public function addReaktorArtworkFile(ReaktorArtworkFile $l)
-	{
-		$this->collReaktorArtworkFiles[] = $l;
-		$l->setReaktorFile($this);
-	}
-
-
-	
-	public function getReaktorArtworkFilesJoinReaktorArtwork($criteria = null, $con = null)
-	{
-				include_once 'lib/model/om/BaseReaktorArtworkFilePeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collReaktorArtworkFiles === null) {
-			if ($this->isNew()) {
-				$this->collReaktorArtworkFiles = array();
-			} else {
-
-				$criteria->add(ReaktorArtworkFilePeer::FILE_ID, $this->getId());
-
-				$this->collReaktorArtworkFiles = ReaktorArtworkFilePeer::doSelectJoinReaktorArtwork($criteria, $con);
-			}
-		} else {
-									
-			$criteria->add(ReaktorArtworkFilePeer::FILE_ID, $this->getId());
-
-			if (!isset($this->lastReaktorArtworkFileCriteria) || !$this->lastReaktorArtworkFileCriteria->equals($criteria)) {
-				$this->collReaktorArtworkFiles = ReaktorArtworkFilePeer::doSelectJoinReaktorArtwork($criteria, $con);
-			}
-		}
-		$this->lastReaktorArtworkFileCriteria = $criteria;
-
-		return $this->collReaktorArtworkFiles;
 	}
 
 	

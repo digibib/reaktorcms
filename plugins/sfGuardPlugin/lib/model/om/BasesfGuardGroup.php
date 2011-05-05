@@ -28,6 +28,12 @@ abstract class BasesfGuardGroup extends BaseObject  implements Persistent {
 	protected $is_enabled = false;
 
 	
+	protected $collReaktorArtworks;
+
+	
+	protected $lastReaktorArtworkCriteria = null;
+
+	
 	protected $collsfGuardGroupPermissions;
 
 	
@@ -38,12 +44,6 @@ abstract class BasesfGuardGroup extends BaseObject  implements Persistent {
 
 	
 	protected $lastsfGuardUserGroupCriteria = null;
-
-	
-	protected $collReaktorArtworks;
-
-	
-	protected $lastReaktorArtworkCriteria = null;
 
 	
 	protected $alreadyInSave = false;
@@ -274,6 +274,14 @@ abstract class BasesfGuardGroup extends BaseObject  implements Persistent {
 				}
 				$this->resetModified(); 			}
 
+			if ($this->collReaktorArtworks !== null) {
+				foreach($this->collReaktorArtworks as $referrerFK) {
+					if (!$referrerFK->isDeleted()) {
+						$affectedRows += $referrerFK->save($con);
+					}
+				}
+			}
+
 			if ($this->collsfGuardGroupPermissions !== null) {
 				foreach($this->collsfGuardGroupPermissions as $referrerFK) {
 					if (!$referrerFK->isDeleted()) {
@@ -284,14 +292,6 @@ abstract class BasesfGuardGroup extends BaseObject  implements Persistent {
 
 			if ($this->collsfGuardUserGroups !== null) {
 				foreach($this->collsfGuardUserGroups as $referrerFK) {
-					if (!$referrerFK->isDeleted()) {
-						$affectedRows += $referrerFK->save($con);
-					}
-				}
-			}
-
-			if ($this->collReaktorArtworks !== null) {
-				foreach($this->collReaktorArtworks as $referrerFK) {
 					if (!$referrerFK->isDeleted()) {
 						$affectedRows += $referrerFK->save($con);
 					}
@@ -339,6 +339,14 @@ abstract class BasesfGuardGroup extends BaseObject  implements Persistent {
 			}
 
 
+				if ($this->collReaktorArtworks !== null) {
+					foreach($this->collReaktorArtworks as $referrerFK) {
+						if (!$referrerFK->validate($columns)) {
+							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
+						}
+					}
+				}
+
 				if ($this->collsfGuardGroupPermissions !== null) {
 					foreach($this->collsfGuardGroupPermissions as $referrerFK) {
 						if (!$referrerFK->validate($columns)) {
@@ -349,14 +357,6 @@ abstract class BasesfGuardGroup extends BaseObject  implements Persistent {
 
 				if ($this->collsfGuardUserGroups !== null) {
 					foreach($this->collsfGuardUserGroups as $referrerFK) {
-						if (!$referrerFK->validate($columns)) {
-							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
-						}
-					}
-				}
-
-				if ($this->collReaktorArtworks !== null) {
-					foreach($this->collReaktorArtworks as $referrerFK) {
 						if (!$referrerFK->validate($columns)) {
 							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
 						}
@@ -507,16 +507,16 @@ abstract class BasesfGuardGroup extends BaseObject  implements Persistent {
 		if ($deepCopy) {
 									$copyObj->setNew(false);
 
+			foreach($this->getReaktorArtworks() as $relObj) {
+				$copyObj->addReaktorArtwork($relObj->copy($deepCopy));
+			}
+
 			foreach($this->getsfGuardGroupPermissions() as $relObj) {
 				$copyObj->addsfGuardGroupPermission($relObj->copy($deepCopy));
 			}
 
 			foreach($this->getsfGuardUserGroups() as $relObj) {
 				$copyObj->addsfGuardUserGroup($relObj->copy($deepCopy));
-			}
-
-			foreach($this->getReaktorArtworks() as $relObj) {
-				$copyObj->addReaktorArtwork($relObj->copy($deepCopy));
 			}
 
 		} 
@@ -542,6 +542,181 @@ abstract class BasesfGuardGroup extends BaseObject  implements Persistent {
 			self::$peer = new sfGuardGroupPeer();
 		}
 		return self::$peer;
+	}
+
+	
+	public function initReaktorArtworks()
+	{
+		if ($this->collReaktorArtworks === null) {
+			$this->collReaktorArtworks = array();
+		}
+	}
+
+	
+	public function getReaktorArtworks($criteria = null, $con = null)
+	{
+				include_once 'lib/model/om/BaseReaktorArtworkPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collReaktorArtworks === null) {
+			if ($this->isNew()) {
+			   $this->collReaktorArtworks = array();
+			} else {
+
+				$criteria->add(ReaktorArtworkPeer::TEAM_ID, $this->getId());
+
+				ReaktorArtworkPeer::addSelectColumns($criteria);
+				$this->collReaktorArtworks = ReaktorArtworkPeer::doSelect($criteria, $con);
+			}
+		} else {
+						if (!$this->isNew()) {
+												
+
+				$criteria->add(ReaktorArtworkPeer::TEAM_ID, $this->getId());
+
+				ReaktorArtworkPeer::addSelectColumns($criteria);
+				if (!isset($this->lastReaktorArtworkCriteria) || !$this->lastReaktorArtworkCriteria->equals($criteria)) {
+					$this->collReaktorArtworks = ReaktorArtworkPeer::doSelect($criteria, $con);
+				}
+			}
+		}
+		$this->lastReaktorArtworkCriteria = $criteria;
+		return $this->collReaktorArtworks;
+	}
+
+	
+	public function countReaktorArtworks($criteria = null, $distinct = false, $con = null)
+	{
+				include_once 'lib/model/om/BaseReaktorArtworkPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		$criteria->add(ReaktorArtworkPeer::TEAM_ID, $this->getId());
+
+		return ReaktorArtworkPeer::doCount($criteria, $distinct, $con);
+	}
+
+	
+	public function addReaktorArtwork(ReaktorArtwork $l)
+	{
+		$this->collReaktorArtworks[] = $l;
+		$l->setsfGuardGroup($this);
+	}
+
+
+	
+	public function getReaktorArtworksJoinsfGuardUser($criteria = null, $con = null)
+	{
+				include_once 'lib/model/om/BaseReaktorArtworkPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collReaktorArtworks === null) {
+			if ($this->isNew()) {
+				$this->collReaktorArtworks = array();
+			} else {
+
+				$criteria->add(ReaktorArtworkPeer::TEAM_ID, $this->getId());
+
+				$this->collReaktorArtworks = ReaktorArtworkPeer::doSelectJoinsfGuardUser($criteria, $con);
+			}
+		} else {
+									
+			$criteria->add(ReaktorArtworkPeer::TEAM_ID, $this->getId());
+
+			if (!isset($this->lastReaktorArtworkCriteria) || !$this->lastReaktorArtworkCriteria->equals($criteria)) {
+				$this->collReaktorArtworks = ReaktorArtworkPeer::doSelectJoinsfGuardUser($criteria, $con);
+			}
+		}
+		$this->lastReaktorArtworkCriteria = $criteria;
+
+		return $this->collReaktorArtworks;
+	}
+
+
+	
+	public function getReaktorArtworksJoinArtworkStatus($criteria = null, $con = null)
+	{
+				include_once 'lib/model/om/BaseReaktorArtworkPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collReaktorArtworks === null) {
+			if ($this->isNew()) {
+				$this->collReaktorArtworks = array();
+			} else {
+
+				$criteria->add(ReaktorArtworkPeer::TEAM_ID, $this->getId());
+
+				$this->collReaktorArtworks = ReaktorArtworkPeer::doSelectJoinArtworkStatus($criteria, $con);
+			}
+		} else {
+									
+			$criteria->add(ReaktorArtworkPeer::TEAM_ID, $this->getId());
+
+			if (!isset($this->lastReaktorArtworkCriteria) || !$this->lastReaktorArtworkCriteria->equals($criteria)) {
+				$this->collReaktorArtworks = ReaktorArtworkPeer::doSelectJoinArtworkStatus($criteria, $con);
+			}
+		}
+		$this->lastReaktorArtworkCriteria = $criteria;
+
+		return $this->collReaktorArtworks;
+	}
+
+
+	
+	public function getReaktorArtworksJoinReaktorFile($criteria = null, $con = null)
+	{
+				include_once 'lib/model/om/BaseReaktorArtworkPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collReaktorArtworks === null) {
+			if ($this->isNew()) {
+				$this->collReaktorArtworks = array();
+			} else {
+
+				$criteria->add(ReaktorArtworkPeer::TEAM_ID, $this->getId());
+
+				$this->collReaktorArtworks = ReaktorArtworkPeer::doSelectJoinReaktorFile($criteria, $con);
+			}
+		} else {
+									
+			$criteria->add(ReaktorArtworkPeer::TEAM_ID, $this->getId());
+
+			if (!isset($this->lastReaktorArtworkCriteria) || !$this->lastReaktorArtworkCriteria->equals($criteria)) {
+				$this->collReaktorArtworks = ReaktorArtworkPeer::doSelectJoinReaktorFile($criteria, $con);
+			}
+		}
+		$this->lastReaktorArtworkCriteria = $criteria;
+
+		return $this->collReaktorArtworks;
 	}
 
 	
@@ -752,181 +927,6 @@ abstract class BasesfGuardGroup extends BaseObject  implements Persistent {
 		$this->lastsfGuardUserGroupCriteria = $criteria;
 
 		return $this->collsfGuardUserGroups;
-	}
-
-	
-	public function initReaktorArtworks()
-	{
-		if ($this->collReaktorArtworks === null) {
-			$this->collReaktorArtworks = array();
-		}
-	}
-
-	
-	public function getReaktorArtworks($criteria = null, $con = null)
-	{
-				include_once 'lib/model/om/BaseReaktorArtworkPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collReaktorArtworks === null) {
-			if ($this->isNew()) {
-			   $this->collReaktorArtworks = array();
-			} else {
-
-				$criteria->add(ReaktorArtworkPeer::TEAM_ID, $this->getId());
-
-				ReaktorArtworkPeer::addSelectColumns($criteria);
-				$this->collReaktorArtworks = ReaktorArtworkPeer::doSelect($criteria, $con);
-			}
-		} else {
-						if (!$this->isNew()) {
-												
-
-				$criteria->add(ReaktorArtworkPeer::TEAM_ID, $this->getId());
-
-				ReaktorArtworkPeer::addSelectColumns($criteria);
-				if (!isset($this->lastReaktorArtworkCriteria) || !$this->lastReaktorArtworkCriteria->equals($criteria)) {
-					$this->collReaktorArtworks = ReaktorArtworkPeer::doSelect($criteria, $con);
-				}
-			}
-		}
-		$this->lastReaktorArtworkCriteria = $criteria;
-		return $this->collReaktorArtworks;
-	}
-
-	
-	public function countReaktorArtworks($criteria = null, $distinct = false, $con = null)
-	{
-				include_once 'lib/model/om/BaseReaktorArtworkPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		$criteria->add(ReaktorArtworkPeer::TEAM_ID, $this->getId());
-
-		return ReaktorArtworkPeer::doCount($criteria, $distinct, $con);
-	}
-
-	
-	public function addReaktorArtwork(ReaktorArtwork $l)
-	{
-		$this->collReaktorArtworks[] = $l;
-		$l->setsfGuardGroup($this);
-	}
-
-
-	
-	public function getReaktorArtworksJoinsfGuardUser($criteria = null, $con = null)
-	{
-				include_once 'lib/model/om/BaseReaktorArtworkPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collReaktorArtworks === null) {
-			if ($this->isNew()) {
-				$this->collReaktorArtworks = array();
-			} else {
-
-				$criteria->add(ReaktorArtworkPeer::TEAM_ID, $this->getId());
-
-				$this->collReaktorArtworks = ReaktorArtworkPeer::doSelectJoinsfGuardUser($criteria, $con);
-			}
-		} else {
-									
-			$criteria->add(ReaktorArtworkPeer::TEAM_ID, $this->getId());
-
-			if (!isset($this->lastReaktorArtworkCriteria) || !$this->lastReaktorArtworkCriteria->equals($criteria)) {
-				$this->collReaktorArtworks = ReaktorArtworkPeer::doSelectJoinsfGuardUser($criteria, $con);
-			}
-		}
-		$this->lastReaktorArtworkCriteria = $criteria;
-
-		return $this->collReaktorArtworks;
-	}
-
-
-	
-	public function getReaktorArtworksJoinArtworkStatus($criteria = null, $con = null)
-	{
-				include_once 'lib/model/om/BaseReaktorArtworkPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collReaktorArtworks === null) {
-			if ($this->isNew()) {
-				$this->collReaktorArtworks = array();
-			} else {
-
-				$criteria->add(ReaktorArtworkPeer::TEAM_ID, $this->getId());
-
-				$this->collReaktorArtworks = ReaktorArtworkPeer::doSelectJoinArtworkStatus($criteria, $con);
-			}
-		} else {
-									
-			$criteria->add(ReaktorArtworkPeer::TEAM_ID, $this->getId());
-
-			if (!isset($this->lastReaktorArtworkCriteria) || !$this->lastReaktorArtworkCriteria->equals($criteria)) {
-				$this->collReaktorArtworks = ReaktorArtworkPeer::doSelectJoinArtworkStatus($criteria, $con);
-			}
-		}
-		$this->lastReaktorArtworkCriteria = $criteria;
-
-		return $this->collReaktorArtworks;
-	}
-
-
-	
-	public function getReaktorArtworksJoinReaktorFile($criteria = null, $con = null)
-	{
-				include_once 'lib/model/om/BaseReaktorArtworkPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collReaktorArtworks === null) {
-			if ($this->isNew()) {
-				$this->collReaktorArtworks = array();
-			} else {
-
-				$criteria->add(ReaktorArtworkPeer::TEAM_ID, $this->getId());
-
-				$this->collReaktorArtworks = ReaktorArtworkPeer::doSelectJoinReaktorFile($criteria, $con);
-			}
-		} else {
-									
-			$criteria->add(ReaktorArtworkPeer::TEAM_ID, $this->getId());
-
-			if (!isset($this->lastReaktorArtworkCriteria) || !$this->lastReaktorArtworkCriteria->equals($criteria)) {
-				$this->collReaktorArtworks = ReaktorArtworkPeer::doSelectJoinReaktorFile($criteria, $con);
-			}
-		}
-		$this->lastReaktorArtworkCriteria = $criteria;
-
-		return $this->collReaktorArtworks;
 	}
 
 

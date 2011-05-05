@@ -1,0 +1,14 @@
+<?php
+
+$database = "reaktor";
+$username = "reaktor_user";
+$password = "CHANGEME";
+$dbhost   = "localhost";
+
+$database_test = "";
+$username_test = "";
+$password_test = "";
+$dbhost_test   = "";
+
+?>
+
