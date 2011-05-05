@@ -203,6 +203,7 @@ abstract class BaseSubreaktorPeer {
   
   public static function doSelectWithI18n(Criteria $c, $culture = null, $con = null)
   {
+        $c = clone $c;
     if ($culture === null)
     {
       $culture = sfContext::getInstance()->getUser()->getCulture();

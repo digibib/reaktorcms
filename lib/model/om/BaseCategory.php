@@ -16,6 +16,12 @@ abstract class BaseCategory extends BaseObject  implements Persistent {
 	protected $basename;
 
 	
+	protected $collArticleCategorys;
+
+	
+	protected $lastArticleCategoryCriteria = null;
+
+	
 	protected $collCategoryI18ns;
 
 	
@@ -32,12 +38,6 @@ abstract class BaseCategory extends BaseObject  implements Persistent {
 
 	
 	protected $lastCategorySubreaktorCriteria = null;
-
-	
-	protected $collArticleCategorys;
-
-	
-	protected $lastArticleCategoryCriteria = null;
 
 	
 	protected $alreadyInSave = false;
@@ -208,6 +208,14 @@ abstract class BaseCategory extends BaseObject  implements Persistent {
 				}
 				$this->resetModified(); 			}
 
+			if ($this->collArticleCategorys !== null) {
+				foreach($this->collArticleCategorys as $referrerFK) {
+					if (!$referrerFK->isDeleted()) {
+						$affectedRows += $referrerFK->save($con);
+					}
+				}
+			}
+
 			if ($this->collCategoryI18ns !== null) {
 				foreach($this->collCategoryI18ns as $referrerFK) {
 					if (!$referrerFK->isDeleted()) {
@@ -226,14 +234,6 @@ abstract class BaseCategory extends BaseObject  implements Persistent {
 
 			if ($this->collCategorySubreaktors !== null) {
 				foreach($this->collCategorySubreaktors as $referrerFK) {
-					if (!$referrerFK->isDeleted()) {
-						$affectedRows += $referrerFK->save($con);
-					}
-				}
-			}
-
-			if ($this->collArticleCategorys !== null) {
-				foreach($this->collArticleCategorys as $referrerFK) {
 					if (!$referrerFK->isDeleted()) {
 						$affectedRows += $referrerFK->save($con);
 					}
@@ -281,6 +281,14 @@ abstract class BaseCategory extends BaseObject  implements Persistent {
 			}
 
 
+				if ($this->collArticleCategorys !== null) {
+					foreach($this->collArticleCategorys as $referrerFK) {
+						if (!$referrerFK->validate($columns)) {
+							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
+						}
+					}
+				}
+
 				if ($this->collCategoryI18ns !== null) {
 					foreach($this->collCategoryI18ns as $referrerFK) {
 						if (!$referrerFK->validate($columns)) {
@@ -299,14 +307,6 @@ abstract class BaseCategory extends BaseObject  implements Persistent {
 
 				if ($this->collCategorySubreaktors !== null) {
 					foreach($this->collCategorySubreaktors as $referrerFK) {
-						if (!$referrerFK->validate($columns)) {
-							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
-						}
-					}
-				}
-
-				if ($this->collArticleCategorys !== null) {
-					foreach($this->collArticleCategorys as $referrerFK) {
 						if (!$referrerFK->validate($columns)) {
 							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
 						}
@@ -424,6 +424,10 @@ abstract class BaseCategory extends BaseObject  implements Persistent {
 		if ($deepCopy) {
 									$copyObj->setNew(false);
 
+			foreach($this->getArticleCategorys() as $relObj) {
+				$copyObj->addArticleCategory($relObj->copy($deepCopy));
+			}
+
 			foreach($this->getCategoryI18ns() as $relObj) {
 				$copyObj->addCategoryI18n($relObj->copy($deepCopy));
 			}
@@ -434,10 +438,6 @@ abstract class BaseCategory extends BaseObject  implements Persistent {
 
 			foreach($this->getCategorySubreaktors() as $relObj) {
 				$copyObj->addCategorySubreaktor($relObj->copy($deepCopy));
-			}
-
-			foreach($this->getArticleCategorys() as $relObj) {
-				$copyObj->addArticleCategory($relObj->copy($deepCopy));
 			}
 
 		} 
@@ -463,6 +463,111 @@ abstract class BaseCategory extends BaseObject  implements Persistent {
 			self::$peer = new CategoryPeer();
 		}
 		return self::$peer;
+	}
+
+	
+	public function initArticleCategorys()
+	{
+		if ($this->collArticleCategorys === null) {
+			$this->collArticleCategorys = array();
+		}
+	}
+
+	
+	public function getArticleCategorys($criteria = null, $con = null)
+	{
+				include_once 'lib/model/om/BaseArticleCategoryPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collArticleCategorys === null) {
+			if ($this->isNew()) {
+			   $this->collArticleCategorys = array();
+			} else {
+
+				$criteria->add(ArticleCategoryPeer::CATEGORY_ID, $this->getId());
+
+				ArticleCategoryPeer::addSelectColumns($criteria);
+				$this->collArticleCategorys = ArticleCategoryPeer::doSelect($criteria, $con);
+			}
+		} else {
+						if (!$this->isNew()) {
+												
+
+				$criteria->add(ArticleCategoryPeer::CATEGORY_ID, $this->getId());
+
+				ArticleCategoryPeer::addSelectColumns($criteria);
+				if (!isset($this->lastArticleCategoryCriteria) || !$this->lastArticleCategoryCriteria->equals($criteria)) {
+					$this->collArticleCategorys = ArticleCategoryPeer::doSelect($criteria, $con);
+				}
+			}
+		}
+		$this->lastArticleCategoryCriteria = $criteria;
+		return $this->collArticleCategorys;
+	}
+
+	
+	public function countArticleCategorys($criteria = null, $distinct = false, $con = null)
+	{
+				include_once 'lib/model/om/BaseArticleCategoryPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		$criteria->add(ArticleCategoryPeer::CATEGORY_ID, $this->getId());
+
+		return ArticleCategoryPeer::doCount($criteria, $distinct, $con);
+	}
+
+	
+	public function addArticleCategory(ArticleCategory $l)
+	{
+		$this->collArticleCategorys[] = $l;
+		$l->setCategory($this);
+	}
+
+
+	
+	public function getArticleCategorysJoinArticle($criteria = null, $con = null)
+	{
+				include_once 'lib/model/om/BaseArticleCategoryPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collArticleCategorys === null) {
+			if ($this->isNew()) {
+				$this->collArticleCategorys = array();
+			} else {
+
+				$criteria->add(ArticleCategoryPeer::CATEGORY_ID, $this->getId());
+
+				$this->collArticleCategorys = ArticleCategoryPeer::doSelectJoinArticle($criteria, $con);
+			}
+		} else {
+									
+			$criteria->add(ArticleCategoryPeer::CATEGORY_ID, $this->getId());
+
+			if (!isset($this->lastArticleCategoryCriteria) || !$this->lastArticleCategoryCriteria->equals($criteria)) {
+				$this->collArticleCategorys = ArticleCategoryPeer::doSelectJoinArticle($criteria, $con);
+			}
+		}
+		$this->lastArticleCategoryCriteria = $criteria;
+
+		return $this->collArticleCategorys;
 	}
 
 	
@@ -778,111 +883,6 @@ abstract class BaseCategory extends BaseObject  implements Persistent {
 		$this->lastCategorySubreaktorCriteria = $criteria;
 
 		return $this->collCategorySubreaktors;
-	}
-
-	
-	public function initArticleCategorys()
-	{
-		if ($this->collArticleCategorys === null) {
-			$this->collArticleCategorys = array();
-		}
-	}
-
-	
-	public function getArticleCategorys($criteria = null, $con = null)
-	{
-				include_once 'lib/model/om/BaseArticleCategoryPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collArticleCategorys === null) {
-			if ($this->isNew()) {
-			   $this->collArticleCategorys = array();
-			} else {
-
-				$criteria->add(ArticleCategoryPeer::CATEGORY_ID, $this->getId());
-
-				ArticleCategoryPeer::addSelectColumns($criteria);
-				$this->collArticleCategorys = ArticleCategoryPeer::doSelect($criteria, $con);
-			}
-		} else {
-						if (!$this->isNew()) {
-												
-
-				$criteria->add(ArticleCategoryPeer::CATEGORY_ID, $this->getId());
-
-				ArticleCategoryPeer::addSelectColumns($criteria);
-				if (!isset($this->lastArticleCategoryCriteria) || !$this->lastArticleCategoryCriteria->equals($criteria)) {
-					$this->collArticleCategorys = ArticleCategoryPeer::doSelect($criteria, $con);
-				}
-			}
-		}
-		$this->lastArticleCategoryCriteria = $criteria;
-		return $this->collArticleCategorys;
-	}
-
-	
-	public function countArticleCategorys($criteria = null, $distinct = false, $con = null)
-	{
-				include_once 'lib/model/om/BaseArticleCategoryPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		$criteria->add(ArticleCategoryPeer::CATEGORY_ID, $this->getId());
-
-		return ArticleCategoryPeer::doCount($criteria, $distinct, $con);
-	}
-
-	
-	public function addArticleCategory(ArticleCategory $l)
-	{
-		$this->collArticleCategorys[] = $l;
-		$l->setCategory($this);
-	}
-
-
-	
-	public function getArticleCategorysJoinArticle($criteria = null, $con = null)
-	{
-				include_once 'lib/model/om/BaseArticleCategoryPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collArticleCategorys === null) {
-			if ($this->isNew()) {
-				$this->collArticleCategorys = array();
-			} else {
-
-				$criteria->add(ArticleCategoryPeer::CATEGORY_ID, $this->getId());
-
-				$this->collArticleCategorys = ArticleCategoryPeer::doSelectJoinArticle($criteria, $con);
-			}
-		} else {
-									
-			$criteria->add(ArticleCategoryPeer::CATEGORY_ID, $this->getId());
-
-			if (!isset($this->lastArticleCategoryCriteria) || !$this->lastArticleCategoryCriteria->equals($criteria)) {
-				$this->collArticleCategorys = ArticleCategoryPeer::doSelectJoinArticle($criteria, $con);
-			}
-		}
-		$this->lastArticleCategoryCriteria = $criteria;
-
-		return $this->collArticleCategorys;
 	}
 
   public function getCulture()

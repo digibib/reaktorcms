@@ -27,6 +27,7 @@ if (!defined('SF_ROOT_DIR'))
 }
 // initialize symfony
 require_once(SF_ROOT_DIR.DIRECTORY_SEPARATOR.'apps'.DIRECTORY_SEPARATOR.SF_APP.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'config.php');
+include(SF_ROOT_DIR.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'db_info.php');
 
 $ds = DIRECTORY_SEPARATOR;
 require_once(SF_ROOT_DIR.$ds.'test'.$ds.'bin'.$ds.'reaktorTestBrowser.class.php');
@@ -45,7 +46,7 @@ if (!defined("NO_CLEAR"))
   {
     if (substr($file, strlen($file) - 3, 3) == "sql")
     {
-      exec("mysql -u reaktor_user --password=cT0PHPCm reaktor_test < ".sfConfig::get("sf_root_dir")."/data/sql/".$file);
+      exec("mysql -u " . $username_test . " --password=" . $password_test . " " . $database_test . " < " .sfConfig::get("sf_root_dir")."/data/sql/".$file);
     }
   }
   
@@ -60,7 +61,7 @@ if (isset($extract18n) && $extract18n && strlen($i18ndata)) {
   $fp = tmpfile();
   fwrite($fp, $i18ndata);
   $tmp = stream_get_meta_data($fp);
-  system("mysql -u reaktor_user --password=cT0PHPCm reaktor_test < " . $tmp["uri"]);
+  system("mysql -u " . $username_test . " --password=" . $password_test . " " . $database_test . " < " . $tmp["uri"]);
 }
 
 

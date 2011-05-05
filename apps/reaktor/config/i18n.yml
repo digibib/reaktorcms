@@ -1,7 +1,13 @@
+<?php $dbhost_test = $username_test = $password_test = $database_test = null ?>
+<?php $dbhost = $username = $password = $database = "NOT-SET-YET" ?>
+<?php include dirname(__FILE__) . "/../../../config/db_info.php"; ?>
+<?php $username_test = isset($username_test) ? $username_test : $username ?>
+<?php $password_test = isset($password_test) ? $password_test : $password ?>
+<?php $dbhost_test = isset($dbhost_test) ? $dbhost_test : $dbhost ?>
 prod:
   default_culture:     'no'
   source:              MySQL
-  database:            mysql://reaktor_user:cT0PHPCm@localhost/reaktor
+  database:            "<?php echo 'mysql://' . $username . ':' . $password . '@' . $dbhost . '/' . $database ?>"
   debug:               on
   cache:               off
   untranslated_prefix: ""
@@ -10,7 +16,7 @@ prod:
 dev:
   default_culture:     'no'
   source:              MySQL
-  database:            mysql://reaktor_user:cT0PHPCm@localhost/reaktor
+  database:            "<?php echo 'mysql://' . $username . ':' . $password . '@' . $dbhost . '/' . $database ?>"
   debug:               on
   cache:               off
   untranslated_prefix: ""

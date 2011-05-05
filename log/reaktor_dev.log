@@ -1,1 +1,0 @@
-Feb 01 14:47:17 symfony [err] {sfParseException} Configuration file "/usr/share/php/data/symfony/config/php.yml" specifies key "zend.ze1_compatibility_mode" which is not a php.ini directive.

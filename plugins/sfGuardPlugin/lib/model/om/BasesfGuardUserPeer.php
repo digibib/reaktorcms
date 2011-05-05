@@ -669,6 +669,13 @@ abstract class BasesfGuardUserPeer {
 		foreach($objects as $obj) {
 
 
+			include_once 'lib/model/UserInterest.php';
+
+						$c = new Criteria();
+			
+			$c->add(UserInterestPeer::USER_ID, $obj->getId());
+			$affectedRows += UserInterestPeer::doDelete($c, $con);
+
 			include_once 'plugins/sfGuardPlugin/lib/model/sfGuardUserPermission.php';
 
 						$c = new Criteria();
@@ -689,13 +696,6 @@ abstract class BasesfGuardUserPeer {
 			
 			$c->add(sfGuardRememberKeyPeer::USER_ID, $obj->getId());
 			$affectedRows += sfGuardRememberKeyPeer::doDelete($c, $con);
-
-			include_once 'lib/model/UserInterest.php';
-
-						$c = new Criteria();
-			
-			$c->add(UserInterestPeer::USER_ID, $obj->getId());
-			$affectedRows += UserInterestPeer::doDelete($c, $con);
 
 			include_once 'lib/model/UserResource.php';
 

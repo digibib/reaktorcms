@@ -155,6 +155,114 @@ abstract class BasesfGuardUser extends BaseObject  implements Persistent {
 	protected $aResidence;
 
 	
+	protected $collUserInterests;
+
+	
+	protected $lastUserInterestCriteria = null;
+
+	
+	protected $collRecommendedArtworks;
+
+	
+	protected $lastRecommendedArtworkCriteria = null;
+
+	
+	protected $collRelatedArtworks;
+
+	
+	protected $lastRelatedArtworkCriteria = null;
+
+	
+	protected $collArticles;
+
+	
+	protected $lastArticleCriteria = null;
+
+	
+	protected $collArticleArticleRelations;
+
+	
+	protected $lastArticleArticleRelationCriteria = null;
+
+	
+	protected $collArticleArtworkRelations;
+
+	
+	protected $lastArticleArtworkRelationCriteria = null;
+
+	
+	protected $collArticleFiles;
+
+	
+	protected $lastArticleFileCriteria = null;
+
+	
+	protected $collsfComments;
+
+	
+	protected $lastsfCommentCriteria = null;
+
+	
+	protected $collTags;
+
+	
+	protected $lastTagCriteria = null;
+
+	
+	protected $collTaggings;
+
+	
+	protected $lastTaggingCriteria = null;
+
+	
+	protected $collReaktorArtworks;
+
+	
+	protected $lastReaktorArtworkCriteria = null;
+
+	
+	protected $collFavouritesRelatedByUserId;
+
+	
+	protected $lastFavouriteRelatedByUserIdCriteria = null;
+
+	
+	protected $collFavouritesRelatedByFriendId;
+
+	
+	protected $lastFavouriteRelatedByFriendIdCriteria = null;
+
+	
+	protected $collsfGuardUserPermissions;
+
+	
+	protected $lastsfGuardUserPermissionCriteria = null;
+
+	
+	protected $collsfGuardUserGroups;
+
+	
+	protected $lastsfGuardUserGroupCriteria = null;
+
+	
+	protected $collsfGuardRememberKeys;
+
+	
+	protected $lastsfGuardRememberKeyCriteria = null;
+
+	
+	protected $collUserResources;
+
+	
+	protected $lastUserResourceCriteria = null;
+
+	
+	protected $collCategoryArtworks;
+
+	
+	protected $lastCategoryArtworkCriteria = null;
+
+	
 	protected $collMessagessRelatedByToUserId;
 
 	
@@ -185,124 +293,16 @@ abstract class BasesfGuardUser extends BaseObject  implements Persistent {
 	protected $lastAdminMessageCriteria = null;
 
 	
-	protected $collRecommendedArtworks;
-
-	
-	protected $lastRecommendedArtworkCriteria = null;
-
-	
-	protected $collsfGuardUserPermissions;
-
-	
-	protected $lastsfGuardUserPermissionCriteria = null;
-
-	
-	protected $collsfGuardUserGroups;
-
-	
-	protected $lastsfGuardUserGroupCriteria = null;
-
-	
-	protected $collsfGuardRememberKeys;
-
-	
-	protected $lastsfGuardRememberKeyCriteria = null;
-
-	
-	protected $collsfComments;
-
-	
-	protected $lastsfCommentCriteria = null;
-
-	
-	protected $collReaktorArtworks;
-
-	
-	protected $lastReaktorArtworkCriteria = null;
-
-	
-	protected $collUserInterests;
-
-	
-	protected $lastUserInterestCriteria = null;
-
-	
-	protected $collTags;
-
-	
-	protected $lastTagCriteria = null;
-
-	
-	protected $collTaggings;
-
-	
-	protected $lastTaggingCriteria = null;
-
-	
-	protected $collUserResources;
-
-	
-	protected $lastUserResourceCriteria = null;
-
-	
 	protected $collReaktorFiles;
 
 	
 	protected $lastReaktorFileCriteria = null;
 
 	
-	protected $collRelatedArtworks;
-
-	
-	protected $lastRelatedArtworkCriteria = null;
-
-	
 	protected $collReaktorArtworkHistorys;
 
 	
 	protected $lastReaktorArtworkHistoryCriteria = null;
-
-	
-	protected $collCategoryArtworks;
-
-	
-	protected $lastCategoryArtworkCriteria = null;
-
-	
-	protected $collArticles;
-
-	
-	protected $lastArticleCriteria = null;
-
-	
-	protected $collArticleArticleRelations;
-
-	
-	protected $lastArticleArticleRelationCriteria = null;
-
-	
-	protected $collArticleArtworkRelations;
-
-	
-	protected $lastArticleArtworkRelationCriteria = null;
-
-	
-	protected $collArticleFiles;
-
-	
-	protected $lastArticleFileCriteria = null;
-
-	
-	protected $collFavouritesRelatedByUserId;
-
-	
-	protected $lastFavouriteRelatedByUserIdCriteria = null;
-
-	
-	protected $collFavouritesRelatedByFriendId;
-
-	
-	protected $lastFavouriteRelatedByFriendIdCriteria = null;
 
 	
 	protected $collHistorys;
@@ -1382,6 +1382,150 @@ abstract class BasesfGuardUser extends BaseObject  implements Persistent {
 				}
 				$this->resetModified(); 			}
 
+			if ($this->collUserInterests !== null) {
+				foreach($this->collUserInterests as $referrerFK) {
+					if (!$referrerFK->isDeleted()) {
+						$affectedRows += $referrerFK->save($con);
+					}
+				}
+			}
+
+			if ($this->collRecommendedArtworks !== null) {
+				foreach($this->collRecommendedArtworks as $referrerFK) {
+					if (!$referrerFK->isDeleted()) {
+						$affectedRows += $referrerFK->save($con);
+					}
+				}
+			}
+
+			if ($this->collRelatedArtworks !== null) {
+				foreach($this->collRelatedArtworks as $referrerFK) {
+					if (!$referrerFK->isDeleted()) {
+						$affectedRows += $referrerFK->save($con);
+					}
+				}
+			}
+
+			if ($this->collArticles !== null) {
+				foreach($this->collArticles as $referrerFK) {
+					if (!$referrerFK->isDeleted()) {
+						$affectedRows += $referrerFK->save($con);
+					}
+				}
+			}
+
+			if ($this->collArticleArticleRelations !== null) {
+				foreach($this->collArticleArticleRelations as $referrerFK) {
+					if (!$referrerFK->isDeleted()) {
+						$affectedRows += $referrerFK->save($con);
+					}
+				}
+			}
+
+			if ($this->collArticleArtworkRelations !== null) {
+				foreach($this->collArticleArtworkRelations as $referrerFK) {
+					if (!$referrerFK->isDeleted()) {
+						$affectedRows += $referrerFK->save($con);
+					}
+				}
+			}
+
+			if ($this->collArticleFiles !== null) {
+				foreach($this->collArticleFiles as $referrerFK) {
+					if (!$referrerFK->isDeleted()) {
+						$affectedRows += $referrerFK->save($con);
+					}
+				}
+			}
+
+			if ($this->collsfComments !== null) {
+				foreach($this->collsfComments as $referrerFK) {
+					if (!$referrerFK->isDeleted()) {
+						$affectedRows += $referrerFK->save($con);
+					}
+				}
+			}
+
+			if ($this->collTags !== null) {
+				foreach($this->collTags as $referrerFK) {
+					if (!$referrerFK->isDeleted()) {
+						$affectedRows += $referrerFK->save($con);
+					}
+				}
+			}
+
+			if ($this->collTaggings !== null) {
+				foreach($this->collTaggings as $referrerFK) {
+					if (!$referrerFK->isDeleted()) {
+						$affectedRows += $referrerFK->save($con);
+					}
+				}
+			}
+
+			if ($this->collReaktorArtworks !== null) {
+				foreach($this->collReaktorArtworks as $referrerFK) {
+					if (!$referrerFK->isDeleted()) {
+						$affectedRows += $referrerFK->save($con);
+					}
+				}
+			}
+
+			if ($this->collFavouritesRelatedByUserId !== null) {
+				foreach($this->collFavouritesRelatedByUserId as $referrerFK) {
+					if (!$referrerFK->isDeleted()) {
+						$affectedRows += $referrerFK->save($con);
+					}
+				}
+			}
+
+			if ($this->collFavouritesRelatedByFriendId !== null) {
+				foreach($this->collFavouritesRelatedByFriendId as $referrerFK) {
+					if (!$referrerFK->isDeleted()) {
+						$affectedRows += $referrerFK->save($con);
+					}
+				}
+			}
+
+			if ($this->collsfGuardUserPermissions !== null) {
+				foreach($this->collsfGuardUserPermissions as $referrerFK) {
+					if (!$referrerFK->isDeleted()) {
+						$affectedRows += $referrerFK->save($con);
+					}
+				}
+			}
+
+			if ($this->collsfGuardUserGroups !== null) {
+				foreach($this->collsfGuardUserGroups as $referrerFK) {
+					if (!$referrerFK->isDeleted()) {
+						$affectedRows += $referrerFK->save($con);
+					}
+				}
+			}
+
+			if ($this->collsfGuardRememberKeys !== null) {
+				foreach($this->collsfGuardRememberKeys as $referrerFK) {
+					if (!$referrerFK->isDeleted()) {
+						$affectedRows += $referrerFK->save($con);
+					}
+				}
+			}
+
+			if ($this->collUserResources !== null) {
+				foreach($this->collUserResources as $referrerFK) {
+					if (!$referrerFK->isDeleted()) {
+						$affectedRows += $referrerFK->save($con);
+					}
+				}
+			}
+
+			if ($this->collCategoryArtworks !== null) {
+				foreach($this->collCategoryArtworks as $referrerFK) {
+					if (!$referrerFK->isDeleted()) {
+						$affectedRows += $referrerFK->save($con);
+					}
+				}
+			}
+
 			if ($this->collMessagessRelatedByToUserId !== null) {
 				foreach($this->collMessagessRelatedByToUserId as $referrerFK) {
 					if (!$referrerFK->isDeleted()) {
@@ -1422,86 +1566,6 @@ abstract class BasesfGuardUser extends BaseObject  implements Persistent {
 				}
 			}
 
-			if ($this->collRecommendedArtworks !== null) {
-				foreach($this->collRecommendedArtworks as $referrerFK) {
-					if (!$referrerFK->isDeleted()) {
-						$affectedRows += $referrerFK->save($con);
-					}
-				}
-			}
-
-			if ($this->collsfGuardUserPermissions !== null) {
-				foreach($this->collsfGuardUserPermissions as $referrerFK) {
-					if (!$referrerFK->isDeleted()) {
-						$affectedRows += $referrerFK->save($con);
-					}
-				}
-			}
-
-			if ($this->collsfGuardUserGroups !== null) {
-				foreach($this->collsfGuardUserGroups as $referrerFK) {
-					if (!$referrerFK->isDeleted()) {
-						$affectedRows += $referrerFK->save($con);
-					}
-				}
-			}
-
-			if ($this->collsfGuardRememberKeys !== null) {
-				foreach($this->collsfGuardRememberKeys as $referrerFK) {
-					if (!$referrerFK->isDeleted()) {
-						$affectedRows += $referrerFK->save($con);
-					}
-				}
-			}
-
-			if ($this->collsfComments !== null) {
-				foreach($this->collsfComments as $referrerFK) {
-					if (!$referrerFK->isDeleted()) {
-						$affectedRows += $referrerFK->save($con);
-					}
-				}
-			}
-
-			if ($this->collReaktorArtworks !== null) {
-				foreach($this->collReaktorArtworks as $referrerFK) {
-					if (!$referrerFK->isDeleted()) {
-						$affectedRows += $referrerFK->save($con);
-					}
-				}
-			}
-
-			if ($this->collUserInterests !== null) {
-				foreach($this->collUserInterests as $referrerFK) {
-					if (!$referrerFK->isDeleted()) {
-						$affectedRows += $referrerFK->save($con);
-					}
-				}
-			}
-
-			if ($this->collTags !== null) {
-				foreach($this->collTags as $referrerFK) {
-					if (!$referrerFK->isDeleted()) {
-						$affectedRows += $referrerFK->save($con);
-					}
-				}
-			}
-
-			if ($this->collTaggings !== null) {
-				foreach($this->collTaggings as $referrerFK) {
-					if (!$referrerFK->isDeleted()) {
-						$affectedRows += $referrerFK->save($con);
-					}
-				}
-			}
-
-			if ($this->collUserResources !== null) {
-				foreach($this->collUserResources as $referrerFK) {
-					if (!$referrerFK->isDeleted()) {
-						$affectedRows += $referrerFK->save($con);
-					}
-				}
-			}
-
 			if ($this->collReaktorFiles !== null) {
 				foreach($this->collReaktorFiles as $referrerFK) {
 					if (!$referrerFK->isDeleted()) {
@@ -1510,72 +1574,8 @@ abstract class BasesfGuardUser extends BaseObject  implements Persistent {
 				}
 			}
 
-			if ($this->collRelatedArtworks !== null) {
-				foreach($this->collRelatedArtworks as $referrerFK) {
-					if (!$referrerFK->isDeleted()) {
-						$affectedRows += $referrerFK->save($con);
-					}
-				}
-			}
-
 			if ($this->collReaktorArtworkHistorys !== null) {
 				foreach($this->collReaktorArtworkHistorys as $referrerFK) {
-					if (!$referrerFK->isDeleted()) {
-						$affectedRows += $referrerFK->save($con);
-					}
-				}
-			}
-
-			if ($this->collCategoryArtworks !== null) {
-				foreach($this->collCategoryArtworks as $referrerFK) {
-					if (!$referrerFK->isDeleted()) {
-						$affectedRows += $referrerFK->save($con);
-					}
-				}
-			}
-
-			if ($this->collArticles !== null) {
-				foreach($this->collArticles as $referrerFK) {
-					if (!$referrerFK->isDeleted()) {
-						$affectedRows += $referrerFK->save($con);
-					}
-				}
-			}
-
-			if ($this->collArticleArticleRelations !== null) {
-				foreach($this->collArticleArticleRelations as $referrerFK) {
-					if (!$referrerFK->isDeleted()) {
-						$affectedRows += $referrerFK->save($con);
-					}
-				}
-			}
-
-			if ($this->collArticleArtworkRelations !== null) {
-				foreach($this->collArticleArtworkRelations as $referrerFK) {
-					if (!$referrerFK->isDeleted()) {
-						$affectedRows += $referrerFK->save($con);
-					}
-				}
-			}
-
-			if ($this->collArticleFiles !== null) {
-				foreach($this->collArticleFiles as $referrerFK) {
-					if (!$referrerFK->isDeleted()) {
-						$affectedRows += $referrerFK->save($con);
-					}
-				}
-			}
-
-			if ($this->collFavouritesRelatedByUserId !== null) {
-				foreach($this->collFavouritesRelatedByUserId as $referrerFK) {
-					if (!$referrerFK->isDeleted()) {
-						$affectedRows += $referrerFK->save($con);
-					}
-				}
-			}
-
-			if ($this->collFavouritesRelatedByFriendId !== null) {
-				foreach($this->collFavouritesRelatedByFriendId as $referrerFK) {
 					if (!$referrerFK->isDeleted()) {
 						$affectedRows += $referrerFK->save($con);
 					}
@@ -1639,6 +1639,150 @@ abstract class BasesfGuardUser extends BaseObject  implements Persistent {
 			}
 
 
+				if ($this->collUserInterests !== null) {
+					foreach($this->collUserInterests as $referrerFK) {
+						if (!$referrerFK->validate($columns)) {
+							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
+						}
+					}
+				}
+
+				if ($this->collRecommendedArtworks !== null) {
+					foreach($this->collRecommendedArtworks as $referrerFK) {
+						if (!$referrerFK->validate($columns)) {
+							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
+						}
+					}
+				}
+
+				if ($this->collRelatedArtworks !== null) {
+					foreach($this->collRelatedArtworks as $referrerFK) {
+						if (!$referrerFK->validate($columns)) {
+							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
+						}
+					}
+				}
+
+				if ($this->collArticles !== null) {
+					foreach($this->collArticles as $referrerFK) {
+						if (!$referrerFK->validate($columns)) {
+							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
+						}
+					}
+				}
+
+				if ($this->collArticleArticleRelations !== null) {
+					foreach($this->collArticleArticleRelations as $referrerFK) {
+						if (!$referrerFK->validate($columns)) {
+							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
+						}
+					}
+				}
+
+				if ($this->collArticleArtworkRelations !== null) {
+					foreach($this->collArticleArtworkRelations as $referrerFK) {
+						if (!$referrerFK->validate($columns)) {
+							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
+						}
+					}
+				}
+
+				if ($this->collArticleFiles !== null) {
+					foreach($this->collArticleFiles as $referrerFK) {
+						if (!$referrerFK->validate($columns)) {
+							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
+						}
+					}
+				}
+
+				if ($this->collsfComments !== null) {
+					foreach($this->collsfComments as $referrerFK) {
+						if (!$referrerFK->validate($columns)) {
+							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
+						}
+					}
+				}
+
+				if ($this->collTags !== null) {
+					foreach($this->collTags as $referrerFK) {
+						if (!$referrerFK->validate($columns)) {
+							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
+						}
+					}
+				}
+
+				if ($this->collTaggings !== null) {
+					foreach($this->collTaggings as $referrerFK) {
+						if (!$referrerFK->validate($columns)) {
+							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
+						}
+					}
+				}
+
+				if ($this->collReaktorArtworks !== null) {
+					foreach($this->collReaktorArtworks as $referrerFK) {
+						if (!$referrerFK->validate($columns)) {
+							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
+						}
+					}
+				}
+
+				if ($this->collFavouritesRelatedByUserId !== null) {
+					foreach($this->collFavouritesRelatedByUserId as $referrerFK) {
+						if (!$referrerFK->validate($columns)) {
+							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
+						}
+					}
+				}
+
+				if ($this->collFavouritesRelatedByFriendId !== null) {
+					foreach($this->collFavouritesRelatedByFriendId as $referrerFK) {
+						if (!$referrerFK->validate($columns)) {
+							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
+						}
+					}
+				}
+
+				if ($this->collsfGuardUserPermissions !== null) {
+					foreach($this->collsfGuardUserPermissions as $referrerFK) {
+						if (!$referrerFK->validate($columns)) {
+							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
+						}
+					}
+				}
+
+				if ($this->collsfGuardUserGroups !== null) {
+					foreach($this->collsfGuardUserGroups as $referrerFK) {
+						if (!$referrerFK->validate($columns)) {
+							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
+						}
+					}
+				}
+
+				if ($this->collsfGuardRememberKeys !== null) {
+					foreach($this->collsfGuardRememberKeys as $referrerFK) {
+						if (!$referrerFK->validate($columns)) {
+							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
+						}
+					}
+				}
+
+				if ($this->collUserResources !== null) {
+					foreach($this->collUserResources as $referrerFK) {
+						if (!$referrerFK->validate($columns)) {
+							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
+						}
+					}
+				}
+
+				if ($this->collCategoryArtworks !== null) {
+					foreach($this->collCategoryArtworks as $referrerFK) {
+						if (!$referrerFK->validate($columns)) {
+							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
+						}
+					}
+				}
+
 				if ($this->collMessagessRelatedByToUserId !== null) {
 					foreach($this->collMessagessRelatedByToUserId as $referrerFK) {
 						if (!$referrerFK->validate($columns)) {
@@ -1679,86 +1823,6 @@ abstract class BasesfGuardUser extends BaseObject  implements Persistent {
 					}
 				}
 
-				if ($this->collRecommendedArtworks !== null) {
-					foreach($this->collRecommendedArtworks as $referrerFK) {
-						if (!$referrerFK->validate($columns)) {
-							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
-						}
-					}
-				}
-
-				if ($this->collsfGuardUserPermissions !== null) {
-					foreach($this->collsfGuardUserPermissions as $referrerFK) {
-						if (!$referrerFK->validate($columns)) {
-							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
-						}
-					}
-				}
-
-				if ($this->collsfGuardUserGroups !== null) {
-					foreach($this->collsfGuardUserGroups as $referrerFK) {
-						if (!$referrerFK->validate($columns)) {
-							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
-						}
-					}
-				}
-
-				if ($this->collsfGuardRememberKeys !== null) {
-					foreach($this->collsfGuardRememberKeys as $referrerFK) {
-						if (!$referrerFK->validate($columns)) {
-							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
-						}
-					}
-				}
-
-				if ($this->collsfComments !== null) {
-					foreach($this->collsfComments as $referrerFK) {
-						if (!$referrerFK->validate($columns)) {
-							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
-						}
-					}
-				}
-
-				if ($this->collReaktorArtworks !== null) {
-					foreach($this->collReaktorArtworks as $referrerFK) {
-						if (!$referrerFK->validate($columns)) {
-							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
-						}
-					}
-				}
-
-				if ($this->collUserInterests !== null) {
-					foreach($this->collUserInterests as $referrerFK) {
-						if (!$referrerFK->validate($columns)) {
-							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
-						}
-					}
-				}
-
-				if ($this->collTags !== null) {
-					foreach($this->collTags as $referrerFK) {
-						if (!$referrerFK->validate($columns)) {
-							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
-						}
-					}
-				}
-
-				if ($this->collTaggings !== null) {
-					foreach($this->collTaggings as $referrerFK) {
-						if (!$referrerFK->validate($columns)) {
-							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
-						}
-					}
-				}
-
-				if ($this->collUserResources !== null) {
-					foreach($this->collUserResources as $referrerFK) {
-						if (!$referrerFK->validate($columns)) {
-							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
-						}
-					}
-				}
-
 				if ($this->collReaktorFiles !== null) {
 					foreach($this->collReaktorFiles as $referrerFK) {
 						if (!$referrerFK->validate($columns)) {
@@ -1767,72 +1831,8 @@ abstract class BasesfGuardUser extends BaseObject  implements Persistent {
 					}
 				}
 
-				if ($this->collRelatedArtworks !== null) {
-					foreach($this->collRelatedArtworks as $referrerFK) {
-						if (!$referrerFK->validate($columns)) {
-							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
-						}
-					}
-				}
-
 				if ($this->collReaktorArtworkHistorys !== null) {
 					foreach($this->collReaktorArtworkHistorys as $referrerFK) {
-						if (!$referrerFK->validate($columns)) {
-							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
-						}
-					}
-				}
-
-				if ($this->collCategoryArtworks !== null) {
-					foreach($this->collCategoryArtworks as $referrerFK) {
-						if (!$referrerFK->validate($columns)) {
-							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
-						}
-					}
-				}
-
-				if ($this->collArticles !== null) {
-					foreach($this->collArticles as $referrerFK) {
-						if (!$referrerFK->validate($columns)) {
-							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
-						}
-					}
-				}
-
-				if ($this->collArticleArticleRelations !== null) {
-					foreach($this->collArticleArticleRelations as $referrerFK) {
-						if (!$referrerFK->validate($columns)) {
-							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
-						}
-					}
-				}
-
-				if ($this->collArticleArtworkRelations !== null) {
-					foreach($this->collArticleArtworkRelations as $referrerFK) {
-						if (!$referrerFK->validate($columns)) {
-							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
-						}
-					}
-				}
-
-				if ($this->collArticleFiles !== null) {
-					foreach($this->collArticleFiles as $referrerFK) {
-						if (!$referrerFK->validate($columns)) {
-							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
-						}
-					}
-				}
-
-				if ($this->collFavouritesRelatedByUserId !== null) {
-					foreach($this->collFavouritesRelatedByUserId as $referrerFK) {
-						if (!$referrerFK->validate($columns)) {
-							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
-						}
-					}
-				}
-
-				if ($this->collFavouritesRelatedByFriendId !== null) {
-					foreach($this->collFavouritesRelatedByFriendId as $referrerFK) {
 						if (!$referrerFK->validate($columns)) {
 							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
 						}
@@ -2332,6 +2332,78 @@ abstract class BasesfGuardUser extends BaseObject  implements Persistent {
 		if ($deepCopy) {
 									$copyObj->setNew(false);
 
+			foreach($this->getUserInterests() as $relObj) {
+				$copyObj->addUserInterest($relObj->copy($deepCopy));
+			}
+
+			foreach($this->getRecommendedArtworks() as $relObj) {
+				$copyObj->addRecommendedArtwork($relObj->copy($deepCopy));
+			}
+
+			foreach($this->getRelatedArtworks() as $relObj) {
+				$copyObj->addRelatedArtwork($relObj->copy($deepCopy));
+			}
+
+			foreach($this->getArticles() as $relObj) {
+				$copyObj->addArticle($relObj->copy($deepCopy));
+			}
+
+			foreach($this->getArticleArticleRelations() as $relObj) {
+				$copyObj->addArticleArticleRelation($relObj->copy($deepCopy));
+			}
+
+			foreach($this->getArticleArtworkRelations() as $relObj) {
+				$copyObj->addArticleArtworkRelation($relObj->copy($deepCopy));
+			}
+
+			foreach($this->getArticleFiles() as $relObj) {
+				$copyObj->addArticleFile($relObj->copy($deepCopy));
+			}
+
+			foreach($this->getsfComments() as $relObj) {
+				$copyObj->addsfComment($relObj->copy($deepCopy));
+			}
+
+			foreach($this->getTags() as $relObj) {
+				$copyObj->addTag($relObj->copy($deepCopy));
+			}
+
+			foreach($this->getTaggings() as $relObj) {
+				$copyObj->addTagging($relObj->copy($deepCopy));
+			}
+
+			foreach($this->getReaktorArtworks() as $relObj) {
+				$copyObj->addReaktorArtwork($relObj->copy($deepCopy));
+			}
+
+			foreach($this->getFavouritesRelatedByUserId() as $relObj) {
+				$copyObj->addFavouriteRelatedByUserId($relObj->copy($deepCopy));
+			}
+
+			foreach($this->getFavouritesRelatedByFriendId() as $relObj) {
+				$copyObj->addFavouriteRelatedByFriendId($relObj->copy($deepCopy));
+			}
+
+			foreach($this->getsfGuardUserPermissions() as $relObj) {
+				$copyObj->addsfGuardUserPermission($relObj->copy($deepCopy));
+			}
+
+			foreach($this->getsfGuardUserGroups() as $relObj) {
+				$copyObj->addsfGuardUserGroup($relObj->copy($deepCopy));
+			}
+
+			foreach($this->getsfGuardRememberKeys() as $relObj) {
+				$copyObj->addsfGuardRememberKey($relObj->copy($deepCopy));
+			}
+
+			foreach($this->getUserResources() as $relObj) {
+				$copyObj->addUserResource($relObj->copy($deepCopy));
+			}
+
+			foreach($this->getCategoryArtworks() as $relObj) {
+				$copyObj->addCategoryArtwork($relObj->copy($deepCopy));
+			}
+
 			foreach($this->getMessagessRelatedByToUserId() as $relObj) {
 				$copyObj->addMessagesRelatedByToUserId($relObj->copy($deepCopy));
 			}
@@ -2352,84 +2424,12 @@ abstract class BasesfGuardUser extends BaseObject  implements Persistent {
 				$copyObj->addAdminMessage($relObj->copy($deepCopy));
 			}
 
-			foreach($this->getRecommendedArtworks() as $relObj) {
-				$copyObj->addRecommendedArtwork($relObj->copy($deepCopy));
-			}
-
-			foreach($this->getsfGuardUserPermissions() as $relObj) {
-				$copyObj->addsfGuardUserPermission($relObj->copy($deepCopy));
-			}
-
-			foreach($this->getsfGuardUserGroups() as $relObj) {
-				$copyObj->addsfGuardUserGroup($relObj->copy($deepCopy));
-			}
-
-			foreach($this->getsfGuardRememberKeys() as $relObj) {
-				$copyObj->addsfGuardRememberKey($relObj->copy($deepCopy));
-			}
-
-			foreach($this->getsfComments() as $relObj) {
-				$copyObj->addsfComment($relObj->copy($deepCopy));
-			}
-
-			foreach($this->getReaktorArtworks() as $relObj) {
-				$copyObj->addReaktorArtwork($relObj->copy($deepCopy));
-			}
-
-			foreach($this->getUserInterests() as $relObj) {
-				$copyObj->addUserInterest($relObj->copy($deepCopy));
-			}
-
-			foreach($this->getTags() as $relObj) {
-				$copyObj->addTag($relObj->copy($deepCopy));
-			}
-
-			foreach($this->getTaggings() as $relObj) {
-				$copyObj->addTagging($relObj->copy($deepCopy));
-			}
-
-			foreach($this->getUserResources() as $relObj) {
-				$copyObj->addUserResource($relObj->copy($deepCopy));
-			}
-
 			foreach($this->getReaktorFiles() as $relObj) {
 				$copyObj->addReaktorFile($relObj->copy($deepCopy));
 			}
 
-			foreach($this->getRelatedArtworks() as $relObj) {
-				$copyObj->addRelatedArtwork($relObj->copy($deepCopy));
-			}
-
 			foreach($this->getReaktorArtworkHistorys() as $relObj) {
 				$copyObj->addReaktorArtworkHistory($relObj->copy($deepCopy));
-			}
-
-			foreach($this->getCategoryArtworks() as $relObj) {
-				$copyObj->addCategoryArtwork($relObj->copy($deepCopy));
-			}
-
-			foreach($this->getArticles() as $relObj) {
-				$copyObj->addArticle($relObj->copy($deepCopy));
-			}
-
-			foreach($this->getArticleArticleRelations() as $relObj) {
-				$copyObj->addArticleArticleRelation($relObj->copy($deepCopy));
-			}
-
-			foreach($this->getArticleArtworkRelations() as $relObj) {
-				$copyObj->addArticleArtworkRelation($relObj->copy($deepCopy));
-			}
-
-			foreach($this->getArticleFiles() as $relObj) {
-				$copyObj->addArticleFile($relObj->copy($deepCopy));
-			}
-
-			foreach($this->getFavouritesRelatedByUserId() as $relObj) {
-				$copyObj->addFavouriteRelatedByUserId($relObj->copy($deepCopy));
-			}
-
-			foreach($this->getFavouritesRelatedByFriendId() as $relObj) {
-				$copyObj->addFavouriteRelatedByFriendId($relObj->copy($deepCopy));
 			}
 
 			foreach($this->getHistorys() as $relObj) {
@@ -2491,17 +2491,17 @@ abstract class BasesfGuardUser extends BaseObject  implements Persistent {
 	}
 
 	
-	public function initMessagessRelatedByToUserId()
+	public function initUserInterests()
 	{
-		if ($this->collMessagessRelatedByToUserId === null) {
-			$this->collMessagessRelatedByToUserId = array();
+		if ($this->collUserInterests === null) {
+			$this->collUserInterests = array();
 		}
 	}
 
 	
-	public function getMessagessRelatedByToUserId($criteria = null, $con = null)
+	public function getUserInterests($criteria = null, $con = null)
 	{
-				include_once 'lib/model/om/BaseMessagesPeer.php';
+				include_once 'lib/model/om/BaseUserInterestPeer.php';
 		if ($criteria === null) {
 			$criteria = new Criteria();
 		}
@@ -2510,36 +2510,36 @@ abstract class BasesfGuardUser extends BaseObject  implements Persistent {
 			$criteria = clone $criteria;
 		}
 
-		if ($this->collMessagessRelatedByToUserId === null) {
+		if ($this->collUserInterests === null) {
 			if ($this->isNew()) {
-			   $this->collMessagessRelatedByToUserId = array();
+			   $this->collUserInterests = array();
 			} else {
 
-				$criteria->add(MessagesPeer::TO_USER_ID, $this->getId());
+				$criteria->add(UserInterestPeer::USER_ID, $this->getId());
 
-				MessagesPeer::addSelectColumns($criteria);
-				$this->collMessagessRelatedByToUserId = MessagesPeer::doSelect($criteria, $con);
+				UserInterestPeer::addSelectColumns($criteria);
+				$this->collUserInterests = UserInterestPeer::doSelect($criteria, $con);
 			}
 		} else {
 						if (!$this->isNew()) {
 												
 
-				$criteria->add(MessagesPeer::TO_USER_ID, $this->getId());
+				$criteria->add(UserInterestPeer::USER_ID, $this->getId());
 
-				MessagesPeer::addSelectColumns($criteria);
-				if (!isset($this->lastMessagesRelatedByToUserIdCriteria) || !$this->lastMessagesRelatedByToUserIdCriteria->equals($criteria)) {
-					$this->collMessagessRelatedByToUserId = MessagesPeer::doSelect($criteria, $con);
+				UserInterestPeer::addSelectColumns($criteria);
+				if (!isset($this->lastUserInterestCriteria) || !$this->lastUserInterestCriteria->equals($criteria)) {
+					$this->collUserInterests = UserInterestPeer::doSelect($criteria, $con);
 				}
 			}
 		}
-		$this->lastMessagesRelatedByToUserIdCriteria = $criteria;
-		return $this->collMessagessRelatedByToUserId;
+		$this->lastUserInterestCriteria = $criteria;
+		return $this->collUserInterests;
 	}
 
 	
-	public function countMessagessRelatedByToUserId($criteria = null, $distinct = false, $con = null)
+	public function countUserInterests($criteria = null, $distinct = false, $con = null)
 	{
-				include_once 'lib/model/om/BaseMessagesPeer.php';
+				include_once 'lib/model/om/BaseUserInterestPeer.php';
 		if ($criteria === null) {
 			$criteria = new Criteria();
 		}
@@ -2548,296 +2548,51 @@ abstract class BasesfGuardUser extends BaseObject  implements Persistent {
 			$criteria = clone $criteria;
 		}
 
-		$criteria->add(MessagesPeer::TO_USER_ID, $this->getId());
+		$criteria->add(UserInterestPeer::USER_ID, $this->getId());
 
-		return MessagesPeer::doCount($criteria, $distinct, $con);
+		return UserInterestPeer::doCount($criteria, $distinct, $con);
 	}
 
 	
-	public function addMessagesRelatedByToUserId(Messages $l)
+	public function addUserInterest(UserInterest $l)
 	{
-		$this->collMessagessRelatedByToUserId[] = $l;
-		$l->setsfGuardUserRelatedByToUserId($this);
-	}
-
-	
-	public function initMessagessRelatedByFromUserId()
-	{
-		if ($this->collMessagessRelatedByFromUserId === null) {
-			$this->collMessagessRelatedByFromUserId = array();
-		}
-	}
-
-	
-	public function getMessagessRelatedByFromUserId($criteria = null, $con = null)
-	{
-				include_once 'lib/model/om/BaseMessagesPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collMessagessRelatedByFromUserId === null) {
-			if ($this->isNew()) {
-			   $this->collMessagessRelatedByFromUserId = array();
-			} else {
-
-				$criteria->add(MessagesPeer::FROM_USER_ID, $this->getId());
-
-				MessagesPeer::addSelectColumns($criteria);
-				$this->collMessagessRelatedByFromUserId = MessagesPeer::doSelect($criteria, $con);
-			}
-		} else {
-						if (!$this->isNew()) {
-												
-
-				$criteria->add(MessagesPeer::FROM_USER_ID, $this->getId());
-
-				MessagesPeer::addSelectColumns($criteria);
-				if (!isset($this->lastMessagesRelatedByFromUserIdCriteria) || !$this->lastMessagesRelatedByFromUserIdCriteria->equals($criteria)) {
-					$this->collMessagessRelatedByFromUserId = MessagesPeer::doSelect($criteria, $con);
-				}
-			}
-		}
-		$this->lastMessagesRelatedByFromUserIdCriteria = $criteria;
-		return $this->collMessagessRelatedByFromUserId;
-	}
-
-	
-	public function countMessagessRelatedByFromUserId($criteria = null, $distinct = false, $con = null)
-	{
-				include_once 'lib/model/om/BaseMessagesPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		$criteria->add(MessagesPeer::FROM_USER_ID, $this->getId());
-
-		return MessagesPeer::doCount($criteria, $distinct, $con);
-	}
-
-	
-	public function addMessagesRelatedByFromUserId(Messages $l)
-	{
-		$this->collMessagessRelatedByFromUserId[] = $l;
-		$l->setsfGuardUserRelatedByFromUserId($this);
-	}
-
-	
-	public function initMessagesIgnoredUsersRelatedByUserId()
-	{
-		if ($this->collMessagesIgnoredUsersRelatedByUserId === null) {
-			$this->collMessagesIgnoredUsersRelatedByUserId = array();
-		}
-	}
-
-	
-	public function getMessagesIgnoredUsersRelatedByUserId($criteria = null, $con = null)
-	{
-				include_once 'lib/model/om/BaseMessagesIgnoredUserPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collMessagesIgnoredUsersRelatedByUserId === null) {
-			if ($this->isNew()) {
-			   $this->collMessagesIgnoredUsersRelatedByUserId = array();
-			} else {
-
-				$criteria->add(MessagesIgnoredUserPeer::USER_ID, $this->getId());
-
-				MessagesIgnoredUserPeer::addSelectColumns($criteria);
-				$this->collMessagesIgnoredUsersRelatedByUserId = MessagesIgnoredUserPeer::doSelect($criteria, $con);
-			}
-		} else {
-						if (!$this->isNew()) {
-												
-
-				$criteria->add(MessagesIgnoredUserPeer::USER_ID, $this->getId());
-
-				MessagesIgnoredUserPeer::addSelectColumns($criteria);
-				if (!isset($this->lastMessagesIgnoredUserRelatedByUserIdCriteria) || !$this->lastMessagesIgnoredUserRelatedByUserIdCriteria->equals($criteria)) {
-					$this->collMessagesIgnoredUsersRelatedByUserId = MessagesIgnoredUserPeer::doSelect($criteria, $con);
-				}
-			}
-		}
-		$this->lastMessagesIgnoredUserRelatedByUserIdCriteria = $criteria;
-		return $this->collMessagesIgnoredUsersRelatedByUserId;
-	}
-
-	
-	public function countMessagesIgnoredUsersRelatedByUserId($criteria = null, $distinct = false, $con = null)
-	{
-				include_once 'lib/model/om/BaseMessagesIgnoredUserPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		$criteria->add(MessagesIgnoredUserPeer::USER_ID, $this->getId());
-
-		return MessagesIgnoredUserPeer::doCount($criteria, $distinct, $con);
-	}
-
-	
-	public function addMessagesIgnoredUserRelatedByUserId(MessagesIgnoredUser $l)
-	{
-		$this->collMessagesIgnoredUsersRelatedByUserId[] = $l;
-		$l->setsfGuardUserRelatedByUserId($this);
-	}
-
-	
-	public function initMessagesIgnoredUsersRelatedByIgnoresUserId()
-	{
-		if ($this->collMessagesIgnoredUsersRelatedByIgnoresUserId === null) {
-			$this->collMessagesIgnoredUsersRelatedByIgnoresUserId = array();
-		}
-	}
-
-	
-	public function getMessagesIgnoredUsersRelatedByIgnoresUserId($criteria = null, $con = null)
-	{
-				include_once 'lib/model/om/BaseMessagesIgnoredUserPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collMessagesIgnoredUsersRelatedByIgnoresUserId === null) {
-			if ($this->isNew()) {
-			   $this->collMessagesIgnoredUsersRelatedByIgnoresUserId = array();
-			} else {
-
-				$criteria->add(MessagesIgnoredUserPeer::IGNORES_USER_ID, $this->getId());
-
-				MessagesIgnoredUserPeer::addSelectColumns($criteria);
-				$this->collMessagesIgnoredUsersRelatedByIgnoresUserId = MessagesIgnoredUserPeer::doSelect($criteria, $con);
-			}
-		} else {
-						if (!$this->isNew()) {
-												
-
-				$criteria->add(MessagesIgnoredUserPeer::IGNORES_USER_ID, $this->getId());
-
-				MessagesIgnoredUserPeer::addSelectColumns($criteria);
-				if (!isset($this->lastMessagesIgnoredUserRelatedByIgnoresUserIdCriteria) || !$this->lastMessagesIgnoredUserRelatedByIgnoresUserIdCriteria->equals($criteria)) {
-					$this->collMessagesIgnoredUsersRelatedByIgnoresUserId = MessagesIgnoredUserPeer::doSelect($criteria, $con);
-				}
-			}
-		}
-		$this->lastMessagesIgnoredUserRelatedByIgnoresUserIdCriteria = $criteria;
-		return $this->collMessagesIgnoredUsersRelatedByIgnoresUserId;
-	}
-
-	
-	public function countMessagesIgnoredUsersRelatedByIgnoresUserId($criteria = null, $distinct = false, $con = null)
-	{
-				include_once 'lib/model/om/BaseMessagesIgnoredUserPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		$criteria->add(MessagesIgnoredUserPeer::IGNORES_USER_ID, $this->getId());
-
-		return MessagesIgnoredUserPeer::doCount($criteria, $distinct, $con);
-	}
-
-	
-	public function addMessagesIgnoredUserRelatedByIgnoresUserId(MessagesIgnoredUser $l)
-	{
-		$this->collMessagesIgnoredUsersRelatedByIgnoresUserId[] = $l;
-		$l->setsfGuardUserRelatedByIgnoresUserId($this);
-	}
-
-	
-	public function initAdminMessages()
-	{
-		if ($this->collAdminMessages === null) {
-			$this->collAdminMessages = array();
-		}
-	}
-
-	
-	public function getAdminMessages($criteria = null, $con = null)
-	{
-				include_once 'lib/model/om/BaseAdminMessagePeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collAdminMessages === null) {
-			if ($this->isNew()) {
-			   $this->collAdminMessages = array();
-			} else {
-
-				$criteria->add(AdminMessagePeer::AUTHOR, $this->getId());
-
-				AdminMessagePeer::addSelectColumns($criteria);
-				$this->collAdminMessages = AdminMessagePeer::doSelect($criteria, $con);
-			}
-		} else {
-						if (!$this->isNew()) {
-												
-
-				$criteria->add(AdminMessagePeer::AUTHOR, $this->getId());
-
-				AdminMessagePeer::addSelectColumns($criteria);
-				if (!isset($this->lastAdminMessageCriteria) || !$this->lastAdminMessageCriteria->equals($criteria)) {
-					$this->collAdminMessages = AdminMessagePeer::doSelect($criteria, $con);
-				}
-			}
-		}
-		$this->lastAdminMessageCriteria = $criteria;
-		return $this->collAdminMessages;
-	}
-
-	
-	public function countAdminMessages($criteria = null, $distinct = false, $con = null)
-	{
-				include_once 'lib/model/om/BaseAdminMessagePeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		$criteria->add(AdminMessagePeer::AUTHOR, $this->getId());
-
-		return AdminMessagePeer::doCount($criteria, $distinct, $con);
-	}
-
-	
-	public function addAdminMessage(AdminMessage $l)
-	{
-		$this->collAdminMessages[] = $l;
+		$this->collUserInterests[] = $l;
 		$l->setsfGuardUser($this);
+	}
+
+
+	
+	public function getUserInterestsJoinSubreaktor($criteria = null, $con = null)
+	{
+				include_once 'lib/model/om/BaseUserInterestPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collUserInterests === null) {
+			if ($this->isNew()) {
+				$this->collUserInterests = array();
+			} else {
+
+				$criteria->add(UserInterestPeer::USER_ID, $this->getId());
+
+				$this->collUserInterests = UserInterestPeer::doSelectJoinSubreaktor($criteria, $con);
+			}
+		} else {
+									
+			$criteria->add(UserInterestPeer::USER_ID, $this->getId());
+
+			if (!isset($this->lastUserInterestCriteria) || !$this->lastUserInterestCriteria->equals($criteria)) {
+				$this->collUserInterests = UserInterestPeer::doSelectJoinSubreaktor($criteria, $con);
+			}
+		}
+		$this->lastUserInterestCriteria = $criteria;
+
+		return $this->collUserInterests;
 	}
 
 	
@@ -3016,951 +2771,6 @@ abstract class BasesfGuardUser extends BaseObject  implements Persistent {
 	}
 
 	
-	public function initsfGuardUserPermissions()
-	{
-		if ($this->collsfGuardUserPermissions === null) {
-			$this->collsfGuardUserPermissions = array();
-		}
-	}
-
-	
-	public function getsfGuardUserPermissions($criteria = null, $con = null)
-	{
-				include_once 'plugins/sfGuardPlugin/lib/model/om/BasesfGuardUserPermissionPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collsfGuardUserPermissions === null) {
-			if ($this->isNew()) {
-			   $this->collsfGuardUserPermissions = array();
-			} else {
-
-				$criteria->add(sfGuardUserPermissionPeer::USER_ID, $this->getId());
-
-				sfGuardUserPermissionPeer::addSelectColumns($criteria);
-				$this->collsfGuardUserPermissions = sfGuardUserPermissionPeer::doSelect($criteria, $con);
-			}
-		} else {
-						if (!$this->isNew()) {
-												
-
-				$criteria->add(sfGuardUserPermissionPeer::USER_ID, $this->getId());
-
-				sfGuardUserPermissionPeer::addSelectColumns($criteria);
-				if (!isset($this->lastsfGuardUserPermissionCriteria) || !$this->lastsfGuardUserPermissionCriteria->equals($criteria)) {
-					$this->collsfGuardUserPermissions = sfGuardUserPermissionPeer::doSelect($criteria, $con);
-				}
-			}
-		}
-		$this->lastsfGuardUserPermissionCriteria = $criteria;
-		return $this->collsfGuardUserPermissions;
-	}
-
-	
-	public function countsfGuardUserPermissions($criteria = null, $distinct = false, $con = null)
-	{
-				include_once 'plugins/sfGuardPlugin/lib/model/om/BasesfGuardUserPermissionPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		$criteria->add(sfGuardUserPermissionPeer::USER_ID, $this->getId());
-
-		return sfGuardUserPermissionPeer::doCount($criteria, $distinct, $con);
-	}
-
-	
-	public function addsfGuardUserPermission(sfGuardUserPermission $l)
-	{
-		$this->collsfGuardUserPermissions[] = $l;
-		$l->setsfGuardUser($this);
-	}
-
-
-	
-	public function getsfGuardUserPermissionsJoinsfGuardPermission($criteria = null, $con = null)
-	{
-				include_once 'plugins/sfGuardPlugin/lib/model/om/BasesfGuardUserPermissionPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collsfGuardUserPermissions === null) {
-			if ($this->isNew()) {
-				$this->collsfGuardUserPermissions = array();
-			} else {
-
-				$criteria->add(sfGuardUserPermissionPeer::USER_ID, $this->getId());
-
-				$this->collsfGuardUserPermissions = sfGuardUserPermissionPeer::doSelectJoinsfGuardPermission($criteria, $con);
-			}
-		} else {
-									
-			$criteria->add(sfGuardUserPermissionPeer::USER_ID, $this->getId());
-
-			if (!isset($this->lastsfGuardUserPermissionCriteria) || !$this->lastsfGuardUserPermissionCriteria->equals($criteria)) {
-				$this->collsfGuardUserPermissions = sfGuardUserPermissionPeer::doSelectJoinsfGuardPermission($criteria, $con);
-			}
-		}
-		$this->lastsfGuardUserPermissionCriteria = $criteria;
-
-		return $this->collsfGuardUserPermissions;
-	}
-
-	
-	public function initsfGuardUserGroups()
-	{
-		if ($this->collsfGuardUserGroups === null) {
-			$this->collsfGuardUserGroups = array();
-		}
-	}
-
-	
-	public function getsfGuardUserGroups($criteria = null, $con = null)
-	{
-				include_once 'plugins/sfGuardPlugin/lib/model/om/BasesfGuardUserGroupPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collsfGuardUserGroups === null) {
-			if ($this->isNew()) {
-			   $this->collsfGuardUserGroups = array();
-			} else {
-
-				$criteria->add(sfGuardUserGroupPeer::USER_ID, $this->getId());
-
-				sfGuardUserGroupPeer::addSelectColumns($criteria);
-				$this->collsfGuardUserGroups = sfGuardUserGroupPeer::doSelect($criteria, $con);
-			}
-		} else {
-						if (!$this->isNew()) {
-												
-
-				$criteria->add(sfGuardUserGroupPeer::USER_ID, $this->getId());
-
-				sfGuardUserGroupPeer::addSelectColumns($criteria);
-				if (!isset($this->lastsfGuardUserGroupCriteria) || !$this->lastsfGuardUserGroupCriteria->equals($criteria)) {
-					$this->collsfGuardUserGroups = sfGuardUserGroupPeer::doSelect($criteria, $con);
-				}
-			}
-		}
-		$this->lastsfGuardUserGroupCriteria = $criteria;
-		return $this->collsfGuardUserGroups;
-	}
-
-	
-	public function countsfGuardUserGroups($criteria = null, $distinct = false, $con = null)
-	{
-				include_once 'plugins/sfGuardPlugin/lib/model/om/BasesfGuardUserGroupPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		$criteria->add(sfGuardUserGroupPeer::USER_ID, $this->getId());
-
-		return sfGuardUserGroupPeer::doCount($criteria, $distinct, $con);
-	}
-
-	
-	public function addsfGuardUserGroup(sfGuardUserGroup $l)
-	{
-		$this->collsfGuardUserGroups[] = $l;
-		$l->setsfGuardUser($this);
-	}
-
-
-	
-	public function getsfGuardUserGroupsJoinsfGuardGroup($criteria = null, $con = null)
-	{
-				include_once 'plugins/sfGuardPlugin/lib/model/om/BasesfGuardUserGroupPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collsfGuardUserGroups === null) {
-			if ($this->isNew()) {
-				$this->collsfGuardUserGroups = array();
-			} else {
-
-				$criteria->add(sfGuardUserGroupPeer::USER_ID, $this->getId());
-
-				$this->collsfGuardUserGroups = sfGuardUserGroupPeer::doSelectJoinsfGuardGroup($criteria, $con);
-			}
-		} else {
-									
-			$criteria->add(sfGuardUserGroupPeer::USER_ID, $this->getId());
-
-			if (!isset($this->lastsfGuardUserGroupCriteria) || !$this->lastsfGuardUserGroupCriteria->equals($criteria)) {
-				$this->collsfGuardUserGroups = sfGuardUserGroupPeer::doSelectJoinsfGuardGroup($criteria, $con);
-			}
-		}
-		$this->lastsfGuardUserGroupCriteria = $criteria;
-
-		return $this->collsfGuardUserGroups;
-	}
-
-	
-	public function initsfGuardRememberKeys()
-	{
-		if ($this->collsfGuardRememberKeys === null) {
-			$this->collsfGuardRememberKeys = array();
-		}
-	}
-
-	
-	public function getsfGuardRememberKeys($criteria = null, $con = null)
-	{
-				include_once 'plugins/sfGuardPlugin/lib/model/om/BasesfGuardRememberKeyPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collsfGuardRememberKeys === null) {
-			if ($this->isNew()) {
-			   $this->collsfGuardRememberKeys = array();
-			} else {
-
-				$criteria->add(sfGuardRememberKeyPeer::USER_ID, $this->getId());
-
-				sfGuardRememberKeyPeer::addSelectColumns($criteria);
-				$this->collsfGuardRememberKeys = sfGuardRememberKeyPeer::doSelect($criteria, $con);
-			}
-		} else {
-						if (!$this->isNew()) {
-												
-
-				$criteria->add(sfGuardRememberKeyPeer::USER_ID, $this->getId());
-
-				sfGuardRememberKeyPeer::addSelectColumns($criteria);
-				if (!isset($this->lastsfGuardRememberKeyCriteria) || !$this->lastsfGuardRememberKeyCriteria->equals($criteria)) {
-					$this->collsfGuardRememberKeys = sfGuardRememberKeyPeer::doSelect($criteria, $con);
-				}
-			}
-		}
-		$this->lastsfGuardRememberKeyCriteria = $criteria;
-		return $this->collsfGuardRememberKeys;
-	}
-
-	
-	public function countsfGuardRememberKeys($criteria = null, $distinct = false, $con = null)
-	{
-				include_once 'plugins/sfGuardPlugin/lib/model/om/BasesfGuardRememberKeyPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		$criteria->add(sfGuardRememberKeyPeer::USER_ID, $this->getId());
-
-		return sfGuardRememberKeyPeer::doCount($criteria, $distinct, $con);
-	}
-
-	
-	public function addsfGuardRememberKey(sfGuardRememberKey $l)
-	{
-		$this->collsfGuardRememberKeys[] = $l;
-		$l->setsfGuardUser($this);
-	}
-
-	
-	public function initsfComments()
-	{
-		if ($this->collsfComments === null) {
-			$this->collsfComments = array();
-		}
-	}
-
-	
-	public function getsfComments($criteria = null, $con = null)
-	{
-				include_once 'plugins/sfPropelActAsCommentableBehaviorPlugin/lib/model/om/BasesfCommentPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collsfComments === null) {
-			if ($this->isNew()) {
-			   $this->collsfComments = array();
-			} else {
-
-				$criteria->add(sfCommentPeer::AUTHOR_ID, $this->getId());
-
-				sfCommentPeer::addSelectColumns($criteria);
-				$this->collsfComments = sfCommentPeer::doSelect($criteria, $con);
-			}
-		} else {
-						if (!$this->isNew()) {
-												
-
-				$criteria->add(sfCommentPeer::AUTHOR_ID, $this->getId());
-
-				sfCommentPeer::addSelectColumns($criteria);
-				if (!isset($this->lastsfCommentCriteria) || !$this->lastsfCommentCriteria->equals($criteria)) {
-					$this->collsfComments = sfCommentPeer::doSelect($criteria, $con);
-				}
-			}
-		}
-		$this->lastsfCommentCriteria = $criteria;
-		return $this->collsfComments;
-	}
-
-	
-	public function countsfComments($criteria = null, $distinct = false, $con = null)
-	{
-				include_once 'plugins/sfPropelActAsCommentableBehaviorPlugin/lib/model/om/BasesfCommentPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		$criteria->add(sfCommentPeer::AUTHOR_ID, $this->getId());
-
-		return sfCommentPeer::doCount($criteria, $distinct, $con);
-	}
-
-	
-	public function addsfComment(sfComment $l)
-	{
-		$this->collsfComments[] = $l;
-		$l->setsfGuardUser($this);
-	}
-
-	
-	public function initReaktorArtworks()
-	{
-		if ($this->collReaktorArtworks === null) {
-			$this->collReaktorArtworks = array();
-		}
-	}
-
-	
-	public function getReaktorArtworks($criteria = null, $con = null)
-	{
-				include_once 'lib/model/om/BaseReaktorArtworkPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collReaktorArtworks === null) {
-			if ($this->isNew()) {
-			   $this->collReaktorArtworks = array();
-			} else {
-
-				$criteria->add(ReaktorArtworkPeer::USER_ID, $this->getId());
-
-				ReaktorArtworkPeer::addSelectColumns($criteria);
-				$this->collReaktorArtworks = ReaktorArtworkPeer::doSelect($criteria, $con);
-			}
-		} else {
-						if (!$this->isNew()) {
-												
-
-				$criteria->add(ReaktorArtworkPeer::USER_ID, $this->getId());
-
-				ReaktorArtworkPeer::addSelectColumns($criteria);
-				if (!isset($this->lastReaktorArtworkCriteria) || !$this->lastReaktorArtworkCriteria->equals($criteria)) {
-					$this->collReaktorArtworks = ReaktorArtworkPeer::doSelect($criteria, $con);
-				}
-			}
-		}
-		$this->lastReaktorArtworkCriteria = $criteria;
-		return $this->collReaktorArtworks;
-	}
-
-	
-	public function countReaktorArtworks($criteria = null, $distinct = false, $con = null)
-	{
-				include_once 'lib/model/om/BaseReaktorArtworkPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		$criteria->add(ReaktorArtworkPeer::USER_ID, $this->getId());
-
-		return ReaktorArtworkPeer::doCount($criteria, $distinct, $con);
-	}
-
-	
-	public function addReaktorArtwork(ReaktorArtwork $l)
-	{
-		$this->collReaktorArtworks[] = $l;
-		$l->setsfGuardUser($this);
-	}
-
-
-	
-	public function getReaktorArtworksJoinArtworkStatus($criteria = null, $con = null)
-	{
-				include_once 'lib/model/om/BaseReaktorArtworkPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collReaktorArtworks === null) {
-			if ($this->isNew()) {
-				$this->collReaktorArtworks = array();
-			} else {
-
-				$criteria->add(ReaktorArtworkPeer::USER_ID, $this->getId());
-
-				$this->collReaktorArtworks = ReaktorArtworkPeer::doSelectJoinArtworkStatus($criteria, $con);
-			}
-		} else {
-									
-			$criteria->add(ReaktorArtworkPeer::USER_ID, $this->getId());
-
-			if (!isset($this->lastReaktorArtworkCriteria) || !$this->lastReaktorArtworkCriteria->equals($criteria)) {
-				$this->collReaktorArtworks = ReaktorArtworkPeer::doSelectJoinArtworkStatus($criteria, $con);
-			}
-		}
-		$this->lastReaktorArtworkCriteria = $criteria;
-
-		return $this->collReaktorArtworks;
-	}
-
-
-	
-	public function getReaktorArtworksJoinsfGuardGroup($criteria = null, $con = null)
-	{
-				include_once 'lib/model/om/BaseReaktorArtworkPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collReaktorArtworks === null) {
-			if ($this->isNew()) {
-				$this->collReaktorArtworks = array();
-			} else {
-
-				$criteria->add(ReaktorArtworkPeer::USER_ID, $this->getId());
-
-				$this->collReaktorArtworks = ReaktorArtworkPeer::doSelectJoinsfGuardGroup($criteria, $con);
-			}
-		} else {
-									
-			$criteria->add(ReaktorArtworkPeer::USER_ID, $this->getId());
-
-			if (!isset($this->lastReaktorArtworkCriteria) || !$this->lastReaktorArtworkCriteria->equals($criteria)) {
-				$this->collReaktorArtworks = ReaktorArtworkPeer::doSelectJoinsfGuardGroup($criteria, $con);
-			}
-		}
-		$this->lastReaktorArtworkCriteria = $criteria;
-
-		return $this->collReaktorArtworks;
-	}
-
-
-	
-	public function getReaktorArtworksJoinReaktorFile($criteria = null, $con = null)
-	{
-				include_once 'lib/model/om/BaseReaktorArtworkPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collReaktorArtworks === null) {
-			if ($this->isNew()) {
-				$this->collReaktorArtworks = array();
-			} else {
-
-				$criteria->add(ReaktorArtworkPeer::USER_ID, $this->getId());
-
-				$this->collReaktorArtworks = ReaktorArtworkPeer::doSelectJoinReaktorFile($criteria, $con);
-			}
-		} else {
-									
-			$criteria->add(ReaktorArtworkPeer::USER_ID, $this->getId());
-
-			if (!isset($this->lastReaktorArtworkCriteria) || !$this->lastReaktorArtworkCriteria->equals($criteria)) {
-				$this->collReaktorArtworks = ReaktorArtworkPeer::doSelectJoinReaktorFile($criteria, $con);
-			}
-		}
-		$this->lastReaktorArtworkCriteria = $criteria;
-
-		return $this->collReaktorArtworks;
-	}
-
-	
-	public function initUserInterests()
-	{
-		if ($this->collUserInterests === null) {
-			$this->collUserInterests = array();
-		}
-	}
-
-	
-	public function getUserInterests($criteria = null, $con = null)
-	{
-				include_once 'lib/model/om/BaseUserInterestPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collUserInterests === null) {
-			if ($this->isNew()) {
-			   $this->collUserInterests = array();
-			} else {
-
-				$criteria->add(UserInterestPeer::USER_ID, $this->getId());
-
-				UserInterestPeer::addSelectColumns($criteria);
-				$this->collUserInterests = UserInterestPeer::doSelect($criteria, $con);
-			}
-		} else {
-						if (!$this->isNew()) {
-												
-
-				$criteria->add(UserInterestPeer::USER_ID, $this->getId());
-
-				UserInterestPeer::addSelectColumns($criteria);
-				if (!isset($this->lastUserInterestCriteria) || !$this->lastUserInterestCriteria->equals($criteria)) {
-					$this->collUserInterests = UserInterestPeer::doSelect($criteria, $con);
-				}
-			}
-		}
-		$this->lastUserInterestCriteria = $criteria;
-		return $this->collUserInterests;
-	}
-
-	
-	public function countUserInterests($criteria = null, $distinct = false, $con = null)
-	{
-				include_once 'lib/model/om/BaseUserInterestPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		$criteria->add(UserInterestPeer::USER_ID, $this->getId());
-
-		return UserInterestPeer::doCount($criteria, $distinct, $con);
-	}
-
-	
-	public function addUserInterest(UserInterest $l)
-	{
-		$this->collUserInterests[] = $l;
-		$l->setsfGuardUser($this);
-	}
-
-
-	
-	public function getUserInterestsJoinSubreaktor($criteria = null, $con = null)
-	{
-				include_once 'lib/model/om/BaseUserInterestPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collUserInterests === null) {
-			if ($this->isNew()) {
-				$this->collUserInterests = array();
-			} else {
-
-				$criteria->add(UserInterestPeer::USER_ID, $this->getId());
-
-				$this->collUserInterests = UserInterestPeer::doSelectJoinSubreaktor($criteria, $con);
-			}
-		} else {
-									
-			$criteria->add(UserInterestPeer::USER_ID, $this->getId());
-
-			if (!isset($this->lastUserInterestCriteria) || !$this->lastUserInterestCriteria->equals($criteria)) {
-				$this->collUserInterests = UserInterestPeer::doSelectJoinSubreaktor($criteria, $con);
-			}
-		}
-		$this->lastUserInterestCriteria = $criteria;
-
-		return $this->collUserInterests;
-	}
-
-	
-	public function initTags()
-	{
-		if ($this->collTags === null) {
-			$this->collTags = array();
-		}
-	}
-
-	
-	public function getTags($criteria = null, $con = null)
-	{
-				include_once 'plugins/sfPropelActAsTaggableBehaviorPlugin/lib/model/om/BaseTagPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collTags === null) {
-			if ($this->isNew()) {
-			   $this->collTags = array();
-			} else {
-
-				$criteria->add(TagPeer::APPROVED_BY, $this->getId());
-
-				TagPeer::addSelectColumns($criteria);
-				$this->collTags = TagPeer::doSelect($criteria, $con);
-			}
-		} else {
-						if (!$this->isNew()) {
-												
-
-				$criteria->add(TagPeer::APPROVED_BY, $this->getId());
-
-				TagPeer::addSelectColumns($criteria);
-				if (!isset($this->lastTagCriteria) || !$this->lastTagCriteria->equals($criteria)) {
-					$this->collTags = TagPeer::doSelect($criteria, $con);
-				}
-			}
-		}
-		$this->lastTagCriteria = $criteria;
-		return $this->collTags;
-	}
-
-	
-	public function countTags($criteria = null, $distinct = false, $con = null)
-	{
-				include_once 'plugins/sfPropelActAsTaggableBehaviorPlugin/lib/model/om/BaseTagPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		$criteria->add(TagPeer::APPROVED_BY, $this->getId());
-
-		return TagPeer::doCount($criteria, $distinct, $con);
-	}
-
-	
-	public function addTag(Tag $l)
-	{
-		$this->collTags[] = $l;
-		$l->setsfGuardUser($this);
-	}
-
-	
-	public function initTaggings()
-	{
-		if ($this->collTaggings === null) {
-			$this->collTaggings = array();
-		}
-	}
-
-	
-	public function getTaggings($criteria = null, $con = null)
-	{
-				include_once 'plugins/sfPropelActAsTaggableBehaviorPlugin/lib/model/om/BaseTaggingPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collTaggings === null) {
-			if ($this->isNew()) {
-			   $this->collTaggings = array();
-			} else {
-
-				$criteria->add(TaggingPeer::PARENT_USER_ID, $this->getId());
-
-				TaggingPeer::addSelectColumns($criteria);
-				$this->collTaggings = TaggingPeer::doSelect($criteria, $con);
-			}
-		} else {
-						if (!$this->isNew()) {
-												
-
-				$criteria->add(TaggingPeer::PARENT_USER_ID, $this->getId());
-
-				TaggingPeer::addSelectColumns($criteria);
-				if (!isset($this->lastTaggingCriteria) || !$this->lastTaggingCriteria->equals($criteria)) {
-					$this->collTaggings = TaggingPeer::doSelect($criteria, $con);
-				}
-			}
-		}
-		$this->lastTaggingCriteria = $criteria;
-		return $this->collTaggings;
-	}
-
-	
-	public function countTaggings($criteria = null, $distinct = false, $con = null)
-	{
-				include_once 'plugins/sfPropelActAsTaggableBehaviorPlugin/lib/model/om/BaseTaggingPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		$criteria->add(TaggingPeer::PARENT_USER_ID, $this->getId());
-
-		return TaggingPeer::doCount($criteria, $distinct, $con);
-	}
-
-	
-	public function addTagging(Tagging $l)
-	{
-		$this->collTaggings[] = $l;
-		$l->setsfGuardUser($this);
-	}
-
-
-	
-	public function getTaggingsJoinTag($criteria = null, $con = null)
-	{
-				include_once 'plugins/sfPropelActAsTaggableBehaviorPlugin/lib/model/om/BaseTaggingPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collTaggings === null) {
-			if ($this->isNew()) {
-				$this->collTaggings = array();
-			} else {
-
-				$criteria->add(TaggingPeer::PARENT_USER_ID, $this->getId());
-
-				$this->collTaggings = TaggingPeer::doSelectJoinTag($criteria, $con);
-			}
-		} else {
-									
-			$criteria->add(TaggingPeer::PARENT_USER_ID, $this->getId());
-
-			if (!isset($this->lastTaggingCriteria) || !$this->lastTaggingCriteria->equals($criteria)) {
-				$this->collTaggings = TaggingPeer::doSelectJoinTag($criteria, $con);
-			}
-		}
-		$this->lastTaggingCriteria = $criteria;
-
-		return $this->collTaggings;
-	}
-
-	
-	public function initUserResources()
-	{
-		if ($this->collUserResources === null) {
-			$this->collUserResources = array();
-		}
-	}
-
-	
-	public function getUserResources($criteria = null, $con = null)
-	{
-				include_once 'lib/model/om/BaseUserResourcePeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collUserResources === null) {
-			if ($this->isNew()) {
-			   $this->collUserResources = array();
-			} else {
-
-				$criteria->add(UserResourcePeer::USER_ID, $this->getId());
-
-				UserResourcePeer::addSelectColumns($criteria);
-				$this->collUserResources = UserResourcePeer::doSelect($criteria, $con);
-			}
-		} else {
-						if (!$this->isNew()) {
-												
-
-				$criteria->add(UserResourcePeer::USER_ID, $this->getId());
-
-				UserResourcePeer::addSelectColumns($criteria);
-				if (!isset($this->lastUserResourceCriteria) || !$this->lastUserResourceCriteria->equals($criteria)) {
-					$this->collUserResources = UserResourcePeer::doSelect($criteria, $con);
-				}
-			}
-		}
-		$this->lastUserResourceCriteria = $criteria;
-		return $this->collUserResources;
-	}
-
-	
-	public function countUserResources($criteria = null, $distinct = false, $con = null)
-	{
-				include_once 'lib/model/om/BaseUserResourcePeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		$criteria->add(UserResourcePeer::USER_ID, $this->getId());
-
-		return UserResourcePeer::doCount($criteria, $distinct, $con);
-	}
-
-	
-	public function addUserResource(UserResource $l)
-	{
-		$this->collUserResources[] = $l;
-		$l->setsfGuardUser($this);
-	}
-
-	
-	public function initReaktorFiles()
-	{
-		if ($this->collReaktorFiles === null) {
-			$this->collReaktorFiles = array();
-		}
-	}
-
-	
-	public function getReaktorFiles($criteria = null, $con = null)
-	{
-				include_once 'lib/model/om/BaseReaktorFilePeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collReaktorFiles === null) {
-			if ($this->isNew()) {
-			   $this->collReaktorFiles = array();
-			} else {
-
-				$criteria->add(ReaktorFilePeer::USER_ID, $this->getId());
-
-				ReaktorFilePeer::addSelectColumns($criteria);
-				$this->collReaktorFiles = ReaktorFilePeer::doSelect($criteria, $con);
-			}
-		} else {
-						if (!$this->isNew()) {
-												
-
-				$criteria->add(ReaktorFilePeer::USER_ID, $this->getId());
-
-				ReaktorFilePeer::addSelectColumns($criteria);
-				if (!isset($this->lastReaktorFileCriteria) || !$this->lastReaktorFileCriteria->equals($criteria)) {
-					$this->collReaktorFiles = ReaktorFilePeer::doSelect($criteria, $con);
-				}
-			}
-		}
-		$this->lastReaktorFileCriteria = $criteria;
-		return $this->collReaktorFiles;
-	}
-
-	
-	public function countReaktorFiles($criteria = null, $distinct = false, $con = null)
-	{
-				include_once 'lib/model/om/BaseReaktorFilePeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		$criteria->add(ReaktorFilePeer::USER_ID, $this->getId());
-
-		return ReaktorFilePeer::doCount($criteria, $distinct, $con);
-	}
-
-	
-	public function addReaktorFile(ReaktorFile $l)
-	{
-		$this->collReaktorFiles[] = $l;
-		$l->setsfGuardUser($this);
-	}
-
-	
 	public function initRelatedArtworks()
 	{
 		if ($this->collRelatedArtworks === null) {
@@ -4098,321 +2908,6 @@ abstract class BasesfGuardUser extends BaseObject  implements Persistent {
 		$this->lastRelatedArtworkCriteria = $criteria;
 
 		return $this->collRelatedArtworks;
-	}
-
-	
-	public function initReaktorArtworkHistorys()
-	{
-		if ($this->collReaktorArtworkHistorys === null) {
-			$this->collReaktorArtworkHistorys = array();
-		}
-	}
-
-	
-	public function getReaktorArtworkHistorys($criteria = null, $con = null)
-	{
-				include_once 'lib/model/om/BaseReaktorArtworkHistoryPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collReaktorArtworkHistorys === null) {
-			if ($this->isNew()) {
-			   $this->collReaktorArtworkHistorys = array();
-			} else {
-
-				$criteria->add(ReaktorArtworkHistoryPeer::USER_ID, $this->getId());
-
-				ReaktorArtworkHistoryPeer::addSelectColumns($criteria);
-				$this->collReaktorArtworkHistorys = ReaktorArtworkHistoryPeer::doSelect($criteria, $con);
-			}
-		} else {
-						if (!$this->isNew()) {
-												
-
-				$criteria->add(ReaktorArtworkHistoryPeer::USER_ID, $this->getId());
-
-				ReaktorArtworkHistoryPeer::addSelectColumns($criteria);
-				if (!isset($this->lastReaktorArtworkHistoryCriteria) || !$this->lastReaktorArtworkHistoryCriteria->equals($criteria)) {
-					$this->collReaktorArtworkHistorys = ReaktorArtworkHistoryPeer::doSelect($criteria, $con);
-				}
-			}
-		}
-		$this->lastReaktorArtworkHistoryCriteria = $criteria;
-		return $this->collReaktorArtworkHistorys;
-	}
-
-	
-	public function countReaktorArtworkHistorys($criteria = null, $distinct = false, $con = null)
-	{
-				include_once 'lib/model/om/BaseReaktorArtworkHistoryPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		$criteria->add(ReaktorArtworkHistoryPeer::USER_ID, $this->getId());
-
-		return ReaktorArtworkHistoryPeer::doCount($criteria, $distinct, $con);
-	}
-
-	
-	public function addReaktorArtworkHistory(ReaktorArtworkHistory $l)
-	{
-		$this->collReaktorArtworkHistorys[] = $l;
-		$l->setsfGuardUser($this);
-	}
-
-
-	
-	public function getReaktorArtworkHistorysJoinReaktorArtworkRelatedByArtworkId($criteria = null, $con = null)
-	{
-				include_once 'lib/model/om/BaseReaktorArtworkHistoryPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collReaktorArtworkHistorys === null) {
-			if ($this->isNew()) {
-				$this->collReaktorArtworkHistorys = array();
-			} else {
-
-				$criteria->add(ReaktorArtworkHistoryPeer::USER_ID, $this->getId());
-
-				$this->collReaktorArtworkHistorys = ReaktorArtworkHistoryPeer::doSelectJoinReaktorArtworkRelatedByArtworkId($criteria, $con);
-			}
-		} else {
-									
-			$criteria->add(ReaktorArtworkHistoryPeer::USER_ID, $this->getId());
-
-			if (!isset($this->lastReaktorArtworkHistoryCriteria) || !$this->lastReaktorArtworkHistoryCriteria->equals($criteria)) {
-				$this->collReaktorArtworkHistorys = ReaktorArtworkHistoryPeer::doSelectJoinReaktorArtworkRelatedByArtworkId($criteria, $con);
-			}
-		}
-		$this->lastReaktorArtworkHistoryCriteria = $criteria;
-
-		return $this->collReaktorArtworkHistorys;
-	}
-
-
-	
-	public function getReaktorArtworkHistorysJoinReaktorArtworkRelatedByFileId($criteria = null, $con = null)
-	{
-				include_once 'lib/model/om/BaseReaktorArtworkHistoryPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collReaktorArtworkHistorys === null) {
-			if ($this->isNew()) {
-				$this->collReaktorArtworkHistorys = array();
-			} else {
-
-				$criteria->add(ReaktorArtworkHistoryPeer::USER_ID, $this->getId());
-
-				$this->collReaktorArtworkHistorys = ReaktorArtworkHistoryPeer::doSelectJoinReaktorArtworkRelatedByFileId($criteria, $con);
-			}
-		} else {
-									
-			$criteria->add(ReaktorArtworkHistoryPeer::USER_ID, $this->getId());
-
-			if (!isset($this->lastReaktorArtworkHistoryCriteria) || !$this->lastReaktorArtworkHistoryCriteria->equals($criteria)) {
-				$this->collReaktorArtworkHistorys = ReaktorArtworkHistoryPeer::doSelectJoinReaktorArtworkRelatedByFileId($criteria, $con);
-			}
-		}
-		$this->lastReaktorArtworkHistoryCriteria = $criteria;
-
-		return $this->collReaktorArtworkHistorys;
-	}
-
-
-	
-	public function getReaktorArtworkHistorysJoinArtworkStatus($criteria = null, $con = null)
-	{
-				include_once 'lib/model/om/BaseReaktorArtworkHistoryPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collReaktorArtworkHistorys === null) {
-			if ($this->isNew()) {
-				$this->collReaktorArtworkHistorys = array();
-			} else {
-
-				$criteria->add(ReaktorArtworkHistoryPeer::USER_ID, $this->getId());
-
-				$this->collReaktorArtworkHistorys = ReaktorArtworkHistoryPeer::doSelectJoinArtworkStatus($criteria, $con);
-			}
-		} else {
-									
-			$criteria->add(ReaktorArtworkHistoryPeer::USER_ID, $this->getId());
-
-			if (!isset($this->lastReaktorArtworkHistoryCriteria) || !$this->lastReaktorArtworkHistoryCriteria->equals($criteria)) {
-				$this->collReaktorArtworkHistorys = ReaktorArtworkHistoryPeer::doSelectJoinArtworkStatus($criteria, $con);
-			}
-		}
-		$this->lastReaktorArtworkHistoryCriteria = $criteria;
-
-		return $this->collReaktorArtworkHistorys;
-	}
-
-	
-	public function initCategoryArtworks()
-	{
-		if ($this->collCategoryArtworks === null) {
-			$this->collCategoryArtworks = array();
-		}
-	}
-
-	
-	public function getCategoryArtworks($criteria = null, $con = null)
-	{
-				include_once 'lib/model/om/BaseCategoryArtworkPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collCategoryArtworks === null) {
-			if ($this->isNew()) {
-			   $this->collCategoryArtworks = array();
-			} else {
-
-				$criteria->add(CategoryArtworkPeer::ADDED_BY, $this->getId());
-
-				CategoryArtworkPeer::addSelectColumns($criteria);
-				$this->collCategoryArtworks = CategoryArtworkPeer::doSelect($criteria, $con);
-			}
-		} else {
-						if (!$this->isNew()) {
-												
-
-				$criteria->add(CategoryArtworkPeer::ADDED_BY, $this->getId());
-
-				CategoryArtworkPeer::addSelectColumns($criteria);
-				if (!isset($this->lastCategoryArtworkCriteria) || !$this->lastCategoryArtworkCriteria->equals($criteria)) {
-					$this->collCategoryArtworks = CategoryArtworkPeer::doSelect($criteria, $con);
-				}
-			}
-		}
-		$this->lastCategoryArtworkCriteria = $criteria;
-		return $this->collCategoryArtworks;
-	}
-
-	
-	public function countCategoryArtworks($criteria = null, $distinct = false, $con = null)
-	{
-				include_once 'lib/model/om/BaseCategoryArtworkPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		$criteria->add(CategoryArtworkPeer::ADDED_BY, $this->getId());
-
-		return CategoryArtworkPeer::doCount($criteria, $distinct, $con);
-	}
-
-	
-	public function addCategoryArtwork(CategoryArtwork $l)
-	{
-		$this->collCategoryArtworks[] = $l;
-		$l->setsfGuardUser($this);
-	}
-
-
-	
-	public function getCategoryArtworksJoinCategory($criteria = null, $con = null)
-	{
-				include_once 'lib/model/om/BaseCategoryArtworkPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collCategoryArtworks === null) {
-			if ($this->isNew()) {
-				$this->collCategoryArtworks = array();
-			} else {
-
-				$criteria->add(CategoryArtworkPeer::ADDED_BY, $this->getId());
-
-				$this->collCategoryArtworks = CategoryArtworkPeer::doSelectJoinCategory($criteria, $con);
-			}
-		} else {
-									
-			$criteria->add(CategoryArtworkPeer::ADDED_BY, $this->getId());
-
-			if (!isset($this->lastCategoryArtworkCriteria) || !$this->lastCategoryArtworkCriteria->equals($criteria)) {
-				$this->collCategoryArtworks = CategoryArtworkPeer::doSelectJoinCategory($criteria, $con);
-			}
-		}
-		$this->lastCategoryArtworkCriteria = $criteria;
-
-		return $this->collCategoryArtworks;
-	}
-
-
-	
-	public function getCategoryArtworksJoinReaktorArtwork($criteria = null, $con = null)
-	{
-				include_once 'lib/model/om/BaseCategoryArtworkPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collCategoryArtworks === null) {
-			if ($this->isNew()) {
-				$this->collCategoryArtworks = array();
-			} else {
-
-				$criteria->add(CategoryArtworkPeer::ADDED_BY, $this->getId());
-
-				$this->collCategoryArtworks = CategoryArtworkPeer::doSelectJoinReaktorArtwork($criteria, $con);
-			}
-		} else {
-									
-			$criteria->add(CategoryArtworkPeer::ADDED_BY, $this->getId());
-
-			if (!isset($this->lastCategoryArtworkCriteria) || !$this->lastCategoryArtworkCriteria->equals($criteria)) {
-				$this->collCategoryArtworks = CategoryArtworkPeer::doSelectJoinReaktorArtwork($criteria, $con);
-			}
-		}
-		$this->lastCategoryArtworkCriteria = $criteria;
-
-		return $this->collCategoryArtworks;
 	}
 
 	
@@ -4906,6 +3401,426 @@ abstract class BasesfGuardUser extends BaseObject  implements Persistent {
 	}
 
 	
+	public function initsfComments()
+	{
+		if ($this->collsfComments === null) {
+			$this->collsfComments = array();
+		}
+	}
+
+	
+	public function getsfComments($criteria = null, $con = null)
+	{
+				include_once 'plugins/sfPropelActAsCommentableBehaviorPlugin/lib/model/om/BasesfCommentPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collsfComments === null) {
+			if ($this->isNew()) {
+			   $this->collsfComments = array();
+			} else {
+
+				$criteria->add(sfCommentPeer::AUTHOR_ID, $this->getId());
+
+				sfCommentPeer::addSelectColumns($criteria);
+				$this->collsfComments = sfCommentPeer::doSelect($criteria, $con);
+			}
+		} else {
+						if (!$this->isNew()) {
+												
+
+				$criteria->add(sfCommentPeer::AUTHOR_ID, $this->getId());
+
+				sfCommentPeer::addSelectColumns($criteria);
+				if (!isset($this->lastsfCommentCriteria) || !$this->lastsfCommentCriteria->equals($criteria)) {
+					$this->collsfComments = sfCommentPeer::doSelect($criteria, $con);
+				}
+			}
+		}
+		$this->lastsfCommentCriteria = $criteria;
+		return $this->collsfComments;
+	}
+
+	
+	public function countsfComments($criteria = null, $distinct = false, $con = null)
+	{
+				include_once 'plugins/sfPropelActAsCommentableBehaviorPlugin/lib/model/om/BasesfCommentPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		$criteria->add(sfCommentPeer::AUTHOR_ID, $this->getId());
+
+		return sfCommentPeer::doCount($criteria, $distinct, $con);
+	}
+
+	
+	public function addsfComment(sfComment $l)
+	{
+		$this->collsfComments[] = $l;
+		$l->setsfGuardUser($this);
+	}
+
+	
+	public function initTags()
+	{
+		if ($this->collTags === null) {
+			$this->collTags = array();
+		}
+	}
+
+	
+	public function getTags($criteria = null, $con = null)
+	{
+				include_once 'plugins/sfPropelActAsTaggableBehaviorPlugin/lib/model/om/BaseTagPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collTags === null) {
+			if ($this->isNew()) {
+			   $this->collTags = array();
+			} else {
+
+				$criteria->add(TagPeer::APPROVED_BY, $this->getId());
+
+				TagPeer::addSelectColumns($criteria);
+				$this->collTags = TagPeer::doSelect($criteria, $con);
+			}
+		} else {
+						if (!$this->isNew()) {
+												
+
+				$criteria->add(TagPeer::APPROVED_BY, $this->getId());
+
+				TagPeer::addSelectColumns($criteria);
+				if (!isset($this->lastTagCriteria) || !$this->lastTagCriteria->equals($criteria)) {
+					$this->collTags = TagPeer::doSelect($criteria, $con);
+				}
+			}
+		}
+		$this->lastTagCriteria = $criteria;
+		return $this->collTags;
+	}
+
+	
+	public function countTags($criteria = null, $distinct = false, $con = null)
+	{
+				include_once 'plugins/sfPropelActAsTaggableBehaviorPlugin/lib/model/om/BaseTagPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		$criteria->add(TagPeer::APPROVED_BY, $this->getId());
+
+		return TagPeer::doCount($criteria, $distinct, $con);
+	}
+
+	
+	public function addTag(Tag $l)
+	{
+		$this->collTags[] = $l;
+		$l->setsfGuardUser($this);
+	}
+
+	
+	public function initTaggings()
+	{
+		if ($this->collTaggings === null) {
+			$this->collTaggings = array();
+		}
+	}
+
+	
+	public function getTaggings($criteria = null, $con = null)
+	{
+				include_once 'plugins/sfPropelActAsTaggableBehaviorPlugin/lib/model/om/BaseTaggingPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collTaggings === null) {
+			if ($this->isNew()) {
+			   $this->collTaggings = array();
+			} else {
+
+				$criteria->add(TaggingPeer::PARENT_USER_ID, $this->getId());
+
+				TaggingPeer::addSelectColumns($criteria);
+				$this->collTaggings = TaggingPeer::doSelect($criteria, $con);
+			}
+		} else {
+						if (!$this->isNew()) {
+												
+
+				$criteria->add(TaggingPeer::PARENT_USER_ID, $this->getId());
+
+				TaggingPeer::addSelectColumns($criteria);
+				if (!isset($this->lastTaggingCriteria) || !$this->lastTaggingCriteria->equals($criteria)) {
+					$this->collTaggings = TaggingPeer::doSelect($criteria, $con);
+				}
+			}
+		}
+		$this->lastTaggingCriteria = $criteria;
+		return $this->collTaggings;
+	}
+
+	
+	public function countTaggings($criteria = null, $distinct = false, $con = null)
+	{
+				include_once 'plugins/sfPropelActAsTaggableBehaviorPlugin/lib/model/om/BaseTaggingPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		$criteria->add(TaggingPeer::PARENT_USER_ID, $this->getId());
+
+		return TaggingPeer::doCount($criteria, $distinct, $con);
+	}
+
+	
+	public function addTagging(Tagging $l)
+	{
+		$this->collTaggings[] = $l;
+		$l->setsfGuardUser($this);
+	}
+
+
+	
+	public function getTaggingsJoinTag($criteria = null, $con = null)
+	{
+				include_once 'plugins/sfPropelActAsTaggableBehaviorPlugin/lib/model/om/BaseTaggingPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collTaggings === null) {
+			if ($this->isNew()) {
+				$this->collTaggings = array();
+			} else {
+
+				$criteria->add(TaggingPeer::PARENT_USER_ID, $this->getId());
+
+				$this->collTaggings = TaggingPeer::doSelectJoinTag($criteria, $con);
+			}
+		} else {
+									
+			$criteria->add(TaggingPeer::PARENT_USER_ID, $this->getId());
+
+			if (!isset($this->lastTaggingCriteria) || !$this->lastTaggingCriteria->equals($criteria)) {
+				$this->collTaggings = TaggingPeer::doSelectJoinTag($criteria, $con);
+			}
+		}
+		$this->lastTaggingCriteria = $criteria;
+
+		return $this->collTaggings;
+	}
+
+	
+	public function initReaktorArtworks()
+	{
+		if ($this->collReaktorArtworks === null) {
+			$this->collReaktorArtworks = array();
+		}
+	}
+
+	
+	public function getReaktorArtworks($criteria = null, $con = null)
+	{
+				include_once 'lib/model/om/BaseReaktorArtworkPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collReaktorArtworks === null) {
+			if ($this->isNew()) {
+			   $this->collReaktorArtworks = array();
+			} else {
+
+				$criteria->add(ReaktorArtworkPeer::USER_ID, $this->getId());
+
+				ReaktorArtworkPeer::addSelectColumns($criteria);
+				$this->collReaktorArtworks = ReaktorArtworkPeer::doSelect($criteria, $con);
+			}
+		} else {
+						if (!$this->isNew()) {
+												
+
+				$criteria->add(ReaktorArtworkPeer::USER_ID, $this->getId());
+
+				ReaktorArtworkPeer::addSelectColumns($criteria);
+				if (!isset($this->lastReaktorArtworkCriteria) || !$this->lastReaktorArtworkCriteria->equals($criteria)) {
+					$this->collReaktorArtworks = ReaktorArtworkPeer::doSelect($criteria, $con);
+				}
+			}
+		}
+		$this->lastReaktorArtworkCriteria = $criteria;
+		return $this->collReaktorArtworks;
+	}
+
+	
+	public function countReaktorArtworks($criteria = null, $distinct = false, $con = null)
+	{
+				include_once 'lib/model/om/BaseReaktorArtworkPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		$criteria->add(ReaktorArtworkPeer::USER_ID, $this->getId());
+
+		return ReaktorArtworkPeer::doCount($criteria, $distinct, $con);
+	}
+
+	
+	public function addReaktorArtwork(ReaktorArtwork $l)
+	{
+		$this->collReaktorArtworks[] = $l;
+		$l->setsfGuardUser($this);
+	}
+
+
+	
+	public function getReaktorArtworksJoinArtworkStatus($criteria = null, $con = null)
+	{
+				include_once 'lib/model/om/BaseReaktorArtworkPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collReaktorArtworks === null) {
+			if ($this->isNew()) {
+				$this->collReaktorArtworks = array();
+			} else {
+
+				$criteria->add(ReaktorArtworkPeer::USER_ID, $this->getId());
+
+				$this->collReaktorArtworks = ReaktorArtworkPeer::doSelectJoinArtworkStatus($criteria, $con);
+			}
+		} else {
+									
+			$criteria->add(ReaktorArtworkPeer::USER_ID, $this->getId());
+
+			if (!isset($this->lastReaktorArtworkCriteria) || !$this->lastReaktorArtworkCriteria->equals($criteria)) {
+				$this->collReaktorArtworks = ReaktorArtworkPeer::doSelectJoinArtworkStatus($criteria, $con);
+			}
+		}
+		$this->lastReaktorArtworkCriteria = $criteria;
+
+		return $this->collReaktorArtworks;
+	}
+
+
+	
+	public function getReaktorArtworksJoinsfGuardGroup($criteria = null, $con = null)
+	{
+				include_once 'lib/model/om/BaseReaktorArtworkPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collReaktorArtworks === null) {
+			if ($this->isNew()) {
+				$this->collReaktorArtworks = array();
+			} else {
+
+				$criteria->add(ReaktorArtworkPeer::USER_ID, $this->getId());
+
+				$this->collReaktorArtworks = ReaktorArtworkPeer::doSelectJoinsfGuardGroup($criteria, $con);
+			}
+		} else {
+									
+			$criteria->add(ReaktorArtworkPeer::USER_ID, $this->getId());
+
+			if (!isset($this->lastReaktorArtworkCriteria) || !$this->lastReaktorArtworkCriteria->equals($criteria)) {
+				$this->collReaktorArtworks = ReaktorArtworkPeer::doSelectJoinsfGuardGroup($criteria, $con);
+			}
+		}
+		$this->lastReaktorArtworkCriteria = $criteria;
+
+		return $this->collReaktorArtworks;
+	}
+
+
+	
+	public function getReaktorArtworksJoinReaktorFile($criteria = null, $con = null)
+	{
+				include_once 'lib/model/om/BaseReaktorArtworkPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collReaktorArtworks === null) {
+			if ($this->isNew()) {
+				$this->collReaktorArtworks = array();
+			} else {
+
+				$criteria->add(ReaktorArtworkPeer::USER_ID, $this->getId());
+
+				$this->collReaktorArtworks = ReaktorArtworkPeer::doSelectJoinReaktorFile($criteria, $con);
+			}
+		} else {
+									
+			$criteria->add(ReaktorArtworkPeer::USER_ID, $this->getId());
+
+			if (!isset($this->lastReaktorArtworkCriteria) || !$this->lastReaktorArtworkCriteria->equals($criteria)) {
+				$this->collReaktorArtworks = ReaktorArtworkPeer::doSelectJoinReaktorFile($criteria, $con);
+			}
+		}
+		$this->lastReaktorArtworkCriteria = $criteria;
+
+		return $this->collReaktorArtworks;
+	}
+
+	
 	public function initFavouritesRelatedByUserId()
 	{
 		if ($this->collFavouritesRelatedByUserId === null) {
@@ -5183,6 +4098,1091 @@ abstract class BasesfGuardUser extends BaseObject  implements Persistent {
 		$this->lastFavouriteRelatedByFriendIdCriteria = $criteria;
 
 		return $this->collFavouritesRelatedByFriendId;
+	}
+
+	
+	public function initsfGuardUserPermissions()
+	{
+		if ($this->collsfGuardUserPermissions === null) {
+			$this->collsfGuardUserPermissions = array();
+		}
+	}
+
+	
+	public function getsfGuardUserPermissions($criteria = null, $con = null)
+	{
+				include_once 'plugins/sfGuardPlugin/lib/model/om/BasesfGuardUserPermissionPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collsfGuardUserPermissions === null) {
+			if ($this->isNew()) {
+			   $this->collsfGuardUserPermissions = array();
+			} else {
+
+				$criteria->add(sfGuardUserPermissionPeer::USER_ID, $this->getId());
+
+				sfGuardUserPermissionPeer::addSelectColumns($criteria);
+				$this->collsfGuardUserPermissions = sfGuardUserPermissionPeer::doSelect($criteria, $con);
+			}
+		} else {
+						if (!$this->isNew()) {
+												
+
+				$criteria->add(sfGuardUserPermissionPeer::USER_ID, $this->getId());
+
+				sfGuardUserPermissionPeer::addSelectColumns($criteria);
+				if (!isset($this->lastsfGuardUserPermissionCriteria) || !$this->lastsfGuardUserPermissionCriteria->equals($criteria)) {
+					$this->collsfGuardUserPermissions = sfGuardUserPermissionPeer::doSelect($criteria, $con);
+				}
+			}
+		}
+		$this->lastsfGuardUserPermissionCriteria = $criteria;
+		return $this->collsfGuardUserPermissions;
+	}
+
+	
+	public function countsfGuardUserPermissions($criteria = null, $distinct = false, $con = null)
+	{
+				include_once 'plugins/sfGuardPlugin/lib/model/om/BasesfGuardUserPermissionPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		$criteria->add(sfGuardUserPermissionPeer::USER_ID, $this->getId());
+
+		return sfGuardUserPermissionPeer::doCount($criteria, $distinct, $con);
+	}
+
+	
+	public function addsfGuardUserPermission(sfGuardUserPermission $l)
+	{
+		$this->collsfGuardUserPermissions[] = $l;
+		$l->setsfGuardUser($this);
+	}
+
+
+	
+	public function getsfGuardUserPermissionsJoinsfGuardPermission($criteria = null, $con = null)
+	{
+				include_once 'plugins/sfGuardPlugin/lib/model/om/BasesfGuardUserPermissionPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collsfGuardUserPermissions === null) {
+			if ($this->isNew()) {
+				$this->collsfGuardUserPermissions = array();
+			} else {
+
+				$criteria->add(sfGuardUserPermissionPeer::USER_ID, $this->getId());
+
+				$this->collsfGuardUserPermissions = sfGuardUserPermissionPeer::doSelectJoinsfGuardPermission($criteria, $con);
+			}
+		} else {
+									
+			$criteria->add(sfGuardUserPermissionPeer::USER_ID, $this->getId());
+
+			if (!isset($this->lastsfGuardUserPermissionCriteria) || !$this->lastsfGuardUserPermissionCriteria->equals($criteria)) {
+				$this->collsfGuardUserPermissions = sfGuardUserPermissionPeer::doSelectJoinsfGuardPermission($criteria, $con);
+			}
+		}
+		$this->lastsfGuardUserPermissionCriteria = $criteria;
+
+		return $this->collsfGuardUserPermissions;
+	}
+
+	
+	public function initsfGuardUserGroups()
+	{
+		if ($this->collsfGuardUserGroups === null) {
+			$this->collsfGuardUserGroups = array();
+		}
+	}
+
+	
+	public function getsfGuardUserGroups($criteria = null, $con = null)
+	{
+				include_once 'plugins/sfGuardPlugin/lib/model/om/BasesfGuardUserGroupPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collsfGuardUserGroups === null) {
+			if ($this->isNew()) {
+			   $this->collsfGuardUserGroups = array();
+			} else {
+
+				$criteria->add(sfGuardUserGroupPeer::USER_ID, $this->getId());
+
+				sfGuardUserGroupPeer::addSelectColumns($criteria);
+				$this->collsfGuardUserGroups = sfGuardUserGroupPeer::doSelect($criteria, $con);
+			}
+		} else {
+						if (!$this->isNew()) {
+												
+
+				$criteria->add(sfGuardUserGroupPeer::USER_ID, $this->getId());
+
+				sfGuardUserGroupPeer::addSelectColumns($criteria);
+				if (!isset($this->lastsfGuardUserGroupCriteria) || !$this->lastsfGuardUserGroupCriteria->equals($criteria)) {
+					$this->collsfGuardUserGroups = sfGuardUserGroupPeer::doSelect($criteria, $con);
+				}
+			}
+		}
+		$this->lastsfGuardUserGroupCriteria = $criteria;
+		return $this->collsfGuardUserGroups;
+	}
+
+	
+	public function countsfGuardUserGroups($criteria = null, $distinct = false, $con = null)
+	{
+				include_once 'plugins/sfGuardPlugin/lib/model/om/BasesfGuardUserGroupPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		$criteria->add(sfGuardUserGroupPeer::USER_ID, $this->getId());
+
+		return sfGuardUserGroupPeer::doCount($criteria, $distinct, $con);
+	}
+
+	
+	public function addsfGuardUserGroup(sfGuardUserGroup $l)
+	{
+		$this->collsfGuardUserGroups[] = $l;
+		$l->setsfGuardUser($this);
+	}
+
+
+	
+	public function getsfGuardUserGroupsJoinsfGuardGroup($criteria = null, $con = null)
+	{
+				include_once 'plugins/sfGuardPlugin/lib/model/om/BasesfGuardUserGroupPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collsfGuardUserGroups === null) {
+			if ($this->isNew()) {
+				$this->collsfGuardUserGroups = array();
+			} else {
+
+				$criteria->add(sfGuardUserGroupPeer::USER_ID, $this->getId());
+
+				$this->collsfGuardUserGroups = sfGuardUserGroupPeer::doSelectJoinsfGuardGroup($criteria, $con);
+			}
+		} else {
+									
+			$criteria->add(sfGuardUserGroupPeer::USER_ID, $this->getId());
+
+			if (!isset($this->lastsfGuardUserGroupCriteria) || !$this->lastsfGuardUserGroupCriteria->equals($criteria)) {
+				$this->collsfGuardUserGroups = sfGuardUserGroupPeer::doSelectJoinsfGuardGroup($criteria, $con);
+			}
+		}
+		$this->lastsfGuardUserGroupCriteria = $criteria;
+
+		return $this->collsfGuardUserGroups;
+	}
+
+	
+	public function initsfGuardRememberKeys()
+	{
+		if ($this->collsfGuardRememberKeys === null) {
+			$this->collsfGuardRememberKeys = array();
+		}
+	}
+
+	
+	public function getsfGuardRememberKeys($criteria = null, $con = null)
+	{
+				include_once 'plugins/sfGuardPlugin/lib/model/om/BasesfGuardRememberKeyPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collsfGuardRememberKeys === null) {
+			if ($this->isNew()) {
+			   $this->collsfGuardRememberKeys = array();
+			} else {
+
+				$criteria->add(sfGuardRememberKeyPeer::USER_ID, $this->getId());
+
+				sfGuardRememberKeyPeer::addSelectColumns($criteria);
+				$this->collsfGuardRememberKeys = sfGuardRememberKeyPeer::doSelect($criteria, $con);
+			}
+		} else {
+						if (!$this->isNew()) {
+												
+
+				$criteria->add(sfGuardRememberKeyPeer::USER_ID, $this->getId());
+
+				sfGuardRememberKeyPeer::addSelectColumns($criteria);
+				if (!isset($this->lastsfGuardRememberKeyCriteria) || !$this->lastsfGuardRememberKeyCriteria->equals($criteria)) {
+					$this->collsfGuardRememberKeys = sfGuardRememberKeyPeer::doSelect($criteria, $con);
+				}
+			}
+		}
+		$this->lastsfGuardRememberKeyCriteria = $criteria;
+		return $this->collsfGuardRememberKeys;
+	}
+
+	
+	public function countsfGuardRememberKeys($criteria = null, $distinct = false, $con = null)
+	{
+				include_once 'plugins/sfGuardPlugin/lib/model/om/BasesfGuardRememberKeyPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		$criteria->add(sfGuardRememberKeyPeer::USER_ID, $this->getId());
+
+		return sfGuardRememberKeyPeer::doCount($criteria, $distinct, $con);
+	}
+
+	
+	public function addsfGuardRememberKey(sfGuardRememberKey $l)
+	{
+		$this->collsfGuardRememberKeys[] = $l;
+		$l->setsfGuardUser($this);
+	}
+
+	
+	public function initUserResources()
+	{
+		if ($this->collUserResources === null) {
+			$this->collUserResources = array();
+		}
+	}
+
+	
+	public function getUserResources($criteria = null, $con = null)
+	{
+				include_once 'lib/model/om/BaseUserResourcePeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collUserResources === null) {
+			if ($this->isNew()) {
+			   $this->collUserResources = array();
+			} else {
+
+				$criteria->add(UserResourcePeer::USER_ID, $this->getId());
+
+				UserResourcePeer::addSelectColumns($criteria);
+				$this->collUserResources = UserResourcePeer::doSelect($criteria, $con);
+			}
+		} else {
+						if (!$this->isNew()) {
+												
+
+				$criteria->add(UserResourcePeer::USER_ID, $this->getId());
+
+				UserResourcePeer::addSelectColumns($criteria);
+				if (!isset($this->lastUserResourceCriteria) || !$this->lastUserResourceCriteria->equals($criteria)) {
+					$this->collUserResources = UserResourcePeer::doSelect($criteria, $con);
+				}
+			}
+		}
+		$this->lastUserResourceCriteria = $criteria;
+		return $this->collUserResources;
+	}
+
+	
+	public function countUserResources($criteria = null, $distinct = false, $con = null)
+	{
+				include_once 'lib/model/om/BaseUserResourcePeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		$criteria->add(UserResourcePeer::USER_ID, $this->getId());
+
+		return UserResourcePeer::doCount($criteria, $distinct, $con);
+	}
+
+	
+	public function addUserResource(UserResource $l)
+	{
+		$this->collUserResources[] = $l;
+		$l->setsfGuardUser($this);
+	}
+
+	
+	public function initCategoryArtworks()
+	{
+		if ($this->collCategoryArtworks === null) {
+			$this->collCategoryArtworks = array();
+		}
+	}
+
+	
+	public function getCategoryArtworks($criteria = null, $con = null)
+	{
+				include_once 'lib/model/om/BaseCategoryArtworkPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collCategoryArtworks === null) {
+			if ($this->isNew()) {
+			   $this->collCategoryArtworks = array();
+			} else {
+
+				$criteria->add(CategoryArtworkPeer::ADDED_BY, $this->getId());
+
+				CategoryArtworkPeer::addSelectColumns($criteria);
+				$this->collCategoryArtworks = CategoryArtworkPeer::doSelect($criteria, $con);
+			}
+		} else {
+						if (!$this->isNew()) {
+												
+
+				$criteria->add(CategoryArtworkPeer::ADDED_BY, $this->getId());
+
+				CategoryArtworkPeer::addSelectColumns($criteria);
+				if (!isset($this->lastCategoryArtworkCriteria) || !$this->lastCategoryArtworkCriteria->equals($criteria)) {
+					$this->collCategoryArtworks = CategoryArtworkPeer::doSelect($criteria, $con);
+				}
+			}
+		}
+		$this->lastCategoryArtworkCriteria = $criteria;
+		return $this->collCategoryArtworks;
+	}
+
+	
+	public function countCategoryArtworks($criteria = null, $distinct = false, $con = null)
+	{
+				include_once 'lib/model/om/BaseCategoryArtworkPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		$criteria->add(CategoryArtworkPeer::ADDED_BY, $this->getId());
+
+		return CategoryArtworkPeer::doCount($criteria, $distinct, $con);
+	}
+
+	
+	public function addCategoryArtwork(CategoryArtwork $l)
+	{
+		$this->collCategoryArtworks[] = $l;
+		$l->setsfGuardUser($this);
+	}
+
+
+	
+	public function getCategoryArtworksJoinCategory($criteria = null, $con = null)
+	{
+				include_once 'lib/model/om/BaseCategoryArtworkPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collCategoryArtworks === null) {
+			if ($this->isNew()) {
+				$this->collCategoryArtworks = array();
+			} else {
+
+				$criteria->add(CategoryArtworkPeer::ADDED_BY, $this->getId());
+
+				$this->collCategoryArtworks = CategoryArtworkPeer::doSelectJoinCategory($criteria, $con);
+			}
+		} else {
+									
+			$criteria->add(CategoryArtworkPeer::ADDED_BY, $this->getId());
+
+			if (!isset($this->lastCategoryArtworkCriteria) || !$this->lastCategoryArtworkCriteria->equals($criteria)) {
+				$this->collCategoryArtworks = CategoryArtworkPeer::doSelectJoinCategory($criteria, $con);
+			}
+		}
+		$this->lastCategoryArtworkCriteria = $criteria;
+
+		return $this->collCategoryArtworks;
+	}
+
+
+	
+	public function getCategoryArtworksJoinReaktorArtwork($criteria = null, $con = null)
+	{
+				include_once 'lib/model/om/BaseCategoryArtworkPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collCategoryArtworks === null) {
+			if ($this->isNew()) {
+				$this->collCategoryArtworks = array();
+			} else {
+
+				$criteria->add(CategoryArtworkPeer::ADDED_BY, $this->getId());
+
+				$this->collCategoryArtworks = CategoryArtworkPeer::doSelectJoinReaktorArtwork($criteria, $con);
+			}
+		} else {
+									
+			$criteria->add(CategoryArtworkPeer::ADDED_BY, $this->getId());
+
+			if (!isset($this->lastCategoryArtworkCriteria) || !$this->lastCategoryArtworkCriteria->equals($criteria)) {
+				$this->collCategoryArtworks = CategoryArtworkPeer::doSelectJoinReaktorArtwork($criteria, $con);
+			}
+		}
+		$this->lastCategoryArtworkCriteria = $criteria;
+
+		return $this->collCategoryArtworks;
+	}
+
+	
+	public function initMessagessRelatedByToUserId()
+	{
+		if ($this->collMessagessRelatedByToUserId === null) {
+			$this->collMessagessRelatedByToUserId = array();
+		}
+	}
+
+	
+	public function getMessagessRelatedByToUserId($criteria = null, $con = null)
+	{
+				include_once 'lib/model/om/BaseMessagesPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collMessagessRelatedByToUserId === null) {
+			if ($this->isNew()) {
+			   $this->collMessagessRelatedByToUserId = array();
+			} else {
+
+				$criteria->add(MessagesPeer::TO_USER_ID, $this->getId());
+
+				MessagesPeer::addSelectColumns($criteria);
+				$this->collMessagessRelatedByToUserId = MessagesPeer::doSelect($criteria, $con);
+			}
+		} else {
+						if (!$this->isNew()) {
+												
+
+				$criteria->add(MessagesPeer::TO_USER_ID, $this->getId());
+
+				MessagesPeer::addSelectColumns($criteria);
+				if (!isset($this->lastMessagesRelatedByToUserIdCriteria) || !$this->lastMessagesRelatedByToUserIdCriteria->equals($criteria)) {
+					$this->collMessagessRelatedByToUserId = MessagesPeer::doSelect($criteria, $con);
+				}
+			}
+		}
+		$this->lastMessagesRelatedByToUserIdCriteria = $criteria;
+		return $this->collMessagessRelatedByToUserId;
+	}
+
+	
+	public function countMessagessRelatedByToUserId($criteria = null, $distinct = false, $con = null)
+	{
+				include_once 'lib/model/om/BaseMessagesPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		$criteria->add(MessagesPeer::TO_USER_ID, $this->getId());
+
+		return MessagesPeer::doCount($criteria, $distinct, $con);
+	}
+
+	
+	public function addMessagesRelatedByToUserId(Messages $l)
+	{
+		$this->collMessagessRelatedByToUserId[] = $l;
+		$l->setsfGuardUserRelatedByToUserId($this);
+	}
+
+	
+	public function initMessagessRelatedByFromUserId()
+	{
+		if ($this->collMessagessRelatedByFromUserId === null) {
+			$this->collMessagessRelatedByFromUserId = array();
+		}
+	}
+
+	
+	public function getMessagessRelatedByFromUserId($criteria = null, $con = null)
+	{
+				include_once 'lib/model/om/BaseMessagesPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collMessagessRelatedByFromUserId === null) {
+			if ($this->isNew()) {
+			   $this->collMessagessRelatedByFromUserId = array();
+			} else {
+
+				$criteria->add(MessagesPeer::FROM_USER_ID, $this->getId());
+
+				MessagesPeer::addSelectColumns($criteria);
+				$this->collMessagessRelatedByFromUserId = MessagesPeer::doSelect($criteria, $con);
+			}
+		} else {
+						if (!$this->isNew()) {
+												
+
+				$criteria->add(MessagesPeer::FROM_USER_ID, $this->getId());
+
+				MessagesPeer::addSelectColumns($criteria);
+				if (!isset($this->lastMessagesRelatedByFromUserIdCriteria) || !$this->lastMessagesRelatedByFromUserIdCriteria->equals($criteria)) {
+					$this->collMessagessRelatedByFromUserId = MessagesPeer::doSelect($criteria, $con);
+				}
+			}
+		}
+		$this->lastMessagesRelatedByFromUserIdCriteria = $criteria;
+		return $this->collMessagessRelatedByFromUserId;
+	}
+
+	
+	public function countMessagessRelatedByFromUserId($criteria = null, $distinct = false, $con = null)
+	{
+				include_once 'lib/model/om/BaseMessagesPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		$criteria->add(MessagesPeer::FROM_USER_ID, $this->getId());
+
+		return MessagesPeer::doCount($criteria, $distinct, $con);
+	}
+
+	
+	public function addMessagesRelatedByFromUserId(Messages $l)
+	{
+		$this->collMessagessRelatedByFromUserId[] = $l;
+		$l->setsfGuardUserRelatedByFromUserId($this);
+	}
+
+	
+	public function initMessagesIgnoredUsersRelatedByUserId()
+	{
+		if ($this->collMessagesIgnoredUsersRelatedByUserId === null) {
+			$this->collMessagesIgnoredUsersRelatedByUserId = array();
+		}
+	}
+
+	
+	public function getMessagesIgnoredUsersRelatedByUserId($criteria = null, $con = null)
+	{
+				include_once 'lib/model/om/BaseMessagesIgnoredUserPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collMessagesIgnoredUsersRelatedByUserId === null) {
+			if ($this->isNew()) {
+			   $this->collMessagesIgnoredUsersRelatedByUserId = array();
+			} else {
+
+				$criteria->add(MessagesIgnoredUserPeer::USER_ID, $this->getId());
+
+				MessagesIgnoredUserPeer::addSelectColumns($criteria);
+				$this->collMessagesIgnoredUsersRelatedByUserId = MessagesIgnoredUserPeer::doSelect($criteria, $con);
+			}
+		} else {
+						if (!$this->isNew()) {
+												
+
+				$criteria->add(MessagesIgnoredUserPeer::USER_ID, $this->getId());
+
+				MessagesIgnoredUserPeer::addSelectColumns($criteria);
+				if (!isset($this->lastMessagesIgnoredUserRelatedByUserIdCriteria) || !$this->lastMessagesIgnoredUserRelatedByUserIdCriteria->equals($criteria)) {
+					$this->collMessagesIgnoredUsersRelatedByUserId = MessagesIgnoredUserPeer::doSelect($criteria, $con);
+				}
+			}
+		}
+		$this->lastMessagesIgnoredUserRelatedByUserIdCriteria = $criteria;
+		return $this->collMessagesIgnoredUsersRelatedByUserId;
+	}
+
+	
+	public function countMessagesIgnoredUsersRelatedByUserId($criteria = null, $distinct = false, $con = null)
+	{
+				include_once 'lib/model/om/BaseMessagesIgnoredUserPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		$criteria->add(MessagesIgnoredUserPeer::USER_ID, $this->getId());
+
+		return MessagesIgnoredUserPeer::doCount($criteria, $distinct, $con);
+	}
+
+	
+	public function addMessagesIgnoredUserRelatedByUserId(MessagesIgnoredUser $l)
+	{
+		$this->collMessagesIgnoredUsersRelatedByUserId[] = $l;
+		$l->setsfGuardUserRelatedByUserId($this);
+	}
+
+	
+	public function initMessagesIgnoredUsersRelatedByIgnoresUserId()
+	{
+		if ($this->collMessagesIgnoredUsersRelatedByIgnoresUserId === null) {
+			$this->collMessagesIgnoredUsersRelatedByIgnoresUserId = array();
+		}
+	}
+
+	
+	public function getMessagesIgnoredUsersRelatedByIgnoresUserId($criteria = null, $con = null)
+	{
+				include_once 'lib/model/om/BaseMessagesIgnoredUserPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collMessagesIgnoredUsersRelatedByIgnoresUserId === null) {
+			if ($this->isNew()) {
+			   $this->collMessagesIgnoredUsersRelatedByIgnoresUserId = array();
+			} else {
+
+				$criteria->add(MessagesIgnoredUserPeer::IGNORES_USER_ID, $this->getId());
+
+				MessagesIgnoredUserPeer::addSelectColumns($criteria);
+				$this->collMessagesIgnoredUsersRelatedByIgnoresUserId = MessagesIgnoredUserPeer::doSelect($criteria, $con);
+			}
+		} else {
+						if (!$this->isNew()) {
+												
+
+				$criteria->add(MessagesIgnoredUserPeer::IGNORES_USER_ID, $this->getId());
+
+				MessagesIgnoredUserPeer::addSelectColumns($criteria);
+				if (!isset($this->lastMessagesIgnoredUserRelatedByIgnoresUserIdCriteria) || !$this->lastMessagesIgnoredUserRelatedByIgnoresUserIdCriteria->equals($criteria)) {
+					$this->collMessagesIgnoredUsersRelatedByIgnoresUserId = MessagesIgnoredUserPeer::doSelect($criteria, $con);
+				}
+			}
+		}
+		$this->lastMessagesIgnoredUserRelatedByIgnoresUserIdCriteria = $criteria;
+		return $this->collMessagesIgnoredUsersRelatedByIgnoresUserId;
+	}
+
+	
+	public function countMessagesIgnoredUsersRelatedByIgnoresUserId($criteria = null, $distinct = false, $con = null)
+	{
+				include_once 'lib/model/om/BaseMessagesIgnoredUserPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		$criteria->add(MessagesIgnoredUserPeer::IGNORES_USER_ID, $this->getId());
+
+		return MessagesIgnoredUserPeer::doCount($criteria, $distinct, $con);
+	}
+
+	
+	public function addMessagesIgnoredUserRelatedByIgnoresUserId(MessagesIgnoredUser $l)
+	{
+		$this->collMessagesIgnoredUsersRelatedByIgnoresUserId[] = $l;
+		$l->setsfGuardUserRelatedByIgnoresUserId($this);
+	}
+
+	
+	public function initAdminMessages()
+	{
+		if ($this->collAdminMessages === null) {
+			$this->collAdminMessages = array();
+		}
+	}
+
+	
+	public function getAdminMessages($criteria = null, $con = null)
+	{
+				include_once 'lib/model/om/BaseAdminMessagePeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collAdminMessages === null) {
+			if ($this->isNew()) {
+			   $this->collAdminMessages = array();
+			} else {
+
+				$criteria->add(AdminMessagePeer::AUTHOR, $this->getId());
+
+				AdminMessagePeer::addSelectColumns($criteria);
+				$this->collAdminMessages = AdminMessagePeer::doSelect($criteria, $con);
+			}
+		} else {
+						if (!$this->isNew()) {
+												
+
+				$criteria->add(AdminMessagePeer::AUTHOR, $this->getId());
+
+				AdminMessagePeer::addSelectColumns($criteria);
+				if (!isset($this->lastAdminMessageCriteria) || !$this->lastAdminMessageCriteria->equals($criteria)) {
+					$this->collAdminMessages = AdminMessagePeer::doSelect($criteria, $con);
+				}
+			}
+		}
+		$this->lastAdminMessageCriteria = $criteria;
+		return $this->collAdminMessages;
+	}
+
+	
+	public function countAdminMessages($criteria = null, $distinct = false, $con = null)
+	{
+				include_once 'lib/model/om/BaseAdminMessagePeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		$criteria->add(AdminMessagePeer::AUTHOR, $this->getId());
+
+		return AdminMessagePeer::doCount($criteria, $distinct, $con);
+	}
+
+	
+	public function addAdminMessage(AdminMessage $l)
+	{
+		$this->collAdminMessages[] = $l;
+		$l->setsfGuardUser($this);
+	}
+
+	
+	public function initReaktorFiles()
+	{
+		if ($this->collReaktorFiles === null) {
+			$this->collReaktorFiles = array();
+		}
+	}
+
+	
+	public function getReaktorFiles($criteria = null, $con = null)
+	{
+				include_once 'lib/model/om/BaseReaktorFilePeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collReaktorFiles === null) {
+			if ($this->isNew()) {
+			   $this->collReaktorFiles = array();
+			} else {
+
+				$criteria->add(ReaktorFilePeer::USER_ID, $this->getId());
+
+				ReaktorFilePeer::addSelectColumns($criteria);
+				$this->collReaktorFiles = ReaktorFilePeer::doSelect($criteria, $con);
+			}
+		} else {
+						if (!$this->isNew()) {
+												
+
+				$criteria->add(ReaktorFilePeer::USER_ID, $this->getId());
+
+				ReaktorFilePeer::addSelectColumns($criteria);
+				if (!isset($this->lastReaktorFileCriteria) || !$this->lastReaktorFileCriteria->equals($criteria)) {
+					$this->collReaktorFiles = ReaktorFilePeer::doSelect($criteria, $con);
+				}
+			}
+		}
+		$this->lastReaktorFileCriteria = $criteria;
+		return $this->collReaktorFiles;
+	}
+
+	
+	public function countReaktorFiles($criteria = null, $distinct = false, $con = null)
+	{
+				include_once 'lib/model/om/BaseReaktorFilePeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		$criteria->add(ReaktorFilePeer::USER_ID, $this->getId());
+
+		return ReaktorFilePeer::doCount($criteria, $distinct, $con);
+	}
+
+	
+	public function addReaktorFile(ReaktorFile $l)
+	{
+		$this->collReaktorFiles[] = $l;
+		$l->setsfGuardUser($this);
+	}
+
+	
+	public function initReaktorArtworkHistorys()
+	{
+		if ($this->collReaktorArtworkHistorys === null) {
+			$this->collReaktorArtworkHistorys = array();
+		}
+	}
+
+	
+	public function getReaktorArtworkHistorys($criteria = null, $con = null)
+	{
+				include_once 'lib/model/om/BaseReaktorArtworkHistoryPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collReaktorArtworkHistorys === null) {
+			if ($this->isNew()) {
+			   $this->collReaktorArtworkHistorys = array();
+			} else {
+
+				$criteria->add(ReaktorArtworkHistoryPeer::USER_ID, $this->getId());
+
+				ReaktorArtworkHistoryPeer::addSelectColumns($criteria);
+				$this->collReaktorArtworkHistorys = ReaktorArtworkHistoryPeer::doSelect($criteria, $con);
+			}
+		} else {
+						if (!$this->isNew()) {
+												
+
+				$criteria->add(ReaktorArtworkHistoryPeer::USER_ID, $this->getId());
+
+				ReaktorArtworkHistoryPeer::addSelectColumns($criteria);
+				if (!isset($this->lastReaktorArtworkHistoryCriteria) || !$this->lastReaktorArtworkHistoryCriteria->equals($criteria)) {
+					$this->collReaktorArtworkHistorys = ReaktorArtworkHistoryPeer::doSelect($criteria, $con);
+				}
+			}
+		}
+		$this->lastReaktorArtworkHistoryCriteria = $criteria;
+		return $this->collReaktorArtworkHistorys;
+	}
+
+	
+	public function countReaktorArtworkHistorys($criteria = null, $distinct = false, $con = null)
+	{
+				include_once 'lib/model/om/BaseReaktorArtworkHistoryPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		$criteria->add(ReaktorArtworkHistoryPeer::USER_ID, $this->getId());
+
+		return ReaktorArtworkHistoryPeer::doCount($criteria, $distinct, $con);
+	}
+
+	
+	public function addReaktorArtworkHistory(ReaktorArtworkHistory $l)
+	{
+		$this->collReaktorArtworkHistorys[] = $l;
+		$l->setsfGuardUser($this);
+	}
+
+
+	
+	public function getReaktorArtworkHistorysJoinReaktorArtworkRelatedByArtworkId($criteria = null, $con = null)
+	{
+				include_once 'lib/model/om/BaseReaktorArtworkHistoryPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collReaktorArtworkHistorys === null) {
+			if ($this->isNew()) {
+				$this->collReaktorArtworkHistorys = array();
+			} else {
+
+				$criteria->add(ReaktorArtworkHistoryPeer::USER_ID, $this->getId());
+
+				$this->collReaktorArtworkHistorys = ReaktorArtworkHistoryPeer::doSelectJoinReaktorArtworkRelatedByArtworkId($criteria, $con);
+			}
+		} else {
+									
+			$criteria->add(ReaktorArtworkHistoryPeer::USER_ID, $this->getId());
+
+			if (!isset($this->lastReaktorArtworkHistoryCriteria) || !$this->lastReaktorArtworkHistoryCriteria->equals($criteria)) {
+				$this->collReaktorArtworkHistorys = ReaktorArtworkHistoryPeer::doSelectJoinReaktorArtworkRelatedByArtworkId($criteria, $con);
+			}
+		}
+		$this->lastReaktorArtworkHistoryCriteria = $criteria;
+
+		return $this->collReaktorArtworkHistorys;
+	}
+
+
+	
+	public function getReaktorArtworkHistorysJoinReaktorArtworkRelatedByFileId($criteria = null, $con = null)
+	{
+				include_once 'lib/model/om/BaseReaktorArtworkHistoryPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collReaktorArtworkHistorys === null) {
+			if ($this->isNew()) {
+				$this->collReaktorArtworkHistorys = array();
+			} else {
+
+				$criteria->add(ReaktorArtworkHistoryPeer::USER_ID, $this->getId());
+
+				$this->collReaktorArtworkHistorys = ReaktorArtworkHistoryPeer::doSelectJoinReaktorArtworkRelatedByFileId($criteria, $con);
+			}
+		} else {
+									
+			$criteria->add(ReaktorArtworkHistoryPeer::USER_ID, $this->getId());
+
+			if (!isset($this->lastReaktorArtworkHistoryCriteria) || !$this->lastReaktorArtworkHistoryCriteria->equals($criteria)) {
+				$this->collReaktorArtworkHistorys = ReaktorArtworkHistoryPeer::doSelectJoinReaktorArtworkRelatedByFileId($criteria, $con);
+			}
+		}
+		$this->lastReaktorArtworkHistoryCriteria = $criteria;
+
+		return $this->collReaktorArtworkHistorys;
+	}
+
+
+	
+	public function getReaktorArtworkHistorysJoinArtworkStatus($criteria = null, $con = null)
+	{
+				include_once 'lib/model/om/BaseReaktorArtworkHistoryPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collReaktorArtworkHistorys === null) {
+			if ($this->isNew()) {
+				$this->collReaktorArtworkHistorys = array();
+			} else {
+
+				$criteria->add(ReaktorArtworkHistoryPeer::USER_ID, $this->getId());
+
+				$this->collReaktorArtworkHistorys = ReaktorArtworkHistoryPeer::doSelectJoinArtworkStatus($criteria, $con);
+			}
+		} else {
+									
+			$criteria->add(ReaktorArtworkHistoryPeer::USER_ID, $this->getId());
+
+			if (!isset($this->lastReaktorArtworkHistoryCriteria) || !$this->lastReaktorArtworkHistoryCriteria->equals($criteria)) {
+				$this->collReaktorArtworkHistorys = ReaktorArtworkHistoryPeer::doSelectJoinArtworkStatus($criteria, $con);
+			}
+		}
+		$this->lastReaktorArtworkHistoryCriteria = $criteria;
+
+		return $this->collReaktorArtworkHistorys;
 	}
 
 	
